@@ -1,6 +1,10 @@
 part of 'bottom_navigation_bar_cubit.dart';
 
-@immutable
-sealed class BottomNavigationBarState {}
+class BottomNavigationBarState extends Equatable {
+  const BottomNavigationBarState({this.type = BottomNavTypes.home});
 
-final class BottomNavigationBarInitial extends BottomNavigationBarState {}
+  final BottomNavTypes type;
+
+  @override
+  List<Object?> get props => [type];
+}

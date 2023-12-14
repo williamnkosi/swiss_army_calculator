@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:swiss_army_calculator/bottom_navigation_bar.dart';
+import 'package:swiss_army_calculator/page/account.dart';
+import 'package:swiss_army_calculator/page/favorites.dart';
+import 'package:swiss_army_calculator/page/home.dart';
+import 'package:swiss_army_calculator/widgets/bottom_navigation_bar/cubit/bottom_navigation_bar_cubit.dart';
 
 void main() {
   runApp(const MyApp());
@@ -42,27 +47,27 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
+    return BlocProvider(
+      create: (context) => BottomNavigationBarCubit(),
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+          title: Text(widget.title),
         ),
+        body: BlocBuilder<BottomNavigationBarCubit, BottomNavigationBarState>(
+          builder: (context, state) {
+            if (state.type.index == 0) {
+              return const Center(child: HomePage());
+            } else if (state.type.index == 1) {
+              return const Center(child: FavoritesPage());
+            } else {
+              return const Center(child: AccountPage());
+            }
+          },
+        ),
+        bottomNavigationBar: const AppBottomNavigationBar(),
+        // This trailing comma makes auto-formatting nicer for build methods.
       ),
-      bottomNavigationBar: const AppBottomNavigationBar(),
-      // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
