@@ -15,7 +15,7 @@ class CalculatorGroupButton extends StatelessWidget {
         height: 100,
         decoration: BoxDecoration(
           border: Border.all(
-            color: Colors.black,
+            color: Colors.deepPurple,
             width: 2.0,
           ),
         ),
