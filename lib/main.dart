@@ -40,6 +40,20 @@ class MyApp extends StatelessWidget {
           bottomNavigationBar: const AppBottomNavigationBar(),
         ),
       ),
+      initialRoute: '/',
+      onGenerateRoute: (settings) {
+        switch (settings.name) {
+          case '/':
+            return MaterialPageRoute(builder: (context) => const HomePage());
+          case '/favorites':
+            // You can extract parameters from settings.arguments
+            return MaterialPageRoute(
+                builder: (context) => const FavoritesPage());
+          default:
+            // Handle unknown routes or provide a default page
+            return MaterialPageRoute(builder: (context) => const AccountPage());
+        }
+      },
     );
   }
 }
