@@ -8,6 +8,7 @@ class CalculatorPageWrapper extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(title),
       ),
       body: Center(child: Text(title)),
