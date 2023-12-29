@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../../../widgets/DropDownButton.dart';
+import '../../../widgets/drop_down_button.dart';
 
 class SimpleInterest extends StatelessWidget {
   const SimpleInterest({super.key});
