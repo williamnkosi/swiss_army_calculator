@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:swiss_army_calculator/info/finance_info.dart';
+import 'package:swiss_army_calculator/utils/finance_formulas.dart';
 import 'package:swiss_army_calculator/widgets/app_expansion_tile.dart';
 
 import '../../../models/calculator_types.dart';
@@ -19,13 +20,30 @@ class SimpleInterest extends StatefulWidget {
 
 class _SimpleInterestState extends State<SimpleInterest> {
   bool isDisabled = true;
-  _calculate() {}
+  final _textFieldPrinciple = 'principle';
+  final _textFieldRate = 'rate';
+  final _textFieldDuration = 'duration';
+
+  void _showResult() {
+    try {
+      final principle =
+          _formKey.currentState!.fields[_textFieldPrinciple]!.value;
+      final rate = _formKey.currentState!.fields[_textFieldRate]!.value;
+      final duration = _formKey.currentState!.fields[_textFieldDuration]!.value;
+      final result = calculateSimpleInterest(
+          double.parse(principle), double.parse(rate), double.parse(duration));
+      print(result);
+    } catch (e) {
+      print(e);
+    }
+  }
 
   void _checkFormState() {
     bool state = isDisabled;
     try {
       if (_formKey.currentState!.validate()) {
-        _formKey.currentState?.saveAndValidate();
+        _formKey.currentState?.save();
+
         state = false;
       } else {
         state = true;
@@ -55,18 +73,21 @@ class _SimpleInterestState extends State<SimpleInterest> {
             child: Column(
               children: [
                 Principal(
+                  name: _textFieldPrinciple,
                   check: _checkFormState,
                 ),
                 const SizedBox(
                   height: 16,
                 ),
                 InterestRate(
+                  name: _textFieldRate,
                   check: _checkFormState,
                 ),
                 const SizedBox(
                   height: 16,
                 ),
                 Duration(
+                  name: _textFieldDuration,
                   check: _checkFormState,
                 ),
               ],
@@ -74,7 +95,7 @@ class _SimpleInterestState extends State<SimpleInterest> {
           ),
           AppMaterialButton(
             buttonTitle: 'Calculate',
-            onPressed: () => _calculate(),
+            onPressed: () => _showResult(),
             isDisabled: isDisabled,
           ),
           const SizedBox(
@@ -87,9 +108,11 @@ class _SimpleInterestState extends State<SimpleInterest> {
 }
 
 class Principal extends StatelessWidget {
+  final String name;
   final Function check;
   const Principal({
     super.key,
+    required this.name,
     required this.check,
   });
 
@@ -97,7 +120,7 @@ class Principal extends StatelessWidget {
   Widget build(BuildContext context) {
     return FormBuilderTextField(
       keyboardType: TextInputType.number,
-      name: 'principle',
+      name: name,
       decoration: const InputDecoration(
         border: OutlineInputBorder(),
         hintText: 'Principle Amount',
@@ -112,9 +135,11 @@ class Principal extends StatelessWidget {
 }
 
 class InterestRate extends StatelessWidget {
+  final String name;
   final Function check;
   const InterestRate({
     super.key,
+    required this.name,
     required this.check,
   });
 
@@ -125,7 +150,7 @@ class InterestRate extends StatelessWidget {
         Flexible(
           child: FormBuilderTextField(
             keyboardType: TextInputType.number,
-            name: 'interest rate',
+            name: name,
             decoration: const InputDecoration(
               border: OutlineInputBorder(),
               hintText: 'Interest Rate (%)',
@@ -149,9 +174,11 @@ class InterestRate extends StatelessWidget {
 }
 
 class Duration extends StatelessWidget {
+  final String name;
   final Function check;
   const Duration({
     Key? key,
+    required this.name,
     required this.check,
   }) : super(key: key);
 
@@ -162,7 +189,7 @@ class Duration extends StatelessWidget {
         Flexible(
           child: FormBuilderTextField(
             keyboardType: TextInputType.number,
-            name: 'duration',
+            name: name,
             decoration: const InputDecoration(
               border: OutlineInputBorder(),
               hintText: 'Time Period',
