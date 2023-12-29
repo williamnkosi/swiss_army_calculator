@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 class AppMaterialButton extends StatelessWidget {
   final String buttonTitle;
   final Function onPressed;
-  bool isDisabled;
-  AppMaterialButton(
+  final bool isDisabled;
+  const AppMaterialButton(
       {super.key,
       required this.buttonTitle,
       required this.onPressed,
@@ -14,7 +14,7 @@ class AppMaterialButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialButton(
       color: Theme.of(context).colorScheme.inversePrimary,
-      onPressed: isDisabled ? () => onPressed() : null,
+      onPressed: isDisabled ? null : () => onPressed(),
       child: SizedBox(
         width: double.infinity,
         child: Center(
