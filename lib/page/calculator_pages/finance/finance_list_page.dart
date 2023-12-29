@@ -8,9 +8,9 @@ class FinanceListPage extends StatelessWidget {
 
   Widget _onGeneratePage(FinanceCalculators value) {
     if (value == FinanceCalculators.simpleInterest) {
-      return const SimpleInterest();
+      return SimpleInterest();
     }
-    return const SimpleInterest();
+    return SimpleInterest();
   }
 
   @override
