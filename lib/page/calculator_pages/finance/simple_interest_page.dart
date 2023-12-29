@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
+import 'package:swiss_army_calculator/info/finance_info.dart';
+import 'package:swiss_army_calculator/widgets/app_expansion_tile.dart';
 
+import '../../../models/calculator_types.dart';
 import '../../../widgets/app_material_button.dart';
 import '../../../widgets/drop_down_button.dart';
 
@@ -42,6 +45,12 @@ class _SimpleInterestState extends State<SimpleInterest> {
       key: _formKey,
       child: Column(
         children: [
+          AppExpansionTile(
+              title: FinanceCalculators.simpleInterest.value,
+              description: finanaceData[FinanceCalculators.simpleInterest]!),
+          const SizedBox(
+            height: 16,
+          ),
           Expanded(
             child: Column(
               children: [
