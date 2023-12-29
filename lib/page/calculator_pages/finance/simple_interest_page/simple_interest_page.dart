@@ -5,9 +5,9 @@ import 'package:swiss_army_calculator/info/finance_info.dart';
 import 'package:swiss_army_calculator/utils/finance_formulas.dart';
 import 'package:swiss_army_calculator/widgets/app_expansion_tile.dart';
 
-import '../../../models/calculator_types.dart';
-import '../../../widgets/app_material_button.dart';
-import '../../../widgets/drop_down_button.dart';
+import '../../../../models/calculator_types.dart';
+import '../../../../widgets/app_material_button.dart';
+import '../../../../widgets/drop_down_button.dart';
 
 final _formKey = GlobalKey<FormBuilderState>();
 

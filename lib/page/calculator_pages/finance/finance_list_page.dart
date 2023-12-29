@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:swiss_army_calculator/models/calculator_types.dart';
 import 'package:swiss_army_calculator/page/calculator_pages/calculator_wrapper.dart';
-import 'package:swiss_army_calculator/page/calculator_pages/finance/simple_interest_page.dart';
+import 'package:swiss_army_calculator/page/calculator_pages/finance/simple_interest_page/simple_interest_page.dart';
 
 class FinanceListPage extends StatelessWidget {
   const FinanceListPage({super.key});
