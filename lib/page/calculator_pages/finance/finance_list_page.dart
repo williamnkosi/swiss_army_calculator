@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:swiss_army_calculator/models/calculator_types.dart';
 import 'package:swiss_army_calculator/page/calculator_pages/calculator_wrapper.dart';
+import 'package:swiss_army_calculator/page/calculator_pages/finance/simple_interest_page/bloc/simple_interest_page_bloc.dart';
 import 'package:swiss_army_calculator/page/calculator_pages/finance/simple_interest_page/simple_interest_page.dart';
 
 class FinanceListPage extends StatelessWidget {
@@ -8,7 +10,10 @@ class FinanceListPage extends StatelessWidget {
 
   Widget _onGeneratePage(FinanceCalculators value) {
     if (value == FinanceCalculators.simpleInterest) {
-      return SimpleInterest();
+      return BlocProvider(
+        create: (context) => SimpleInterestPageBloc(),
+        child: const SimpleInterest(),
+      );
     }
     return SimpleInterest();
   }

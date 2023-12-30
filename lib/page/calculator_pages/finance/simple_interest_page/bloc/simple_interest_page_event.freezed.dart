@@ -18,39 +18,49 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$SimpleInterestPageEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() toggleDisabledButton,
-    required TResult Function() toggleInfo,
+    required TResult Function(GlobalKey<FormBuilderState> formKey)
+        checkFormStateEvent,
+    required TResult Function(double principle, double rate, double duration)
+        calculateResultEvent,
+    required TResult Function() toggleInfoEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? toggleDisabledButton,
-    TResult? Function()? toggleInfo,
+    TResult? Function(GlobalKey<FormBuilderState> formKey)? checkFormStateEvent,
+    TResult? Function(double principle, double rate, double duration)?
+        calculateResultEvent,
+    TResult? Function()? toggleInfoEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? toggleDisabledButton,
-    TResult Function()? toggleInfo,
+    TResult Function(GlobalKey<FormBuilderState> formKey)? checkFormStateEvent,
+    TResult Function(double principle, double rate, double duration)?
+        calculateResultEvent,
+    TResult Function()? toggleInfoEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ToggleDisabledButton value) toggleDisabledButton,
-    required TResult Function(ToggleInfo value) toggleInfo,
+    required TResult Function(CheckFormStateEvent value) checkFormStateEvent,
+    required TResult Function(CalculateResultEvent value) calculateResultEvent,
+    required TResult Function(ToggleInfoEvent value) toggleInfoEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ToggleDisabledButton value)? toggleDisabledButton,
-    TResult? Function(ToggleInfo value)? toggleInfo,
+    TResult? Function(CheckFormStateEvent value)? checkFormStateEvent,
+    TResult? Function(CalculateResultEvent value)? calculateResultEvent,
+    TResult? Function(ToggleInfoEvent value)? toggleInfoEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ToggleDisabledButton value)? toggleDisabledButton,
-    TResult Function(ToggleInfo value)? toggleInfo,
+    TResult Function(CheckFormStateEvent value)? checkFormStateEvent,
+    TResult Function(CalculateResultEvent value)? calculateResultEvent,
+    TResult Function(ToggleInfoEvent value)? toggleInfoEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -76,69 +86,102 @@ class _$SimpleInterestPageEventCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$ToggleDisabledButtonImplCopyWith<$Res> {
-  factory _$$ToggleDisabledButtonImplCopyWith(_$ToggleDisabledButtonImpl value,
-          $Res Function(_$ToggleDisabledButtonImpl) then) =
-      __$$ToggleDisabledButtonImplCopyWithImpl<$Res>;
+abstract class _$$CheckFormStateEventImplCopyWith<$Res> {
+  factory _$$CheckFormStateEventImplCopyWith(_$CheckFormStateEventImpl value,
+          $Res Function(_$CheckFormStateEventImpl) then) =
+      __$$CheckFormStateEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({GlobalKey<FormBuilderState> formKey});
 }
 
 /// @nodoc
-class __$$ToggleDisabledButtonImplCopyWithImpl<$Res>
+class __$$CheckFormStateEventImplCopyWithImpl<$Res>
     extends _$SimpleInterestPageEventCopyWithImpl<$Res,
-        _$ToggleDisabledButtonImpl>
-    implements _$$ToggleDisabledButtonImplCopyWith<$Res> {
-  __$$ToggleDisabledButtonImplCopyWithImpl(_$ToggleDisabledButtonImpl _value,
-      $Res Function(_$ToggleDisabledButtonImpl) _then)
+        _$CheckFormStateEventImpl>
+    implements _$$CheckFormStateEventImplCopyWith<$Res> {
+  __$$CheckFormStateEventImplCopyWithImpl(_$CheckFormStateEventImpl _value,
+      $Res Function(_$CheckFormStateEventImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? formKey = null,
+  }) {
+    return _then(_$CheckFormStateEventImpl(
+      formKey: null == formKey
+          ? _value.formKey
+          : formKey // ignore: cast_nullable_to_non_nullable
+              as GlobalKey<FormBuilderState>,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$ToggleDisabledButtonImpl implements ToggleDisabledButton {
-  const _$ToggleDisabledButtonImpl();
+class _$CheckFormStateEventImpl implements CheckFormStateEvent {
+  const _$CheckFormStateEventImpl({required this.formKey});
+
+  @override
+  final GlobalKey<FormBuilderState> formKey;
 
   @override
   String toString() {
-    return 'SimpleInterestPageEvent.toggleDisabledButton()';
+    return 'SimpleInterestPageEvent.checkFormStateEvent(formKey: $formKey)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ToggleDisabledButtonImpl);
+            other is _$CheckFormStateEventImpl &&
+            (identical(other.formKey, formKey) || other.formKey == formKey));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, formKey);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CheckFormStateEventImplCopyWith<_$CheckFormStateEventImpl> get copyWith =>
+      __$$CheckFormStateEventImplCopyWithImpl<_$CheckFormStateEventImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() toggleDisabledButton,
-    required TResult Function() toggleInfo,
+    required TResult Function(GlobalKey<FormBuilderState> formKey)
+        checkFormStateEvent,
+    required TResult Function(double principle, double rate, double duration)
+        calculateResultEvent,
+    required TResult Function() toggleInfoEvent,
   }) {
-    return toggleDisabledButton();
+    return checkFormStateEvent(formKey);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? toggleDisabledButton,
-    TResult? Function()? toggleInfo,
+    TResult? Function(GlobalKey<FormBuilderState> formKey)? checkFormStateEvent,
+    TResult? Function(double principle, double rate, double duration)?
+        calculateResultEvent,
+    TResult? Function()? toggleInfoEvent,
   }) {
-    return toggleDisabledButton?.call();
+    return checkFormStateEvent?.call(formKey);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? toggleDisabledButton,
-    TResult Function()? toggleInfo,
+    TResult Function(GlobalKey<FormBuilderState> formKey)? checkFormStateEvent,
+    TResult Function(double principle, double rate, double duration)?
+        calculateResultEvent,
+    TResult Function()? toggleInfoEvent,
     required TResult orElse(),
   }) {
-    if (toggleDisabledButton != null) {
-      return toggleDisabledButton();
+    if (checkFormStateEvent != null) {
+      return checkFormStateEvent(formKey);
     }
     return orElse();
   }
@@ -146,69 +189,249 @@ class _$ToggleDisabledButtonImpl implements ToggleDisabledButton {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ToggleDisabledButton value) toggleDisabledButton,
-    required TResult Function(ToggleInfo value) toggleInfo,
+    required TResult Function(CheckFormStateEvent value) checkFormStateEvent,
+    required TResult Function(CalculateResultEvent value) calculateResultEvent,
+    required TResult Function(ToggleInfoEvent value) toggleInfoEvent,
   }) {
-    return toggleDisabledButton(this);
+    return checkFormStateEvent(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ToggleDisabledButton value)? toggleDisabledButton,
-    TResult? Function(ToggleInfo value)? toggleInfo,
+    TResult? Function(CheckFormStateEvent value)? checkFormStateEvent,
+    TResult? Function(CalculateResultEvent value)? calculateResultEvent,
+    TResult? Function(ToggleInfoEvent value)? toggleInfoEvent,
   }) {
-    return toggleDisabledButton?.call(this);
+    return checkFormStateEvent?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ToggleDisabledButton value)? toggleDisabledButton,
-    TResult Function(ToggleInfo value)? toggleInfo,
+    TResult Function(CheckFormStateEvent value)? checkFormStateEvent,
+    TResult Function(CalculateResultEvent value)? calculateResultEvent,
+    TResult Function(ToggleInfoEvent value)? toggleInfoEvent,
     required TResult orElse(),
   }) {
-    if (toggleDisabledButton != null) {
-      return toggleDisabledButton(this);
+    if (checkFormStateEvent != null) {
+      return checkFormStateEvent(this);
     }
     return orElse();
   }
 }
 
-abstract class ToggleDisabledButton implements SimpleInterestPageEvent {
-  const factory ToggleDisabledButton() = _$ToggleDisabledButtonImpl;
+abstract class CheckFormStateEvent implements SimpleInterestPageEvent {
+  const factory CheckFormStateEvent(
+          {required final GlobalKey<FormBuilderState> formKey}) =
+      _$CheckFormStateEventImpl;
+
+  GlobalKey<FormBuilderState> get formKey;
+  @JsonKey(ignore: true)
+  _$$CheckFormStateEventImplCopyWith<_$CheckFormStateEventImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ToggleInfoImplCopyWith<$Res> {
-  factory _$$ToggleInfoImplCopyWith(
-          _$ToggleInfoImpl value, $Res Function(_$ToggleInfoImpl) then) =
-      __$$ToggleInfoImplCopyWithImpl<$Res>;
+abstract class _$$CalculateResultEventImplCopyWith<$Res> {
+  factory _$$CalculateResultEventImplCopyWith(_$CalculateResultEventImpl value,
+          $Res Function(_$CalculateResultEventImpl) then) =
+      __$$CalculateResultEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({double principle, double rate, double duration});
 }
 
 /// @nodoc
-class __$$ToggleInfoImplCopyWithImpl<$Res>
-    extends _$SimpleInterestPageEventCopyWithImpl<$Res, _$ToggleInfoImpl>
-    implements _$$ToggleInfoImplCopyWith<$Res> {
-  __$$ToggleInfoImplCopyWithImpl(
-      _$ToggleInfoImpl _value, $Res Function(_$ToggleInfoImpl) _then)
+class __$$CalculateResultEventImplCopyWithImpl<$Res>
+    extends _$SimpleInterestPageEventCopyWithImpl<$Res,
+        _$CalculateResultEventImpl>
+    implements _$$CalculateResultEventImplCopyWith<$Res> {
+  __$$CalculateResultEventImplCopyWithImpl(_$CalculateResultEventImpl _value,
+      $Res Function(_$CalculateResultEventImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? principle = null,
+    Object? rate = null,
+    Object? duration = null,
+  }) {
+    return _then(_$CalculateResultEventImpl(
+      principle: null == principle
+          ? _value.principle
+          : principle // ignore: cast_nullable_to_non_nullable
+              as double,
+      rate: null == rate
+          ? _value.rate
+          : rate // ignore: cast_nullable_to_non_nullable
+              as double,
+      duration: null == duration
+          ? _value.duration
+          : duration // ignore: cast_nullable_to_non_nullable
+              as double,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$ToggleInfoImpl implements ToggleInfo {
-  const _$ToggleInfoImpl();
+class _$CalculateResultEventImpl implements CalculateResultEvent {
+  const _$CalculateResultEventImpl(
+      {required this.principle, required this.rate, required this.duration});
+
+  @override
+  final double principle;
+  @override
+  final double rate;
+  @override
+  final double duration;
 
   @override
   String toString() {
-    return 'SimpleInterestPageEvent.toggleInfo()';
+    return 'SimpleInterestPageEvent.calculateResultEvent(principle: $principle, rate: $rate, duration: $duration)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ToggleInfoImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$CalculateResultEventImpl &&
+            (identical(other.principle, principle) ||
+                other.principle == principle) &&
+            (identical(other.rate, rate) || other.rate == rate) &&
+            (identical(other.duration, duration) ||
+                other.duration == duration));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, principle, rate, duration);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CalculateResultEventImplCopyWith<_$CalculateResultEventImpl>
+      get copyWith =>
+          __$$CalculateResultEventImplCopyWithImpl<_$CalculateResultEventImpl>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(GlobalKey<FormBuilderState> formKey)
+        checkFormStateEvent,
+    required TResult Function(double principle, double rate, double duration)
+        calculateResultEvent,
+    required TResult Function() toggleInfoEvent,
+  }) {
+    return calculateResultEvent(principle, rate, duration);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(GlobalKey<FormBuilderState> formKey)? checkFormStateEvent,
+    TResult? Function(double principle, double rate, double duration)?
+        calculateResultEvent,
+    TResult? Function()? toggleInfoEvent,
+  }) {
+    return calculateResultEvent?.call(principle, rate, duration);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(GlobalKey<FormBuilderState> formKey)? checkFormStateEvent,
+    TResult Function(double principle, double rate, double duration)?
+        calculateResultEvent,
+    TResult Function()? toggleInfoEvent,
+    required TResult orElse(),
+  }) {
+    if (calculateResultEvent != null) {
+      return calculateResultEvent(principle, rate, duration);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CheckFormStateEvent value) checkFormStateEvent,
+    required TResult Function(CalculateResultEvent value) calculateResultEvent,
+    required TResult Function(ToggleInfoEvent value) toggleInfoEvent,
+  }) {
+    return calculateResultEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(CheckFormStateEvent value)? checkFormStateEvent,
+    TResult? Function(CalculateResultEvent value)? calculateResultEvent,
+    TResult? Function(ToggleInfoEvent value)? toggleInfoEvent,
+  }) {
+    return calculateResultEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CheckFormStateEvent value)? checkFormStateEvent,
+    TResult Function(CalculateResultEvent value)? calculateResultEvent,
+    TResult Function(ToggleInfoEvent value)? toggleInfoEvent,
+    required TResult orElse(),
+  }) {
+    if (calculateResultEvent != null) {
+      return calculateResultEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CalculateResultEvent implements SimpleInterestPageEvent {
+  const factory CalculateResultEvent(
+      {required final double principle,
+      required final double rate,
+      required final double duration}) = _$CalculateResultEventImpl;
+
+  double get principle;
+  double get rate;
+  double get duration;
+  @JsonKey(ignore: true)
+  _$$CalculateResultEventImplCopyWith<_$CalculateResultEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ToggleInfoEventImplCopyWith<$Res> {
+  factory _$$ToggleInfoEventImplCopyWith(_$ToggleInfoEventImpl value,
+          $Res Function(_$ToggleInfoEventImpl) then) =
+      __$$ToggleInfoEventImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ToggleInfoEventImplCopyWithImpl<$Res>
+    extends _$SimpleInterestPageEventCopyWithImpl<$Res, _$ToggleInfoEventImpl>
+    implements _$$ToggleInfoEventImplCopyWith<$Res> {
+  __$$ToggleInfoEventImplCopyWithImpl(
+      _$ToggleInfoEventImpl _value, $Res Function(_$ToggleInfoEventImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ToggleInfoEventImpl implements ToggleInfoEvent {
+  const _$ToggleInfoEventImpl();
+
+  @override
+  String toString() {
+    return 'SimpleInterestPageEvent.toggleInfoEvent()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ToggleInfoEventImpl);
   }
 
   @override
@@ -217,30 +440,37 @@ class _$ToggleInfoImpl implements ToggleInfo {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() toggleDisabledButton,
-    required TResult Function() toggleInfo,
+    required TResult Function(GlobalKey<FormBuilderState> formKey)
+        checkFormStateEvent,
+    required TResult Function(double principle, double rate, double duration)
+        calculateResultEvent,
+    required TResult Function() toggleInfoEvent,
   }) {
-    return toggleInfo();
+    return toggleInfoEvent();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? toggleDisabledButton,
-    TResult? Function()? toggleInfo,
+    TResult? Function(GlobalKey<FormBuilderState> formKey)? checkFormStateEvent,
+    TResult? Function(double principle, double rate, double duration)?
+        calculateResultEvent,
+    TResult? Function()? toggleInfoEvent,
   }) {
-    return toggleInfo?.call();
+    return toggleInfoEvent?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? toggleDisabledButton,
-    TResult Function()? toggleInfo,
+    TResult Function(GlobalKey<FormBuilderState> formKey)? checkFormStateEvent,
+    TResult Function(double principle, double rate, double duration)?
+        calculateResultEvent,
+    TResult Function()? toggleInfoEvent,
     required TResult orElse(),
   }) {
-    if (toggleInfo != null) {
-      return toggleInfo();
+    if (toggleInfoEvent != null) {
+      return toggleInfoEvent();
     }
     return orElse();
   }
@@ -248,35 +478,38 @@ class _$ToggleInfoImpl implements ToggleInfo {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ToggleDisabledButton value) toggleDisabledButton,
-    required TResult Function(ToggleInfo value) toggleInfo,
+    required TResult Function(CheckFormStateEvent value) checkFormStateEvent,
+    required TResult Function(CalculateResultEvent value) calculateResultEvent,
+    required TResult Function(ToggleInfoEvent value) toggleInfoEvent,
   }) {
-    return toggleInfo(this);
+    return toggleInfoEvent(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ToggleDisabledButton value)? toggleDisabledButton,
-    TResult? Function(ToggleInfo value)? toggleInfo,
+    TResult? Function(CheckFormStateEvent value)? checkFormStateEvent,
+    TResult? Function(CalculateResultEvent value)? calculateResultEvent,
+    TResult? Function(ToggleInfoEvent value)? toggleInfoEvent,
   }) {
-    return toggleInfo?.call(this);
+    return toggleInfoEvent?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ToggleDisabledButton value)? toggleDisabledButton,
-    TResult Function(ToggleInfo value)? toggleInfo,
+    TResult Function(CheckFormStateEvent value)? checkFormStateEvent,
+    TResult Function(CalculateResultEvent value)? calculateResultEvent,
+    TResult Function(ToggleInfoEvent value)? toggleInfoEvent,
     required TResult orElse(),
   }) {
-    if (toggleInfo != null) {
-      return toggleInfo(this);
+    if (toggleInfoEvent != null) {
+      return toggleInfoEvent(this);
     }
     return orElse();
   }
 }
 
-abstract class ToggleInfo implements SimpleInterestPageEvent {
-  const factory ToggleInfo() = _$ToggleInfoImpl;
+abstract class ToggleInfoEvent implements SimpleInterestPageEvent {
+  const factory ToggleInfoEvent() = _$ToggleInfoEventImpl;
 }

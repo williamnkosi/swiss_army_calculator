@@ -16,6 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$SimpleInterestPageState {
+  double get result => throw _privateConstructorUsedError;
   dynamic get isExpanded => throw _privateConstructorUsedError;
   dynamic get isDiabled => throw _privateConstructorUsedError;
 
@@ -30,7 +31,7 @@ abstract class $SimpleInterestPageStateCopyWith<$Res> {
           $Res Function(SimpleInterestPageState) then) =
       _$SimpleInterestPageStateCopyWithImpl<$Res, SimpleInterestPageState>;
   @useResult
-  $Res call({dynamic isExpanded, dynamic isDiabled});
+  $Res call({double result, dynamic isExpanded, dynamic isDiabled});
 }
 
 /// @nodoc
@@ -47,10 +48,15 @@ class _$SimpleInterestPageStateCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? result = null,
     Object? isExpanded = freezed,
     Object? isDiabled = freezed,
   }) {
     return _then(_value.copyWith(
+      result: null == result
+          ? _value.result
+          : result // ignore: cast_nullable_to_non_nullable
+              as double,
       isExpanded: freezed == isExpanded
           ? _value.isExpanded
           : isExpanded // ignore: cast_nullable_to_non_nullable
@@ -72,7 +78,7 @@ abstract class _$$SimpleInterestPageStateImplCopyWith<$Res>
       __$$SimpleInterestPageStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({dynamic isExpanded, dynamic isDiabled});
+  $Res call({double result, dynamic isExpanded, dynamic isDiabled});
 }
 
 /// @nodoc
@@ -88,10 +94,15 @@ class __$$SimpleInterestPageStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? result = null,
     Object? isExpanded = freezed,
     Object? isDiabled = freezed,
   }) {
     return _then(_$SimpleInterestPageStateImpl(
+      result: null == result
+          ? _value.result
+          : result // ignore: cast_nullable_to_non_nullable
+              as double,
       isExpanded: freezed == isExpanded ? _value.isExpanded! : isExpanded,
       isDiabled: freezed == isDiabled ? _value.isDiabled! : isDiabled,
     ));
@@ -102,8 +113,11 @@ class __$$SimpleInterestPageStateImplCopyWithImpl<$Res>
 
 class _$SimpleInterestPageStateImpl implements _SimpleInterestPageState {
   const _$SimpleInterestPageStateImpl(
-      {this.isExpanded = false, this.isDiabled = true});
+      {this.result = 0, this.isExpanded = false, this.isDiabled = true});
 
+  @override
+  @JsonKey()
+  final double result;
   @override
   @JsonKey()
   final dynamic isExpanded;
@@ -113,7 +127,7 @@ class _$SimpleInterestPageStateImpl implements _SimpleInterestPageState {
 
   @override
   String toString() {
-    return 'SimpleInterestPageState(isExpanded: $isExpanded, isDiabled: $isDiabled)';
+    return 'SimpleInterestPageState(result: $result, isExpanded: $isExpanded, isDiabled: $isDiabled)';
   }
 
   @override
@@ -121,6 +135,7 @@ class _$SimpleInterestPageStateImpl implements _SimpleInterestPageState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SimpleInterestPageStateImpl &&
+            (identical(other.result, result) || other.result == result) &&
             const DeepCollectionEquality()
                 .equals(other.isExpanded, isExpanded) &&
             const DeepCollectionEquality().equals(other.isDiabled, isDiabled));
@@ -129,6 +144,7 @@ class _$SimpleInterestPageStateImpl implements _SimpleInterestPageState {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      result,
       const DeepCollectionEquality().hash(isExpanded),
       const DeepCollectionEquality().hash(isDiabled));
 
@@ -142,9 +158,12 @@ class _$SimpleInterestPageStateImpl implements _SimpleInterestPageState {
 
 abstract class _SimpleInterestPageState implements SimpleInterestPageState {
   const factory _SimpleInterestPageState(
-      {final dynamic isExpanded,
+      {final double result,
+      final dynamic isExpanded,
       final dynamic isDiabled}) = _$SimpleInterestPageStateImpl;
 
+  @override
+  double get result;
   @override
   dynamic get isExpanded;
   @override
