@@ -1,10 +1,10 @@
-part of 'simple_interest_page_bloc.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+part 'simple_interest_page_state.freezed.dart';
 
-sealed class SimpleInterestPageState extends Equatable {
-  const SimpleInterestPageState();
-  
-  @override
-  List<Object> get props => [];
+@freezed
+class SimpleInterestPageState with _$SimpleInterestPageState {
+  const factory SimpleInterestPageState({
+    @Default(false) isExpanded,
+    @Default(true) isDiabled,
+  }) = _SimpleInterestPageState;
 }
-
-final class SimpleInterestPageInitial extends SimpleInterestPageState {}

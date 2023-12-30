@@ -32,10 +32,7 @@ class _SimpleInterestState extends State<SimpleInterest> {
       final duration = _formKey.currentState!.fields[_textFieldDuration]!.value;
       final result = calculateSimpleInterest(
           double.parse(principle), double.parse(rate), double.parse(duration));
-      print(result);
-    } catch (e) {
-      print(e);
-    }
+    } catch (e) {}
   }
 
   void _checkFormState() {

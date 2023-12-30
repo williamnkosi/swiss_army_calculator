@@ -1,8 +1,9 @@
-part of 'simple_interest_page_bloc.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+part 'simple_interest_page_event.freezed.dart';
 
-sealed class SimpleInterestPageEvent extends Equatable {
-  const SimpleInterestPageEvent();
-
-  @override
-  List<Object> get props => [];
+@freezed
+abstract class SimpleInterestPageEvent with _$SimpleInterestPageEvent {
+  const factory SimpleInterestPageEvent.toggleDisabledButton() =
+      ToggleDisabledButton;
+  const factory SimpleInterestPageEvent.toggleInfo() = ToggleInfo;
 }
