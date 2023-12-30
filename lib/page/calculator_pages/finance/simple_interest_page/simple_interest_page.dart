@@ -1,3 +1,4 @@
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
@@ -9,11 +10,11 @@ import '../../../../models/calculator_types.dart';
 import '../../../../widgets/app_material_button.dart';
 import '../../../../widgets/drop_down_button.dart';
 
+import '../../../../widgets/pie_chart.dart/pie_chart.dart';
 import 'bloc/simple_interest_page_bloc.dart';
 import 'bloc/simple_interest_page_event.dart';
 import 'bloc/simple_interest_page_state.dart';
-
-final _formKey = GlobalKey<FormBuilderState>();
+import 'simple_interes_text_field_names.dart';
 
 class SimpleInterest extends StatefulWidget {
   const SimpleInterest({super.key});
@@ -23,36 +24,41 @@ class SimpleInterest extends StatefulWidget {
 }
 
 class _SimpleInterestState extends State<SimpleInterest> {
-  final _textFieldPrinciple = 'principle';
-  final _textFieldRate = 'rate';
-  final _textFieldDuration = 'duration';
-
-  void _checkFormState() {
-    BlocProvider.of<SimpleInterestPageBloc>(context)
-        .add(CheckFormStateEvent(formKey: _formKey));
+  List<PieChartSectionData> getSections() {
+    return [
+      PieChartSectionData(
+        color: Theme.of(context).colorScheme.inversePrimary,
+        value: 40,
+        title: '70%',
+        radius: 50,
+        titleStyle: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+            color: const Color(0xffffffff)),
+      ),
+      PieChartSectionData(
+        color: Colors.green,
+        value: 30,
+        title: '30%',
+        radius: 50,
+        titleStyle: TextStyle(
+          fontSize: 16,
+          fontWeight: FontWeight.bold,
+          color: const Color(0xffffffff),
+        ),
+      ),
+    ];
   }
 
-  void _onPress() {
-    try {
-      final principle = double.parse(
-          _formKey.currentState!.fields[_textFieldPrinciple]!.value);
-      final rate =
-          double.parse(_formKey.currentState!.fields[_textFieldRate]!.value);
-      final duration = double.parse(
-          _formKey.currentState!.fields[_textFieldDuration]!.value);
-      BlocProvider.of<SimpleInterestPageBloc>(context).add(CalculateResultEvent(
-          principle: principle, rate: rate, duration: duration));
-    } catch (e) {
-      print(e);
-    }
-  }
+  void _checkFormState() => BlocProvider.of<SimpleInterestPageBloc>(context)
+      .add(const CheckFormStateEvent());
 
   @override
   Widget build(BuildContext context) {
     return FormBuilder(
       autovalidateMode: AutovalidateMode.disabled,
-      key: _formKey,
-      child: Column(
+      key: BlocProvider.of<SimpleInterestPageBloc>(context).state.formKey,
+      child: ListView(
         children: [
           AppExpansionTile(
               title: FinanceCalculators.simpleInterest.value,
@@ -60,46 +66,43 @@ class _SimpleInterestState extends State<SimpleInterest> {
           const SizedBox(
             height: 16,
           ),
-          Expanded(
-            child: Column(
-              children: [
-                Principal(
-                  name: _textFieldPrinciple,
-                  check: _checkFormState,
-                ),
-                const SizedBox(
-                  height: 16,
-                ),
-                InterestRate(
-                  name: _textFieldRate,
-                  check: _checkFormState,
-                ),
-                const SizedBox(
-                  height: 16,
-                ),
-                Duration(
-                  name: _textFieldDuration,
-                  check: _checkFormState,
-                ),
-                BlocBuilder<SimpleInterestPageBloc, SimpleInterestPageState>(
-                  builder: (context, state) {
-                    return Column(
-                      children: [
-                        Text('This is the result'),
-                        Text(state.result.toString())
-                      ],
-                    );
-                  },
-                )
-              ],
-            ),
+          Principal(
+            check: _checkFormState,
+          ),
+          const SizedBox(
+            height: 16,
+          ),
+          InterestRate(
+            check: _checkFormState,
+          ),
+          const SizedBox(
+            height: 16,
+          ),
+          Duration(
+            check: _checkFormState,
+          ),
+          SizedBox(
+              height: 200,
+              width: double.infinity,
+              child: PieChartWidget(sections: getSections())),
+          BlocBuilder<SimpleInterestPageBloc, SimpleInterestPageState>(
+            builder: (context, state) {
+              return Column(
+                children: [
+                  const Text('This is the result'),
+                  Text(state.result.toString())
+                ],
+              );
+            },
           ),
           BlocBuilder<SimpleInterestPageBloc, SimpleInterestPageState>(
             builder: (context, state) {
               return AppMaterialButton(
                   isDisabled: state.isDiabled,
                   buttonTitle: 'Calculate',
-                  onPressed: () => _onPress());
+                  onPressed: () =>
+                      BlocProvider.of<SimpleInterestPageBloc>(context)
+                          .add(const CalculateResultEvent()));
             },
           ),
           const SizedBox(
@@ -112,11 +115,9 @@ class _SimpleInterestState extends State<SimpleInterest> {
 }
 
 class Principal extends StatelessWidget {
-  final String name;
   final Function check;
   const Principal({
     super.key,
-    required this.name,
     required this.check,
   });
 
@@ -124,7 +125,7 @@ class Principal extends StatelessWidget {
   Widget build(BuildContext context) {
     return FormBuilderTextField(
       keyboardType: TextInputType.number,
-      name: name,
+      name: SimpleInterestTextFieldNames.principal.value,
       decoration: const InputDecoration(
         border: OutlineInputBorder(),
         hintText: 'Principle Amount',
@@ -139,11 +140,9 @@ class Principal extends StatelessWidget {
 }
 
 class InterestRate extends StatelessWidget {
-  final String name;
   final Function check;
   const InterestRate({
     super.key,
-    required this.name,
     required this.check,
   });
 
@@ -154,7 +153,7 @@ class InterestRate extends StatelessWidget {
         Flexible(
           child: FormBuilderTextField(
             keyboardType: TextInputType.number,
-            name: name,
+            name: SimpleInterestTextFieldNames.rate.value,
             decoration: const InputDecoration(
               border: OutlineInputBorder(),
               hintText: 'Interest Rate (%)',
@@ -178,11 +177,9 @@ class InterestRate extends StatelessWidget {
 }
 
 class Duration extends StatelessWidget {
-  final String name;
   final Function check;
   const Duration({
     Key? key,
-    required this.name,
     required this.check,
   }) : super(key: key);
 
@@ -193,7 +190,7 @@ class Duration extends StatelessWidget {
         Flexible(
           child: FormBuilderTextField(
             keyboardType: TextInputType.number,
-            name: name,
+            name: SimpleInterestTextFieldNames.duration.value,
             decoration: const InputDecoration(
               border: OutlineInputBorder(),
               hintText: 'Time Period',

@@ -18,26 +18,22 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$SimpleInterestPageEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(GlobalKey<FormBuilderState> formKey)
-        checkFormStateEvent,
-    required TResult Function(double principle, double rate, double duration)
-        calculateResultEvent,
+    required TResult Function() checkFormStateEvent,
+    required TResult Function() calculateResultEvent,
     required TResult Function() toggleInfoEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(GlobalKey<FormBuilderState> formKey)? checkFormStateEvent,
-    TResult? Function(double principle, double rate, double duration)?
-        calculateResultEvent,
+    TResult? Function()? checkFormStateEvent,
+    TResult? Function()? calculateResultEvent,
     TResult? Function()? toggleInfoEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(GlobalKey<FormBuilderState> formKey)? checkFormStateEvent,
-    TResult Function(double principle, double rate, double duration)?
-        calculateResultEvent,
+    TResult Function()? checkFormStateEvent,
+    TResult Function()? calculateResultEvent,
     TResult Function()? toggleInfoEvent,
     required TResult orElse(),
   }) =>
@@ -90,8 +86,6 @@ abstract class _$$CheckFormStateEventImplCopyWith<$Res> {
   factory _$$CheckFormStateEventImplCopyWith(_$CheckFormStateEventImpl value,
           $Res Function(_$CheckFormStateEventImpl) then) =
       __$$CheckFormStateEventImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({GlobalKey<FormBuilderState> formKey});
 }
 
 /// @nodoc
@@ -102,86 +96,58 @@ class __$$CheckFormStateEventImplCopyWithImpl<$Res>
   __$$CheckFormStateEventImplCopyWithImpl(_$CheckFormStateEventImpl _value,
       $Res Function(_$CheckFormStateEventImpl) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? formKey = null,
-  }) {
-    return _then(_$CheckFormStateEventImpl(
-      formKey: null == formKey
-          ? _value.formKey
-          : formKey // ignore: cast_nullable_to_non_nullable
-              as GlobalKey<FormBuilderState>,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$CheckFormStateEventImpl implements CheckFormStateEvent {
-  const _$CheckFormStateEventImpl({required this.formKey});
-
-  @override
-  final GlobalKey<FormBuilderState> formKey;
+  const _$CheckFormStateEventImpl();
 
   @override
   String toString() {
-    return 'SimpleInterestPageEvent.checkFormStateEvent(formKey: $formKey)';
+    return 'SimpleInterestPageEvent.checkFormStateEvent()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CheckFormStateEventImpl &&
-            (identical(other.formKey, formKey) || other.formKey == formKey));
+            other is _$CheckFormStateEventImpl);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, formKey);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$CheckFormStateEventImplCopyWith<_$CheckFormStateEventImpl> get copyWith =>
-      __$$CheckFormStateEventImplCopyWithImpl<_$CheckFormStateEventImpl>(
-          this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(GlobalKey<FormBuilderState> formKey)
-        checkFormStateEvent,
-    required TResult Function(double principle, double rate, double duration)
-        calculateResultEvent,
+    required TResult Function() checkFormStateEvent,
+    required TResult Function() calculateResultEvent,
     required TResult Function() toggleInfoEvent,
   }) {
-    return checkFormStateEvent(formKey);
+    return checkFormStateEvent();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(GlobalKey<FormBuilderState> formKey)? checkFormStateEvent,
-    TResult? Function(double principle, double rate, double duration)?
-        calculateResultEvent,
+    TResult? Function()? checkFormStateEvent,
+    TResult? Function()? calculateResultEvent,
     TResult? Function()? toggleInfoEvent,
   }) {
-    return checkFormStateEvent?.call(formKey);
+    return checkFormStateEvent?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(GlobalKey<FormBuilderState> formKey)? checkFormStateEvent,
-    TResult Function(double principle, double rate, double duration)?
-        calculateResultEvent,
+    TResult Function()? checkFormStateEvent,
+    TResult Function()? calculateResultEvent,
     TResult Function()? toggleInfoEvent,
     required TResult orElse(),
   }) {
     if (checkFormStateEvent != null) {
-      return checkFormStateEvent(formKey);
+      return checkFormStateEvent();
     }
     return orElse();
   }
@@ -222,14 +188,7 @@ class _$CheckFormStateEventImpl implements CheckFormStateEvent {
 }
 
 abstract class CheckFormStateEvent implements SimpleInterestPageEvent {
-  const factory CheckFormStateEvent(
-          {required final GlobalKey<FormBuilderState> formKey}) =
-      _$CheckFormStateEventImpl;
-
-  GlobalKey<FormBuilderState> get formKey;
-  @JsonKey(ignore: true)
-  _$$CheckFormStateEventImplCopyWith<_$CheckFormStateEventImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  const factory CheckFormStateEvent() = _$CheckFormStateEventImpl;
 }
 
 /// @nodoc
@@ -237,8 +196,6 @@ abstract class _$$CalculateResultEventImplCopyWith<$Res> {
   factory _$$CalculateResultEventImplCopyWith(_$CalculateResultEventImpl value,
           $Res Function(_$CalculateResultEventImpl) then) =
       __$$CalculateResultEventImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({double principle, double rate, double duration});
 }
 
 /// @nodoc
@@ -249,106 +206,58 @@ class __$$CalculateResultEventImplCopyWithImpl<$Res>
   __$$CalculateResultEventImplCopyWithImpl(_$CalculateResultEventImpl _value,
       $Res Function(_$CalculateResultEventImpl) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? principle = null,
-    Object? rate = null,
-    Object? duration = null,
-  }) {
-    return _then(_$CalculateResultEventImpl(
-      principle: null == principle
-          ? _value.principle
-          : principle // ignore: cast_nullable_to_non_nullable
-              as double,
-      rate: null == rate
-          ? _value.rate
-          : rate // ignore: cast_nullable_to_non_nullable
-              as double,
-      duration: null == duration
-          ? _value.duration
-          : duration // ignore: cast_nullable_to_non_nullable
-              as double,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$CalculateResultEventImpl implements CalculateResultEvent {
-  const _$CalculateResultEventImpl(
-      {required this.principle, required this.rate, required this.duration});
-
-  @override
-  final double principle;
-  @override
-  final double rate;
-  @override
-  final double duration;
+  const _$CalculateResultEventImpl();
 
   @override
   String toString() {
-    return 'SimpleInterestPageEvent.calculateResultEvent(principle: $principle, rate: $rate, duration: $duration)';
+    return 'SimpleInterestPageEvent.calculateResultEvent()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CalculateResultEventImpl &&
-            (identical(other.principle, principle) ||
-                other.principle == principle) &&
-            (identical(other.rate, rate) || other.rate == rate) &&
-            (identical(other.duration, duration) ||
-                other.duration == duration));
+            other is _$CalculateResultEventImpl);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, principle, rate, duration);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$CalculateResultEventImplCopyWith<_$CalculateResultEventImpl>
-      get copyWith =>
-          __$$CalculateResultEventImplCopyWithImpl<_$CalculateResultEventImpl>(
-              this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(GlobalKey<FormBuilderState> formKey)
-        checkFormStateEvent,
-    required TResult Function(double principle, double rate, double duration)
-        calculateResultEvent,
+    required TResult Function() checkFormStateEvent,
+    required TResult Function() calculateResultEvent,
     required TResult Function() toggleInfoEvent,
   }) {
-    return calculateResultEvent(principle, rate, duration);
+    return calculateResultEvent();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(GlobalKey<FormBuilderState> formKey)? checkFormStateEvent,
-    TResult? Function(double principle, double rate, double duration)?
-        calculateResultEvent,
+    TResult? Function()? checkFormStateEvent,
+    TResult? Function()? calculateResultEvent,
     TResult? Function()? toggleInfoEvent,
   }) {
-    return calculateResultEvent?.call(principle, rate, duration);
+    return calculateResultEvent?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(GlobalKey<FormBuilderState> formKey)? checkFormStateEvent,
-    TResult Function(double principle, double rate, double duration)?
-        calculateResultEvent,
+    TResult Function()? checkFormStateEvent,
+    TResult Function()? calculateResultEvent,
     TResult Function()? toggleInfoEvent,
     required TResult orElse(),
   }) {
     if (calculateResultEvent != null) {
-      return calculateResultEvent(principle, rate, duration);
+      return calculateResultEvent();
     }
     return orElse();
   }
@@ -389,17 +298,7 @@ class _$CalculateResultEventImpl implements CalculateResultEvent {
 }
 
 abstract class CalculateResultEvent implements SimpleInterestPageEvent {
-  const factory CalculateResultEvent(
-      {required final double principle,
-      required final double rate,
-      required final double duration}) = _$CalculateResultEventImpl;
-
-  double get principle;
-  double get rate;
-  double get duration;
-  @JsonKey(ignore: true)
-  _$$CalculateResultEventImplCopyWith<_$CalculateResultEventImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  const factory CalculateResultEvent() = _$CalculateResultEventImpl;
 }
 
 /// @nodoc
@@ -440,10 +339,8 @@ class _$ToggleInfoEventImpl implements ToggleInfoEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(GlobalKey<FormBuilderState> formKey)
-        checkFormStateEvent,
-    required TResult Function(double principle, double rate, double duration)
-        calculateResultEvent,
+    required TResult Function() checkFormStateEvent,
+    required TResult Function() calculateResultEvent,
     required TResult Function() toggleInfoEvent,
   }) {
     return toggleInfoEvent();
@@ -452,9 +349,8 @@ class _$ToggleInfoEventImpl implements ToggleInfoEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(GlobalKey<FormBuilderState> formKey)? checkFormStateEvent,
-    TResult? Function(double principle, double rate, double duration)?
-        calculateResultEvent,
+    TResult? Function()? checkFormStateEvent,
+    TResult? Function()? calculateResultEvent,
     TResult? Function()? toggleInfoEvent,
   }) {
     return toggleInfoEvent?.call();
@@ -463,9 +359,8 @@ class _$ToggleInfoEventImpl implements ToggleInfoEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(GlobalKey<FormBuilderState> formKey)? checkFormStateEvent,
-    TResult Function(double principle, double rate, double duration)?
-        calculateResultEvent,
+    TResult Function()? checkFormStateEvent,
+    TResult Function()? calculateResultEvent,
     TResult Function()? toggleInfoEvent,
     required TResult orElse(),
   }) {

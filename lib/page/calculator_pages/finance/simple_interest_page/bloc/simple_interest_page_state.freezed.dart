@@ -16,6 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$SimpleInterestPageState {
+  GlobalKey<FormBuilderState> get formKey => throw _privateConstructorUsedError;
   double get result => throw _privateConstructorUsedError;
   dynamic get isExpanded => throw _privateConstructorUsedError;
   dynamic get isDiabled => throw _privateConstructorUsedError;
@@ -31,7 +32,11 @@ abstract class $SimpleInterestPageStateCopyWith<$Res> {
           $Res Function(SimpleInterestPageState) then) =
       _$SimpleInterestPageStateCopyWithImpl<$Res, SimpleInterestPageState>;
   @useResult
-  $Res call({double result, dynamic isExpanded, dynamic isDiabled});
+  $Res call(
+      {GlobalKey<FormBuilderState> formKey,
+      double result,
+      dynamic isExpanded,
+      dynamic isDiabled});
 }
 
 /// @nodoc
@@ -48,11 +53,16 @@ class _$SimpleInterestPageStateCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? formKey = null,
     Object? result = null,
     Object? isExpanded = freezed,
     Object? isDiabled = freezed,
   }) {
     return _then(_value.copyWith(
+      formKey: null == formKey
+          ? _value.formKey
+          : formKey // ignore: cast_nullable_to_non_nullable
+              as GlobalKey<FormBuilderState>,
       result: null == result
           ? _value.result
           : result // ignore: cast_nullable_to_non_nullable
@@ -78,7 +88,11 @@ abstract class _$$SimpleInterestPageStateImplCopyWith<$Res>
       __$$SimpleInterestPageStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({double result, dynamic isExpanded, dynamic isDiabled});
+  $Res call(
+      {GlobalKey<FormBuilderState> formKey,
+      double result,
+      dynamic isExpanded,
+      dynamic isDiabled});
 }
 
 /// @nodoc
@@ -94,11 +108,16 @@ class __$$SimpleInterestPageStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? formKey = null,
     Object? result = null,
     Object? isExpanded = freezed,
     Object? isDiabled = freezed,
   }) {
     return _then(_$SimpleInterestPageStateImpl(
+      formKey: null == formKey
+          ? _value.formKey
+          : formKey // ignore: cast_nullable_to_non_nullable
+              as GlobalKey<FormBuilderState>,
       result: null == result
           ? _value.result
           : result // ignore: cast_nullable_to_non_nullable
@@ -113,8 +132,13 @@ class __$$SimpleInterestPageStateImplCopyWithImpl<$Res>
 
 class _$SimpleInterestPageStateImpl implements _SimpleInterestPageState {
   const _$SimpleInterestPageStateImpl(
-      {this.result = 0, this.isExpanded = false, this.isDiabled = true});
+      {required this.formKey,
+      this.result = 0,
+      this.isExpanded = false,
+      this.isDiabled = true});
 
+  @override
+  final GlobalKey<FormBuilderState> formKey;
   @override
   @JsonKey()
   final double result;
@@ -127,7 +151,7 @@ class _$SimpleInterestPageStateImpl implements _SimpleInterestPageState {
 
   @override
   String toString() {
-    return 'SimpleInterestPageState(result: $result, isExpanded: $isExpanded, isDiabled: $isDiabled)';
+    return 'SimpleInterestPageState(formKey: $formKey, result: $result, isExpanded: $isExpanded, isDiabled: $isDiabled)';
   }
 
   @override
@@ -135,6 +159,7 @@ class _$SimpleInterestPageStateImpl implements _SimpleInterestPageState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SimpleInterestPageStateImpl &&
+            (identical(other.formKey, formKey) || other.formKey == formKey) &&
             (identical(other.result, result) || other.result == result) &&
             const DeepCollectionEquality()
                 .equals(other.isExpanded, isExpanded) &&
@@ -144,6 +169,7 @@ class _$SimpleInterestPageStateImpl implements _SimpleInterestPageState {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      formKey,
       result,
       const DeepCollectionEquality().hash(isExpanded),
       const DeepCollectionEquality().hash(isDiabled));
@@ -158,10 +184,13 @@ class _$SimpleInterestPageStateImpl implements _SimpleInterestPageState {
 
 abstract class _SimpleInterestPageState implements SimpleInterestPageState {
   const factory _SimpleInterestPageState(
-      {final double result,
+      {required final GlobalKey<FormBuilderState> formKey,
+      final double result,
       final dynamic isExpanded,
       final dynamic isDiabled}) = _$SimpleInterestPageStateImpl;
 
+  @override
+  GlobalKey<FormBuilderState> get formKey;
   @override
   double get result;
   @override
