@@ -12,7 +12,7 @@ class FinanceListPage extends StatelessWidget {
     if (value == FinanceCalculators.simpleInterest) {
       return BlocProvider(
         create: (context) => SimpleInterestPageBloc(),
-        child: const SimpleInterest(),
+        child: SimpleInterest(),
       );
     }
     return SimpleInterest();

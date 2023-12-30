@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:swiss_army_calculator/services/pie_chart_service.dart';
 
 import '../../../../../utils/finance_formulas.dart';
 import '../simple_interes_text_field_names.dart';
@@ -33,13 +34,20 @@ class SimpleInterestPageBloc
   _onCalculateResult(CalculateResultEvent event, emit) {
     final principle = double.parse(state.formKey.currentState!
         .fields[SimpleInterestTextFieldNames.principal.value]!.value);
+
     final rate = double.parse(state.formKey.currentState!
-        .fields[SimpleInterestTextFieldNames.rate]!.value);
+        .fields[SimpleInterestTextFieldNames.rate.value]!.value);
+
     final duration = double.parse(state.formKey.currentState!
         .fields[SimpleInterestTextFieldNames.duration.value]!.value);
+
     final result = calculateSimpleInterest(principle, rate, duration);
-    emit(state.copyWith(result: result));
+    final sections = _generatePieChartSections([principle, result]);
+    emit(state.copyWith(result: result, sections: sections));
   }
 
-  _generatePieChartSections() {}
+  _generatePieChartSections(List<double> dataPoints) {
+    final service = PieChartService();
+    return service.generatePieChartSections(dataPoints);
+  }
 }

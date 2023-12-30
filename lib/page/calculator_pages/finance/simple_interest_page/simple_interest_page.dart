@@ -1,4 +1,3 @@
-import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
@@ -10,48 +9,19 @@ import '../../../../models/calculator_types.dart';
 import '../../../../widgets/app_material_button.dart';
 import '../../../../widgets/drop_down_button.dart';
 
+import '../../../../widgets/indicator.dart';
 import '../../../../widgets/pie_chart.dart/pie_chart.dart';
 import 'bloc/simple_interest_page_bloc.dart';
 import 'bloc/simple_interest_page_event.dart';
 import 'bloc/simple_interest_page_state.dart';
 import 'simple_interes_text_field_names.dart';
 
-class SimpleInterest extends StatefulWidget {
+class SimpleInterest extends StatelessWidget {
   const SimpleInterest({super.key});
 
-  @override
-  State<SimpleInterest> createState() => _SimpleInterestState();
-}
-
-class _SimpleInterestState extends State<SimpleInterest> {
-  List<PieChartSectionData> getSections() {
-    return [
-      PieChartSectionData(
-        color: Theme.of(context).colorScheme.inversePrimary,
-        value: 40,
-        title: '70%',
-        radius: 50,
-        titleStyle: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-            color: const Color(0xffffffff)),
-      ),
-      PieChartSectionData(
-        color: Colors.green,
-        value: 30,
-        title: '30%',
-        radius: 50,
-        titleStyle: TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.bold,
-          color: const Color(0xffffffff),
-        ),
-      ),
-    ];
-  }
-
-  void _checkFormState() => BlocProvider.of<SimpleInterestPageBloc>(context)
-      .add(const CheckFormStateEvent());
+  void _checkFormState(BuildContext context) =>
+      BlocProvider.of<SimpleInterestPageBloc>(context)
+          .add(const CheckFormStateEvent());
 
   @override
   Widget build(BuildContext context) {
@@ -81,10 +51,38 @@ class _SimpleInterestState extends State<SimpleInterest> {
           Duration(
             check: _checkFormState,
           ),
-          SizedBox(
-              height: 200,
-              width: double.infinity,
-              child: PieChartWidget(sections: getSections())),
+          const Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Indicator(
+                color: Colors.blue,
+                text: 'First',
+                isSquare: true,
+              ),
+              SizedBox(
+                height: 4,
+              ),
+              Indicator(
+                color: Colors.red,
+                text: 'Second',
+                isSquare: true,
+              ),
+              SizedBox(
+                height: 4,
+              ),
+            ],
+          ),
+          BlocBuilder<SimpleInterestPageBloc, SimpleInterestPageState>(
+            buildWhen: (previous, current) =>
+                previous.sections != current.sections,
+            builder: (context, state) {
+              return SizedBox(
+                  height: 200,
+                  width: double.infinity,
+                  child: PieChartWidget(sections: state.sections));
+            },
+          ),
           BlocBuilder<SimpleInterestPageBloc, SimpleInterestPageState>(
             builder: (context, state) {
               return Column(
