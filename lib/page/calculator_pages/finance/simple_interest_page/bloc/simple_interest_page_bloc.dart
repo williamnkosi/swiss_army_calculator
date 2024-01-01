@@ -68,4 +68,6 @@ class SimpleInterestPageBloc
           'Interest'
         ]);
   }
+
+  _generateBarChartData() {}
 }

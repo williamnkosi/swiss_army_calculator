@@ -87,7 +87,8 @@ class SimpleInterest extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.only(right: 8),
                     child: BarChartService.generateBarChart(
-                      BarChartService.generateBarGroups(values),
+                      BarChartService.generateBarGroups(
+                          values: values, values2: values),
                     ),
                   ),
                 );
