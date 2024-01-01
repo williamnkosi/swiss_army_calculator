@@ -1,15 +1,16 @@
+import 'dart:math';
+
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:swiss_army_calculator/info/finance_info.dart';
+import 'package:swiss_army_calculator/services/bar_chart_service.dart';
 import 'package:swiss_army_calculator/widgets/app_expansion_tile.dart';
-
 import '../../../../models/calculator_types.dart';
 import '../../../../widgets/app_material_button.dart';
 import '../../../../widgets/drop_down_button.dart';
-
-import '../../../../widgets/indicator.dart';
 import '../../../../widgets/pie_chart.dart/pie_chart.dart';
 import 'bloc/simple_interest_page_bloc.dart';
 import 'bloc/simple_interest_page_event.dart';
@@ -17,7 +18,21 @@ import 'bloc/simple_interest_page_state.dart';
 import 'simple_interes_text_field_names.dart';
 
 class SimpleInterest extends StatelessWidget {
-  const SimpleInterest({super.key});
+  SimpleInterest({super.key});
+
+  List<double> values = [
+    8,
+    12,
+    6,
+    10,
+    15,
+    45,
+    23,
+    657,
+    3,
+    4,
+    5
+  ]; // Your data values
 
   @override
   Widget build(BuildContext context) {
@@ -66,6 +81,47 @@ class SimpleInterest extends StatelessWidget {
                     width: double.infinity,
                     child: PieChartWidget(sections: state.sections));
               },
+            ),
+            SizedBox(
+              height: 350,
+              child: Padding(
+                padding: const EdgeInsets.only(right: 8),
+                child: BarChart(BarChartData(
+                    groupsSpace: 1,
+                    titlesData: const FlTitlesData(
+                      topTitles: AxisTitles(
+                        sideTitles: SideTitles(showTitles: false),
+                      ),
+                      rightTitles: AxisTitles(
+                        sideTitles: SideTitles(showTitles: false),
+                      ),
+                      leftTitles: AxisTitles(
+                        axisNameWidget: Text('Principle'),
+                        sideTitles: SideTitles(
+                          reservedSize: 30,
+                          showTitles: true,
+                        ),
+                      ),
+                      bottomTitles: AxisTitles(
+                        drawBelowEverything: false,
+                        axisNameWidget: Text('years'),
+                        sideTitles: SideTitles(
+                          reservedSize: 30,
+                          showTitles: true,
+                        ),
+                      ),
+                    ),
+                    gridData: const FlGridData(show: false),
+                    borderData: FlBorderData(
+                        show: false,
+                        border: const Border(
+                          top: BorderSide.none,
+                          right: BorderSide.none,
+                          left: BorderSide(width: 1),
+                          bottom: BorderSide(width: 1),
+                        )),
+                    barGroups: BarChartService.generateBarGroups(values))),
+              ),
             ),
           ],
         ),
