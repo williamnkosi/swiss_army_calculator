@@ -19,15 +19,17 @@ class SimpleInterestPageBloc
 
   _onToggleInfoEvent(ToggleInfoEvent event, emit) {}
   _onCheckFormStateEvent(CheckFormStateEvent event, emit) {
-    try {
-      if (state.formKey.currentState!.validate()) {
-        state.formKey.currentState?.save();
-        emit(state.copyWith(isDiabled: false));
-      } else {
+    if (state.formKey.currentState!.isValid) {
+      try {
+        if (state.formKey.currentState!.validate()) {
+          state.formKey.currentState?.save();
+          emit(state.copyWith(isDiabled: false));
+        } else {
+          emit(state.copyWith(isDiabled: true));
+        }
+      } catch (e) {
         emit(state.copyWith(isDiabled: true));
       }
-    } catch (e) {
-      emit(state.copyWith(isDiabled: true));
     }
   }
 
