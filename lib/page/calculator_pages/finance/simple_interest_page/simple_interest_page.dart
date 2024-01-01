@@ -17,20 +17,7 @@ import 'simple_interes_text_field_names.dart';
 
 class SimpleInterest extends StatelessWidget {
   SimpleInterest({super.key});
-
-  List<double> values = [
-    8,
-    12,
-    6,
-    10,
-    15,
-    45,
-    23,
-    657,
-    3,
-    4,
-    5
-  ]; // Your data values
+// Your data values
 
   @override
   Widget build(BuildContext context) {
@@ -81,15 +68,23 @@ class SimpleInterest extends StatelessWidget {
               },
             ),
             BlocBuilder<SimpleInterestPageBloc, SimpleInterestPageState>(
+              buildWhen: (previous, current) =>
+                  previous.sections != current.sections ||
+                  current.barChartData.isNotEmpty,
               builder: (context, state) {
                 return SizedBox(
                   height: 350,
                   child: Padding(
                     padding: const EdgeInsets.only(right: 8),
-                    child: BarChartService.generateBarChart(
-                      BarChartService.generateBarGroups(
-                          values: values, values2: values),
-                    ),
+                    child: state.barChartData.isNotEmpty
+                        ? BarChartService.generateBarChart(
+                            BarChartService.generateBarGroups(
+                                values: state.barChartData[0],
+                                values2: state.barChartData[1]),
+                            state.barChartData[0][0] +
+                                state.barChartData[1]
+                                    [state.barChartData[1].length - 1])
+                        : Container(),
                   ),
                 );
               },

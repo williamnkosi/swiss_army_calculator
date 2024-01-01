@@ -1,11 +1,12 @@
-import 'dart:math';
-
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
 class BarChartService {
-  static BarChart generateBarChart(List<BarChartGroupData> data) {
+  static BarChart generateBarChart(
+      List<BarChartGroupData> data, double maxYHeight) {
     return BarChart(BarChartData(
+        maxY: maxYHeight,
+        baselineY: 5,
         groupsSpace: 1,
         titlesData: const FlTitlesData(
           topTitles: AxisTitles(
@@ -45,26 +46,28 @@ class BarChartService {
   static List<BarChartGroupData> generateBarGroups(
       {required List<double> values, List<double>? values2}) {
     List<BarChartGroupData> barGroups = [];
-    Random random = Random();
+
     for (int i = 0; i < values.length; i++) {
       barGroups.add(
         BarChartGroupData(
           x: i,
           groupVertically: true,
           barRods: [
-            BarChartRodData(
-              fromY: 0,
-              toY: random.nextInt(21).toDouble(),
-              width: 10,
-              color: Colors.purple[200],
-            ),
             if (values2?[i] != null)
               BarChartRodData(
-                fromY: 0,
-                toY: random.nextInt(21).toDouble(),
+                borderRadius: BorderRadius.zero,
+                fromY: values[i] - (values[i] * 0.1),
+                toY: values2![i] + values[i],
                 width: 10,
-                color: Colors.purple[40],
-              )
+                color: Colors.blue,
+              ),
+            BarChartRodData(
+              borderRadius: BorderRadius.zero,
+              fromY: 0,
+              toY: values[i],
+              width: 10,
+              color: Colors.red,
+            ),
           ],
         ),
       );

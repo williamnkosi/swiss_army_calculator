@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$SimpleInterestPageState {
   GlobalKey<FormBuilderState> get formKey => throw _privateConstructorUsedError;
   List<PieChartSectionData> get sections => throw _privateConstructorUsedError;
+  List<List<double>> get barChartData => throw _privateConstructorUsedError;
   double get principal => throw _privateConstructorUsedError;
   double get rate => throw _privateConstructorUsedError;
   double get duration => throw _privateConstructorUsedError;
@@ -40,6 +41,7 @@ abstract class $SimpleInterestPageStateCopyWith<$Res> {
   $Res call(
       {GlobalKey<FormBuilderState> formKey,
       List<PieChartSectionData> sections,
+      List<List<double>> barChartData,
       double principal,
       double rate,
       double duration,
@@ -65,6 +67,7 @@ class _$SimpleInterestPageStateCopyWithImpl<$Res,
   $Res call({
     Object? formKey = null,
     Object? sections = null,
+    Object? barChartData = null,
     Object? principal = null,
     Object? rate = null,
     Object? duration = null,
@@ -82,6 +85,10 @@ class _$SimpleInterestPageStateCopyWithImpl<$Res,
           ? _value.sections
           : sections // ignore: cast_nullable_to_non_nullable
               as List<PieChartSectionData>,
+      barChartData: null == barChartData
+          ? _value.barChartData
+          : barChartData // ignore: cast_nullable_to_non_nullable
+              as List<List<double>>,
       principal: null == principal
           ? _value.principal
           : principal // ignore: cast_nullable_to_non_nullable
@@ -126,6 +133,7 @@ abstract class _$$SimpleInterestPageStateImplCopyWith<$Res>
   $Res call(
       {GlobalKey<FormBuilderState> formKey,
       List<PieChartSectionData> sections,
+      List<List<double>> barChartData,
       double principal,
       double rate,
       double duration,
@@ -150,6 +158,7 @@ class __$$SimpleInterestPageStateImplCopyWithImpl<$Res>
   $Res call({
     Object? formKey = null,
     Object? sections = null,
+    Object? barChartData = null,
     Object? principal = null,
     Object? rate = null,
     Object? duration = null,
@@ -167,6 +176,10 @@ class __$$SimpleInterestPageStateImplCopyWithImpl<$Res>
           ? _value._sections
           : sections // ignore: cast_nullable_to_non_nullable
               as List<PieChartSectionData>,
+      barChartData: null == barChartData
+          ? _value._barChartData
+          : barChartData // ignore: cast_nullable_to_non_nullable
+              as List<List<double>>,
       principal: null == principal
           ? _value.principal
           : principal // ignore: cast_nullable_to_non_nullable
@@ -199,6 +212,7 @@ class _$SimpleInterestPageStateImpl implements _SimpleInterestPageState {
   const _$SimpleInterestPageStateImpl(
       {required this.formKey,
       final List<PieChartSectionData> sections = const [],
+      final List<List<double>> barChartData = const [],
       this.principal = 0,
       this.rate = 0,
       this.duration = 0,
@@ -206,7 +220,8 @@ class _$SimpleInterestPageStateImpl implements _SimpleInterestPageState {
       this.printOutput = '',
       this.isExpanded = false,
       this.isDiabled = true})
-      : _sections = sections;
+      : _sections = sections,
+        _barChartData = barChartData;
 
   @override
   final GlobalKey<FormBuilderState> formKey;
@@ -217,6 +232,15 @@ class _$SimpleInterestPageStateImpl implements _SimpleInterestPageState {
     if (_sections is EqualUnmodifiableListView) return _sections;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_sections);
+  }
+
+  final List<List<double>> _barChartData;
+  @override
+  @JsonKey()
+  List<List<double>> get barChartData {
+    if (_barChartData is EqualUnmodifiableListView) return _barChartData;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_barChartData);
   }
 
   @override
@@ -243,7 +267,7 @@ class _$SimpleInterestPageStateImpl implements _SimpleInterestPageState {
 
   @override
   String toString() {
-    return 'SimpleInterestPageState(formKey: $formKey, sections: $sections, principal: $principal, rate: $rate, duration: $duration, result: $result, printOutput: $printOutput, isExpanded: $isExpanded, isDiabled: $isDiabled)';
+    return 'SimpleInterestPageState(formKey: $formKey, sections: $sections, barChartData: $barChartData, principal: $principal, rate: $rate, duration: $duration, result: $result, printOutput: $printOutput, isExpanded: $isExpanded, isDiabled: $isDiabled)';
   }
 
   @override
@@ -253,6 +277,8 @@ class _$SimpleInterestPageStateImpl implements _SimpleInterestPageState {
             other is _$SimpleInterestPageStateImpl &&
             (identical(other.formKey, formKey) || other.formKey == formKey) &&
             const DeepCollectionEquality().equals(other._sections, _sections) &&
+            const DeepCollectionEquality()
+                .equals(other._barChartData, _barChartData) &&
             (identical(other.principal, principal) ||
                 other.principal == principal) &&
             (identical(other.rate, rate) || other.rate == rate) &&
@@ -271,6 +297,7 @@ class _$SimpleInterestPageStateImpl implements _SimpleInterestPageState {
       runtimeType,
       formKey,
       const DeepCollectionEquality().hash(_sections),
+      const DeepCollectionEquality().hash(_barChartData),
       principal,
       rate,
       duration,
@@ -291,6 +318,7 @@ abstract class _SimpleInterestPageState implements SimpleInterestPageState {
   const factory _SimpleInterestPageState(
       {required final GlobalKey<FormBuilderState> formKey,
       final List<PieChartSectionData> sections,
+      final List<List<double>> barChartData,
       final double principal,
       final double rate,
       final double duration,
@@ -303,6 +331,8 @@ abstract class _SimpleInterestPageState implements SimpleInterestPageState {
   GlobalKey<FormBuilderState> get formKey;
   @override
   List<PieChartSectionData> get sections;
+  @override
+  List<List<double>> get barChartData;
   @override
   double get principal;
   @override

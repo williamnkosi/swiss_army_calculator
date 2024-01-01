@@ -45,13 +45,15 @@ class SimpleInterestPageBloc
 
     final result = calculateSimpleInterest(principle, rate, duration);
     final sections = _generatePieChartSections([principle, result]);
-
+    final barChartData = _generateBarChartData(
+        principal: principle, rate: rate, duration: duration);
     emit(state.copyWith(
         result: result,
         principal: principle,
         rate: rate,
         duration: duration,
-        sections: sections));
+        sections: sections,
+        barChartData: barChartData));
 
     final text = _onPrintOutputEvent();
     emit(state.copyWith(printOutput: text));
@@ -71,5 +73,18 @@ class SimpleInterestPageBloc
         ]);
   }
 
-  _generateBarChartData() {}
+  List<List<double>> _generateBarChartData(
+      {required double principal,
+      required double duration,
+      required double rate}) {
+    double interest = 0;
+    List<double> principalValue = [];
+    List<double> interestRateValues = [];
+    for (int i = 0; i < duration; i++) {
+      interest = interest + principal * rate * 1 / 100;
+      principalValue.add(principal);
+      interestRateValues.add(interest);
+    }
+    return [principalValue, interestRateValues];
+  }
 }
