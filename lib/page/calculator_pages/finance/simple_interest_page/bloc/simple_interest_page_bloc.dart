@@ -43,7 +43,20 @@ class SimpleInterestPageBloc
 
     final result = calculateSimpleInterest(principle, rate, duration);
     final sections = _generatePieChartSections([principle, result]);
-    emit(state.copyWith(result: result, sections: sections));
+
+    emit(state.copyWith(
+        result: result,
+        principal: principle,
+        rate: rate,
+        duration: duration,
+        sections: sections));
+
+    final text = _onPrintOutputEvent();
+    emit(state.copyWith(printOutput: text));
+  }
+
+  String _onPrintOutputEvent() {
+    return 'The simple interest on the ${state.principal} loan over ${state.duration} years at a ${state.rate}% annual interest rate would be ${state.result}';
   }
 
   _generatePieChartSections(List<double> dataPoints) {

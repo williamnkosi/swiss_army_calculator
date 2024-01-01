@@ -19,10 +19,6 @@ import 'simple_interes_text_field_names.dart';
 class SimpleInterest extends StatelessWidget {
   const SimpleInterest({super.key});
 
-  void _checkFormState(BuildContext context) =>
-      BlocProvider.of<SimpleInterestPageBloc>(context)
-          .add(const CheckFormStateEvent());
-
   @override
   Widget build(BuildContext context) {
     return FormBuilder(
@@ -36,21 +32,15 @@ class SimpleInterest extends StatelessWidget {
           const SizedBox(
             height: 16,
           ),
-          Principal(
-            check: _checkFormState,
-          ),
+          const Principal(),
           const SizedBox(
             height: 16,
           ),
-          InterestRate(
-            check: _checkFormState,
-          ),
+          const InterestRate(),
           const SizedBox(
             height: 16,
           ),
-          Duration(
-            check: _checkFormState,
-          ),
+          const Duration(),
           const Column(
             mainAxisAlignment: MainAxisAlignment.end,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -74,6 +64,18 @@ class SimpleInterest extends StatelessWidget {
             ],
           ),
           BlocBuilder<SimpleInterestPageBloc, SimpleInterestPageState>(
+            builder: (context, state) {
+              return Column(
+                children: [
+                  Text(
+                    state.printOutput,
+                    style: TextStyle(fontSize: 18),
+                  ),
+                ],
+              );
+            },
+          ),
+          BlocBuilder<SimpleInterestPageBloc, SimpleInterestPageState>(
             buildWhen: (previous, current) =>
                 previous.sections != current.sections,
             builder: (context, state) {
@@ -81,16 +83,6 @@ class SimpleInterest extends StatelessWidget {
                   height: 200,
                   width: double.infinity,
                   child: PieChartWidget(sections: state.sections));
-            },
-          ),
-          BlocBuilder<SimpleInterestPageBloc, SimpleInterestPageState>(
-            builder: (context, state) {
-              return Column(
-                children: [
-                  const Text('This is the result'),
-                  Text(state.result.toString())
-                ],
-              );
             },
           ),
           BlocBuilder<SimpleInterestPageBloc, SimpleInterestPageState>(
@@ -113,10 +105,8 @@ class SimpleInterest extends StatelessWidget {
 }
 
 class Principal extends StatelessWidget {
-  final Function check;
   const Principal({
     super.key,
-    required this.check,
   });
 
   @override
@@ -132,16 +122,15 @@ class Principal extends StatelessWidget {
         FormBuilderValidators.required(),
         FormBuilderValidators.numeric(),
       ]),
-      onChanged: (text) => check(),
+      onChanged: (text) => BlocProvider.of<SimpleInterestPageBloc>(context)
+          .add(const CheckFormStateEvent()),
     );
   }
 }
 
 class InterestRate extends StatelessWidget {
-  final Function check;
   const InterestRate({
     super.key,
-    required this.check,
   });
 
   @override
@@ -160,7 +149,9 @@ class InterestRate extends StatelessWidget {
               FormBuilderValidators.required(),
               FormBuilderValidators.numeric(),
             ]),
-            onChanged: (text) => check(),
+            onChanged: (text) =>
+                BlocProvider.of<SimpleInterestPageBloc>(context)
+                    .add(const CheckFormStateEvent()),
           ),
         ),
         const SizedBox(
@@ -175,10 +166,8 @@ class InterestRate extends StatelessWidget {
 }
 
 class Duration extends StatelessWidget {
-  final Function check;
   const Duration({
     Key? key,
-    required this.check,
   }) : super(key: key);
 
   @override
@@ -197,7 +186,9 @@ class Duration extends StatelessWidget {
               FormBuilderValidators.required(),
               FormBuilderValidators.numeric(),
             ]),
-            onChanged: (text) => check(),
+            onChanged: (text) =>
+                BlocProvider.of<SimpleInterestPageBloc>(context)
+                    .add(const CheckFormStateEvent()),
           ),
         ),
         const SizedBox(

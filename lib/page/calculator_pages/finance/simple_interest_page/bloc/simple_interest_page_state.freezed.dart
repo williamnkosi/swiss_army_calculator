@@ -18,7 +18,11 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$SimpleInterestPageState {
   GlobalKey<FormBuilderState> get formKey => throw _privateConstructorUsedError;
   List<PieChartSectionData> get sections => throw _privateConstructorUsedError;
+  double get principal => throw _privateConstructorUsedError;
+  double get rate => throw _privateConstructorUsedError;
+  double get duration => throw _privateConstructorUsedError;
   double get result => throw _privateConstructorUsedError;
+  String get printOutput => throw _privateConstructorUsedError;
   dynamic get isExpanded => throw _privateConstructorUsedError;
   dynamic get isDiabled => throw _privateConstructorUsedError;
 
@@ -36,7 +40,11 @@ abstract class $SimpleInterestPageStateCopyWith<$Res> {
   $Res call(
       {GlobalKey<FormBuilderState> formKey,
       List<PieChartSectionData> sections,
+      double principal,
+      double rate,
+      double duration,
       double result,
+      String printOutput,
       dynamic isExpanded,
       dynamic isDiabled});
 }
@@ -57,7 +65,11 @@ class _$SimpleInterestPageStateCopyWithImpl<$Res,
   $Res call({
     Object? formKey = null,
     Object? sections = null,
+    Object? principal = null,
+    Object? rate = null,
+    Object? duration = null,
     Object? result = null,
+    Object? printOutput = null,
     Object? isExpanded = freezed,
     Object? isDiabled = freezed,
   }) {
@@ -70,10 +82,26 @@ class _$SimpleInterestPageStateCopyWithImpl<$Res,
           ? _value.sections
           : sections // ignore: cast_nullable_to_non_nullable
               as List<PieChartSectionData>,
+      principal: null == principal
+          ? _value.principal
+          : principal // ignore: cast_nullable_to_non_nullable
+              as double,
+      rate: null == rate
+          ? _value.rate
+          : rate // ignore: cast_nullable_to_non_nullable
+              as double,
+      duration: null == duration
+          ? _value.duration
+          : duration // ignore: cast_nullable_to_non_nullable
+              as double,
       result: null == result
           ? _value.result
           : result // ignore: cast_nullable_to_non_nullable
               as double,
+      printOutput: null == printOutput
+          ? _value.printOutput
+          : printOutput // ignore: cast_nullable_to_non_nullable
+              as String,
       isExpanded: freezed == isExpanded
           ? _value.isExpanded
           : isExpanded // ignore: cast_nullable_to_non_nullable
@@ -98,7 +126,11 @@ abstract class _$$SimpleInterestPageStateImplCopyWith<$Res>
   $Res call(
       {GlobalKey<FormBuilderState> formKey,
       List<PieChartSectionData> sections,
+      double principal,
+      double rate,
+      double duration,
       double result,
+      String printOutput,
       dynamic isExpanded,
       dynamic isDiabled});
 }
@@ -118,7 +150,11 @@ class __$$SimpleInterestPageStateImplCopyWithImpl<$Res>
   $Res call({
     Object? formKey = null,
     Object? sections = null,
+    Object? principal = null,
+    Object? rate = null,
+    Object? duration = null,
     Object? result = null,
+    Object? printOutput = null,
     Object? isExpanded = freezed,
     Object? isDiabled = freezed,
   }) {
@@ -131,10 +167,26 @@ class __$$SimpleInterestPageStateImplCopyWithImpl<$Res>
           ? _value._sections
           : sections // ignore: cast_nullable_to_non_nullable
               as List<PieChartSectionData>,
+      principal: null == principal
+          ? _value.principal
+          : principal // ignore: cast_nullable_to_non_nullable
+              as double,
+      rate: null == rate
+          ? _value.rate
+          : rate // ignore: cast_nullable_to_non_nullable
+              as double,
+      duration: null == duration
+          ? _value.duration
+          : duration // ignore: cast_nullable_to_non_nullable
+              as double,
       result: null == result
           ? _value.result
           : result // ignore: cast_nullable_to_non_nullable
               as double,
+      printOutput: null == printOutput
+          ? _value.printOutput
+          : printOutput // ignore: cast_nullable_to_non_nullable
+              as String,
       isExpanded: freezed == isExpanded ? _value.isExpanded! : isExpanded,
       isDiabled: freezed == isDiabled ? _value.isDiabled! : isDiabled,
     ));
@@ -147,7 +199,11 @@ class _$SimpleInterestPageStateImpl implements _SimpleInterestPageState {
   const _$SimpleInterestPageStateImpl(
       {required this.formKey,
       final List<PieChartSectionData> sections = const [],
+      this.principal = 0,
+      this.rate = 0,
+      this.duration = 0,
       this.result = 0,
+      this.printOutput = '',
       this.isExpanded = false,
       this.isDiabled = true})
       : _sections = sections;
@@ -165,7 +221,19 @@ class _$SimpleInterestPageStateImpl implements _SimpleInterestPageState {
 
   @override
   @JsonKey()
+  final double principal;
+  @override
+  @JsonKey()
+  final double rate;
+  @override
+  @JsonKey()
+  final double duration;
+  @override
+  @JsonKey()
   final double result;
+  @override
+  @JsonKey()
+  final String printOutput;
   @override
   @JsonKey()
   final dynamic isExpanded;
@@ -175,7 +243,7 @@ class _$SimpleInterestPageStateImpl implements _SimpleInterestPageState {
 
   @override
   String toString() {
-    return 'SimpleInterestPageState(formKey: $formKey, sections: $sections, result: $result, isExpanded: $isExpanded, isDiabled: $isDiabled)';
+    return 'SimpleInterestPageState(formKey: $formKey, sections: $sections, principal: $principal, rate: $rate, duration: $duration, result: $result, printOutput: $printOutput, isExpanded: $isExpanded, isDiabled: $isDiabled)';
   }
 
   @override
@@ -185,7 +253,14 @@ class _$SimpleInterestPageStateImpl implements _SimpleInterestPageState {
             other is _$SimpleInterestPageStateImpl &&
             (identical(other.formKey, formKey) || other.formKey == formKey) &&
             const DeepCollectionEquality().equals(other._sections, _sections) &&
+            (identical(other.principal, principal) ||
+                other.principal == principal) &&
+            (identical(other.rate, rate) || other.rate == rate) &&
+            (identical(other.duration, duration) ||
+                other.duration == duration) &&
             (identical(other.result, result) || other.result == result) &&
+            (identical(other.printOutput, printOutput) ||
+                other.printOutput == printOutput) &&
             const DeepCollectionEquality()
                 .equals(other.isExpanded, isExpanded) &&
             const DeepCollectionEquality().equals(other.isDiabled, isDiabled));
@@ -196,7 +271,11 @@ class _$SimpleInterestPageStateImpl implements _SimpleInterestPageState {
       runtimeType,
       formKey,
       const DeepCollectionEquality().hash(_sections),
+      principal,
+      rate,
+      duration,
       result,
+      printOutput,
       const DeepCollectionEquality().hash(isExpanded),
       const DeepCollectionEquality().hash(isDiabled));
 
@@ -212,7 +291,11 @@ abstract class _SimpleInterestPageState implements SimpleInterestPageState {
   const factory _SimpleInterestPageState(
       {required final GlobalKey<FormBuilderState> formKey,
       final List<PieChartSectionData> sections,
+      final double principal,
+      final double rate,
+      final double duration,
       final double result,
+      final String printOutput,
       final dynamic isExpanded,
       final dynamic isDiabled}) = _$SimpleInterestPageStateImpl;
 
@@ -221,7 +304,15 @@ abstract class _SimpleInterestPageState implements SimpleInterestPageState {
   @override
   List<PieChartSectionData> get sections;
   @override
+  double get principal;
+  @override
+  double get rate;
+  @override
+  double get duration;
+  @override
   double get result;
+  @override
+  String get printOutput;
   @override
   dynamic get isExpanded;
   @override

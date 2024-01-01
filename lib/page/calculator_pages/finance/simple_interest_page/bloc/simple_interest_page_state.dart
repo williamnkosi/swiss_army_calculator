@@ -9,7 +9,11 @@ class SimpleInterestPageState with _$SimpleInterestPageState {
   const factory SimpleInterestPageState({
     required GlobalKey<FormBuilderState> formKey,
     @Default([]) List<PieChartSectionData> sections,
+    @Default(0) double principal,
+    @Default(0) double rate,
+    @Default(0) double duration,
     @Default(0) double result,
+    @Default('') String printOutput,
     @Default(false) isExpanded,
     @Default(true) isDiabled,
   }) = _SimpleInterestPageState;
