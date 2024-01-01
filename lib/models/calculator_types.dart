@@ -8,3 +8,13 @@ enum CalculatorTypes {
   const CalculatorTypes(this.value);
   final String value;
 }
+
+enum FinanceCalculators {
+  simpleInterest('Simple Interest'),
+  compoundInterest('Compound Interest'),
+  calculator401k('401k'),
+  loan('Loan');
+
+  const FinanceCalculators(this.value);
+  final String value;
+}

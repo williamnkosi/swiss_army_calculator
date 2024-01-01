@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:swiss_army_calculator/bottom_navigation_bar.dart';
 import 'package:swiss_army_calculator/page/account.dart';
+import 'package:swiss_army_calculator/page/calculator_pages/finance/finance_list_page.dart';
 import 'package:swiss_army_calculator/page/favorites.dart';
 import 'package:swiss_army_calculator/page/home.dart';
 import 'package:swiss_army_calculator/widgets/bottom_navigation_bar/cubit/bottom_navigation_bar_cubit.dart';
@@ -49,6 +50,10 @@ class MyApp extends StatelessWidget {
             // You can extract parameters from settings.arguments
             return MaterialPageRoute(
                 builder: (context) => const FavoritesPage());
+          case '/finance':
+            return MaterialPageRoute(
+                builder: (context) => const FinanceListPage());
+
           default:
             // Handle unknown routes or provide a default page
             return MaterialPageRoute(builder: (context) => const AccountPage());
