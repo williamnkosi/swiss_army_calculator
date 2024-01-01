@@ -1,22 +1,6 @@
 import 'package:flutter/material.dart';
 
-class ThemeColors {
-  final Color mainColor;
-  final Color secondaryColor;
-  final Color accentColor;
-
-  ThemeColors(
-      {required this.mainColor,
-      required this.secondaryColor,
-      required this.accentColor});
-}
-
-Map<String, ThemeColors> appThemes = {
-  'current': ThemeColors(
-      mainColor: const Color(0xFF1404d6),
-      secondaryColor: const Color(0xFFF4F4FB),
-      accentColor: const Color(0xFF0459AF))
-};
+import 'theme_colors.dart';
 
 class ThemeProvider {
   static ThemeData returnTheme({required ThemeColors theme}) {
