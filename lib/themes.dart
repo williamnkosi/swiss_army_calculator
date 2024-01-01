@@ -1,22 +1,37 @@
 import 'package:flutter/material.dart';
 
+class ThemeColors {
+  final Color mainColor;
+  final Color secondaryColor;
+  final Color accentColor;
+
+  ThemeColors(
+      {required this.mainColor,
+      required this.secondaryColor,
+      required this.accentColor});
+}
+
+Map<String, ThemeColors> appThemes = {
+  'current': ThemeColors(
+      mainColor: const Color(0xFF1404d6),
+      secondaryColor: const Color(0xFFF4F4FB),
+      accentColor: const Color(0xFF0459AF))
+};
+
 class ThemeProvider {
-  static ThemeData returnTheme(
-      {required Color mainColor,
-      required Color secondaryColor,
-      required Color accentColor}) {
+  static ThemeData returnTheme({required ThemeColors theme}) {
     return ThemeData.dark().copyWith(
-      scaffoldBackgroundColor: mainColor,
+      scaffoldBackgroundColor: theme.mainColor,
       appBarTheme: AppBarTheme(
-          backgroundColor: mainColor,
-          titleTextStyle:
-              TextStyle(color: secondaryColor, fontWeight: FontWeight.bold),
-          iconTheme: IconThemeData(color: secondaryColor)),
+          backgroundColor: theme.mainColor,
+          titleTextStyle: TextStyle(
+              color: theme.secondaryColor, fontWeight: FontWeight.bold),
+          iconTheme: IconThemeData(color: theme.secondaryColor)),
       colorScheme: ColorScheme(
           brightness: Brightness.dark,
-          primary: mainColor,
-          onPrimary: mainColor,
-          secondary: secondaryColor,
+          primary: theme.mainColor,
+          onPrimary: theme.mainColor,
+          secondary: theme.secondaryColor,
           onSecondary: Colors.white,
           error: Colors.red,
           onError: Colors.red,
@@ -25,12 +40,12 @@ class ThemeProvider {
           surface: Colors.white,
           onSurface: Colors.blue),
       listTileTheme: ListTileThemeData(
-        textColor: secondaryColor,
+        textColor: theme.secondaryColor,
         titleTextStyle: const TextStyle(fontWeight: FontWeight.bold),
       ),
       textTheme: const TextTheme(),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
-        backgroundColor: mainColor,
+        backgroundColor: theme.mainColor,
         selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
       ),
     );
