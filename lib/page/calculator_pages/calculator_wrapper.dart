@@ -14,7 +14,6 @@ class CalculatorPageWrapper<T> extends StatelessWidget {
     return Scaffold(
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
           title: Text(title),
         ),
         body: Padding(

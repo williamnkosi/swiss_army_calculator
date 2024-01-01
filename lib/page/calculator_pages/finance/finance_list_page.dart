@@ -23,7 +23,6 @@ class FinanceListPage extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: const Text('Finance'),
-          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         ),
         body: ListView.builder(
           itemCount: FinanceCalculators.values.length,

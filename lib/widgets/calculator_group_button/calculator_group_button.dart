@@ -13,12 +13,17 @@ class CalculatorGroupButton extends StatelessWidget {
         width: 200,
         height: 100,
         decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20.0),
           border: Border.all(
-            color: Colors.deepPurple,
+            color: Theme.of(context).colorScheme.onSecondary,
             width: 2.0,
           ),
         ),
-        child: Center(child: Text(title)),
+        child: Center(
+            child: Text(
+          title,
+          style: const TextStyle(fontWeight: FontWeight.bold),
+        )),
       ),
     );
   }
