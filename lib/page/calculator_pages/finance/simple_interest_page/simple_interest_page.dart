@@ -16,7 +16,7 @@ import 'bloc/simple_interest_page_state.dart';
 import 'simple_interes_text_field_names.dart';
 
 class SimpleInterest extends StatelessWidget {
-  SimpleInterest({super.key});
+  const SimpleInterest({super.key});
 // Your data values
 
   @override

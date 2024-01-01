@@ -16,37 +16,42 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$AppEvent {
+  ThemeNames get themeName => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function(ThemeNames themeName) appSwitchTheme,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
+    TResult? Function(ThemeNames themeName)? appSwitchTheme,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function(ThemeNames themeName)? appSwitchTheme,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(AppSwitchTheme value) appSwitchTheme,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(AppSwitchTheme value)? appSwitchTheme,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(AppSwitchTheme value)? appSwitchTheme,
     required TResult orElse(),
   }) =>
+      throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $AppEventCopyWith<AppEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -54,6 +59,8 @@ mixin _$AppEvent {
 abstract class $AppEventCopyWith<$Res> {
   factory $AppEventCopyWith(AppEvent value, $Res Function(AppEvent) then) =
       _$AppEventCopyWithImpl<$Res, AppEvent>;
+  @useResult
+  $Res call({ThemeNames themeName});
 }
 
 /// @nodoc
@@ -65,67 +72,110 @@ class _$AppEventCopyWithImpl<$Res, $Val extends AppEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? themeName = null,
+  }) {
+    return _then(_value.copyWith(
+      themeName: null == themeName
+          ? _value.themeName
+          : themeName // ignore: cast_nullable_to_non_nullable
+              as ThemeNames,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$StartedImplCopyWith<$Res> {
-  factory _$$StartedImplCopyWith(
-          _$StartedImpl value, $Res Function(_$StartedImpl) then) =
-      __$$StartedImplCopyWithImpl<$Res>;
+abstract class _$$AppSwitchThemeImplCopyWith<$Res>
+    implements $AppEventCopyWith<$Res> {
+  factory _$$AppSwitchThemeImplCopyWith(_$AppSwitchThemeImpl value,
+          $Res Function(_$AppSwitchThemeImpl) then) =
+      __$$AppSwitchThemeImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({ThemeNames themeName});
 }
 
 /// @nodoc
-class __$$StartedImplCopyWithImpl<$Res>
-    extends _$AppEventCopyWithImpl<$Res, _$StartedImpl>
-    implements _$$StartedImplCopyWith<$Res> {
-  __$$StartedImplCopyWithImpl(
-      _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
+class __$$AppSwitchThemeImplCopyWithImpl<$Res>
+    extends _$AppEventCopyWithImpl<$Res, _$AppSwitchThemeImpl>
+    implements _$$AppSwitchThemeImplCopyWith<$Res> {
+  __$$AppSwitchThemeImplCopyWithImpl(
+      _$AppSwitchThemeImpl _value, $Res Function(_$AppSwitchThemeImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? themeName = null,
+  }) {
+    return _then(_$AppSwitchThemeImpl(
+      themeName: null == themeName
+          ? _value.themeName
+          : themeName // ignore: cast_nullable_to_non_nullable
+              as ThemeNames,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$StartedImpl implements _Started {
-  const _$StartedImpl();
+class _$AppSwitchThemeImpl implements AppSwitchTheme {
+  const _$AppSwitchThemeImpl({required this.themeName});
+
+  @override
+  final ThemeNames themeName;
 
   @override
   String toString() {
-    return 'AppEvent.started()';
+    return 'AppEvent.appSwitchTheme(themeName: $themeName)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$StartedImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$AppSwitchThemeImpl &&
+            (identical(other.themeName, themeName) ||
+                other.themeName == themeName));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, themeName);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AppSwitchThemeImplCopyWith<_$AppSwitchThemeImpl> get copyWith =>
+      __$$AppSwitchThemeImplCopyWithImpl<_$AppSwitchThemeImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function(ThemeNames themeName) appSwitchTheme,
   }) {
-    return started();
+    return appSwitchTheme(themeName);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
+    TResult? Function(ThemeNames themeName)? appSwitchTheme,
   }) {
-    return started?.call();
+    return appSwitchTheme?.call(themeName);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function(ThemeNames themeName)? appSwitchTheme,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started();
+    if (appSwitchTheme != null) {
+      return appSwitchTheme(themeName);
     }
     return orElse();
   }
@@ -133,34 +183,42 @@ class _$StartedImpl implements _Started {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(AppSwitchTheme value) appSwitchTheme,
   }) {
-    return started(this);
+    return appSwitchTheme(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(AppSwitchTheme value)? appSwitchTheme,
   }) {
-    return started?.call(this);
+    return appSwitchTheme?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(AppSwitchTheme value)? appSwitchTheme,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started(this);
+    if (appSwitchTheme != null) {
+      return appSwitchTheme(this);
     }
     return orElse();
   }
 }
 
-abstract class _Started implements AppEvent {
-  const factory _Started() = _$StartedImpl;
+abstract class AppSwitchTheme implements AppEvent {
+  const factory AppSwitchTheme({required final ThemeNames themeName}) =
+      _$AppSwitchThemeImpl;
+
+  @override
+  ThemeNames get themeName;
+  @override
+  @JsonKey(ignore: true)
+  _$$AppSwitchThemeImplCopyWith<_$AppSwitchThemeImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -193,10 +251,10 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? theme = freezed,
+    Object? theme = null,
   }) {
     return _then(_value.copyWith(
-      theme: freezed == theme
+      theme: null == theme
           ? _value.theme
           : theme // ignore: cast_nullable_to_non_nullable
               as ThemeData,
@@ -226,10 +284,10 @@ class __$$AppStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? theme = freezed,
+    Object? theme = null,
   }) {
     return _then(_$AppStateImpl(
-      theme: freezed == theme
+      theme: null == theme
           ? _value.theme
           : theme // ignore: cast_nullable_to_non_nullable
               as ThemeData,
@@ -255,12 +313,11 @@ class _$AppStateImpl implements _AppState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AppStateImpl &&
-            const DeepCollectionEquality().equals(other.theme, theme));
+            (identical(other.theme, theme) || other.theme == theme));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(theme));
+  int get hashCode => Object.hash(runtimeType, theme);
 
   @JsonKey(ignore: true)
   @override

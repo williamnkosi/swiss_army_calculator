@@ -12,9 +12,12 @@ part 'app_bloc.freezed.dart';
 class AppBloc extends Bloc<AppEvent, AppState> {
   AppBloc()
       : super(AppState(
-            theme: ThemeProvider.returnTheme(theme: appThemes['brown']!))) {
-    on<AppEvent>((event, emit) {
-      // TODO: implement event handler
-    });
+            theme: ThemeProvider.returnTheme(
+                theme: appThemes.entries.first.value))) {
+    on<AppSwitchTheme>(_onAppSwitchTheme);
+  }
+  _onAppSwitchTheme(AppSwitchTheme event, emit) {
+    final theme = ThemeProvider.returnTheme(theme: appThemes[event.themeName]!);
+    emit(state.copyWith(theme: theme));
   }
 }
