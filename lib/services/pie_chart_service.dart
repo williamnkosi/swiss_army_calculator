@@ -4,7 +4,8 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
 class PieChartService {
-  List<PieChartSectionData> generatePieChartSections(List<double> dataPoints) {
+  List<PieChartSectionData> generatePieChartSections(
+      {required List<double> dataPoints, List<String>? sectionNames}) {
     List<PieChartSectionData> sections = [];
     double total =
         dataPoints.fold(0, (previous, current) => previous + current);
@@ -15,9 +16,10 @@ class PieChartService {
         PieChartSectionData(
           color: _getRandomColor(),
           value: percentage * 100,
-          title: '${(percentage * 100).toStringAsFixed(2)}%',
+          title:
+              '${(percentage * 100).toStringAsFixed(2)}% - ${sectionNames?[i] ?? sectionNames![i]} ',
           radius: 50,
-          showTitle: true,
+          showTitle: false,
           titleStyle: const TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.bold,

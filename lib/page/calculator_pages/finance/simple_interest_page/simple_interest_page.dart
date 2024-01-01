@@ -41,27 +41,8 @@ class SimpleInterest extends StatelessWidget {
             height: 16,
           ),
           const Duration(),
-          const Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Indicator(
-                color: Colors.blue,
-                text: 'First',
-                isSquare: true,
-              ),
-              SizedBox(
-                height: 4,
-              ),
-              Indicator(
-                color: Colors.red,
-                text: 'Second',
-                isSquare: true,
-              ),
-              SizedBox(
-                height: 4,
-              ),
-            ],
+          const SizedBox(
+            height: 24,
           ),
           BlocBuilder<SimpleInterestPageBloc, SimpleInterestPageState>(
             builder: (context, state) {
@@ -69,7 +50,7 @@ class SimpleInterest extends StatelessWidget {
                 children: [
                   Text(
                     state.printOutput,
-                    style: TextStyle(fontSize: 18),
+                    style: const TextStyle(fontSize: 18),
                   ),
                 ],
               );

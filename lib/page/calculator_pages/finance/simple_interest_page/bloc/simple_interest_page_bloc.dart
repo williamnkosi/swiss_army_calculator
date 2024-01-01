@@ -61,6 +61,11 @@ class SimpleInterestPageBloc
 
   _generatePieChartSections(List<double> dataPoints) {
     final service = PieChartService();
-    return service.generatePieChartSections(dataPoints);
+    return service.generatePieChartSections(
+        dataPoints: dataPoints,
+        sectionNames: [
+          SimpleInterestTextFieldNames.principal.value,
+          'Interest'
+        ]);
   }
 }
