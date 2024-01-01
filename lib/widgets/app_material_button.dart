@@ -16,12 +16,12 @@ class AppMaterialButton extends StatelessWidget {
       color: Theme.of(context).colorScheme.inversePrimary,
       onPressed: isDisabled ? null : () => onPressed(),
       child: SizedBox(
-        width: double.infinity,
         child: Center(
-            child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Text(buttonTitle),
-        )),
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Text(buttonTitle),
+          ),
+        ),
       ),
     );
   }

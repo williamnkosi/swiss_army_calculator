@@ -24,63 +24,66 @@ class SimpleInterest extends StatelessWidget {
     return FormBuilder(
       autovalidateMode: AutovalidateMode.disabled,
       key: BlocProvider.of<SimpleInterestPageBloc>(context).state.formKey,
-      child: ListView(
-        children: [
-          AppExpansionTile(
-              title: FinanceCalculators.simpleInterest.value,
-              description: finanaceData[FinanceCalculators.simpleInterest]!),
-          const SizedBox(
-            height: 16,
-          ),
-          const Principal(),
-          const SizedBox(
-            height: 16,
-          ),
-          const InterestRate(),
-          const SizedBox(
-            height: 16,
-          ),
-          const Duration(),
-          const SizedBox(
-            height: 24,
-          ),
-          BlocBuilder<SimpleInterestPageBloc, SimpleInterestPageState>(
-            builder: (context, state) {
-              return Column(
-                children: [
-                  Text(
-                    state.printOutput,
-                    style: const TextStyle(fontSize: 18),
-                  ),
-                ],
-              );
-            },
-          ),
-          BlocBuilder<SimpleInterestPageBloc, SimpleInterestPageState>(
-            buildWhen: (previous, current) =>
-                previous.sections != current.sections,
-            builder: (context, state) {
-              return SizedBox(
-                  height: 200,
-                  width: double.infinity,
-                  child: PieChartWidget(sections: state.sections));
-            },
-          ),
-          BlocBuilder<SimpleInterestPageBloc, SimpleInterestPageState>(
-            builder: (context, state) {
-              return AppMaterialButton(
+      child: Stack(children: [
+        ListView(
+          children: [
+            AppExpansionTile(
+                title: FinanceCalculators.simpleInterest.value,
+                description: finanaceData[FinanceCalculators.simpleInterest]!),
+            const SizedBox(
+              height: 16,
+            ),
+            const Principal(),
+            const SizedBox(
+              height: 16,
+            ),
+            const InterestRate(),
+            const SizedBox(
+              height: 16,
+            ),
+            const Duration(),
+            const SizedBox(
+              height: 24,
+            ),
+            BlocBuilder<SimpleInterestPageBloc, SimpleInterestPageState>(
+              builder: (context, state) {
+                return Column(
+                  children: [
+                    Text(
+                      state.printOutput,
+                      style: const TextStyle(fontSize: 18),
+                    ),
+                  ],
+                );
+              },
+            ),
+            BlocBuilder<SimpleInterestPageBloc, SimpleInterestPageState>(
+              buildWhen: (previous, current) =>
+                  previous.sections != current.sections,
+              builder: (context, state) {
+                return SizedBox(
+                    height: 200,
+                    width: double.infinity,
+                    child: PieChartWidget(sections: state.sections));
+              },
+            ),
+          ],
+        ),
+        BlocBuilder<SimpleInterestPageBloc, SimpleInterestPageState>(
+          builder: (context, state) {
+            return Positioned(
+              bottom: 24,
+              width: MediaQuery.of(context).size.width - 32,
+              child: AppMaterialButton(
                   isDisabled: state.isDiabled,
                   buttonTitle: 'Calculate',
                   onPressed: () =>
                       BlocProvider.of<SimpleInterestPageBloc>(context)
-                          .add(const CalculateResultEvent()));
-            },
-          ),
-          const SizedBox(
-            height: 16,
-          )
-        ],
-      ),
+                          .add(const CalculateResultEvent())),
+            );
+          },
+        ),
+      ]),
     );
   }
 }
