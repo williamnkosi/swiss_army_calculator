@@ -1,7 +1,11 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
+import '../locator_service.dart';
+import '../theme_service/theme_service.dart';
+
 class BarChartService {
+  final _themeService = getIt.get<ThemeService>();
   static BarChart generateBarChart(
       List<BarChartGroupData> data, double maxYHeight) {
     return BarChart(BarChartData(
@@ -43,7 +47,7 @@ class BarChartService {
         barGroups: data));
   }
 
-  static List<BarChartGroupData> generateBarGroups(
+  List<BarChartGroupData> generateBarGroups(
       {required List<double> values, List<double>? values2}) {
     List<BarChartGroupData> barGroups = [];
 
@@ -59,14 +63,14 @@ class BarChartService {
                 fromY: values[i] - (values[i] * 0.1),
                 toY: values2![i] + values[i],
                 width: 10,
-                color: Colors.blue,
+                color: _themeService.getAppTheme().contrast2,
               ),
             BarChartRodData(
               borderRadius: BorderRadius.zero,
               fromY: 0,
               toY: values[i],
               width: 10,
-              color: Colors.red,
+              color: _themeService.getAppTheme().contrast1,
             ),
           ],
         ),
