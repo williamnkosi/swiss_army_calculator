@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
-
-import 'app_themes.dart';
 import 'theme_colors.dart';
 
 class ThemeService {
   ThemeData theme;
   ThemeColors themeName;
   ThemeService({required this.theme, required this.themeName});
-
   ThemeColors getAppTheme() {
     return themeName;
   }

@@ -7,7 +7,7 @@ class CalculatorGroupButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      splashColor: Colors.deepPurple[100],
+      splashColor: Theme.of(context).colorScheme.secondary.withOpacity(0.1),
       onTap: () => {Navigator.pushNamed(context, '/${title.toLowerCase()}')},
       child: Container(
         width: 200,
