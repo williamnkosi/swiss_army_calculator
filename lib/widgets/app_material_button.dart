@@ -12,14 +12,21 @@ class AppMaterialButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialButton(
-      color: Theme.of(context).colorScheme.inversePrimary,
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        disabledBackgroundColor:
+            Theme.of(context).colorScheme.secondary.withOpacity(0.3),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(3)),
+      ),
       onPressed: isDisabled ? null : () => onPressed(),
       child: SizedBox(
         child: Center(
           child: Padding(
             padding: const EdgeInsets.all(16.0),
-            child: Text(buttonTitle),
+            child: Text(
+              buttonTitle,
+              style: const TextStyle(fontWeight: FontWeight.bold),
+            ),
           ),
         ),
       ),

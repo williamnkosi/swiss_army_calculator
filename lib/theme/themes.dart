@@ -25,9 +25,38 @@ class ThemeProvider {
           onSurface: Colors.blue),
       listTileTheme: ListTileThemeData(
         textColor: theme.secondaryColor,
+        iconColor: theme.secondaryColor,
         titleTextStyle: const TextStyle(fontWeight: FontWeight.bold),
       ),
       textTheme: const TextTheme(),
+      inputDecorationTheme: InputDecorationTheme(
+        hintStyle: TextStyle(color: theme.secondaryColor),
+        border: OutlineInputBorder(
+          borderSide: BorderSide(
+              color: theme
+                  .secondaryColor), // Set the border color for enabled state
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+              color: theme
+                  .secondaryColor), // Set the border color for enabled state
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+              width: 3.0,
+              color: theme
+                  .secondaryColor), // Set the border color for enabled state
+        ),
+
+        // Customize other input decoration properties as needed
+      ),
+      expansionTileTheme: ExpansionTileThemeData(
+          iconColor: theme.mainColor,
+          textColor: theme.mainColor,
+          collapsedIconColor: theme.mainColor,
+          collapsedTextColor: theme.mainColor,
+          backgroundColor: theme.secondaryColor,
+          collapsedBackgroundColor: theme.secondaryColor),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         backgroundColor: theme.mainColor,
         selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),

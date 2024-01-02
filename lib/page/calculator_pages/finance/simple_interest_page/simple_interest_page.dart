@@ -98,7 +98,7 @@ class SimpleInterest extends StatelessWidget {
               width: MediaQuery.of(context).size.width - 32,
               child: AppMaterialButton(
                   isDisabled: state.isDiabled,
-                  buttonTitle: 'Calculate',
+                  buttonTitle: 'CALCULATE',
                   onPressed: () =>
                       BlocProvider.of<SimpleInterestPageBloc>(context)
                           .add(const CalculateResultEvent())),
