@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 import 'theme_colors.dart';
 
 class ThemeProvider {
+  ThemeData theme;
+
+  ThemeProvider({required this.theme});
+
   static ThemeData returnTheme({required ThemeColors theme}) {
     return ThemeData.dark().copyWith(
       scaffoldBackgroundColor: theme.mainColor,
