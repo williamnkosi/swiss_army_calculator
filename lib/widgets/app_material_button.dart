@@ -15,7 +15,7 @@ class AppMaterialButton extends StatelessWidget {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         disabledBackgroundColor:
-            Theme.of(context).colorScheme.secondary.withOpacity(0.3),
+            Theme.of(context).colorScheme.secondary.withOpacity(0.2),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(3)),
       ),
       onPressed: isDisabled ? null : () => onPressed(),
