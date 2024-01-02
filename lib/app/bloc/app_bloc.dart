@@ -1,26 +1,29 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:swiss_army_calculator/theme/themes.dart';
+import 'package:swiss_army_calculator/services/theme_service/theme_service.dart';
 
 import '../../services/locator_service.dart';
-import '../../theme/app_themes.dart';
+import '../../services/theme_service/app_themes.dart';
 
 part 'app_event.dart';
 part 'app_state.dart';
 part 'app_bloc.freezed.dart';
 
 class AppBloc extends Bloc<AppEvent, AppState> {
-  AppBloc()
-      : super(AppState(
-            theme: ThemeProvider.returnTheme(
-                theme: appThemes.entries.first.value))) {
+  var themeService = getIt.get<ThemeService>();
+  AppBloc() : super(const AppState()) {
+    on<AppStart>(_onAppStart);
     on<AppSwitchTheme>(_onAppSwitchTheme);
   }
+
+  _onAppStart(AppStart event, emit) {
+    emit(state.copyWith(theme: themeService.theme));
+  }
+
   _onAppSwitchTheme(AppSwitchTheme event, emit) {
-    var myAppModel = getIt.get<ThemeProvider>();
-    final theme = ThemeProvider.returnTheme(theme: appThemes[event.themeName]!);
-    myAppModel.theme = theme;
+    final theme = ThemeService.returnTheme(theme: appThemes[event.themeName]!);
+    themeService.theme = theme;
     emit(state.copyWith(theme: theme));
   }
 }

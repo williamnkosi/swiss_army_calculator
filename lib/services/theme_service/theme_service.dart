@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 
+import 'app_themes.dart';
 import 'theme_colors.dart';
 
-class ThemeProvider {
+class ThemeService {
   ThemeData theme;
+  ThemeColors themeName;
+  ThemeService({required this.theme, required this.themeName});
 
-  ThemeProvider({required this.theme});
+  ThemeColors getAppTheme() {
+    return themeName;
+  }
 
   static ThemeData returnTheme({required ThemeColors theme}) {
     return ThemeData.dark().copyWith(
@@ -46,13 +51,8 @@ class ThemeProvider {
                   .secondaryColor), // Set the border color for enabled state
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(
-              width: 3.0,
-              color: theme
-                  .secondaryColor), // Set the border color for enabled state
+          borderSide: BorderSide(width: 3.0, color: theme.secondaryColor),
         ),
-
-        // Customize other input decoration properties as needed
       ),
       expansionTileTheme: ExpansionTileThemeData(
           iconColor: theme.mainColor,

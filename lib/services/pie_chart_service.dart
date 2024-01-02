@@ -1,9 +1,11 @@
-import 'dart:math';
-
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:swiss_army_calculator/services/locator_service.dart';
+
+import 'theme_service/theme_service.dart';
 
 class PieChartService {
+  final _themeService = getIt.get<ThemeService>();
   List<PieChartSectionData> generatePieChartSections(
       {required List<double> dataPoints, List<String>? sectionNames}) {
     List<PieChartSectionData> sections = [];
@@ -14,7 +16,7 @@ class PieChartService {
       double percentage = dataPoints[i] / total;
       sections.add(
         PieChartSectionData(
-          color: _getRandomColor(),
+          color: _getColor(i),
           value: percentage * 100,
           title:
               '${(percentage * 100).toStringAsFixed(2)}% - ${sectionNames?[i] ?? sectionNames![i]} ',
@@ -31,9 +33,9 @@ class PieChartService {
     return sections;
   }
 
-  Color _getRandomColor() {
-    Random random = Random();
-    return Color.fromRGBO(
-        random.nextInt(256), random.nextInt(256), random.nextInt(256), 1);
+  Color _getColor(int i) {
+    if (i == 0) return _themeService.getAppTheme().contrast1;
+    if (i == 1) return _themeService.getAppTheme().contrast2;
+    return _themeService.getAppTheme().contrast3;
   }
 }

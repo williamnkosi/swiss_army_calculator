@@ -1,11 +1,12 @@
 import 'package:get_it/get_it.dart';
 
-import 'package:swiss_army_calculator/theme/themes.dart';
+import 'package:swiss_army_calculator/services/theme_service/theme_service.dart';
 
-import '../theme/app_themes.dart';
+import 'theme_service/app_themes.dart';
 
 GetIt getIt = GetIt.instance;
-void setup() {
-  getIt.registerSingleton<ThemeProvider>(ThemeProvider(
-      theme: ThemeProvider.returnTheme(theme: appThemes.entries.first.value)));
+void setupGetIt() async {
+  getIt.registerSingleton<ThemeService>(ThemeService(
+      theme: ThemeService.returnTheme(theme: appThemes.entries.first.value),
+      themeName: appThemes.entries.first.value));
 }

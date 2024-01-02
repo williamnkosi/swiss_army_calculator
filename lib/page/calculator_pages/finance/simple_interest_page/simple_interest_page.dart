@@ -16,9 +16,8 @@ import 'bloc/simple_interest_page_state.dart';
 import 'simple_interes_text_field_names.dart';
 
 class SimpleInterest extends StatelessWidget {
-  const SimpleInterest({super.key});
-// Your data values
-
+  SimpleInterest({super.key});
+  final barChartService = BarChartService();
   @override
   Widget build(BuildContext context) {
     return FormBuilder(
@@ -78,7 +77,7 @@ class SimpleInterest extends StatelessWidget {
                     padding: const EdgeInsets.only(right: 8),
                     child: state.barChartData.isNotEmpty
                         ? BarChartService.generateBarChart(
-                            BarChartService.generateBarGroups(
+                            barChartService.generateBarGroups(
                                 values: state.barChartData[0],
                                 values2: state.barChartData[1]),
                             state.barChartData[0][0] +

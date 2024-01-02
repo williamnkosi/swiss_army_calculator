@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:swiss_army_calculator/theme/app_themes.dart';
+import 'package:swiss_army_calculator/services/theme_service/app_themes.dart';
 
 import '../app/bloc/app_bloc.dart';
 
@@ -19,11 +19,11 @@ class AccountPage extends StatelessWidget {
                     .add(AppSwitchTheme(themeName: entry.key));
               },
               style: ElevatedButton.styleFrom(
-                shape: CircleBorder(),
-                padding: EdgeInsets.all(16.0),
+                shape: const CircleBorder(),
+                padding: const EdgeInsets.all(16.0),
                 primary: entry.value.mainColor,
               ),
-              child: Container(
+              child: const SizedBox(
                 width: 50.0,
                 height: 50.0,
               ),
