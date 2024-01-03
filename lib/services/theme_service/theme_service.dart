@@ -34,7 +34,9 @@ class ThemeService {
         iconColor: theme.secondaryColor,
         titleTextStyle: const TextStyle(fontWeight: FontWeight.bold),
       ),
-      textTheme: const TextTheme(),
+      textTheme: TextTheme(
+          titleMedium: TextStyle(color: theme.mainColor),
+          titleSmall: TextStyle(color: theme.mainColor)),
       inputDecorationTheme: InputDecorationTheme(
         hintStyle: TextStyle(color: theme.secondaryColor),
         border: OutlineInputBorder(

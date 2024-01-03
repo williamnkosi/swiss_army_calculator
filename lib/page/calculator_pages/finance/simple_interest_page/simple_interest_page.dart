@@ -8,7 +8,7 @@ import 'package:swiss_army_calculator/services/bar_chart_service/bar_chart_servi
 import 'package:swiss_army_calculator/widgets/app_expansion_tile.dart';
 import '../../../../models/calculator_types.dart';
 import '../../../../widgets/app_material_button.dart';
-import '../../../../widgets/drop_down_button.dart';
+import '../../../../widgets/bottom_sheet/app_bottom_sheet.dart';
 import '../../../../widgets/pie_chart.dart/pie_chart.dart';
 import 'bloc/simple_interest_page_bloc.dart';
 import 'bloc/simple_interest_page_event.dart';
@@ -140,32 +140,98 @@ class InterestRate extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Flexible(
-          child: FormBuilderTextField(
-            keyboardType: TextInputType.number,
-            name: SimpleInterestTextFieldNames.rate.value,
-            decoration: const InputDecoration(
-              border: OutlineInputBorder(),
-              hintText: 'Interest Rate (%)',
+    return IntrinsicHeight(
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Flexible(
+            flex: 3,
+            child: FormBuilderTextField(
+              keyboardType: TextInputType.number,
+              name: SimpleInterestTextFieldNames.rate.value,
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                hintText: 'Interest Rate (%)',
+              ),
+              validator: FormBuilderValidators.compose([
+                FormBuilderValidators.required(),
+                FormBuilderValidators.numeric(),
+              ]),
+              onChanged: (text) =>
+                  BlocProvider.of<SimpleInterestPageBloc>(context)
+                      .add(const CheckFormStateEvent()),
             ),
-            validator: FormBuilderValidators.compose([
-              FormBuilderValidators.required(),
-              FormBuilderValidators.numeric(),
-            ]),
-            onChanged: (text) =>
-                BlocProvider.of<SimpleInterestPageBloc>(context)
-                    .add(const CheckFormStateEvent()),
           ),
+          const SizedBox(
+            width: 16,
+          ),
+          BlocBuilder<SimpleInterestPageBloc, SimpleInterestPageState>(
+            builder: (context, state) {
+              return ValueButton(
+                buttonTitle: state.periodicType.value,
+                onPressed: () {
+                  appShowBottomSheet(
+                      context: context,
+                      title: 'testing',
+                      subTitle: 'Some more testing',
+                      child: RowOfOptions(options: ['testing', 'tset', 'ate']));
+                },
+              );
+            },
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class RowOfOptions<T> extends StatelessWidget {
+  final List<T> options;
+  const RowOfOptions({super.key, required this.options});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: options.map((e) {
+          return OutlinedButton(
+            onPressed: () {
+              debugPrint('Received click');
+            },
+            child: const Text('Click Me'),
+          );
+        }).toList());
+  }
+}
+
+class ValueButton extends StatelessWidget {
+  final String buttonTitle;
+  final Function onPressed;
+  const ValueButton({
+    super.key,
+    required this.buttonTitle,
+    required this.onPressed,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: InkWell(
+        onTap: () => onPressed(),
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(4),
+            color: Theme.of(context).colorScheme.secondary,
+          ),
+          child: Center(
+              child: Text(
+            buttonTitle,
+            style: TextStyle(
+                color: Theme.of(context).colorScheme.primary,
+                fontWeight: FontWeight.bold),
+          )),
         ),
-        const SizedBox(
-          width: 16,
-        ),
-        const DropdownButtonExample(
-          values: ['Years', 'Months', 'Days'],
-        )
-      ],
+      ),
     );
   }
 }
@@ -177,32 +243,43 @@ class Duration extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Flexible(
-          child: FormBuilderTextField(
-            keyboardType: TextInputType.number,
-            name: SimpleInterestTextFieldNames.duration.value,
-            decoration: const InputDecoration(
-              border: OutlineInputBorder(),
-              hintText: 'Time Period',
+    return IntrinsicHeight(
+      child: Row(
+        children: [
+          Flexible(
+            flex: 3,
+            child: FormBuilderTextField(
+              keyboardType: TextInputType.number,
+              name: SimpleInterestTextFieldNames.duration.value,
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                hintText: 'Time Period',
+              ),
+              validator: FormBuilderValidators.compose([
+                FormBuilderValidators.required(),
+                FormBuilderValidators.numeric(),
+              ]),
+              onChanged: (text) =>
+                  BlocProvider.of<SimpleInterestPageBloc>(context)
+                      .add(const CheckFormStateEvent()),
             ),
-            validator: FormBuilderValidators.compose([
-              FormBuilderValidators.required(),
-              FormBuilderValidators.numeric(),
-            ]),
-            onChanged: (text) =>
-                BlocProvider.of<SimpleInterestPageBloc>(context)
-                    .add(const CheckFormStateEvent()),
           ),
-        ),
-        const SizedBox(
-          width: 16,
-        ),
-        const DropdownButtonExample(
-          values: ['Annually', 'Monthly', 'Daily'],
-        )
-      ],
+          const SizedBox(
+            width: 16,
+          ),
+          BlocBuilder<SimpleInterestPageBloc, SimpleInterestPageState>(
+            builder: (context, state) {
+              return ValueButton(
+                buttonTitle: state.durationType.value,
+                onPressed: () {
+                  BlocProvider.of<SimpleInterestPageBloc>(context)
+                      .add(const CalculateResultEvent());
+                },
+              );
+            },
+          ),
+        ],
+      ),
     );
   }
 }

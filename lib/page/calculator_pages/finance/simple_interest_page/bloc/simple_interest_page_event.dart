@@ -7,5 +7,8 @@ abstract class SimpleInterestPageEvent with _$SimpleInterestPageEvent {
       CheckFormStateEvent;
   const factory SimpleInterestPageEvent.calculateResultEvent() =
       CalculateResultEvent;
-  const factory SimpleInterestPageEvent.toggleInfoEvent() = ToggleInfoEvent;
+  const factory SimpleInterestPageEvent.changeRatePeriodEvent() =
+      ChangeRatePeriodEvent;
+  const factory SimpleInterestPageEvent.changeDurationPeriodEvent() =
+      ChangeDurationPeriodEvent;
 }
