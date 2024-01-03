@@ -8,7 +8,7 @@ import 'package:swiss_army_calculator/services/bar_chart_service/bar_chart_servi
 import 'package:swiss_army_calculator/widgets/app_expansion_tile.dart';
 import '../../../../models/calculator_types.dart';
 import '../../../../widgets/app_material_button.dart';
-import '../../../../widgets/drop_down_button.dart';
+import '../../../../widgets/bottom_sheet/app_bottom_sheet.dart';
 import '../../../../widgets/pie_chart.dart/pie_chart.dart';
 import 'bloc/simple_interest_page_bloc.dart';
 import 'bloc/simple_interest_page_event.dart';
@@ -170,8 +170,11 @@ class InterestRate extends StatelessWidget {
               return ValueButton(
                 buttonTitle: state.periodicType.value,
                 onPressed: () {
-                  BlocProvider.of<SimpleInterestPageBloc>(context)
-                      .add(const CalculateResultEvent());
+                  appShowBottomSheet(
+                      context: context,
+                      title: 'testing',
+                      subTitle: 'Some more testing',
+                      child: RowOfOptions(options: ['testing', 'tset', 'ate']));
                 },
               );
             },
@@ -179,6 +182,25 @@ class InterestRate extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+class RowOfOptions<T> extends StatelessWidget {
+  final List<T> options;
+  const RowOfOptions({super.key, required this.options});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: options.map((e) {
+          return OutlinedButton(
+            onPressed: () {
+              debugPrint('Received click');
+            },
+            child: const Text('Click Me'),
+          );
+        }).toList());
   }
 }
 
@@ -195,7 +217,7 @@ class ValueButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: InkWell(
-        onTap: () => onPressed,
+        onTap: () => onPressed(),
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(4),

@@ -12,7 +12,7 @@ class FavoritesPage extends StatelessWidget {
         appShowBottomSheet(
             context: context, title: 'testing', child: Text('ok'));
       },
-      child: Text('press'),
+      child: const Text('press'),
     ));
   }
 }
