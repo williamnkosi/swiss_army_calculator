@@ -20,21 +20,24 @@ mixin _$SimpleInterestPageEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() checkFormStateEvent,
     required TResult Function() calculateResultEvent,
-    required TResult Function() toggleInfoEvent,
+    required TResult Function() changeRatePeriodEvent,
+    required TResult Function() changeDurationPeriodEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? checkFormStateEvent,
     TResult? Function()? calculateResultEvent,
-    TResult? Function()? toggleInfoEvent,
+    TResult? Function()? changeRatePeriodEvent,
+    TResult? Function()? changeDurationPeriodEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? checkFormStateEvent,
     TResult Function()? calculateResultEvent,
-    TResult Function()? toggleInfoEvent,
+    TResult Function()? changeRatePeriodEvent,
+    TResult Function()? changeDurationPeriodEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -42,21 +45,28 @@ mixin _$SimpleInterestPageEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(CheckFormStateEvent value) checkFormStateEvent,
     required TResult Function(CalculateResultEvent value) calculateResultEvent,
-    required TResult Function(ToggleInfoEvent value) toggleInfoEvent,
+    required TResult Function(ChangeRatePeriodEvent value)
+        changeRatePeriodEvent,
+    required TResult Function(ChangeDurationPeriodEvent value)
+        changeDurationPeriodEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(CheckFormStateEvent value)? checkFormStateEvent,
     TResult? Function(CalculateResultEvent value)? calculateResultEvent,
-    TResult? Function(ToggleInfoEvent value)? toggleInfoEvent,
+    TResult? Function(ChangeRatePeriodEvent value)? changeRatePeriodEvent,
+    TResult? Function(ChangeDurationPeriodEvent value)?
+        changeDurationPeriodEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CheckFormStateEvent value)? checkFormStateEvent,
     TResult Function(CalculateResultEvent value)? calculateResultEvent,
-    TResult Function(ToggleInfoEvent value)? toggleInfoEvent,
+    TResult Function(ChangeRatePeriodEvent value)? changeRatePeriodEvent,
+    TResult Function(ChangeDurationPeriodEvent value)?
+        changeDurationPeriodEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -123,7 +133,8 @@ class _$CheckFormStateEventImpl implements CheckFormStateEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() checkFormStateEvent,
     required TResult Function() calculateResultEvent,
-    required TResult Function() toggleInfoEvent,
+    required TResult Function() changeRatePeriodEvent,
+    required TResult Function() changeDurationPeriodEvent,
   }) {
     return checkFormStateEvent();
   }
@@ -133,7 +144,8 @@ class _$CheckFormStateEventImpl implements CheckFormStateEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? checkFormStateEvent,
     TResult? Function()? calculateResultEvent,
-    TResult? Function()? toggleInfoEvent,
+    TResult? Function()? changeRatePeriodEvent,
+    TResult? Function()? changeDurationPeriodEvent,
   }) {
     return checkFormStateEvent?.call();
   }
@@ -143,7 +155,8 @@ class _$CheckFormStateEventImpl implements CheckFormStateEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? checkFormStateEvent,
     TResult Function()? calculateResultEvent,
-    TResult Function()? toggleInfoEvent,
+    TResult Function()? changeRatePeriodEvent,
+    TResult Function()? changeDurationPeriodEvent,
     required TResult orElse(),
   }) {
     if (checkFormStateEvent != null) {
@@ -157,7 +170,10 @@ class _$CheckFormStateEventImpl implements CheckFormStateEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(CheckFormStateEvent value) checkFormStateEvent,
     required TResult Function(CalculateResultEvent value) calculateResultEvent,
-    required TResult Function(ToggleInfoEvent value) toggleInfoEvent,
+    required TResult Function(ChangeRatePeriodEvent value)
+        changeRatePeriodEvent,
+    required TResult Function(ChangeDurationPeriodEvent value)
+        changeDurationPeriodEvent,
   }) {
     return checkFormStateEvent(this);
   }
@@ -167,7 +183,9 @@ class _$CheckFormStateEventImpl implements CheckFormStateEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(CheckFormStateEvent value)? checkFormStateEvent,
     TResult? Function(CalculateResultEvent value)? calculateResultEvent,
-    TResult? Function(ToggleInfoEvent value)? toggleInfoEvent,
+    TResult? Function(ChangeRatePeriodEvent value)? changeRatePeriodEvent,
+    TResult? Function(ChangeDurationPeriodEvent value)?
+        changeDurationPeriodEvent,
   }) {
     return checkFormStateEvent?.call(this);
   }
@@ -177,7 +195,9 @@ class _$CheckFormStateEventImpl implements CheckFormStateEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CheckFormStateEvent value)? checkFormStateEvent,
     TResult Function(CalculateResultEvent value)? calculateResultEvent,
-    TResult Function(ToggleInfoEvent value)? toggleInfoEvent,
+    TResult Function(ChangeRatePeriodEvent value)? changeRatePeriodEvent,
+    TResult Function(ChangeDurationPeriodEvent value)?
+        changeDurationPeriodEvent,
     required TResult orElse(),
   }) {
     if (checkFormStateEvent != null) {
@@ -233,7 +253,8 @@ class _$CalculateResultEventImpl implements CalculateResultEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() checkFormStateEvent,
     required TResult Function() calculateResultEvent,
-    required TResult Function() toggleInfoEvent,
+    required TResult Function() changeRatePeriodEvent,
+    required TResult Function() changeDurationPeriodEvent,
   }) {
     return calculateResultEvent();
   }
@@ -243,7 +264,8 @@ class _$CalculateResultEventImpl implements CalculateResultEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? checkFormStateEvent,
     TResult? Function()? calculateResultEvent,
-    TResult? Function()? toggleInfoEvent,
+    TResult? Function()? changeRatePeriodEvent,
+    TResult? Function()? changeDurationPeriodEvent,
   }) {
     return calculateResultEvent?.call();
   }
@@ -253,7 +275,8 @@ class _$CalculateResultEventImpl implements CalculateResultEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? checkFormStateEvent,
     TResult Function()? calculateResultEvent,
-    TResult Function()? toggleInfoEvent,
+    TResult Function()? changeRatePeriodEvent,
+    TResult Function()? changeDurationPeriodEvent,
     required TResult orElse(),
   }) {
     if (calculateResultEvent != null) {
@@ -267,7 +290,10 @@ class _$CalculateResultEventImpl implements CalculateResultEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(CheckFormStateEvent value) checkFormStateEvent,
     required TResult Function(CalculateResultEvent value) calculateResultEvent,
-    required TResult Function(ToggleInfoEvent value) toggleInfoEvent,
+    required TResult Function(ChangeRatePeriodEvent value)
+        changeRatePeriodEvent,
+    required TResult Function(ChangeDurationPeriodEvent value)
+        changeDurationPeriodEvent,
   }) {
     return calculateResultEvent(this);
   }
@@ -277,7 +303,9 @@ class _$CalculateResultEventImpl implements CalculateResultEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(CheckFormStateEvent value)? checkFormStateEvent,
     TResult? Function(CalculateResultEvent value)? calculateResultEvent,
-    TResult? Function(ToggleInfoEvent value)? toggleInfoEvent,
+    TResult? Function(ChangeRatePeriodEvent value)? changeRatePeriodEvent,
+    TResult? Function(ChangeDurationPeriodEvent value)?
+        changeDurationPeriodEvent,
   }) {
     return calculateResultEvent?.call(this);
   }
@@ -287,7 +315,9 @@ class _$CalculateResultEventImpl implements CalculateResultEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CheckFormStateEvent value)? checkFormStateEvent,
     TResult Function(CalculateResultEvent value)? calculateResultEvent,
-    TResult Function(ToggleInfoEvent value)? toggleInfoEvent,
+    TResult Function(ChangeRatePeriodEvent value)? changeRatePeriodEvent,
+    TResult Function(ChangeDurationPeriodEvent value)?
+        changeDurationPeriodEvent,
     required TResult orElse(),
   }) {
     if (calculateResultEvent != null) {
@@ -302,35 +332,38 @@ abstract class CalculateResultEvent implements SimpleInterestPageEvent {
 }
 
 /// @nodoc
-abstract class _$$ToggleInfoEventImplCopyWith<$Res> {
-  factory _$$ToggleInfoEventImplCopyWith(_$ToggleInfoEventImpl value,
-          $Res Function(_$ToggleInfoEventImpl) then) =
-      __$$ToggleInfoEventImplCopyWithImpl<$Res>;
+abstract class _$$ChangeRatePeriodEventImplCopyWith<$Res> {
+  factory _$$ChangeRatePeriodEventImplCopyWith(
+          _$ChangeRatePeriodEventImpl value,
+          $Res Function(_$ChangeRatePeriodEventImpl) then) =
+      __$$ChangeRatePeriodEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ToggleInfoEventImplCopyWithImpl<$Res>
-    extends _$SimpleInterestPageEventCopyWithImpl<$Res, _$ToggleInfoEventImpl>
-    implements _$$ToggleInfoEventImplCopyWith<$Res> {
-  __$$ToggleInfoEventImplCopyWithImpl(
-      _$ToggleInfoEventImpl _value, $Res Function(_$ToggleInfoEventImpl) _then)
+class __$$ChangeRatePeriodEventImplCopyWithImpl<$Res>
+    extends _$SimpleInterestPageEventCopyWithImpl<$Res,
+        _$ChangeRatePeriodEventImpl>
+    implements _$$ChangeRatePeriodEventImplCopyWith<$Res> {
+  __$$ChangeRatePeriodEventImplCopyWithImpl(_$ChangeRatePeriodEventImpl _value,
+      $Res Function(_$ChangeRatePeriodEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$ToggleInfoEventImpl implements ToggleInfoEvent {
-  const _$ToggleInfoEventImpl();
+class _$ChangeRatePeriodEventImpl implements ChangeRatePeriodEvent {
+  const _$ChangeRatePeriodEventImpl();
 
   @override
   String toString() {
-    return 'SimpleInterestPageEvent.toggleInfoEvent()';
+    return 'SimpleInterestPageEvent.changeRatePeriodEvent()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ToggleInfoEventImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$ChangeRatePeriodEventImpl);
   }
 
   @override
@@ -341,9 +374,10 @@ class _$ToggleInfoEventImpl implements ToggleInfoEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() checkFormStateEvent,
     required TResult Function() calculateResultEvent,
-    required TResult Function() toggleInfoEvent,
+    required TResult Function() changeRatePeriodEvent,
+    required TResult Function() changeDurationPeriodEvent,
   }) {
-    return toggleInfoEvent();
+    return changeRatePeriodEvent();
   }
 
   @override
@@ -351,9 +385,10 @@ class _$ToggleInfoEventImpl implements ToggleInfoEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? checkFormStateEvent,
     TResult? Function()? calculateResultEvent,
-    TResult? Function()? toggleInfoEvent,
+    TResult? Function()? changeRatePeriodEvent,
+    TResult? Function()? changeDurationPeriodEvent,
   }) {
-    return toggleInfoEvent?.call();
+    return changeRatePeriodEvent?.call();
   }
 
   @override
@@ -361,11 +396,12 @@ class _$ToggleInfoEventImpl implements ToggleInfoEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? checkFormStateEvent,
     TResult Function()? calculateResultEvent,
-    TResult Function()? toggleInfoEvent,
+    TResult Function()? changeRatePeriodEvent,
+    TResult Function()? changeDurationPeriodEvent,
     required TResult orElse(),
   }) {
-    if (toggleInfoEvent != null) {
-      return toggleInfoEvent();
+    if (changeRatePeriodEvent != null) {
+      return changeRatePeriodEvent();
     }
     return orElse();
   }
@@ -375,9 +411,12 @@ class _$ToggleInfoEventImpl implements ToggleInfoEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(CheckFormStateEvent value) checkFormStateEvent,
     required TResult Function(CalculateResultEvent value) calculateResultEvent,
-    required TResult Function(ToggleInfoEvent value) toggleInfoEvent,
+    required TResult Function(ChangeRatePeriodEvent value)
+        changeRatePeriodEvent,
+    required TResult Function(ChangeDurationPeriodEvent value)
+        changeDurationPeriodEvent,
   }) {
-    return toggleInfoEvent(this);
+    return changeRatePeriodEvent(this);
   }
 
   @override
@@ -385,9 +424,11 @@ class _$ToggleInfoEventImpl implements ToggleInfoEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(CheckFormStateEvent value)? checkFormStateEvent,
     TResult? Function(CalculateResultEvent value)? calculateResultEvent,
-    TResult? Function(ToggleInfoEvent value)? toggleInfoEvent,
+    TResult? Function(ChangeRatePeriodEvent value)? changeRatePeriodEvent,
+    TResult? Function(ChangeDurationPeriodEvent value)?
+        changeDurationPeriodEvent,
   }) {
-    return toggleInfoEvent?.call(this);
+    return changeRatePeriodEvent?.call(this);
   }
 
   @override
@@ -395,16 +436,140 @@ class _$ToggleInfoEventImpl implements ToggleInfoEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CheckFormStateEvent value)? checkFormStateEvent,
     TResult Function(CalculateResultEvent value)? calculateResultEvent,
-    TResult Function(ToggleInfoEvent value)? toggleInfoEvent,
+    TResult Function(ChangeRatePeriodEvent value)? changeRatePeriodEvent,
+    TResult Function(ChangeDurationPeriodEvent value)?
+        changeDurationPeriodEvent,
     required TResult orElse(),
   }) {
-    if (toggleInfoEvent != null) {
-      return toggleInfoEvent(this);
+    if (changeRatePeriodEvent != null) {
+      return changeRatePeriodEvent(this);
     }
     return orElse();
   }
 }
 
-abstract class ToggleInfoEvent implements SimpleInterestPageEvent {
-  const factory ToggleInfoEvent() = _$ToggleInfoEventImpl;
+abstract class ChangeRatePeriodEvent implements SimpleInterestPageEvent {
+  const factory ChangeRatePeriodEvent() = _$ChangeRatePeriodEventImpl;
+}
+
+/// @nodoc
+abstract class _$$ChangeDurationPeriodEventImplCopyWith<$Res> {
+  factory _$$ChangeDurationPeriodEventImplCopyWith(
+          _$ChangeDurationPeriodEventImpl value,
+          $Res Function(_$ChangeDurationPeriodEventImpl) then) =
+      __$$ChangeDurationPeriodEventImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ChangeDurationPeriodEventImplCopyWithImpl<$Res>
+    extends _$SimpleInterestPageEventCopyWithImpl<$Res,
+        _$ChangeDurationPeriodEventImpl>
+    implements _$$ChangeDurationPeriodEventImplCopyWith<$Res> {
+  __$$ChangeDurationPeriodEventImplCopyWithImpl(
+      _$ChangeDurationPeriodEventImpl _value,
+      $Res Function(_$ChangeDurationPeriodEventImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ChangeDurationPeriodEventImpl implements ChangeDurationPeriodEvent {
+  const _$ChangeDurationPeriodEventImpl();
+
+  @override
+  String toString() {
+    return 'SimpleInterestPageEvent.changeDurationPeriodEvent()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChangeDurationPeriodEventImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() checkFormStateEvent,
+    required TResult Function() calculateResultEvent,
+    required TResult Function() changeRatePeriodEvent,
+    required TResult Function() changeDurationPeriodEvent,
+  }) {
+    return changeDurationPeriodEvent();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? checkFormStateEvent,
+    TResult? Function()? calculateResultEvent,
+    TResult? Function()? changeRatePeriodEvent,
+    TResult? Function()? changeDurationPeriodEvent,
+  }) {
+    return changeDurationPeriodEvent?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? checkFormStateEvent,
+    TResult Function()? calculateResultEvent,
+    TResult Function()? changeRatePeriodEvent,
+    TResult Function()? changeDurationPeriodEvent,
+    required TResult orElse(),
+  }) {
+    if (changeDurationPeriodEvent != null) {
+      return changeDurationPeriodEvent();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CheckFormStateEvent value) checkFormStateEvent,
+    required TResult Function(CalculateResultEvent value) calculateResultEvent,
+    required TResult Function(ChangeRatePeriodEvent value)
+        changeRatePeriodEvent,
+    required TResult Function(ChangeDurationPeriodEvent value)
+        changeDurationPeriodEvent,
+  }) {
+    return changeDurationPeriodEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(CheckFormStateEvent value)? checkFormStateEvent,
+    TResult? Function(CalculateResultEvent value)? calculateResultEvent,
+    TResult? Function(ChangeRatePeriodEvent value)? changeRatePeriodEvent,
+    TResult? Function(ChangeDurationPeriodEvent value)?
+        changeDurationPeriodEvent,
+  }) {
+    return changeDurationPeriodEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CheckFormStateEvent value)? checkFormStateEvent,
+    TResult Function(CalculateResultEvent value)? calculateResultEvent,
+    TResult Function(ChangeRatePeriodEvent value)? changeRatePeriodEvent,
+    TResult Function(ChangeDurationPeriodEvent value)?
+        changeDurationPeriodEvent,
+    required TResult orElse(),
+  }) {
+    if (changeDurationPeriodEvent != null) {
+      return changeDurationPeriodEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ChangeDurationPeriodEvent implements SimpleInterestPageEvent {
+  const factory ChangeDurationPeriodEvent() = _$ChangeDurationPeriodEventImpl;
 }

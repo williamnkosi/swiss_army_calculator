@@ -12,12 +12,12 @@ class SimpleInterestPageBloc
     extends Bloc<SimpleInterestPageEvent, SimpleInterestPageState> {
   SimpleInterestPageBloc()
       : super(SimpleInterestPageState(formKey: GlobalKey<FormBuilderState>())) {
-    on<ToggleInfoEvent>(_onToggleInfoEvent);
     on<CheckFormStateEvent>(_onCheckFormStateEvent);
     on<CalculateResultEvent>(_onCalculateResult);
+    on<ChangeRatePeriodEvent>(_onChangeRatePeriodEvent);
+    on<ChangeDurationPeriodEvent>(_onChangeDurationPeriodEvent);
   }
 
-  _onToggleInfoEvent(ToggleInfoEvent event, emit) {}
   _onCheckFormStateEvent(CheckFormStateEvent event, emit) {
     if (state.formKey.currentState!.isValid) {
       try {
@@ -58,6 +58,10 @@ class SimpleInterestPageBloc
     final text = _onPrintOutputEvent();
     emit(state.copyWith(printOutput: text));
   }
+
+  _onChangeRatePeriodEvent(ChangeRatePeriodEvent event, emit) {}
+
+  _onChangeDurationPeriodEvent(ChangeDurationPeriodEvent event, emit) {}
 
   String _onPrintOutputEvent() {
     return 'The simple interest on the ${state.principal} loan over ${state.duration} years at a ${state.rate}% annual interest rate would be ${state.result}';
