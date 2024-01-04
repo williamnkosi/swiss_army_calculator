@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:swiss_army_calculator/app/bloc/app_bloc.dart';
+import 'package:swiss_army_calculator/app_state/app_bloc/app_bloc.dart';
 import 'package:swiss_army_calculator/bottom_navigation_bar.dart';
 import 'package:swiss_army_calculator/page/account.dart';
 import 'package:swiss_army_calculator/page/calculator_pages/finance/finance_list_page.dart';
