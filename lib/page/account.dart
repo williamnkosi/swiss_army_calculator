@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:swiss_army_calculator/app_state/app_bloc/app_bloc.dart';
 import 'package:swiss_army_calculator/services/theme_service/app_themes.dart';
-
-import '../app/bloc/app_bloc.dart';
 
 class AccountPage extends StatelessWidget {
   const AccountPage({super.key});

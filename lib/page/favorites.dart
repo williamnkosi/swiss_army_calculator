@@ -10,7 +10,7 @@ class FavoritesPage extends StatelessWidget {
         child: ElevatedButton(
       onPressed: () {
         appShowBottomSheet(
-            context: context, title: 'testing', child: Text('ok'));
+            context: context, title: 'testing', child: const Text('ok'));
       },
       child: const Text('press'),
     ));

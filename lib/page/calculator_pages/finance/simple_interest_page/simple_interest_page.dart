@@ -174,7 +174,8 @@ class InterestRate extends StatelessWidget {
                       context: context,
                       title: 'testing',
                       subTitle: 'Some more testing',
-                      child: RowOfOptions(options: ['testing', 'tset', 'ate']));
+                      child: const RowOfOptions(
+                          options: ['testing', 'tset', 'ate']));
                 },
               );
             },
