@@ -6,13 +6,7 @@ import 'package:swiss_army_calculator/page/account.dart';
 import 'package:swiss_army_calculator/page/calculator_pages/finance/finance_list_page.dart';
 import 'package:swiss_army_calculator/page/favorites.dart';
 import 'package:swiss_army_calculator/page/home.dart';
-import 'package:swiss_army_calculator/services/locator_service.dart';
 import 'package:swiss_army_calculator/widgets/bottom_navigation_bar/cubit/bottom_navigation_bar_cubit.dart';
-
-void main() async {
-  setupGetIt();
-  runApp(const MyApp());
-}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
