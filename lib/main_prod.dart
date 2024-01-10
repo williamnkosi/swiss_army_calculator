@@ -5,6 +5,5 @@ import 'package:swiss_army_calculator/services/locator_service.dart';
 
 void main() async {
   setupGetIt();
-  PackageInfo packageInfo = await PackageInfo.fromPlatform();
   runApp(const MyApp());
 }
