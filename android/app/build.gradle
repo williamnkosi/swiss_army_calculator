@@ -65,7 +65,7 @@ android {
             dimension "default"
             resValue "string", "app_name", "Swiss Army Calculator"
             applicationIdSuffix ""
-        },
+        }
         development {
             dimension "default"
             resValue "string", "app_name", "Swiss Army Calculator"
