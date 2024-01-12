@@ -10,7 +10,7 @@ void appShowBottomSheet(
     builder: (BuildContext context) {
       return Container(
         width: double.infinity,
-        height: MediaQuery.of(context).size.height * 0.35,
+        height: MediaQuery.of(context).size.height * 0.45,
         padding: const EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
