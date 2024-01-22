@@ -31,14 +31,11 @@ void appShowBottomSheet(
                 ),
               ],
             ),
-            child,
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pop(context); // Close the bottom sheet
-              },
-              child:
-                  Text('Close', style: Theme.of(context).textTheme.titleMedium),
+            const SizedBox(
+              height: 16,
             ),
+            child,
+            Container()
           ],
         ),
       );

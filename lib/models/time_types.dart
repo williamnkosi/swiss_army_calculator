@@ -1,9 +1,9 @@
-enum TimeDurationTypes {
+enum RatePeriodTypes {
   years('Years'),
   months('Months'),
   days('Days');
 
-  const TimeDurationTypes(this.value);
+  const RatePeriodTypes(this.value);
   final String value;
 }
 

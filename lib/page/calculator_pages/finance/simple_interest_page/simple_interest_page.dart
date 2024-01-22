@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:swiss_army_calculator/info/finance_info.dart';
+import 'package:swiss_army_calculator/models/time_types.dart';
 import 'package:swiss_army_calculator/services/bar_chart_service/bar_chart_service.dart';
 
 import 'package:swiss_army_calculator/widgets/app_expansion_tile.dart';
@@ -166,15 +167,20 @@ class InterestRate extends StatelessWidget {
             width: 16,
           ),
           BlocBuilder<SimpleInterestPageBloc, SimpleInterestPageState>(
-            builder: (context, state) {
+            builder: (_, state) {
               return ValueButton(
-                buttonTitle: state.periodicType.value,
+                buttonTitle: state.ratePeriodType.value,
                 onPressed: () {
                   appShowBottomSheet(
                       context: context,
-                      title: 'testing',
-                      subTitle: 'Some more testing',
-                      child: RowOfOptions(options: ['testing', 'tset', 'ate']));
+                      title: 'Rate',
+                      subTitle:
+                          'This rate determines the amount of interest accrued on a principal amount over a specified period. ',
+                      child: RowOfOptions<String>(
+                          pagecontext: context,
+                          state: state,
+                          activeIndex: state.ratePeriodType.index,
+                          options: const ['Annually', 'Monthly', 'Daily']));
                 },
               );
             },
@@ -186,21 +192,59 @@ class InterestRate extends StatelessWidget {
 }
 
 class RowOfOptions<T> extends StatelessWidget {
+  final BuildContext pagecontext;
+  final SimpleInterestPageState state;
   final List<T> options;
-  const RowOfOptions({super.key, required this.options});
+  final int activeIndex;
+  const RowOfOptions({
+    super.key,
+    required this.options,
+    required this.activeIndex,
+    required this.state,
+    required this.pagecontext,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: options.map((e) {
-          return OutlinedButton(
-            onPressed: () {
-              debugPrint('Received click');
-            },
-            child: const Text('Click Me'),
-          );
-        }).toList());
+    return Expanded(
+      child: ListView.builder(
+          itemCount: options.length,
+          itemBuilder: (BuildContext _, int index) {
+            return ClipRRect(
+              borderRadius: BorderRadius.circular(12.0),
+              child: InkWell(
+                splashColor:
+                    Theme.of(context).colorScheme.primary.withOpacity(0.3),
+                onTap: () async {
+                  BlocProvider.of<SimpleInterestPageBloc>(pagecontext).add(
+                      ChangeRatePeriodEvent(RatePeriodTypes.values[index]));
+
+                  Navigator.pop(context);
+                },
+                child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12.0),
+                      color: index == activeIndex
+                          ? Theme.of(context)
+                              .colorScheme
+                              .primary
+                              .withOpacity(0.1)
+                          : null, // Optional: Set border radius
+                    ),
+                    alignment: Alignment.center,
+                    width: double.infinity,
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Text(
+                        options[index] as String,
+                        style: TextStyle(
+                            color: Theme.of(context).colorScheme.primary),
+                      ),
+                    )),
+              ),
+            );
+          }),
+    );
   }
 }
 
@@ -270,7 +314,7 @@ class Duration extends StatelessWidget {
           BlocBuilder<SimpleInterestPageBloc, SimpleInterestPageState>(
             builder: (context, state) {
               return ValueButton(
-                buttonTitle: state.durationType.value,
+                buttonTitle: state.periodicType.value,
                 onPressed: () {
                   BlocProvider.of<SimpleInterestPageBloc>(context)
                       .add(const CalculateResultEvent());

@@ -20,7 +20,8 @@ mixin _$SimpleInterestPageEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() checkFormStateEvent,
     required TResult Function() calculateResultEvent,
-    required TResult Function() changeRatePeriodEvent,
+    required TResult Function(RatePeriodTypes rateTimeDuration)
+        changeRatePeriodEvent,
     required TResult Function() changeDurationPeriodEvent,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +29,7 @@ mixin _$SimpleInterestPageEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? checkFormStateEvent,
     TResult? Function()? calculateResultEvent,
-    TResult? Function()? changeRatePeriodEvent,
+    TResult? Function(RatePeriodTypes rateTimeDuration)? changeRatePeriodEvent,
     TResult? Function()? changeDurationPeriodEvent,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +37,7 @@ mixin _$SimpleInterestPageEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? checkFormStateEvent,
     TResult Function()? calculateResultEvent,
-    TResult Function()? changeRatePeriodEvent,
+    TResult Function(RatePeriodTypes rateTimeDuration)? changeRatePeriodEvent,
     TResult Function()? changeDurationPeriodEvent,
     required TResult orElse(),
   }) =>
@@ -133,7 +134,8 @@ class _$CheckFormStateEventImpl implements CheckFormStateEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() checkFormStateEvent,
     required TResult Function() calculateResultEvent,
-    required TResult Function() changeRatePeriodEvent,
+    required TResult Function(RatePeriodTypes rateTimeDuration)
+        changeRatePeriodEvent,
     required TResult Function() changeDurationPeriodEvent,
   }) {
     return checkFormStateEvent();
@@ -144,7 +146,7 @@ class _$CheckFormStateEventImpl implements CheckFormStateEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? checkFormStateEvent,
     TResult? Function()? calculateResultEvent,
-    TResult? Function()? changeRatePeriodEvent,
+    TResult? Function(RatePeriodTypes rateTimeDuration)? changeRatePeriodEvent,
     TResult? Function()? changeDurationPeriodEvent,
   }) {
     return checkFormStateEvent?.call();
@@ -155,7 +157,7 @@ class _$CheckFormStateEventImpl implements CheckFormStateEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? checkFormStateEvent,
     TResult Function()? calculateResultEvent,
-    TResult Function()? changeRatePeriodEvent,
+    TResult Function(RatePeriodTypes rateTimeDuration)? changeRatePeriodEvent,
     TResult Function()? changeDurationPeriodEvent,
     required TResult orElse(),
   }) {
@@ -253,7 +255,8 @@ class _$CalculateResultEventImpl implements CalculateResultEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() checkFormStateEvent,
     required TResult Function() calculateResultEvent,
-    required TResult Function() changeRatePeriodEvent,
+    required TResult Function(RatePeriodTypes rateTimeDuration)
+        changeRatePeriodEvent,
     required TResult Function() changeDurationPeriodEvent,
   }) {
     return calculateResultEvent();
@@ -264,7 +267,7 @@ class _$CalculateResultEventImpl implements CalculateResultEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? checkFormStateEvent,
     TResult? Function()? calculateResultEvent,
-    TResult? Function()? changeRatePeriodEvent,
+    TResult? Function(RatePeriodTypes rateTimeDuration)? changeRatePeriodEvent,
     TResult? Function()? changeDurationPeriodEvent,
   }) {
     return calculateResultEvent?.call();
@@ -275,7 +278,7 @@ class _$CalculateResultEventImpl implements CalculateResultEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? checkFormStateEvent,
     TResult Function()? calculateResultEvent,
-    TResult Function()? changeRatePeriodEvent,
+    TResult Function(RatePeriodTypes rateTimeDuration)? changeRatePeriodEvent,
     TResult Function()? changeDurationPeriodEvent,
     required TResult orElse(),
   }) {
@@ -337,6 +340,8 @@ abstract class _$$ChangeRatePeriodEventImplCopyWith<$Res> {
           _$ChangeRatePeriodEventImpl value,
           $Res Function(_$ChangeRatePeriodEventImpl) then) =
       __$$ChangeRatePeriodEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({RatePeriodTypes rateTimeDuration});
 }
 
 /// @nodoc
@@ -347,37 +352,63 @@ class __$$ChangeRatePeriodEventImplCopyWithImpl<$Res>
   __$$ChangeRatePeriodEventImplCopyWithImpl(_$ChangeRatePeriodEventImpl _value,
       $Res Function(_$ChangeRatePeriodEventImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? rateTimeDuration = null,
+  }) {
+    return _then(_$ChangeRatePeriodEventImpl(
+      null == rateTimeDuration
+          ? _value.rateTimeDuration
+          : rateTimeDuration // ignore: cast_nullable_to_non_nullable
+              as RatePeriodTypes,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$ChangeRatePeriodEventImpl implements ChangeRatePeriodEvent {
-  const _$ChangeRatePeriodEventImpl();
+  const _$ChangeRatePeriodEventImpl(this.rateTimeDuration);
+
+  @override
+  final RatePeriodTypes rateTimeDuration;
 
   @override
   String toString() {
-    return 'SimpleInterestPageEvent.changeRatePeriodEvent()';
+    return 'SimpleInterestPageEvent.changeRatePeriodEvent(rateTimeDuration: $rateTimeDuration)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ChangeRatePeriodEventImpl);
+            other is _$ChangeRatePeriodEventImpl &&
+            (identical(other.rateTimeDuration, rateTimeDuration) ||
+                other.rateTimeDuration == rateTimeDuration));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, rateTimeDuration);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChangeRatePeriodEventImplCopyWith<_$ChangeRatePeriodEventImpl>
+      get copyWith => __$$ChangeRatePeriodEventImplCopyWithImpl<
+          _$ChangeRatePeriodEventImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() checkFormStateEvent,
     required TResult Function() calculateResultEvent,
-    required TResult Function() changeRatePeriodEvent,
+    required TResult Function(RatePeriodTypes rateTimeDuration)
+        changeRatePeriodEvent,
     required TResult Function() changeDurationPeriodEvent,
   }) {
-    return changeRatePeriodEvent();
+    return changeRatePeriodEvent(rateTimeDuration);
   }
 
   @override
@@ -385,10 +416,10 @@ class _$ChangeRatePeriodEventImpl implements ChangeRatePeriodEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? checkFormStateEvent,
     TResult? Function()? calculateResultEvent,
-    TResult? Function()? changeRatePeriodEvent,
+    TResult? Function(RatePeriodTypes rateTimeDuration)? changeRatePeriodEvent,
     TResult? Function()? changeDurationPeriodEvent,
   }) {
-    return changeRatePeriodEvent?.call();
+    return changeRatePeriodEvent?.call(rateTimeDuration);
   }
 
   @override
@@ -396,12 +427,12 @@ class _$ChangeRatePeriodEventImpl implements ChangeRatePeriodEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? checkFormStateEvent,
     TResult Function()? calculateResultEvent,
-    TResult Function()? changeRatePeriodEvent,
+    TResult Function(RatePeriodTypes rateTimeDuration)? changeRatePeriodEvent,
     TResult Function()? changeDurationPeriodEvent,
     required TResult orElse(),
   }) {
     if (changeRatePeriodEvent != null) {
-      return changeRatePeriodEvent();
+      return changeRatePeriodEvent(rateTimeDuration);
     }
     return orElse();
   }
@@ -449,7 +480,13 @@ class _$ChangeRatePeriodEventImpl implements ChangeRatePeriodEvent {
 }
 
 abstract class ChangeRatePeriodEvent implements SimpleInterestPageEvent {
-  const factory ChangeRatePeriodEvent() = _$ChangeRatePeriodEventImpl;
+  const factory ChangeRatePeriodEvent(final RatePeriodTypes rateTimeDuration) =
+      _$ChangeRatePeriodEventImpl;
+
+  RatePeriodTypes get rateTimeDuration;
+  @JsonKey(ignore: true)
+  _$$ChangeRatePeriodEventImplCopyWith<_$ChangeRatePeriodEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -496,7 +533,8 @@ class _$ChangeDurationPeriodEventImpl implements ChangeDurationPeriodEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() checkFormStateEvent,
     required TResult Function() calculateResultEvent,
-    required TResult Function() changeRatePeriodEvent,
+    required TResult Function(RatePeriodTypes rateTimeDuration)
+        changeRatePeriodEvent,
     required TResult Function() changeDurationPeriodEvent,
   }) {
     return changeDurationPeriodEvent();
@@ -507,7 +545,7 @@ class _$ChangeDurationPeriodEventImpl implements ChangeDurationPeriodEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? checkFormStateEvent,
     TResult? Function()? calculateResultEvent,
-    TResult? Function()? changeRatePeriodEvent,
+    TResult? Function(RatePeriodTypes rateTimeDuration)? changeRatePeriodEvent,
     TResult? Function()? changeDurationPeriodEvent,
   }) {
     return changeDurationPeriodEvent?.call();
@@ -518,7 +556,7 @@ class _$ChangeDurationPeriodEventImpl implements ChangeDurationPeriodEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? checkFormStateEvent,
     TResult Function()? calculateResultEvent,
-    TResult Function()? changeRatePeriodEvent,
+    TResult Function(RatePeriodTypes rateTimeDuration)? changeRatePeriodEvent,
     TResult Function()? changeDurationPeriodEvent,
     required TResult orElse(),
   }) {

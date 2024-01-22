@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
@@ -59,7 +61,9 @@ class SimpleInterestPageBloc
     emit(state.copyWith(printOutput: text));
   }
 
-  _onChangeRatePeriodEvent(ChangeRatePeriodEvent event, emit) {}
+  _onChangeRatePeriodEvent(ChangeRatePeriodEvent event, emit) {
+    emit(state.copyWith(ratePeriodType: event.rateTimeDuration));
+  }
 
   _onChangeDurationPeriodEvent(ChangeDurationPeriodEvent event, emit) {}
 
@@ -90,5 +94,12 @@ class SimpleInterestPageBloc
       interestRateValues.add(interest);
     }
     return [principalValue, interestRateValues];
+  }
+
+  @override
+  void onChange(Change<SimpleInterestPageState> change) {
+    print("-----------");
+
+    super.onChange(change);
   }
 }

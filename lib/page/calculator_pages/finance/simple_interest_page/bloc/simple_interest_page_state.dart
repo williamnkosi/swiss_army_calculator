@@ -11,7 +11,7 @@ class SimpleInterestPageState with _$SimpleInterestPageState {
     required GlobalKey<FormBuilderState> formKey,
     @Default([]) List<PieChartSectionData> sections,
     @Default([]) List<List<double>> barChartData,
-    @Default(TimeDurationTypes.years) TimeDurationTypes durationType,
+    @Default(RatePeriodTypes.years) RatePeriodTypes ratePeriodType,
     @Default(TimePeriodsTypes.annually) TimePeriodsTypes periodicType,
     @Default(0) double principal,
     @Default(0) double rate,

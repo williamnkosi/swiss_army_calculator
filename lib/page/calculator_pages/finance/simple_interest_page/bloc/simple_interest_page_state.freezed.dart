@@ -19,7 +19,7 @@ mixin _$SimpleInterestPageState {
   GlobalKey<FormBuilderState> get formKey => throw _privateConstructorUsedError;
   List<PieChartSectionData> get sections => throw _privateConstructorUsedError;
   List<List<double>> get barChartData => throw _privateConstructorUsedError;
-  TimeDurationTypes get durationType => throw _privateConstructorUsedError;
+  RatePeriodTypes get ratePeriodType => throw _privateConstructorUsedError;
   TimePeriodsTypes get periodicType => throw _privateConstructorUsedError;
   double get principal => throw _privateConstructorUsedError;
   double get rate => throw _privateConstructorUsedError;
@@ -44,7 +44,7 @@ abstract class $SimpleInterestPageStateCopyWith<$Res> {
       {GlobalKey<FormBuilderState> formKey,
       List<PieChartSectionData> sections,
       List<List<double>> barChartData,
-      TimeDurationTypes durationType,
+      RatePeriodTypes ratePeriodType,
       TimePeriodsTypes periodicType,
       double principal,
       double rate,
@@ -72,7 +72,7 @@ class _$SimpleInterestPageStateCopyWithImpl<$Res,
     Object? formKey = null,
     Object? sections = null,
     Object? barChartData = null,
-    Object? durationType = null,
+    Object? ratePeriodType = null,
     Object? periodicType = null,
     Object? principal = null,
     Object? rate = null,
@@ -95,10 +95,10 @@ class _$SimpleInterestPageStateCopyWithImpl<$Res,
           ? _value.barChartData
           : barChartData // ignore: cast_nullable_to_non_nullable
               as List<List<double>>,
-      durationType: null == durationType
-          ? _value.durationType
-          : durationType // ignore: cast_nullable_to_non_nullable
-              as TimeDurationTypes,
+      ratePeriodType: null == ratePeriodType
+          ? _value.ratePeriodType
+          : ratePeriodType // ignore: cast_nullable_to_non_nullable
+              as RatePeriodTypes,
       periodicType: null == periodicType
           ? _value.periodicType
           : periodicType // ignore: cast_nullable_to_non_nullable
@@ -148,7 +148,7 @@ abstract class _$$SimpleInterestPageStateImplCopyWith<$Res>
       {GlobalKey<FormBuilderState> formKey,
       List<PieChartSectionData> sections,
       List<List<double>> barChartData,
-      TimeDurationTypes durationType,
+      RatePeriodTypes ratePeriodType,
       TimePeriodsTypes periodicType,
       double principal,
       double rate,
@@ -175,7 +175,7 @@ class __$$SimpleInterestPageStateImplCopyWithImpl<$Res>
     Object? formKey = null,
     Object? sections = null,
     Object? barChartData = null,
-    Object? durationType = null,
+    Object? ratePeriodType = null,
     Object? periodicType = null,
     Object? principal = null,
     Object? rate = null,
@@ -198,10 +198,10 @@ class __$$SimpleInterestPageStateImplCopyWithImpl<$Res>
           ? _value._barChartData
           : barChartData // ignore: cast_nullable_to_non_nullable
               as List<List<double>>,
-      durationType: null == durationType
-          ? _value.durationType
-          : durationType // ignore: cast_nullable_to_non_nullable
-              as TimeDurationTypes,
+      ratePeriodType: null == ratePeriodType
+          ? _value.ratePeriodType
+          : ratePeriodType // ignore: cast_nullable_to_non_nullable
+              as RatePeriodTypes,
       periodicType: null == periodicType
           ? _value.periodicType
           : periodicType // ignore: cast_nullable_to_non_nullable
@@ -239,7 +239,7 @@ class _$SimpleInterestPageStateImpl implements _SimpleInterestPageState {
       {required this.formKey,
       final List<PieChartSectionData> sections = const [],
       final List<List<double>> barChartData = const [],
-      this.durationType = TimeDurationTypes.years,
+      this.ratePeriodType = RatePeriodTypes.years,
       this.periodicType = TimePeriodsTypes.annually,
       this.principal = 0,
       this.rate = 0,
@@ -273,7 +273,7 @@ class _$SimpleInterestPageStateImpl implements _SimpleInterestPageState {
 
   @override
   @JsonKey()
-  final TimeDurationTypes durationType;
+  final RatePeriodTypes ratePeriodType;
   @override
   @JsonKey()
   final TimePeriodsTypes periodicType;
@@ -301,7 +301,7 @@ class _$SimpleInterestPageStateImpl implements _SimpleInterestPageState {
 
   @override
   String toString() {
-    return 'SimpleInterestPageState(formKey: $formKey, sections: $sections, barChartData: $barChartData, durationType: $durationType, periodicType: $periodicType, principal: $principal, rate: $rate, duration: $duration, result: $result, printOutput: $printOutput, isExpanded: $isExpanded, isDiabled: $isDiabled)';
+    return 'SimpleInterestPageState(formKey: $formKey, sections: $sections, barChartData: $barChartData, ratePeriodType: $ratePeriodType, periodicType: $periodicType, principal: $principal, rate: $rate, duration: $duration, result: $result, printOutput: $printOutput, isExpanded: $isExpanded, isDiabled: $isDiabled)';
   }
 
   @override
@@ -313,8 +313,8 @@ class _$SimpleInterestPageStateImpl implements _SimpleInterestPageState {
             const DeepCollectionEquality().equals(other._sections, _sections) &&
             const DeepCollectionEquality()
                 .equals(other._barChartData, _barChartData) &&
-            (identical(other.durationType, durationType) ||
-                other.durationType == durationType) &&
+            (identical(other.ratePeriodType, ratePeriodType) ||
+                other.ratePeriodType == ratePeriodType) &&
             (identical(other.periodicType, periodicType) ||
                 other.periodicType == periodicType) &&
             (identical(other.principal, principal) ||
@@ -336,7 +336,7 @@ class _$SimpleInterestPageStateImpl implements _SimpleInterestPageState {
       formKey,
       const DeepCollectionEquality().hash(_sections),
       const DeepCollectionEquality().hash(_barChartData),
-      durationType,
+      ratePeriodType,
       periodicType,
       principal,
       rate,
@@ -359,7 +359,7 @@ abstract class _SimpleInterestPageState implements SimpleInterestPageState {
       {required final GlobalKey<FormBuilderState> formKey,
       final List<PieChartSectionData> sections,
       final List<List<double>> barChartData,
-      final TimeDurationTypes durationType,
+      final RatePeriodTypes ratePeriodType,
       final TimePeriodsTypes periodicType,
       final double principal,
       final double rate,
@@ -376,7 +376,7 @@ abstract class _SimpleInterestPageState implements SimpleInterestPageState {
   @override
   List<List<double>> get barChartData;
   @override
-  TimeDurationTypes get durationType;
+  RatePeriodTypes get ratePeriodType;
   @override
   TimePeriodsTypes get periodicType;
   @override
