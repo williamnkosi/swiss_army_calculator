@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
+
 import 'package:swiss_army_calculator/info/finance_info.dart';
 import 'package:swiss_army_calculator/models/time_types.dart';
 import 'package:swiss_army_calculator/services/bar_chart_service/bar_chart_service.dart';
-
 import 'package:swiss_army_calculator/widgets/app_expansion_tile.dart';
+
 import '../../../../models/calculator_types.dart';
 import '../../../../widgets/app_material_button.dart';
 import '../../../../widgets/bottom_sheet/app_bottom_sheet.dart';
@@ -177,6 +178,10 @@ class InterestRate extends StatelessWidget {
                       subTitle:
                           'This rate determines the amount of interest accrued on a principal amount over a specified period. ',
                       child: RowOfOptions<String>(
+                          onPressed: (index) =>
+                              BlocProvider.of<SimpleInterestPageBloc>(context)
+                                  .add(ChangeRatePeriodEvent(
+                                      RatePeriodTypes.values[index])),
                           pagecontext: context,
                           state: state,
                           activeIndex: state.ratePeriodType.index,
@@ -193,16 +198,18 @@ class InterestRate extends StatelessWidget {
 
 class RowOfOptions<T> extends StatelessWidget {
   final BuildContext pagecontext;
+  final Function(int index) onPressed;
   final SimpleInterestPageState state;
   final List<T> options;
   final int activeIndex;
   const RowOfOptions({
-    super.key,
+    Key? key,
+    required this.pagecontext,
+    required this.onPressed,
+    required this.state,
     required this.options,
     required this.activeIndex,
-    required this.state,
-    required this.pagecontext,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -216,8 +223,7 @@ class RowOfOptions<T> extends StatelessWidget {
                 splashColor:
                     Theme.of(context).colorScheme.primary.withOpacity(0.3),
                 onTap: () async {
-                  BlocProvider.of<SimpleInterestPageBloc>(pagecontext).add(
-                      ChangeRatePeriodEvent(RatePeriodTypes.values[index]));
+                  onPressed(index);
 
                   Navigator.pop(context);
                 },
@@ -314,10 +320,22 @@ class Duration extends StatelessWidget {
           BlocBuilder<SimpleInterestPageBloc, SimpleInterestPageState>(
             builder: (context, state) {
               return ValueButton(
-                buttonTitle: state.periodicType.value,
+                buttonTitle: state.timePeriodType.value,
                 onPressed: () {
-                  BlocProvider.of<SimpleInterestPageBloc>(context)
-                      .add(const CalculateResultEvent());
+                  appShowBottomSheet(
+                      context: context,
+                      title: 'Time period',
+                      subTitle:
+                          'This is the duration in which the interest will be applied',
+                      child: RowOfOptions<String>(
+                          onPressed: (index) =>
+                              BlocProvider.of<SimpleInterestPageBloc>(context)
+                                  .add(ChangeTimePeriodEvent(
+                                      TimePeriodsTypes.values[index])),
+                          pagecontext: context,
+                          state: state,
+                          activeIndex: state.timePeriodType.index,
+                          options: const ['Years', 'Months', 'Days']));
                 },
               );
             },

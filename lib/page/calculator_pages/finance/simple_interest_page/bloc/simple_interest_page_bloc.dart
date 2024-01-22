@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
@@ -17,7 +15,7 @@ class SimpleInterestPageBloc
     on<CheckFormStateEvent>(_onCheckFormStateEvent);
     on<CalculateResultEvent>(_onCalculateResult);
     on<ChangeRatePeriodEvent>(_onChangeRatePeriodEvent);
-    on<ChangeDurationPeriodEvent>(_onChangeDurationPeriodEvent);
+    on<ChangeTimePeriodEvent>(_onChangeTimePeriodEvent);
   }
 
   _onCheckFormStateEvent(CheckFormStateEvent event, emit) {
@@ -65,7 +63,9 @@ class SimpleInterestPageBloc
     emit(state.copyWith(ratePeriodType: event.rateTimeDuration));
   }
 
-  _onChangeDurationPeriodEvent(ChangeDurationPeriodEvent event, emit) {}
+  _onChangeTimePeriodEvent(ChangeTimePeriodEvent event, emit) {
+    emit(state.copyWith(timePeriodType: event.timePeriodDuration));
+  }
 
   String _onPrintOutputEvent() {
     return 'The simple interest on the ${state.principal} loan over ${state.duration} years at a ${state.rate}% annual interest rate would be ${state.result}';
@@ -94,12 +94,5 @@ class SimpleInterestPageBloc
       interestRateValues.add(interest);
     }
     return [principalValue, interestRateValues];
-  }
-
-  @override
-  void onChange(Change<SimpleInterestPageState> change) {
-    print("-----------");
-
-    super.onChange(change);
   }
 }

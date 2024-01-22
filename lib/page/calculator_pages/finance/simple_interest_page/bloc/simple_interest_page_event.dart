@@ -11,6 +11,6 @@ abstract class SimpleInterestPageEvent with _$SimpleInterestPageEvent {
       CalculateResultEvent;
   const factory SimpleInterestPageEvent.changeRatePeriodEvent(
       RatePeriodTypes rateTimeDuration) = ChangeRatePeriodEvent;
-  const factory SimpleInterestPageEvent.changeDurationPeriodEvent() =
-      ChangeDurationPeriodEvent;
+  const factory SimpleInterestPageEvent.changeTimePeriodEvent(
+      TimePeriodsTypes timePeriodDuration) = ChangeTimePeriodEvent;
 }

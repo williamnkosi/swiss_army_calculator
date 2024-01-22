@@ -12,7 +12,7 @@ class SimpleInterestPageState with _$SimpleInterestPageState {
     @Default([]) List<PieChartSectionData> sections,
     @Default([]) List<List<double>> barChartData,
     @Default(RatePeriodTypes.years) RatePeriodTypes ratePeriodType,
-    @Default(TimePeriodsTypes.annually) TimePeriodsTypes periodicType,
+    @Default(TimePeriodsTypes.monthly) TimePeriodsTypes timePeriodType,
     @Default(0) double principal,
     @Default(0) double rate,
     @Default(0) double duration,
