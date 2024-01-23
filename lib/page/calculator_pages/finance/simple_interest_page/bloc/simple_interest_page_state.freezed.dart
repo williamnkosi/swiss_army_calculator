@@ -240,7 +240,7 @@ class _$SimpleInterestPageStateImpl implements _SimpleInterestPageState {
       final List<PieChartSectionData> sections = const [],
       final List<List<double>> barChartData = const [],
       this.ratePeriodType = RatePeriodTypes.years,
-      this.timePeriodType = TimePeriodsTypes.annually,
+      this.timePeriodType = TimePeriodsTypes.monthly,
       this.principal = 0,
       this.rate = 0,
       this.duration = 0,
