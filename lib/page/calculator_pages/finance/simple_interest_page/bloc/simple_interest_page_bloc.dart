@@ -49,7 +49,7 @@ class SimpleInterestPageBloc
         time: duration,
         frequency: state.ratePeriodType,
         term: state.timePeriodType);
-    print(result);
+
     final sections = _generatePieChartSections([principle, result]);
     final barChartData = _generateBarChartData(
         principal: principle, rate: rate, duration: duration);

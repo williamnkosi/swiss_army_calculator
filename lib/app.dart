@@ -4,7 +4,7 @@ import 'package:swiss_army_calculator/app_state/app_bloc/app_bloc.dart';
 import 'package:swiss_army_calculator/app_state/favorites_bloc/favorites_bloc.dart';
 import 'package:swiss_army_calculator/bottom_navigation_bar.dart';
 import 'package:swiss_army_calculator/page/account.dart';
-import 'package:swiss_army_calculator/page/calculator_pages/finance/finance_list_page.dart';
+import 'package:swiss_army_calculator/page/calculator_pages/finance/finace_list_page/finance_list_page.dart';
 import 'package:swiss_army_calculator/page/favorites.dart';
 import 'package:swiss_army_calculator/page/home.dart';
 import 'package:swiss_army_calculator/widgets/bottom_navigation_bar/cubit/bottom_navigation_bar_cubit.dart';
