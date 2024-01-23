@@ -1,4 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+import '../../../../../models/time_types.dart';
 part 'simple_interest_page_event.freezed.dart';
 
 @freezed
@@ -7,8 +9,8 @@ abstract class SimpleInterestPageEvent with _$SimpleInterestPageEvent {
       CheckFormStateEvent;
   const factory SimpleInterestPageEvent.calculateResultEvent() =
       CalculateResultEvent;
-  const factory SimpleInterestPageEvent.changeRatePeriodEvent() =
-      ChangeRatePeriodEvent;
-  const factory SimpleInterestPageEvent.changeDurationPeriodEvent() =
-      ChangeDurationPeriodEvent;
+  const factory SimpleInterestPageEvent.changeRatePeriodEvent(
+      RatePeriodTypes rateTimeDuration) = ChangeRatePeriodEvent;
+  const factory SimpleInterestPageEvent.changeTimePeriodEvent(
+      TimePeriodsTypes timePeriodDuration) = ChangeTimePeriodEvent;
 }

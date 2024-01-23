@@ -15,7 +15,7 @@ class SimpleInterestPageBloc
     on<CheckFormStateEvent>(_onCheckFormStateEvent);
     on<CalculateResultEvent>(_onCalculateResult);
     on<ChangeRatePeriodEvent>(_onChangeRatePeriodEvent);
-    on<ChangeDurationPeriodEvent>(_onChangeDurationPeriodEvent);
+    on<ChangeTimePeriodEvent>(_onChangeTimePeriodEvent);
   }
 
   _onCheckFormStateEvent(CheckFormStateEvent event, emit) {
@@ -43,7 +43,13 @@ class SimpleInterestPageBloc
     final duration = double.parse(state.formKey.currentState!
         .fields[SimpleInterestTextFieldNames.duration.value]!.value);
 
-    final result = calculateSimpleInterest(principle, rate, duration);
+    final result = calculateSimpleInterest(
+        principal: principle,
+        rate: rate,
+        time: duration,
+        frequency: state.ratePeriodType,
+        term: state.timePeriodType);
+    print(result);
     final sections = _generatePieChartSections([principle, result]);
     final barChartData = _generateBarChartData(
         principal: principle, rate: rate, duration: duration);
@@ -59,12 +65,16 @@ class SimpleInterestPageBloc
     emit(state.copyWith(printOutput: text));
   }
 
-  _onChangeRatePeriodEvent(ChangeRatePeriodEvent event, emit) {}
+  _onChangeRatePeriodEvent(ChangeRatePeriodEvent event, emit) {
+    emit(state.copyWith(ratePeriodType: event.rateTimeDuration));
+  }
 
-  _onChangeDurationPeriodEvent(ChangeDurationPeriodEvent event, emit) {}
+  _onChangeTimePeriodEvent(ChangeTimePeriodEvent event, emit) {
+    emit(state.copyWith(timePeriodType: event.timePeriodDuration));
+  }
 
   String _onPrintOutputEvent() {
-    return 'The simple interest on the ${state.principal} loan over ${state.duration} years at a ${state.rate}% annual interest rate would be ${state.result}';
+    return 'The simple interest on the ${state.principal} loan over ${state.duration} ${state.timePeriodType.value.toLowerCase()} at a ${state.rate}% ${state.ratePeriodType.value.toString()} interest rate would be ${state.result} and the total balance would amount to ${state.principal + state.result}';
   }
 
   _generatePieChartSections(List<double> dataPoints) {

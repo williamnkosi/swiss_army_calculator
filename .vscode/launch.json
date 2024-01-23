@@ -10,7 +10,7 @@
                 "--flavor",
                 "development",
                 "--target",
-                "lib/main_dev.dart"
+                "lib/main_development.dart"
             ]
         },
         {
@@ -22,7 +22,7 @@
                 "--flavor",
                 "production",
                 "--target",
-                "lib/main_prod.dart"
+                "lib/main_production.dart"
             ]
         }
     ]
