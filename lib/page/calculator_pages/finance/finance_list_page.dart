@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:swiss_army_calculator/app_state/favorites_bloc/favorites_bloc.dart';
 import 'package:swiss_army_calculator/models/calculator_types.dart';
 import 'package:swiss_army_calculator/page/calculator_pages/calculator_wrapper.dart';
 import 'package:swiss_army_calculator/page/calculator_pages/finance/simple_interest_page/bloc/simple_interest_page_bloc.dart';
@@ -28,23 +29,35 @@ class FinanceListPage extends StatelessWidget {
           itemCount: FinanceCalculators.values.length,
           itemBuilder: (context, index) {
             String title = FinanceCalculators.values[index].value;
-            return ListTile(
-              trailing: IconButton(
-                icon: const Icon(Icons.favorite),
-                onPressed: () => print('asdf'),
-              ),
-              contentPadding: const EdgeInsets.all(10.0),
-              title: Text(title),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) =>
-                          CalculatorPageWrapper<FinanceCalculators>(
-                            title: title,
-                            page: _onGeneratePage(
-                                FinanceCalculators.values[index]),
-                          )),
+            return BlocBuilder<FavoritesBloc, FavoritesState>(
+              builder: (context, state) {
+                bool isFavorited =
+                    state.favorites.contains(FinanceCalculators.values[index]);
+                return ListTile(
+                  trailing: IconButton(
+                    icon: isFavorited
+                        ? const Icon(Icons.favorite)
+                        : const Icon(Icons.favorite_outline_outlined),
+                    onPressed: () {
+                      BlocProvider.of<FavoritesBloc>(context).add(
+                          ToggleFavorite(
+                              calculator: FinanceCalculators.values[index]));
+                    },
+                  ),
+                  contentPadding: const EdgeInsets.all(10.0),
+                  title: Text(title),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              CalculatorPageWrapper<FinanceCalculators>(
+                                title: title,
+                                page: _onGeneratePage(
+                                    FinanceCalculators.values[index]),
+                              )),
+                    );
+                  },
                 );
               },
             );

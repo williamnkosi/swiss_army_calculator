@@ -9,16 +9,19 @@ part 'favorites_state.dart';
 class FavoritesBloc extends Bloc<FavoritesEvent, FavoritesState> {
   FavoritesBloc() : super(const FavoritesState()) {
     on<GetFavorites>(_onGetFavorites);
-    on<AddFavorite>(_onAddFavorite);
-    on<RemoveFavorite>(_onRemoveFavorite);
+    on<ToggleFavorite>(_onToggleFavorite);
   }
 
   _onGetFavorites(GetFavorites event, emit) {}
-  _onAddFavorite(AddFavorite event, emit) {
-    final newList = state.favories;
-    newList.add(event.calculator);
-    emit(state.copyWith(favories: newList));
+  _onToggleFavorite(ToggleFavorite event, emit) {
+    try {
+      List<FinanceCalculators> newList = List.from(state.favorites);
+      if (newList.contains(event.calculator)) {
+        newList.remove(event.calculator);
+      } else {
+        newList.add(event.calculator);
+      }
+      emit(state.copyWith(favorites: newList));
+    } catch (e) {}
   }
-
-  _onRemoveFavorite(RemoveFavorite event, emit) {}
 }
