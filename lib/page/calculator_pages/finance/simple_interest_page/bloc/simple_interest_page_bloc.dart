@@ -43,7 +43,13 @@ class SimpleInterestPageBloc
     final duration = double.parse(state.formKey.currentState!
         .fields[SimpleInterestTextFieldNames.duration.value]!.value);
 
-    final result = calculateSimpleInterest(principle, rate, duration);
+    final result = calculateSimpleInterest(
+        principal: principle,
+        rate: rate,
+        time: duration,
+        frequency: state.ratePeriodType,
+        term: state.timePeriodType);
+    print(result);
     final sections = _generatePieChartSections([principle, result]);
     final barChartData = _generateBarChartData(
         principal: principle, rate: rate, duration: duration);
@@ -68,7 +74,7 @@ class SimpleInterestPageBloc
   }
 
   String _onPrintOutputEvent() {
-    return 'The simple interest on the ${state.principal} loan over ${state.duration} years at a ${state.rate}% annual interest rate would be ${state.result}';
+    return 'The simple interest on the ${state.principal} loan over ${state.duration} ${state.timePeriodType.value.toLowerCase()} at a ${state.rate}% ${state.ratePeriodType.value.toString()} interest rate would be ${state.result} and the total balance would amount to ${state.principal + state.result}';
   }
 
   _generatePieChartSections(List<double> dataPoints) {
