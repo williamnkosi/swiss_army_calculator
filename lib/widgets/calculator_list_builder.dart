@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:swiss_army_calculator/models/calculator_types.dart';
 import 'package:swiss_army_calculator/page/calculator_pages/calculator_wrapper.dart';
-import 'package:swiss_army_calculator/page/calculator_pages/finance/compound_interest_page/bloc/compund_interest_page_bloc.dart';
+import 'package:swiss_army_calculator/page/calculator_pages/finance/compound_interest_page/bloc/compound_interest_page_bloc.dart';
 import 'package:swiss_army_calculator/page/calculator_pages/finance/compound_interest_page/compound_interest_page.dart';
 
 import '../app_state/favorites_bloc/favorites_bloc.dart';
@@ -22,7 +22,7 @@ class CalculatorListBuilder extends StatelessWidget {
       );
     } else if (value == FinanceCalculators.compoundInterest) {
       return BlocProvider(
-        create: (context) => CompundInterestPageBloc(),
+        create: (context) => CompoundInterestPageBloc(),
         child: const CompoundInterestPage(),
       );
     }
