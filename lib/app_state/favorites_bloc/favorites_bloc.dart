@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:tuple/tuple.dart';
 
 import '../../models/calculator_types.dart';
 part 'favorites_event.dart';
@@ -15,6 +14,11 @@ class FavoritesBloc extends Bloc<FavoritesEvent, FavoritesState> {
   }
 
   _onGetFavorites(GetFavorites event, emit) {}
-  _onAddFavorite(AddFavorite event, emit) {}
+  _onAddFavorite(AddFavorite event, emit) {
+    final newList = state.favories;
+    newList.add(event.calculator);
+    emit(state.copyWith(favories: newList));
+  }
+
   _onRemoveFavorite(RemoveFavorite event, emit) {}
 }

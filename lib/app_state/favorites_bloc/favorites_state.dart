@@ -3,6 +3,6 @@ part of 'favorites_bloc.dart';
 @freezed
 class FavoritesState with _$FavoritesState {
   const factory FavoritesState({
-    Tuple2<FinanceCalculators, int>? favories,
+    @Default([]) List<FinanceCalculators> favories,
   }) = _FavoritesState;
 }

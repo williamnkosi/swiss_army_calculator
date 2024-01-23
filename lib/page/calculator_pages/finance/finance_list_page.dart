@@ -29,7 +29,10 @@ class FinanceListPage extends StatelessWidget {
           itemBuilder: (context, index) {
             String title = FinanceCalculators.values[index].value;
             return ListTile(
-              trailing: const Icon(Icons.favorite),
+              trailing: IconButton(
+                icon: const Icon(Icons.favorite),
+                onPressed: () => print('asdf'),
+              ),
               contentPadding: const EdgeInsets.all(10.0),
               title: Text(title),
               onTap: () {
