@@ -1,16 +1,16 @@
-enum TimeDurationTypes {
-  years('Years'),
-  months('Months'),
-  days('Days');
+enum RatePeriodTypes {
+  years('Anually'),
+  months('Monthly'),
+  days('Daily');
 
-  const TimeDurationTypes(this.value);
+  const RatePeriodTypes(this.value);
   final String value;
 }
 
 enum TimePeriodsTypes {
-  annually('Annually'),
-  monthly('Monthly'),
-  daily('Daily');
+  annually('Years'),
+  monthly('Months'),
+  daily('Days');
 
   const TimePeriodsTypes(this.value);
   final String value;

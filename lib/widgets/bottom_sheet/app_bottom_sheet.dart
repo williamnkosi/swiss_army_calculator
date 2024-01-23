@@ -10,7 +10,7 @@ void appShowBottomSheet(
     builder: (BuildContext context) {
       return Container(
         width: double.infinity,
-        height: MediaQuery.of(context).size.height * 0.35,
+        height: MediaQuery.of(context).size.height * 0.45,
         padding: const EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -31,14 +31,11 @@ void appShowBottomSheet(
                 ),
               ],
             ),
-            child,
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pop(context); // Close the bottom sheet
-              },
-              child:
-                  Text('Close', style: Theme.of(context).textTheme.titleMedium),
+            const SizedBox(
+              height: 16,
             ),
+            child,
+            Container()
           ],
         ),
       );
