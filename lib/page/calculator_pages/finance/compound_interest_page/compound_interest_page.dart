@@ -3,11 +3,14 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:swiss_army_calculator/page/calculator_pages/finance/compound_interest_page/bloc/compound_interest_page_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:swiss_army_calculator/page/calculator_pages/finance/compound_interest_page/consts.dart';
 
 import '../../../../info/finance_info.dart';
 import '../../../../models/calculator_types.dart';
 import '../../../../widgets/app_expansion_tile.dart';
 import '../../../../widgets/app_material_button.dart';
+import '../../../../widgets/bottom_sheet/app_bottom_sheet.dart';
+import '../simple_interest_page/simple_interest_page.dart';
 import 'compound_interest_text_field_data.dart';
 
 class CompoundInterestPage extends StatelessWidget {
@@ -160,23 +163,48 @@ class _InterestRateField extends StatelessWidget {
 
 class _CompoundInterestField extends StatelessWidget {
   const _CompoundInterestField();
+  double calculateWidthPercentage(BuildContext context, double percentage) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double widthPercentage = (percentage / 100) * screenWidth;
+    return widthPercentage;
+  }
 
   @override
   Widget build(BuildContext context) {
-    return FormBuilderTextField(
-      keyboardType: TextInputType.number,
-      name: CompoundInterestTextFieldData.compounded.name,
-      decoration: InputDecoration(
-          border: const OutlineInputBorder(),
-          floatingLabelBehavior: FloatingLabelBehavior.auto,
-          label: Text(
-            CompoundInterestTextFieldData.compounded.name,
-            style: TextStyle(color: Theme.of(context).colorScheme.secondary),
-          )),
-      validator: FormBuilderValidators.compose([
-        FormBuilderValidators.required(),
-        FormBuilderValidators.numeric(),
-      ]),
+    return IntrinsicHeight(
+      child: Row(
+        children: [
+          Opacity(
+            opacity: 0.0,
+            child: SizedBox(
+              width: 0,
+              child: TextField(
+                decoration: const InputDecoration(
+                  border: InputBorder.none,
+                ),
+                style: TextStyle(color: Colors.white.withOpacity(0)),
+              ),
+            ),
+          ),
+          Expanded(
+            child: ValueButton(
+              buttonTitle: 'Annually',
+              onPressed: () {
+                appShowBottomSheet(
+                    context: context,
+                    title: 'Rate',
+                    subTitle:
+                        'This rate determines the amount of interest accrued on a principal amount over a specified period. ',
+                    child: RowOfOptions<String>(
+                        onPressed: (index) {},
+                        pagecontext: context,
+                        activeIndex: 0,
+                        options: compoundInterestFrequency));
+              },
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

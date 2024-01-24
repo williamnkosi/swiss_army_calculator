@@ -199,14 +199,14 @@ class InterestRate extends StatelessWidget {
 class RowOfOptions<T> extends StatelessWidget {
   final BuildContext pagecontext;
   final Function(int index) onPressed;
-  final SimpleInterestPageState state;
+  final SimpleInterestPageState? state;
   final List<T> options;
   final int activeIndex;
   const RowOfOptions({
     Key? key,
     required this.pagecontext,
     required this.onPressed,
-    required this.state,
+    this.state,
     required this.options,
     required this.activeIndex,
   }) : super(key: key);
