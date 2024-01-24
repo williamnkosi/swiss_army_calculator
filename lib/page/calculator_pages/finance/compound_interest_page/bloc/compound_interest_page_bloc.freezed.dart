@@ -18,33 +18,42 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$CompoundInterestPageEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function() checkFormState,
+    required TResult Function() calculateCompoundInterest,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
+    TResult? Function()? checkFormState,
+    TResult? Function()? calculateCompoundInterest,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function()? checkFormState,
+    TResult Function()? calculateCompoundInterest,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(_CheckFormStateEvent value) checkFormState,
+    required TResult Function(_CalculateCompoundInterest value)
+        calculateCompoundInterest,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(_CheckFormStateEvent value)? checkFormState,
+    TResult? Function(_CalculateCompoundInterest value)?
+        calculateCompoundInterest,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(_CheckFormStateEvent value)? checkFormState,
+    TResult Function(_CalculateCompoundInterest value)?
+        calculateCompoundInterest,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -70,35 +79,37 @@ class _$CompoundInterestPageEventCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$StartedImplCopyWith<$Res> {
-  factory _$$StartedImplCopyWith(
-          _$StartedImpl value, $Res Function(_$StartedImpl) then) =
-      __$$StartedImplCopyWithImpl<$Res>;
+abstract class _$$CheckFormStateEventImplCopyWith<$Res> {
+  factory _$$CheckFormStateEventImplCopyWith(_$CheckFormStateEventImpl value,
+          $Res Function(_$CheckFormStateEventImpl) then) =
+      __$$CheckFormStateEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$StartedImplCopyWithImpl<$Res>
-    extends _$CompoundInterestPageEventCopyWithImpl<$Res, _$StartedImpl>
-    implements _$$StartedImplCopyWith<$Res> {
-  __$$StartedImplCopyWithImpl(
-      _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
+class __$$CheckFormStateEventImplCopyWithImpl<$Res>
+    extends _$CompoundInterestPageEventCopyWithImpl<$Res,
+        _$CheckFormStateEventImpl>
+    implements _$$CheckFormStateEventImplCopyWith<$Res> {
+  __$$CheckFormStateEventImplCopyWithImpl(_$CheckFormStateEventImpl _value,
+      $Res Function(_$CheckFormStateEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$StartedImpl implements _Started {
-  const _$StartedImpl();
+class _$CheckFormStateEventImpl implements _CheckFormStateEvent {
+  const _$CheckFormStateEventImpl();
 
   @override
   String toString() {
-    return 'CompoundInterestPageEvent.started()';
+    return 'CompoundInterestPageEvent.checkFormState()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$StartedImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$CheckFormStateEventImpl);
   }
 
   @override
@@ -107,27 +118,30 @@ class _$StartedImpl implements _Started {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function() checkFormState,
+    required TResult Function() calculateCompoundInterest,
   }) {
-    return started();
+    return checkFormState();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
+    TResult? Function()? checkFormState,
+    TResult? Function()? calculateCompoundInterest,
   }) {
-    return started?.call();
+    return checkFormState?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function()? checkFormState,
+    TResult Function()? calculateCompoundInterest,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started();
+    if (checkFormState != null) {
+      return checkFormState();
     }
     return orElse();
   }
@@ -135,34 +149,149 @@ class _$StartedImpl implements _Started {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(_CheckFormStateEvent value) checkFormState,
+    required TResult Function(_CalculateCompoundInterest value)
+        calculateCompoundInterest,
   }) {
-    return started(this);
+    return checkFormState(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(_CheckFormStateEvent value)? checkFormState,
+    TResult? Function(_CalculateCompoundInterest value)?
+        calculateCompoundInterest,
   }) {
-    return started?.call(this);
+    return checkFormState?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(_CheckFormStateEvent value)? checkFormState,
+    TResult Function(_CalculateCompoundInterest value)?
+        calculateCompoundInterest,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started(this);
+    if (checkFormState != null) {
+      return checkFormState(this);
     }
     return orElse();
   }
 }
 
-abstract class _Started implements CompoundInterestPageEvent {
-  const factory _Started() = _$StartedImpl;
+abstract class _CheckFormStateEvent implements CompoundInterestPageEvent {
+  const factory _CheckFormStateEvent() = _$CheckFormStateEventImpl;
+}
+
+/// @nodoc
+abstract class _$$CalculateCompoundInterestImplCopyWith<$Res> {
+  factory _$$CalculateCompoundInterestImplCopyWith(
+          _$CalculateCompoundInterestImpl value,
+          $Res Function(_$CalculateCompoundInterestImpl) then) =
+      __$$CalculateCompoundInterestImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$CalculateCompoundInterestImplCopyWithImpl<$Res>
+    extends _$CompoundInterestPageEventCopyWithImpl<$Res,
+        _$CalculateCompoundInterestImpl>
+    implements _$$CalculateCompoundInterestImplCopyWith<$Res> {
+  __$$CalculateCompoundInterestImplCopyWithImpl(
+      _$CalculateCompoundInterestImpl _value,
+      $Res Function(_$CalculateCompoundInterestImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$CalculateCompoundInterestImpl implements _CalculateCompoundInterest {
+  const _$CalculateCompoundInterestImpl();
+
+  @override
+  String toString() {
+    return 'CompoundInterestPageEvent.calculateCompoundInterest()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CalculateCompoundInterestImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() checkFormState,
+    required TResult Function() calculateCompoundInterest,
+  }) {
+    return calculateCompoundInterest();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? checkFormState,
+    TResult? Function()? calculateCompoundInterest,
+  }) {
+    return calculateCompoundInterest?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? checkFormState,
+    TResult Function()? calculateCompoundInterest,
+    required TResult orElse(),
+  }) {
+    if (calculateCompoundInterest != null) {
+      return calculateCompoundInterest();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_CheckFormStateEvent value) checkFormState,
+    required TResult Function(_CalculateCompoundInterest value)
+        calculateCompoundInterest,
+  }) {
+    return calculateCompoundInterest(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_CheckFormStateEvent value)? checkFormState,
+    TResult? Function(_CalculateCompoundInterest value)?
+        calculateCompoundInterest,
+  }) {
+    return calculateCompoundInterest?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CheckFormStateEvent value)? checkFormState,
+    TResult Function(_CalculateCompoundInterest value)?
+        calculateCompoundInterest,
+    required TResult orElse(),
+  }) {
+    if (calculateCompoundInterest != null) {
+      return calculateCompoundInterest(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CalculateCompoundInterest implements CompoundInterestPageEvent {
+  const factory _CalculateCompoundInterest() = _$CalculateCompoundInterestImpl;
 }
 
 /// @nodoc
@@ -175,6 +304,7 @@ mixin _$CompoundInterestPageState {
   int get investmentLengthYears => throw _privateConstructorUsedError;
   int get investmentLengthMonths => throw _privateConstructorUsedError;
   double get inflationRate => throw _privateConstructorUsedError;
+  dynamic get isDiabled => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CompoundInterestPageStateCopyWith<CompoundInterestPageState> get copyWith =>
@@ -195,7 +325,8 @@ abstract class $CompoundInterestPageStateCopyWith<$Res> {
       double interestRate,
       int investmentLengthYears,
       int investmentLengthMonths,
-      double inflationRate});
+      double inflationRate,
+      dynamic isDiabled});
 }
 
 /// @nodoc
@@ -220,6 +351,7 @@ class _$CompoundInterestPageStateCopyWithImpl<$Res,
     Object? investmentLengthYears = null,
     Object? investmentLengthMonths = null,
     Object? inflationRate = null,
+    Object? isDiabled = freezed,
   }) {
     return _then(_value.copyWith(
       formKey: null == formKey
@@ -254,6 +386,10 @@ class _$CompoundInterestPageStateCopyWithImpl<$Res,
           ? _value.inflationRate
           : inflationRate // ignore: cast_nullable_to_non_nullable
               as double,
+      isDiabled: freezed == isDiabled
+          ? _value.isDiabled
+          : isDiabled // ignore: cast_nullable_to_non_nullable
+              as dynamic,
     ) as $Val);
   }
 }
@@ -275,7 +411,8 @@ abstract class _$$CompoundInterestPageStateImplCopyWith<$Res>
       double interestRate,
       int investmentLengthYears,
       int investmentLengthMonths,
-      double inflationRate});
+      double inflationRate,
+      dynamic isDiabled});
 }
 
 /// @nodoc
@@ -299,6 +436,7 @@ class __$$CompoundInterestPageStateImplCopyWithImpl<$Res>
     Object? investmentLengthYears = null,
     Object? investmentLengthMonths = null,
     Object? inflationRate = null,
+    Object? isDiabled = freezed,
   }) {
     return _then(_$CompoundInterestPageStateImpl(
       formKey: null == formKey
@@ -333,6 +471,7 @@ class __$$CompoundInterestPageStateImplCopyWithImpl<$Res>
           ? _value.inflationRate
           : inflationRate // ignore: cast_nullable_to_non_nullable
               as double,
+      isDiabled: freezed == isDiabled ? _value.isDiabled! : isDiabled,
     ));
   }
 }
@@ -348,7 +487,8 @@ class _$CompoundInterestPageStateImpl implements _CompoundInterestPageState {
       this.interestRate = 0,
       this.investmentLengthYears = 0,
       this.investmentLengthMonths = 0,
-      this.inflationRate = 0});
+      this.inflationRate = 0,
+      this.isDiabled = true});
 
   @override
   final GlobalKey<FormBuilderState> formKey;
@@ -373,10 +513,13 @@ class _$CompoundInterestPageStateImpl implements _CompoundInterestPageState {
   @override
   @JsonKey()
   final double inflationRate;
+  @override
+  @JsonKey()
+  final dynamic isDiabled;
 
   @override
   String toString() {
-    return 'CompoundInterestPageState(formKey: $formKey, initialInvestment: $initialInvestment, annualContribution: $annualContribution, monthlyContribution: $monthlyContribution, interestRate: $interestRate, investmentLengthYears: $investmentLengthYears, investmentLengthMonths: $investmentLengthMonths, inflationRate: $inflationRate)';
+    return 'CompoundInterestPageState(formKey: $formKey, initialInvestment: $initialInvestment, annualContribution: $annualContribution, monthlyContribution: $monthlyContribution, interestRate: $interestRate, investmentLengthYears: $investmentLengthYears, investmentLengthMonths: $investmentLengthMonths, inflationRate: $inflationRate, isDiabled: $isDiabled)';
   }
 
   @override
@@ -398,7 +541,8 @@ class _$CompoundInterestPageStateImpl implements _CompoundInterestPageState {
             (identical(other.investmentLengthMonths, investmentLengthMonths) ||
                 other.investmentLengthMonths == investmentLengthMonths) &&
             (identical(other.inflationRate, inflationRate) ||
-                other.inflationRate == inflationRate));
+                other.inflationRate == inflationRate) &&
+            const DeepCollectionEquality().equals(other.isDiabled, isDiabled));
   }
 
   @override
@@ -411,7 +555,8 @@ class _$CompoundInterestPageStateImpl implements _CompoundInterestPageState {
       interestRate,
       investmentLengthYears,
       investmentLengthMonths,
-      inflationRate);
+      inflationRate,
+      const DeepCollectionEquality().hash(isDiabled));
 
   @JsonKey(ignore: true)
   @override
@@ -430,7 +575,8 @@ abstract class _CompoundInterestPageState implements CompoundInterestPageState {
       final double interestRate,
       final int investmentLengthYears,
       final int investmentLengthMonths,
-      final double inflationRate}) = _$CompoundInterestPageStateImpl;
+      final double inflationRate,
+      final dynamic isDiabled}) = _$CompoundInterestPageStateImpl;
 
   @override
   GlobalKey<FormBuilderState> get formKey;
@@ -448,6 +594,8 @@ abstract class _CompoundInterestPageState implements CompoundInterestPageState {
   int get investmentLengthMonths;
   @override
   double get inflationRate;
+  @override
+  dynamic get isDiabled;
   @override
   @JsonKey(ignore: true)
   _$$CompoundInterestPageStateImplCopyWith<_$CompoundInterestPageStateImpl>

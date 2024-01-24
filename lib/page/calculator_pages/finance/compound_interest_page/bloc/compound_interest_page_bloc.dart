@@ -12,8 +12,24 @@ class CompoundInterestPageBloc
   CompoundInterestPageBloc()
       : super(
             CompoundInterestPageState(formKey: GlobalKey<FormBuilderState>())) {
-    on<CompoundInterestPageEvent>((event, emit) {
-      // TODO: implement event handler
-    });
+    on<_CheckFormStateEvent>(_onCheckFormStateEvent);
+    on<_CalculateCompoundInterest>(_onCalculateCompoundInterest);
   }
+
+  _onCheckFormStateEvent(_CheckFormStateEvent event, emit) {
+    if (state.formKey.currentState!.isValid) {
+      try {
+        if (state.formKey.currentState!.validate()) {
+          state.formKey.currentState?.save();
+          emit(state.copyWith(isDiabled: false));
+        } else {
+          emit(state.copyWith(isDiabled: true));
+        }
+      } catch (e) {
+        emit(state.copyWith(isDiabled: true));
+      }
+    }
+  }
+
+  _onCalculateCompoundInterest(_CalculateCompoundInterest event, emit) {}
 }
