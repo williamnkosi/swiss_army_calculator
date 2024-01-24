@@ -48,7 +48,7 @@ class CompoundInterestPage extends StatelessWidget {
             const SizedBox(
               height: 16,
             ),
-            const _InvestmentRateField(),
+            const _InvestmentLength(),
             const SizedBox(
               height: 16,
             ),
@@ -78,7 +78,7 @@ class _InitiInvestmentField extends StatelessWidget {
           border: const OutlineInputBorder(),
           floatingLabelBehavior: FloatingLabelBehavior.auto,
           label: Text(
-            CompoundInterestTextFieldData.initialInvestment.label,
+            CompoundInterestTextFieldData.initialInvestment.name,
             style: TextStyle(color: Theme.of(context).colorScheme.secondary),
           )),
       validator: FormBuilderValidators.compose([
@@ -101,7 +101,7 @@ class _AnnualContributionField extends StatelessWidget {
           border: const OutlineInputBorder(),
           floatingLabelBehavior: FloatingLabelBehavior.auto,
           label: Text(
-            CompoundInterestTextFieldData.annualContribution.label,
+            CompoundInterestTextFieldData.annualContribution.name,
             style: TextStyle(color: Theme.of(context).colorScheme.secondary),
           )),
       validator: FormBuilderValidators.compose([
@@ -124,7 +124,7 @@ class _MothlyContributionField extends StatelessWidget {
           border: const OutlineInputBorder(),
           floatingLabelBehavior: FloatingLabelBehavior.auto,
           label: Text(
-            CompoundInterestTextFieldData.monthlyContribution.label,
+            CompoundInterestTextFieldData.monthlyContribution.name,
             style: TextStyle(color: Theme.of(context).colorScheme.secondary),
           )),
       validator: FormBuilderValidators.compose([
@@ -147,7 +147,7 @@ class _InterestRateField extends StatelessWidget {
           border: const OutlineInputBorder(),
           floatingLabelBehavior: FloatingLabelBehavior.auto,
           label: Text(
-            CompoundInterestTextFieldData.interestRate.label,
+            CompoundInterestTextFieldData.interestRate.name,
             style: TextStyle(color: Theme.of(context).colorScheme.secondary),
           )),
       validator: FormBuilderValidators.compose([
@@ -170,7 +170,7 @@ class _CompoundInterestField extends StatelessWidget {
           border: const OutlineInputBorder(),
           floatingLabelBehavior: FloatingLabelBehavior.auto,
           label: Text(
-            CompoundInterestTextFieldData.compounded.label,
+            CompoundInterestTextFieldData.compounded.name,
             style: TextStyle(color: Theme.of(context).colorScheme.secondary),
           )),
       validator: FormBuilderValidators.compose([
@@ -181,12 +181,59 @@ class _CompoundInterestField extends StatelessWidget {
   }
 }
 
-class _InvestmentRateField extends StatelessWidget {
-  const _InvestmentRateField();
+class _InvestmentLength extends StatelessWidget {
+  const _InvestmentLength();
+  double calculateWidthPercentage(BuildContext context, double percentage) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double widthPercentage = (percentage / 100) * screenWidth;
+    return widthPercentage;
+  }
 
   @override
   Widget build(BuildContext context) {
-    return const SizedBox();
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        SizedBox(
+            width: calculateWidthPercentage(context, 45),
+            child: FormBuilderTextField(
+              keyboardType: TextInputType.number,
+              name: CompoundInterestTextFieldData.lengthYears.name,
+              initialValue: 5.toString(),
+              decoration: InputDecoration(
+                  border: const OutlineInputBorder(),
+                  floatingLabelBehavior: FloatingLabelBehavior.auto,
+                  label: Text(
+                    CompoundInterestTextFieldData.lengthYears.name,
+                    style: TextStyle(
+                        color: Theme.of(context).colorScheme.secondary),
+                  )),
+              validator: FormBuilderValidators.compose([
+                FormBuilderValidators.required(),
+                FormBuilderValidators.numeric(),
+              ]),
+            )),
+        SizedBox(
+            width: calculateWidthPercentage(context, 45),
+            child: FormBuilderTextField(
+              keyboardType: TextInputType.number,
+              name: CompoundInterestTextFieldData.lengthMonths.name,
+              initialValue: 0.toString(),
+              decoration: InputDecoration(
+                  border: const OutlineInputBorder(),
+                  floatingLabelBehavior: FloatingLabelBehavior.auto,
+                  label: Text(
+                    CompoundInterestTextFieldData.lengthMonths.name,
+                    style: TextStyle(
+                        color: Theme.of(context).colorScheme.secondary),
+                  )),
+              validator: FormBuilderValidators.compose([
+                FormBuilderValidators.required(),
+                FormBuilderValidators.numeric(),
+              ]),
+            ))
+      ],
+    );
   }
 }
 
@@ -202,7 +249,7 @@ class _InflationRateField extends StatelessWidget {
           border: const OutlineInputBorder(),
           floatingLabelBehavior: FloatingLabelBehavior.auto,
           label: Text(
-            CompoundInterestTextFieldData.inflationRate.label,
+            CompoundInterestTextFieldData.inflationRate.name,
             style: TextStyle(color: Theme.of(context).colorScheme.secondary),
           )),
       validator: FormBuilderValidators.compose([

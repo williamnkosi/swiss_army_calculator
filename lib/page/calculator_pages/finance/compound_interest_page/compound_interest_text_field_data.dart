@@ -1,13 +1,14 @@
 enum CompoundInterestTextFieldData {
-  initialInvestment('initialInvestment', 'Initial Investment'),
-  annualContribution('annualContribution', 'Annual Contribution'),
-  monthlyContribution('monthlyContribution', 'Monthly Contribution'),
-  interestRate('interestRate', 'Interest Rate'),
-  compounded('compounded', 'Compouneded'),
-  inflationRate('inflationRate', 'Inflation Rate');
+  initialInvestment('Initial Investment'),
+  annualContribution('Annual Contribution'),
+  monthlyContribution('Monthly Contribution'),
+  interestRate('Interest Rate'),
+  compounded('Compounded'),
+  lengthYears('Years'),
+  lengthMonths('Months'),
+  inflationRate('Inflation Rate');
 
-  const CompoundInterestTextFieldData(this.name, this.label);
+  const CompoundInterestTextFieldData(this.name);
 
   final String name;
-  final String label;
 }
