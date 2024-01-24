@@ -10,6 +10,7 @@ import '../../../../models/calculator_types.dart';
 import '../../../../widgets/app_expansion_tile.dart';
 import '../../../../widgets/app_material_button.dart';
 import '../../../../widgets/bottom_sheet/app_bottom_sheet.dart';
+import '../../../../widgets/row_of_options/row_of_options.dart';
 import '../simple_interest_page/simple_interest_page.dart';
 import 'compound_interest_text_field_data.dart';
 
