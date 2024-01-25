@@ -36,12 +36,16 @@ class CompoundInterestPageBloc
 
   _onCalculateCompoundInterest(_CalculateCompoundInterest event, emit) {
     try {
-      final initialInvestment = double.parse(state.formKey.currentState!
+      final amount =
+          _compoundFormuale()! + _compoundFormualeWithContributions()!;
+      emit(state.copyWith(totalAmount: amount));
+    } catch (e) {}
+  }
+
+  double? _compoundFormuale() {
+    try {
+      final principal = double.parse(state.formKey.currentState!
           .fields[CompoundInterestTextFieldData.initialInvestment]!.value);
-      final annualContribution = double.parse(state.formKey.currentState!
-          .fields[CompoundInterestTextFieldData.annualContribution]!.value);
-      final monthlyContribution = double.parse(state.formKey.currentState!
-          .fields[CompoundInterestTextFieldData.monthlyContribution]!.value);
       final interestRate = double.parse(state.formKey.currentState!
           .fields[CompoundInterestTextFieldData.interestRate]!.value);
       final compoundedFrequency = state.formKey.currentState!
@@ -52,6 +56,37 @@ class CompoundInterestPageBloc
           .fields[CompoundInterestTextFieldData.lengthMonths]!.value);
       final inflationRate = double.parse(state.formKey.currentState!
           .fields[CompoundInterestTextFieldData.inflationRate]!.value);
-    } catch (e) {}
+
+      return (principal *
+          (1 + interestRate / compoundedFrequency) *
+          pow(compoundedFrequency, lengthYears));
+    } catch (e) {
+      print('failed');
+    }
+    return null;
+  }
+
+  double? _compoundFormualeWithContributions() {
+    try {
+      final monthlyContribution = double.parse(state.formKey.currentState!
+          .fields[CompoundInterestTextFieldData.monthlyContribution]!.value);
+      final interestRate = double.parse(state.formKey.currentState!
+          .fields[CompoundInterestTextFieldData.interestRate]!.value);
+      final compoundedFrequency = state.formKey.currentState!
+          .fields[CompoundInterestTextFieldData.compounded]!.value;
+      final lengthYears = double.parse(state.formKey.currentState!
+          .fields[CompoundInterestTextFieldData.lengthYears]!.value);
+      // final lengthMonths = double.parse(state.formKey.currentState!
+      //     .fields[CompoundInterestTextFieldData.lengthMonths]!.value);
+
+      return monthlyContribution *
+          (((1 +
+                  (interestRate / compoundedFrequency) *
+                      pow(compoundedFrequency, lengthYears - 1))) /
+              (interestRate / compoundedFrequency));
+    } catch (e) {
+      print('failed');
+    }
+    return null;
   }
 }

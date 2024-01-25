@@ -12,6 +12,7 @@ enum CalculatorTypes {
 enum FinanceCalculators {
   simpleInterest('Simple Interest'),
   compoundInterest('Compound Interest'),
+  annuity('Annuity'),
   calculator401k('401k'),
   loan('Loan');
 
