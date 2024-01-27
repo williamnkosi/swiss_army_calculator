@@ -94,6 +94,8 @@ class SimpleInterest extends StatelessWidget {
           ],
         ),
         BlocBuilder<SimpleInterestPageBloc, SimpleInterestPageState>(
+          buildWhen: (previous, current) =>
+              previous.isDiabled != current.isDiabled,
           builder: (context, state) {
             return Positioned(
               bottom: 24,

@@ -59,11 +59,21 @@ class CompoundInterestPage extends StatelessWidget {
             const _InflationRateField()
           ],
         ),
-        Positioned(
-          bottom: 24,
-          width: MediaQuery.of(context).size.width - 32,
-          child: AppMaterialButton(
-              isDisabled: false, buttonTitle: 'CALCULATE', onPressed: () {}),
+        BlocBuilder<CompoundInterestPageBloc, CompoundInterestPageState>(
+          buildWhen: (previous, current) =>
+              previous.isDiabled != current.isDiabled,
+          builder: (context, state) {
+            return Positioned(
+              bottom: 24,
+              width: MediaQuery.of(context).size.width - 32,
+              child: AppMaterialButton(
+                  isDisabled: state.isDiabled,
+                  buttonTitle: 'CALCULATE',
+                  onPressed: () =>
+                      BlocProvider.of<CompoundInterestPageBloc>(context)
+                          .add(const CalculateCompoundInterest())),
+            );
+          },
         )
       ]),
     );
@@ -89,6 +99,8 @@ class _InitiInvestmentField extends StatelessWidget {
         FormBuilderValidators.required(),
         FormBuilderValidators.numeric(),
       ]),
+      onChanged: (text) => BlocProvider.of<CompoundInterestPageBloc>(context)
+          .add(const CompoundInterestPageEvent.checkFormStateEvent()),
     );
   }
 }
@@ -109,9 +121,10 @@ class _AnnualContributionField extends StatelessWidget {
             style: TextStyle(color: Theme.of(context).colorScheme.secondary),
           )),
       validator: FormBuilderValidators.compose([
-        FormBuilderValidators.required(),
         FormBuilderValidators.numeric(),
       ]),
+      onChanged: (text) => BlocProvider.of<CompoundInterestPageBloc>(context)
+          .add(const CheckFormStateEvent()),
     );
   }
 }
@@ -132,9 +145,10 @@ class _MothlyContributionField extends StatelessWidget {
             style: TextStyle(color: Theme.of(context).colorScheme.secondary),
           )),
       validator: FormBuilderValidators.compose([
-        FormBuilderValidators.required(),
         FormBuilderValidators.numeric(),
       ]),
+      onChanged: (text) => BlocProvider.of<CompoundInterestPageBloc>(context)
+          .add(const CheckFormStateEvent()),
     );
   }
 }
@@ -158,6 +172,8 @@ class _InterestRateField extends StatelessWidget {
         FormBuilderValidators.required(),
         FormBuilderValidators.numeric(),
       ]),
+      onChanged: (text) => BlocProvider.of<CompoundInterestPageBloc>(context)
+          .add(const CheckFormStateEvent()),
     );
   }
 }
@@ -187,22 +203,20 @@ class _CompoundInterestField extends StatelessWidget {
               ),
             ),
           ),
-          Expanded(
-            child: ValueButton(
-              buttonTitle: 'Annually',
-              onPressed: () {
-                appShowBottomSheet(
-                    context: context,
-                    title: 'Rate',
-                    subTitle:
-                        'This rate determines the amount of interest accrued on a principal amount over a specified period. ',
-                    child: RowOfOptions<String>(
-                        onPressed: (index) {},
-                        pagecontext: context,
-                        activeIndex: 0,
-                        options: compoundInterestFrequency));
-              },
-            ),
+          ValueButton(
+            buttonTitle: 'Annually',
+            onPressed: () {
+              appShowBottomSheet(
+                  context: context,
+                  title: 'Rate',
+                  subTitle:
+                      'This rate determines the amount of interest accrued on a principal amount over a specified period. ',
+                  child: RowOfOptions<String>(
+                      onPressed: (index) {},
+                      pagecontext: context,
+                      activeIndex: 0,
+                      options: compoundInterestFrequency));
+            },
           ),
         ],
       ),
@@ -241,6 +255,9 @@ class _InvestmentLength extends StatelessWidget {
                 FormBuilderValidators.required(),
                 FormBuilderValidators.numeric(),
               ]),
+              onChanged: (text) =>
+                  BlocProvider.of<CompoundInterestPageBloc>(context)
+                      .add(const CheckFormStateEvent()),
             )),
         SizedBox(
             width: calculateWidthPercentage(context, 45),
@@ -260,6 +277,9 @@ class _InvestmentLength extends StatelessWidget {
                 FormBuilderValidators.required(),
                 FormBuilderValidators.numeric(),
               ]),
+              onChanged: (text) =>
+                  BlocProvider.of<CompoundInterestPageBloc>(context)
+                      .add(const CheckFormStateEvent()),
             ))
       ],
     );
@@ -282,9 +302,10 @@ class _InflationRateField extends StatelessWidget {
             style: TextStyle(color: Theme.of(context).colorScheme.secondary),
           )),
       validator: FormBuilderValidators.compose([
-        FormBuilderValidators.required(),
         FormBuilderValidators.numeric(),
       ]),
+      onChanged: (text) => BlocProvider.of<CompoundInterestPageBloc>(context)
+          .add(const CheckFormStateEvent()),
     );
   }
 }

@@ -5,6 +5,7 @@ class CompoundInterestPageState with _$CompoundInterestPageState {
   const factory CompoundInterestPageState({
     required GlobalKey<FormBuilderState> formKey,
     @Default(0) double totalAmount,
+    @Default(true) bool isDiabled,
     @Default(0) double initialInvestment,
     @Default(0) double annualContribution,
     @Default(0) double monthlyContribution,
@@ -12,6 +13,5 @@ class CompoundInterestPageState with _$CompoundInterestPageState {
     @Default(0) int investmentLengthYears,
     @Default(0) int investmentLengthMonths,
     @Default(0) double inflationRate,
-    @Default(true) isDiabled,
   }) = _CompoundInterestPageState;
 }
