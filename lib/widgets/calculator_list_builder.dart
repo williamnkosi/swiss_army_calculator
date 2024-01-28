@@ -14,6 +14,16 @@ class CalculatorListBuilder extends StatelessWidget {
 
   Widget _onGeneratePage(Calculator value) {
     if (value is FinancialCalculator) {
+      // switch (value.type) {
+      //   case 'Simple Interest':
+      //     return BlocProvider(
+      //       create: (context) =>
+      //           SimpleInterestPageBloc()..add(BlocCreatedEvent(value)),
+      //       child: SimpleInterest(),
+      //     );
+      //   default:
+      //     return SimpleInterest();
+      // }
       if (value.name == 'Simple Interest') {
         return BlocProvider(
           create: (context) =>

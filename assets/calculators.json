@@ -44,7 +44,7 @@
                 "fullDescription": "Percentage is a number or ratio expressed as a fraction of 100. It is often denoted using the percent sign, '%', or the abbreviations 'pct.', 'pct'; sometimes the abbreviation 'pc' is also used. A percentage is a dimensionless number (pure number)."
             },
             {
-                "type": "random",
+                "type": "randomNumber",
                 "name": "Random Number Generator",
                 "shortDesription": "Random Number Generator is a tool to generate random numbers.",
                 "fullDescription": "Random Number Generator is a tool to generate random numbers. Random numbers are numbers that occur in a sequence such that two conditions are met: (1) the values are uniformly distributed over a defined interval or set, and (2) it is impossible to predict future values based on past or present ones. Random numbers are important in statistical analysis and probability theory."

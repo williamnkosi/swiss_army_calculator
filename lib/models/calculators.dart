@@ -1,9 +1,11 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:swiss_army_calculator/models/calculator_types.dart';
 
 part 'calculators.freezed.dart';
 part 'calculators.g.dart';
 
 abstract class Calculator {
+  CalculatorsDefinedTypes get type;
   String get name;
   String get shortDescription;
   String get fullDescription;
@@ -12,6 +14,7 @@ abstract class Calculator {
 @freezed
 class FinancialCalculator with _$FinancialCalculator implements Calculator {
   const factory FinancialCalculator({
+    required CalculatorsDefinedTypes type,
     required String name,
     required String shortDescription,
     required String fullDescription,
@@ -24,6 +27,7 @@ class FinancialCalculator with _$FinancialCalculator implements Calculator {
 @freezed
 class HealthCalculator with _$HealthCalculator implements Calculator {
   const factory HealthCalculator({
+    required CalculatorsDefinedTypes type,
     required String name,
     required String shortDescription,
     required String fullDescription,
@@ -36,6 +40,7 @@ class HealthCalculator with _$HealthCalculator implements Calculator {
 @freezed
 class MathCalculator with _$MathCalculator implements Calculator {
   const factory MathCalculator({
+    required CalculatorsDefinedTypes type,
     required String name,
     required String shortDescription,
     required String fullDescription,
@@ -48,6 +53,7 @@ class MathCalculator with _$MathCalculator implements Calculator {
 @freezed
 class ConversionCalculator with _$ConversionCalculator implements Calculator {
   const factory ConversionCalculator({
+    required CalculatorsDefinedTypes type,
     required String name,
     required String shortDescription,
     required String fullDescription,
@@ -60,6 +66,7 @@ class ConversionCalculator with _$ConversionCalculator implements Calculator {
 @freezed
 class DateAndTimeCalculator with _$DateAndTimeCalculator implements Calculator {
   const factory DateAndTimeCalculator({
+    required CalculatorsDefinedTypes type,
     required String name,
     required String shortDescription,
     required String fullDescription,
