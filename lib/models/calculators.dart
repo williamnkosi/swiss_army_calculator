@@ -32,3 +32,39 @@ class HealthCalculator with _$HealthCalculator implements Calculator {
   factory HealthCalculator.fromJson(Map<String, dynamic> json) =>
       _$HealthCalculatorFromJson(json);
 }
+
+@freezed
+class MathCalculator with _$MathCalculator implements Calculator {
+  const factory MathCalculator({
+    required String name,
+    required String shortDescription,
+    required String fullDescription,
+  }) = _MathCalculator;
+
+  factory MathCalculator.fromJson(Map<String, dynamic> json) =>
+      _$MathCalculatorFromJson(json);
+}
+
+@freezed
+class ConversionCalculator with _$ConversionCalculator implements Calculator {
+  const factory ConversionCalculator({
+    required String name,
+    required String shortDescription,
+    required String fullDescription,
+  }) = _ConversionCalculator;
+
+  factory ConversionCalculator.fromJson(Map<String, dynamic> json) =>
+      _$ConversionCalculatorFromJson(json);
+}
+
+@freezed
+class DateAndTimeCalculator with _$DateAndTimeCalculator implements Calculator {
+  const factory DateAndTimeCalculator({
+    required String name,
+    required String shortDescription,
+    required String fullDescription,
+  }) = _DateAndTimeCalculator;
+
+  factory DateAndTimeCalculator.fromJson(Map<String, dynamic> json) =>
+      _$DateAndTimeCalculatorFromJson(json);
+}

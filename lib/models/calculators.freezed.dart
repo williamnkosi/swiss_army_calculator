@@ -369,3 +369,543 @@ abstract class _HealthCalculator implements HealthCalculator {
   _$$HealthCalculatorImplCopyWith<_$HealthCalculatorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+MathCalculator _$MathCalculatorFromJson(Map<String, dynamic> json) {
+  return _MathCalculator.fromJson(json);
+}
+
+/// @nodoc
+mixin _$MathCalculator {
+  String get name => throw _privateConstructorUsedError;
+  String get shortDescription => throw _privateConstructorUsedError;
+  String get fullDescription => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $MathCalculatorCopyWith<MathCalculator> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $MathCalculatorCopyWith<$Res> {
+  factory $MathCalculatorCopyWith(
+          MathCalculator value, $Res Function(MathCalculator) then) =
+      _$MathCalculatorCopyWithImpl<$Res, MathCalculator>;
+  @useResult
+  $Res call({String name, String shortDescription, String fullDescription});
+}
+
+/// @nodoc
+class _$MathCalculatorCopyWithImpl<$Res, $Val extends MathCalculator>
+    implements $MathCalculatorCopyWith<$Res> {
+  _$MathCalculatorCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = null,
+    Object? shortDescription = null,
+    Object? fullDescription = null,
+  }) {
+    return _then(_value.copyWith(
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      shortDescription: null == shortDescription
+          ? _value.shortDescription
+          : shortDescription // ignore: cast_nullable_to_non_nullable
+              as String,
+      fullDescription: null == fullDescription
+          ? _value.fullDescription
+          : fullDescription // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$MathCalculatorImplCopyWith<$Res>
+    implements $MathCalculatorCopyWith<$Res> {
+  factory _$$MathCalculatorImplCopyWith(_$MathCalculatorImpl value,
+          $Res Function(_$MathCalculatorImpl) then) =
+      __$$MathCalculatorImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String name, String shortDescription, String fullDescription});
+}
+
+/// @nodoc
+class __$$MathCalculatorImplCopyWithImpl<$Res>
+    extends _$MathCalculatorCopyWithImpl<$Res, _$MathCalculatorImpl>
+    implements _$$MathCalculatorImplCopyWith<$Res> {
+  __$$MathCalculatorImplCopyWithImpl(
+      _$MathCalculatorImpl _value, $Res Function(_$MathCalculatorImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = null,
+    Object? shortDescription = null,
+    Object? fullDescription = null,
+  }) {
+    return _then(_$MathCalculatorImpl(
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      shortDescription: null == shortDescription
+          ? _value.shortDescription
+          : shortDescription // ignore: cast_nullable_to_non_nullable
+              as String,
+      fullDescription: null == fullDescription
+          ? _value.fullDescription
+          : fullDescription // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$MathCalculatorImpl implements _MathCalculator {
+  const _$MathCalculatorImpl(
+      {required this.name,
+      required this.shortDescription,
+      required this.fullDescription});
+
+  factory _$MathCalculatorImpl.fromJson(Map<String, dynamic> json) =>
+      _$$MathCalculatorImplFromJson(json);
+
+  @override
+  final String name;
+  @override
+  final String shortDescription;
+  @override
+  final String fullDescription;
+
+  @override
+  String toString() {
+    return 'MathCalculator(name: $name, shortDescription: $shortDescription, fullDescription: $fullDescription)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$MathCalculatorImpl &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.shortDescription, shortDescription) ||
+                other.shortDescription == shortDescription) &&
+            (identical(other.fullDescription, fullDescription) ||
+                other.fullDescription == fullDescription));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, name, shortDescription, fullDescription);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$MathCalculatorImplCopyWith<_$MathCalculatorImpl> get copyWith =>
+      __$$MathCalculatorImplCopyWithImpl<_$MathCalculatorImpl>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$MathCalculatorImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _MathCalculator implements MathCalculator {
+  const factory _MathCalculator(
+      {required final String name,
+      required final String shortDescription,
+      required final String fullDescription}) = _$MathCalculatorImpl;
+
+  factory _MathCalculator.fromJson(Map<String, dynamic> json) =
+      _$MathCalculatorImpl.fromJson;
+
+  @override
+  String get name;
+  @override
+  String get shortDescription;
+  @override
+  String get fullDescription;
+  @override
+  @JsonKey(ignore: true)
+  _$$MathCalculatorImplCopyWith<_$MathCalculatorImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+ConversionCalculator _$ConversionCalculatorFromJson(Map<String, dynamic> json) {
+  return _ConversionCalculator.fromJson(json);
+}
+
+/// @nodoc
+mixin _$ConversionCalculator {
+  String get name => throw _privateConstructorUsedError;
+  String get shortDescription => throw _privateConstructorUsedError;
+  String get fullDescription => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ConversionCalculatorCopyWith<ConversionCalculator> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ConversionCalculatorCopyWith<$Res> {
+  factory $ConversionCalculatorCopyWith(ConversionCalculator value,
+          $Res Function(ConversionCalculator) then) =
+      _$ConversionCalculatorCopyWithImpl<$Res, ConversionCalculator>;
+  @useResult
+  $Res call({String name, String shortDescription, String fullDescription});
+}
+
+/// @nodoc
+class _$ConversionCalculatorCopyWithImpl<$Res,
+        $Val extends ConversionCalculator>
+    implements $ConversionCalculatorCopyWith<$Res> {
+  _$ConversionCalculatorCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = null,
+    Object? shortDescription = null,
+    Object? fullDescription = null,
+  }) {
+    return _then(_value.copyWith(
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      shortDescription: null == shortDescription
+          ? _value.shortDescription
+          : shortDescription // ignore: cast_nullable_to_non_nullable
+              as String,
+      fullDescription: null == fullDescription
+          ? _value.fullDescription
+          : fullDescription // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$ConversionCalculatorImplCopyWith<$Res>
+    implements $ConversionCalculatorCopyWith<$Res> {
+  factory _$$ConversionCalculatorImplCopyWith(_$ConversionCalculatorImpl value,
+          $Res Function(_$ConversionCalculatorImpl) then) =
+      __$$ConversionCalculatorImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String name, String shortDescription, String fullDescription});
+}
+
+/// @nodoc
+class __$$ConversionCalculatorImplCopyWithImpl<$Res>
+    extends _$ConversionCalculatorCopyWithImpl<$Res, _$ConversionCalculatorImpl>
+    implements _$$ConversionCalculatorImplCopyWith<$Res> {
+  __$$ConversionCalculatorImplCopyWithImpl(_$ConversionCalculatorImpl _value,
+      $Res Function(_$ConversionCalculatorImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = null,
+    Object? shortDescription = null,
+    Object? fullDescription = null,
+  }) {
+    return _then(_$ConversionCalculatorImpl(
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      shortDescription: null == shortDescription
+          ? _value.shortDescription
+          : shortDescription // ignore: cast_nullable_to_non_nullable
+              as String,
+      fullDescription: null == fullDescription
+          ? _value.fullDescription
+          : fullDescription // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$ConversionCalculatorImpl implements _ConversionCalculator {
+  const _$ConversionCalculatorImpl(
+      {required this.name,
+      required this.shortDescription,
+      required this.fullDescription});
+
+  factory _$ConversionCalculatorImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ConversionCalculatorImplFromJson(json);
+
+  @override
+  final String name;
+  @override
+  final String shortDescription;
+  @override
+  final String fullDescription;
+
+  @override
+  String toString() {
+    return 'ConversionCalculator(name: $name, shortDescription: $shortDescription, fullDescription: $fullDescription)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ConversionCalculatorImpl &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.shortDescription, shortDescription) ||
+                other.shortDescription == shortDescription) &&
+            (identical(other.fullDescription, fullDescription) ||
+                other.fullDescription == fullDescription));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, name, shortDescription, fullDescription);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ConversionCalculatorImplCopyWith<_$ConversionCalculatorImpl>
+      get copyWith =>
+          __$$ConversionCalculatorImplCopyWithImpl<_$ConversionCalculatorImpl>(
+              this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ConversionCalculatorImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _ConversionCalculator implements ConversionCalculator {
+  const factory _ConversionCalculator(
+      {required final String name,
+      required final String shortDescription,
+      required final String fullDescription}) = _$ConversionCalculatorImpl;
+
+  factory _ConversionCalculator.fromJson(Map<String, dynamic> json) =
+      _$ConversionCalculatorImpl.fromJson;
+
+  @override
+  String get name;
+  @override
+  String get shortDescription;
+  @override
+  String get fullDescription;
+  @override
+  @JsonKey(ignore: true)
+  _$$ConversionCalculatorImplCopyWith<_$ConversionCalculatorImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+DateAndTimeCalculator _$DateAndTimeCalculatorFromJson(
+    Map<String, dynamic> json) {
+  return _DateAndTimeCalculator.fromJson(json);
+}
+
+/// @nodoc
+mixin _$DateAndTimeCalculator {
+  String get name => throw _privateConstructorUsedError;
+  String get shortDescription => throw _privateConstructorUsedError;
+  String get fullDescription => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $DateAndTimeCalculatorCopyWith<DateAndTimeCalculator> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $DateAndTimeCalculatorCopyWith<$Res> {
+  factory $DateAndTimeCalculatorCopyWith(DateAndTimeCalculator value,
+          $Res Function(DateAndTimeCalculator) then) =
+      _$DateAndTimeCalculatorCopyWithImpl<$Res, DateAndTimeCalculator>;
+  @useResult
+  $Res call({String name, String shortDescription, String fullDescription});
+}
+
+/// @nodoc
+class _$DateAndTimeCalculatorCopyWithImpl<$Res,
+        $Val extends DateAndTimeCalculator>
+    implements $DateAndTimeCalculatorCopyWith<$Res> {
+  _$DateAndTimeCalculatorCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = null,
+    Object? shortDescription = null,
+    Object? fullDescription = null,
+  }) {
+    return _then(_value.copyWith(
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      shortDescription: null == shortDescription
+          ? _value.shortDescription
+          : shortDescription // ignore: cast_nullable_to_non_nullable
+              as String,
+      fullDescription: null == fullDescription
+          ? _value.fullDescription
+          : fullDescription // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$DateAndTimeCalculatorImplCopyWith<$Res>
+    implements $DateAndTimeCalculatorCopyWith<$Res> {
+  factory _$$DateAndTimeCalculatorImplCopyWith(
+          _$DateAndTimeCalculatorImpl value,
+          $Res Function(_$DateAndTimeCalculatorImpl) then) =
+      __$$DateAndTimeCalculatorImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String name, String shortDescription, String fullDescription});
+}
+
+/// @nodoc
+class __$$DateAndTimeCalculatorImplCopyWithImpl<$Res>
+    extends _$DateAndTimeCalculatorCopyWithImpl<$Res,
+        _$DateAndTimeCalculatorImpl>
+    implements _$$DateAndTimeCalculatorImplCopyWith<$Res> {
+  __$$DateAndTimeCalculatorImplCopyWithImpl(_$DateAndTimeCalculatorImpl _value,
+      $Res Function(_$DateAndTimeCalculatorImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = null,
+    Object? shortDescription = null,
+    Object? fullDescription = null,
+  }) {
+    return _then(_$DateAndTimeCalculatorImpl(
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      shortDescription: null == shortDescription
+          ? _value.shortDescription
+          : shortDescription // ignore: cast_nullable_to_non_nullable
+              as String,
+      fullDescription: null == fullDescription
+          ? _value.fullDescription
+          : fullDescription // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$DateAndTimeCalculatorImpl implements _DateAndTimeCalculator {
+  const _$DateAndTimeCalculatorImpl(
+      {required this.name,
+      required this.shortDescription,
+      required this.fullDescription});
+
+  factory _$DateAndTimeCalculatorImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DateAndTimeCalculatorImplFromJson(json);
+
+  @override
+  final String name;
+  @override
+  final String shortDescription;
+  @override
+  final String fullDescription;
+
+  @override
+  String toString() {
+    return 'DateAndTimeCalculator(name: $name, shortDescription: $shortDescription, fullDescription: $fullDescription)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DateAndTimeCalculatorImpl &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.shortDescription, shortDescription) ||
+                other.shortDescription == shortDescription) &&
+            (identical(other.fullDescription, fullDescription) ||
+                other.fullDescription == fullDescription));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, name, shortDescription, fullDescription);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DateAndTimeCalculatorImplCopyWith<_$DateAndTimeCalculatorImpl>
+      get copyWith => __$$DateAndTimeCalculatorImplCopyWithImpl<
+          _$DateAndTimeCalculatorImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$DateAndTimeCalculatorImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _DateAndTimeCalculator implements DateAndTimeCalculator {
+  const factory _DateAndTimeCalculator(
+      {required final String name,
+      required final String shortDescription,
+      required final String fullDescription}) = _$DateAndTimeCalculatorImpl;
+
+  factory _DateAndTimeCalculator.fromJson(Map<String, dynamic> json) =
+      _$DateAndTimeCalculatorImpl.fromJson;
+
+  @override
+  String get name;
+  @override
+  String get shortDescription;
+  @override
+  String get fullDescription;
+  @override
+  @JsonKey(ignore: true)
+  _$$DateAndTimeCalculatorImplCopyWith<_$DateAndTimeCalculatorImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}

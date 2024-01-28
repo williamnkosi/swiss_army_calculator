@@ -8,12 +8,21 @@ class CalculatorFactoryService {
   List<Calculator> calculators = [];
   List<FinancialCalculator> financialCalculators = [];
   List<HealthCalculator> healthCalculators = [];
+  List<MathCalculator> mathCalculators = [];
+  List<ConversionCalculator> conversionCalculators = [];
+  List<DateAndTimeCalculator> dateAndTimeCalculators = [];
   CalculatorFactoryService() {
     jsonToMap();
   }
 
   List<Calculator> get getCalculators {
-    return calculators = [...financialCalculators, ...healthCalculators];
+    return calculators = [
+      ...financialCalculators,
+      ...healthCalculators,
+      ...mathCalculators,
+      ...conversionCalculators,
+      ...dateAndTimeCalculators
+    ];
   }
 
   jsonToMap() async {
@@ -31,7 +40,6 @@ class CalculatorFactoryService {
 
   _createListOfCalculators(dynamic jsonData) {
     try {
-      print(jsonData['Health']['calculators'].length);
       for (var cal in jsonData['financial']['calculators']) {
         financialCalculators.add(FinancialCalculator(
             name: cal['name'],
