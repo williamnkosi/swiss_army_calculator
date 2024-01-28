@@ -9,12 +9,27 @@ enum CalculatorTypes {
   final String value;
 }
 
-enum FinanceCalculators {
-  simpleInterest('Simple Interest'),
-  compoundInterest('Compound Interest'),
-  calculator401k('401k'),
-  loan('Loan');
+enum CalculatorsDefinedTypes {
+  //Financial Calculators
+  simpleInterest,
+  compoundInterest,
+  annuity,
+  salary,
+  income,
+  calculator401k,
+  loan,
 
-  const FinanceCalculators(this.value);
-  final String value;
+  //Math Calculators
+  percentage,
+  randomNumber,
+  triangle,
+
+  //Date & Time Calculators
+  age,
+  time,
+  date,
+
+  //Health Calculators
+  bmi,
+  bmr
 }

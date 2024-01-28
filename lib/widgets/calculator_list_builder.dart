@@ -2,22 +2,29 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:swiss_army_calculator/models/calculator_types.dart';
 import 'package:swiss_army_calculator/page/calculator_pages/calculator_wrapper.dart';
-
 import '../app_state/favorites_bloc/favorites_bloc.dart';
+import '../models/calculators.dart';
 import '../page/calculator_pages/finance/simple_interest_page/bloc/simple_interest_page_bloc.dart';
+import '../page/calculator_pages/finance/simple_interest_page/bloc/simple_interest_page_event.dart';
 import '../page/calculator_pages/finance/simple_interest_page/simple_interest_page.dart';
 
 class CalculatorListBuilder extends StatelessWidget {
-  final List<dynamic> calculators;
+  final List<Calculator> calculators;
   const CalculatorListBuilder({Key? key, required this.calculators})
       : super(key: key);
 
-  Widget _onGeneratePage(FinanceCalculators value) {
-    if (value == FinanceCalculators.simpleInterest) {
-      return BlocProvider(
-        create: (context) => SimpleInterestPageBloc(),
-        child: SimpleInterest(),
-      );
+  Widget _onGeneratePage(Calculator value) {
+    if (value is FinancialCalculator) {
+      switch (value.type) {
+        case CalculatorsDefinedTypes.simpleInterest:
+          return BlocProvider(
+            create: (context) =>
+                SimpleInterestPageBloc()..add(BlocCreatedEvent(value)),
+            child: SimpleInterest(),
+          );
+        default:
+          return SimpleInterest();
+      }
     }
     return SimpleInterest();
   }
@@ -27,11 +34,10 @@ class CalculatorListBuilder extends StatelessWidget {
     return ListView.builder(
       itemCount: calculators.length,
       itemBuilder: (context, index) {
-        String title = calculators[index].value.toString();
+        String title = calculators[index].name;
         return BlocBuilder<FavoritesBloc, FavoritesState>(
           builder: (context, state) {
-            bool isFavorited =
-                state.favorites.contains(FinanceCalculators.values[index]);
+            bool isFavorited = state.favorites.contains(calculators[index]);
             return ListTile(
               trailing: IconButton(
                 icon: isFavorited

@@ -20,21 +20,21 @@ mixin _$FavoritesEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() getFavorites,
-    required TResult Function(FinanceCalculators calculator) toggleFavorite,
+    required TResult Function(Calculator calculator) toggleFavorite,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? getFavorites,
-    TResult? Function(FinanceCalculators calculator)? toggleFavorite,
+    TResult? Function(Calculator calculator)? toggleFavorite,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? getFavorites,
-    TResult Function(FinanceCalculators calculator)? toggleFavorite,
+    TResult Function(Calculator calculator)? toggleFavorite,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -120,7 +120,7 @@ class _$StartedImpl implements _Started {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() getFavorites,
-    required TResult Function(FinanceCalculators calculator) toggleFavorite,
+    required TResult Function(Calculator calculator) toggleFavorite,
   }) {
     return started();
   }
@@ -130,7 +130,7 @@ class _$StartedImpl implements _Started {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? getFavorites,
-    TResult? Function(FinanceCalculators calculator)? toggleFavorite,
+    TResult? Function(Calculator calculator)? toggleFavorite,
   }) {
     return started?.call();
   }
@@ -140,7 +140,7 @@ class _$StartedImpl implements _Started {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? getFavorites,
-    TResult Function(FinanceCalculators calculator)? toggleFavorite,
+    TResult Function(Calculator calculator)? toggleFavorite,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -228,7 +228,7 @@ class _$GetFavoritesImpl implements GetFavorites {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() getFavorites,
-    required TResult Function(FinanceCalculators calculator) toggleFavorite,
+    required TResult Function(Calculator calculator) toggleFavorite,
   }) {
     return getFavorites();
   }
@@ -238,7 +238,7 @@ class _$GetFavoritesImpl implements GetFavorites {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? getFavorites,
-    TResult? Function(FinanceCalculators calculator)? toggleFavorite,
+    TResult? Function(Calculator calculator)? toggleFavorite,
   }) {
     return getFavorites?.call();
   }
@@ -248,7 +248,7 @@ class _$GetFavoritesImpl implements GetFavorites {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? getFavorites,
-    TResult Function(FinanceCalculators calculator)? toggleFavorite,
+    TResult Function(Calculator calculator)? toggleFavorite,
     required TResult orElse(),
   }) {
     if (getFavorites != null) {
@@ -302,7 +302,7 @@ abstract class _$$ToggleFavoriteImplCopyWith<$Res> {
           $Res Function(_$ToggleFavoriteImpl) then) =
       __$$ToggleFavoriteImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({FinanceCalculators calculator});
+  $Res call({Calculator calculator});
 }
 
 /// @nodoc
@@ -322,7 +322,7 @@ class __$$ToggleFavoriteImplCopyWithImpl<$Res>
       calculator: null == calculator
           ? _value.calculator
           : calculator // ignore: cast_nullable_to_non_nullable
-              as FinanceCalculators,
+              as Calculator,
     ));
   }
 }
@@ -333,7 +333,7 @@ class _$ToggleFavoriteImpl implements ToggleFavorite {
   const _$ToggleFavoriteImpl({required this.calculator});
 
   @override
-  final FinanceCalculators calculator;
+  final Calculator calculator;
 
   @override
   String toString() {
@@ -364,7 +364,7 @@ class _$ToggleFavoriteImpl implements ToggleFavorite {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() getFavorites,
-    required TResult Function(FinanceCalculators calculator) toggleFavorite,
+    required TResult Function(Calculator calculator) toggleFavorite,
   }) {
     return toggleFavorite(calculator);
   }
@@ -374,7 +374,7 @@ class _$ToggleFavoriteImpl implements ToggleFavorite {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? getFavorites,
-    TResult? Function(FinanceCalculators calculator)? toggleFavorite,
+    TResult? Function(Calculator calculator)? toggleFavorite,
   }) {
     return toggleFavorite?.call(calculator);
   }
@@ -384,7 +384,7 @@ class _$ToggleFavoriteImpl implements ToggleFavorite {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? getFavorites,
-    TResult Function(FinanceCalculators calculator)? toggleFavorite,
+    TResult Function(Calculator calculator)? toggleFavorite,
     required TResult orElse(),
   }) {
     if (toggleFavorite != null) {
@@ -429,10 +429,10 @@ class _$ToggleFavoriteImpl implements ToggleFavorite {
 }
 
 abstract class ToggleFavorite implements FavoritesEvent {
-  const factory ToggleFavorite({required final FinanceCalculators calculator}) =
+  const factory ToggleFavorite({required final Calculator calculator}) =
       _$ToggleFavoriteImpl;
 
-  FinanceCalculators get calculator;
+  Calculator get calculator;
   @JsonKey(ignore: true)
   _$$ToggleFavoriteImplCopyWith<_$ToggleFavoriteImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -440,7 +440,7 @@ abstract class ToggleFavorite implements FavoritesEvent {
 
 /// @nodoc
 mixin _$FavoritesState {
-  List<FinanceCalculators> get favorites => throw _privateConstructorUsedError;
+  List<Calculator> get favorites => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $FavoritesStateCopyWith<FavoritesState> get copyWith =>
@@ -453,7 +453,7 @@ abstract class $FavoritesStateCopyWith<$Res> {
           FavoritesState value, $Res Function(FavoritesState) then) =
       _$FavoritesStateCopyWithImpl<$Res, FavoritesState>;
   @useResult
-  $Res call({List<FinanceCalculators> favorites});
+  $Res call({List<Calculator> favorites});
 }
 
 /// @nodoc
@@ -475,7 +475,7 @@ class _$FavoritesStateCopyWithImpl<$Res, $Val extends FavoritesState>
       favorites: null == favorites
           ? _value.favorites
           : favorites // ignore: cast_nullable_to_non_nullable
-              as List<FinanceCalculators>,
+              as List<Calculator>,
     ) as $Val);
   }
 }
@@ -488,7 +488,7 @@ abstract class _$$FavoritesStateImplCopyWith<$Res>
       __$$FavoritesStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<FinanceCalculators> favorites});
+  $Res call({List<Calculator> favorites});
 }
 
 /// @nodoc
@@ -508,7 +508,7 @@ class __$$FavoritesStateImplCopyWithImpl<$Res>
       favorites: null == favorites
           ? _value._favorites
           : favorites // ignore: cast_nullable_to_non_nullable
-              as List<FinanceCalculators>,
+              as List<Calculator>,
     ));
   }
 }
@@ -516,14 +516,13 @@ class __$$FavoritesStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$FavoritesStateImpl implements _FavoritesState {
-  const _$FavoritesStateImpl(
-      {final List<FinanceCalculators> favorites = const []})
+  const _$FavoritesStateImpl({final List<Calculator> favorites = const []})
       : _favorites = favorites;
 
-  final List<FinanceCalculators> _favorites;
+  final List<Calculator> _favorites;
   @override
   @JsonKey()
-  List<FinanceCalculators> get favorites {
+  List<Calculator> get favorites {
     if (_favorites is EqualUnmodifiableListView) return _favorites;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_favorites);
@@ -556,11 +555,11 @@ class _$FavoritesStateImpl implements _FavoritesState {
 }
 
 abstract class _FavoritesState implements FavoritesState {
-  const factory _FavoritesState({final List<FinanceCalculators> favorites}) =
+  const factory _FavoritesState({final List<Calculator> favorites}) =
       _$FavoritesStateImpl;
 
   @override
-  List<FinanceCalculators> get favorites;
+  List<Calculator> get favorites;
   @override
   @JsonKey(ignore: true)
   _$$FavoritesStateImplCopyWith<_$FavoritesStateImpl> get copyWith =>

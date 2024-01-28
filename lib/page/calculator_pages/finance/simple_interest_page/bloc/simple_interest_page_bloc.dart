@@ -2,7 +2,6 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:swiss_army_calculator/services/pie_chart_service.dart';
-
 import '../../../../../utils/finance_formulas.dart';
 import '../simple_interes_text_field_names.dart';
 import 'simple_interest_page_event.dart';
@@ -12,10 +11,15 @@ class SimpleInterestPageBloc
     extends Bloc<SimpleInterestPageEvent, SimpleInterestPageState> {
   SimpleInterestPageBloc()
       : super(SimpleInterestPageState(formKey: GlobalKey<FormBuilderState>())) {
+    on<BlocCreatedEvent>(_onBlocCreatedEvent);
     on<CheckFormStateEvent>(_onCheckFormStateEvent);
     on<CalculateResultEvent>(_onCalculateResult);
     on<ChangeRatePeriodEvent>(_onChangeRatePeriodEvent);
     on<ChangeTimePeriodEvent>(_onChangeTimePeriodEvent);
+  }
+
+  _onBlocCreatedEvent(BlocCreatedEvent event, emit) {
+    emit(state.copyWith(calculatorData: event.calculator));
   }
 
   _onCheckFormStateEvent(CheckFormStateEvent event, emit) {
