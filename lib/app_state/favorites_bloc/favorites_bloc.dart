@@ -21,6 +21,8 @@ class FavoritesBloc extends Bloc<FavoritesEvent, FavoritesState> {
         newList.add(event.calculator);
       }
       emit(state.copyWith(favorites: newList));
-    } catch (e) {}
+    } catch (e) {
+      throw Exception(e);
+    }
   }
 }

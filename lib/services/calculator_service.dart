@@ -35,7 +35,7 @@ class CalculatorFactoryService {
       // print(test['financial']['calculators']);
       return test;
     } catch (e) {
-      print("Error decoding JSON: $e");
+      throw Exception("Error decoding JSON: $e");
     }
   }
 
@@ -57,7 +57,7 @@ class CalculatorFactoryService {
             fullDescription: cal['fullDescription']));
       }
     } catch (e) {
-      print("Error creating list of calculators: $e");
+      throw Exception("Error creating list of calculators: $e");
     }
   }
 

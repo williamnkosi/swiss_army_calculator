@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:swiss_army_calculator/models/calculator_types.dart';
 import 'package:swiss_army_calculator/page/calculator_pages/calculator_wrapper.dart';
+import 'package:swiss_army_calculator/page/calculator_pages/health/basal_metabolic_rate_page.dart';
+import 'package:swiss_army_calculator/page/calculator_pages/health/body_fat_page.dart';
+import 'package:swiss_army_calculator/page/calculator_pages/health/body_mass_index_page.dart';
+import 'package:swiss_army_calculator/page/calculator_pages/health/calorie_page.dart';
 import '../app_state/favorites_bloc/favorites_bloc.dart';
 import '../models/calculators.dart';
 import '../page/calculator_pages/finance/simple_interest_page/bloc/simple_interest_page_bloc.dart';
@@ -24,6 +28,22 @@ class CalculatorListBuilder extends StatelessWidget {
           );
         default:
           return SimpleInterest();
+      }
+    } else if (value is HealthCalculator) {
+      switch (value.type) {
+        case CalculatorsDefinedTypes.bmi:
+          return const BodyMassIndexPage();
+
+        case CalculatorsDefinedTypes.bmr:
+          return const BasalMetabolicRatePage();
+        case CalculatorsDefinedTypes.calorie:
+          return const CaloriePage();
+        case CalculatorsDefinedTypes.idealWeight:
+          return const BodyMassIndexPage();
+        case CalculatorsDefinedTypes.bodyFat:
+          return const BodyFatPage();
+        default:
+          return const BodyMassIndexPage();
       }
     }
     return SimpleInterest();

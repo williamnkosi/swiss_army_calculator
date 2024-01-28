@@ -31,5 +31,8 @@ enum CalculatorsDefinedTypes {
 
   //Health Calculators
   bmi,
-  bmr
+  bmr,
+  calorie,
+  bodyFat,
+  idealWeight,
 }
