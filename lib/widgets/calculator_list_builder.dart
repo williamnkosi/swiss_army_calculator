@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:swiss_army_calculator/models/calculator_types.dart';
 import 'package:swiss_army_calculator/page/calculator_pages/calculator_wrapper.dart';
 import '../app_state/favorites_bloc/favorites_bloc.dart';
 import '../models/calculators.dart';
@@ -14,22 +15,15 @@ class CalculatorListBuilder extends StatelessWidget {
 
   Widget _onGeneratePage(Calculator value) {
     if (value is FinancialCalculator) {
-      // switch (value.type) {
-      //   case 'Simple Interest':
-      //     return BlocProvider(
-      //       create: (context) =>
-      //           SimpleInterestPageBloc()..add(BlocCreatedEvent(value)),
-      //       child: SimpleInterest(),
-      //     );
-      //   default:
-      //     return SimpleInterest();
-      // }
-      if (value.name == 'Simple Interest') {
-        return BlocProvider(
-          create: (context) =>
-              SimpleInterestPageBloc()..add(BlocCreatedEvent(value)),
-          child: SimpleInterest(),
-        );
+      switch (value.type) {
+        case CalculatorsDefinedTypes.simpleInterest:
+          return BlocProvider(
+            create: (context) =>
+                SimpleInterestPageBloc()..add(BlocCreatedEvent(value)),
+            child: SimpleInterest(),
+          );
+        default:
+          return SimpleInterest();
       }
     }
     return SimpleInterest();
