@@ -5,5 +5,5 @@ class FavoritesEvent with _$FavoritesEvent {
   const factory FavoritesEvent.started() = _Started;
   const factory FavoritesEvent.getFavorites() = GetFavorites;
   const factory FavoritesEvent.toggleFavorite(
-      {required FinanceCalculators calculator}) = ToggleFavorite;
+      {required Calculator calculator}) = ToggleFavorite;
 }

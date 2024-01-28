@@ -57,7 +57,7 @@ class MyApp extends StatelessWidget {
                       builder: (context) => const FavoritesPage());
                 case '/finance':
                   return MaterialPageRoute(
-                      builder: (context) => const FinanceListPage());
+                      builder: (context) => FinanceListPage());
 
                 default:
                   // Handle unknown routes or provide a default page

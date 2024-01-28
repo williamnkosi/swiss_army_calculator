@@ -4,7 +4,7 @@
         "calculators": [
             {
                 "name": "Simple Interest",
-                "shortDesription": "Simple Interest is the interest calculated on the initial principal only.",
+                "shortDesription": "Simple interest is a method of calculating the interest on a loan or investment. It is called 'simple' because it is calculated only on the initial principal amount, without taking into account the accumulated interest from previous periods.",
                 "fullDescription": "Simple Interest is the interest calculated on the initial principal only. It is the percentage of the principal amount that is paid as an interest for the specified period by the borrower to the lender. Simple interest is generally applied over a time period other than a year, e.g., a month. Simple interest is calculated by multiplying the interest rate by the principal by the number of periods. Where, Interest = Principal * Rate of Interest * Time Period"
             },
             {

@@ -12,6 +12,10 @@ class CalculatorFactoryService {
     jsonToMap();
   }
 
+  List<Calculator> get getCalculators {
+    return calculators = [...financialCalculators, ...healthCalculators];
+  }
+
   jsonToMap() async {
     try {
       final file = await rootBundle.loadString('assets/calculators.json');
