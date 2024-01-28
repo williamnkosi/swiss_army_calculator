@@ -98,6 +98,24 @@
                 "name": "Basal Metabolic Rate",
                 "shortDesription": "Basal Metabolic Rate is the amount of energy expended while at rest in a neutrally temperate environment.",
                 "fullDescription": "Basal Metabolic"
+            },
+            {
+                "type": "calorie",
+                "name": "Calorie",
+                "shortDesription": "Calorie is a unit of energy. Various definitions exist but fall into two broad categories.",
+                "fullDescription": "Calorie are units of energy. Various definitions exist but fall into two broad categories. The first, the small calorie, or gram calorie (symbol: cal), is defined as the amount of heat energy needed to raise the temperature of one gram of water by one degree Celsius at a pressure of one atmosphere. The second is the large calorie or kilogram calorie (symbols: Cal, kcal), also known as the food calorie and similar names, is defined in terms of the kilogram rather than the gram. It is equal to 1000 small calories or 1 kilocalorie (symbol: kcal). It is sometimes called the kilocalorie."
+            },
+            {
+                "type": "bodyFat",
+                "name": "Body Fat",
+                "shortDesription": "Body Fat is the percentage of a person's body mass that consists of fat.",
+                "fullDescription": "Body fat is "
+            },
+            {
+                "type": "IdealWeight",
+                "name": "Ideal Weight",
+                "shortDesription": "Ideal weight calcularor is a tool to calculate the ideal weight of a person.",
+                "fullDescription": "Ideal weight calculator is a tool to calculate the ideal weight of a person. Ideal weight is the weight that is considered to be healthy for a given height."
             }
         ]
     }

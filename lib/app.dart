@@ -5,6 +5,7 @@ import 'package:swiss_army_calculator/app_state/favorites_bloc/favorites_bloc.da
 import 'package:swiss_army_calculator/bottom_navigation_bar.dart';
 import 'package:swiss_army_calculator/page/account.dart';
 import 'package:swiss_army_calculator/page/calculator_pages/finance/finace_list_page/finance_list_page.dart';
+import 'package:swiss_army_calculator/page/calculator_pages/health/health_list_page.dart';
 import 'package:swiss_army_calculator/page/favorites.dart';
 import 'package:swiss_army_calculator/page/home.dart';
 import 'package:swiss_army_calculator/widgets/bottom_navigation_bar/cubit/bottom_navigation_bar_cubit.dart';
@@ -58,6 +59,9 @@ class MyApp extends StatelessWidget {
                 case '/finance':
                   return MaterialPageRoute(
                       builder: (context) => FinanceListPage());
+                case '/health':
+                  return MaterialPageRoute(
+                      builder: (context) => HealthListPage());
 
                 default:
                   // Handle unknown routes or provide a default page
