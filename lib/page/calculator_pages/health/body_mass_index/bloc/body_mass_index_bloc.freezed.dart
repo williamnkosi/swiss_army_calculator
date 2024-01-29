@@ -16,21 +16,29 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$BodyMassIndexEvent {
-  HealthCalculator get calculator => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(HealthCalculator calculator)
         bodyMassIndexBlocStarted,
+    required TResult Function() checkFormStateEvent,
+    required TResult Function() calculateBMIEvent,
+    required TResult Function() toggleUnitEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(HealthCalculator calculator)? bodyMassIndexBlocStarted,
+    TResult? Function()? checkFormStateEvent,
+    TResult? Function()? calculateBMIEvent,
+    TResult? Function()? toggleUnitEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(HealthCalculator calculator)? bodyMassIndexBlocStarted,
+    TResult Function()? checkFormStateEvent,
+    TResult Function()? calculateBMIEvent,
+    TResult Function()? toggleUnitEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -38,22 +46,27 @@ mixin _$BodyMassIndexEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(BodyMassIndexBlocStarted value)
         bodyMassIndexBlocStarted,
+    required TResult Function(CheckFormStateEvent value) checkFormStateEvent,
+    required TResult Function(CalculaBMIEvent value) calculateBMIEvent,
+    required TResult Function(ToggleUnitEvent value) toggleUnitEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(BodyMassIndexBlocStarted value)? bodyMassIndexBlocStarted,
+    TResult? Function(CheckFormStateEvent value)? checkFormStateEvent,
+    TResult? Function(CalculaBMIEvent value)? calculateBMIEvent,
+    TResult? Function(ToggleUnitEvent value)? toggleUnitEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(BodyMassIndexBlocStarted value)? bodyMassIndexBlocStarted,
+    TResult Function(CheckFormStateEvent value)? checkFormStateEvent,
+    TResult Function(CalculaBMIEvent value)? calculateBMIEvent,
+    TResult Function(ToggleUnitEvent value)? toggleUnitEvent,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $BodyMassIndexEventCopyWith<BodyMassIndexEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -62,10 +75,6 @@ abstract class $BodyMassIndexEventCopyWith<$Res> {
   factory $BodyMassIndexEventCopyWith(
           BodyMassIndexEvent value, $Res Function(BodyMassIndexEvent) then) =
       _$BodyMassIndexEventCopyWithImpl<$Res, BodyMassIndexEvent>;
-  @useResult
-  $Res call({HealthCalculator calculator});
-
-  $HealthCalculatorCopyWith<$Res> get calculator;
 }
 
 /// @nodoc
@@ -77,41 +86,17 @@ class _$BodyMassIndexEventCopyWithImpl<$Res, $Val extends BodyMassIndexEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? calculator = null,
-  }) {
-    return _then(_value.copyWith(
-      calculator: null == calculator
-          ? _value.calculator
-          : calculator // ignore: cast_nullable_to_non_nullable
-              as HealthCalculator,
-    ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $HealthCalculatorCopyWith<$Res> get calculator {
-    return $HealthCalculatorCopyWith<$Res>(_value.calculator, (value) {
-      return _then(_value.copyWith(calculator: value) as $Val);
-    });
-  }
 }
 
 /// @nodoc
-abstract class _$$BodyMassIndexBlocStartedImplCopyWith<$Res>
-    implements $BodyMassIndexEventCopyWith<$Res> {
+abstract class _$$BodyMassIndexBlocStartedImplCopyWith<$Res> {
   factory _$$BodyMassIndexBlocStartedImplCopyWith(
           _$BodyMassIndexBlocStartedImpl value,
           $Res Function(_$BodyMassIndexBlocStartedImpl) then) =
       __$$BodyMassIndexBlocStartedImplCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({HealthCalculator calculator});
 
-  @override
   $HealthCalculatorCopyWith<$Res> get calculator;
 }
 
@@ -136,6 +121,14 @@ class __$$BodyMassIndexBlocStartedImplCopyWithImpl<$Res>
           : calculator // ignore: cast_nullable_to_non_nullable
               as HealthCalculator,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $HealthCalculatorCopyWith<$Res> get calculator {
+    return $HealthCalculatorCopyWith<$Res>(_value.calculator, (value) {
+      return _then(_value.copyWith(calculator: value));
+    });
   }
 }
 
@@ -176,6 +169,9 @@ class _$BodyMassIndexBlocStartedImpl implements BodyMassIndexBlocStarted {
   TResult when<TResult extends Object?>({
     required TResult Function(HealthCalculator calculator)
         bodyMassIndexBlocStarted,
+    required TResult Function() checkFormStateEvent,
+    required TResult Function() calculateBMIEvent,
+    required TResult Function() toggleUnitEvent,
   }) {
     return bodyMassIndexBlocStarted(calculator);
   }
@@ -184,6 +180,9 @@ class _$BodyMassIndexBlocStartedImpl implements BodyMassIndexBlocStarted {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(HealthCalculator calculator)? bodyMassIndexBlocStarted,
+    TResult? Function()? checkFormStateEvent,
+    TResult? Function()? calculateBMIEvent,
+    TResult? Function()? toggleUnitEvent,
   }) {
     return bodyMassIndexBlocStarted?.call(calculator);
   }
@@ -192,6 +191,9 @@ class _$BodyMassIndexBlocStartedImpl implements BodyMassIndexBlocStarted {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(HealthCalculator calculator)? bodyMassIndexBlocStarted,
+    TResult Function()? checkFormStateEvent,
+    TResult Function()? calculateBMIEvent,
+    TResult Function()? toggleUnitEvent,
     required TResult orElse(),
   }) {
     if (bodyMassIndexBlocStarted != null) {
@@ -205,6 +207,9 @@ class _$BodyMassIndexBlocStartedImpl implements BodyMassIndexBlocStarted {
   TResult map<TResult extends Object?>({
     required TResult Function(BodyMassIndexBlocStarted value)
         bodyMassIndexBlocStarted,
+    required TResult Function(CheckFormStateEvent value) checkFormStateEvent,
+    required TResult Function(CalculaBMIEvent value) calculateBMIEvent,
+    required TResult Function(ToggleUnitEvent value) toggleUnitEvent,
   }) {
     return bodyMassIndexBlocStarted(this);
   }
@@ -213,6 +218,9 @@ class _$BodyMassIndexBlocStartedImpl implements BodyMassIndexBlocStarted {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(BodyMassIndexBlocStarted value)? bodyMassIndexBlocStarted,
+    TResult? Function(CheckFormStateEvent value)? checkFormStateEvent,
+    TResult? Function(CalculaBMIEvent value)? calculateBMIEvent,
+    TResult? Function(ToggleUnitEvent value)? toggleUnitEvent,
   }) {
     return bodyMassIndexBlocStarted?.call(this);
   }
@@ -221,6 +229,9 @@ class _$BodyMassIndexBlocStartedImpl implements BodyMassIndexBlocStarted {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(BodyMassIndexBlocStarted value)? bodyMassIndexBlocStarted,
+    TResult Function(CheckFormStateEvent value)? checkFormStateEvent,
+    TResult Function(CalculaBMIEvent value)? calculateBMIEvent,
+    TResult Function(ToggleUnitEvent value)? toggleUnitEvent,
     required TResult orElse(),
   }) {
     if (bodyMassIndexBlocStarted != null) {
@@ -234,18 +245,368 @@ abstract class BodyMassIndexBlocStarted implements BodyMassIndexEvent {
   const factory BodyMassIndexBlocStarted(final HealthCalculator calculator) =
       _$BodyMassIndexBlocStartedImpl;
 
-  @override
   HealthCalculator get calculator;
-  @override
   @JsonKey(ignore: true)
   _$$BodyMassIndexBlocStartedImplCopyWith<_$BodyMassIndexBlocStartedImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
+abstract class _$$CheckFormStateEventImplCopyWith<$Res> {
+  factory _$$CheckFormStateEventImplCopyWith(_$CheckFormStateEventImpl value,
+          $Res Function(_$CheckFormStateEventImpl) then) =
+      __$$CheckFormStateEventImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$CheckFormStateEventImplCopyWithImpl<$Res>
+    extends _$BodyMassIndexEventCopyWithImpl<$Res, _$CheckFormStateEventImpl>
+    implements _$$CheckFormStateEventImplCopyWith<$Res> {
+  __$$CheckFormStateEventImplCopyWithImpl(_$CheckFormStateEventImpl _value,
+      $Res Function(_$CheckFormStateEventImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$CheckFormStateEventImpl implements CheckFormStateEvent {
+  const _$CheckFormStateEventImpl();
+
+  @override
+  String toString() {
+    return 'BodyMassIndexEvent.checkFormStateEvent()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CheckFormStateEventImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(HealthCalculator calculator)
+        bodyMassIndexBlocStarted,
+    required TResult Function() checkFormStateEvent,
+    required TResult Function() calculateBMIEvent,
+    required TResult Function() toggleUnitEvent,
+  }) {
+    return checkFormStateEvent();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(HealthCalculator calculator)? bodyMassIndexBlocStarted,
+    TResult? Function()? checkFormStateEvent,
+    TResult? Function()? calculateBMIEvent,
+    TResult? Function()? toggleUnitEvent,
+  }) {
+    return checkFormStateEvent?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(HealthCalculator calculator)? bodyMassIndexBlocStarted,
+    TResult Function()? checkFormStateEvent,
+    TResult Function()? calculateBMIEvent,
+    TResult Function()? toggleUnitEvent,
+    required TResult orElse(),
+  }) {
+    if (checkFormStateEvent != null) {
+      return checkFormStateEvent();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(BodyMassIndexBlocStarted value)
+        bodyMassIndexBlocStarted,
+    required TResult Function(CheckFormStateEvent value) checkFormStateEvent,
+    required TResult Function(CalculaBMIEvent value) calculateBMIEvent,
+    required TResult Function(ToggleUnitEvent value) toggleUnitEvent,
+  }) {
+    return checkFormStateEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(BodyMassIndexBlocStarted value)? bodyMassIndexBlocStarted,
+    TResult? Function(CheckFormStateEvent value)? checkFormStateEvent,
+    TResult? Function(CalculaBMIEvent value)? calculateBMIEvent,
+    TResult? Function(ToggleUnitEvent value)? toggleUnitEvent,
+  }) {
+    return checkFormStateEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(BodyMassIndexBlocStarted value)? bodyMassIndexBlocStarted,
+    TResult Function(CheckFormStateEvent value)? checkFormStateEvent,
+    TResult Function(CalculaBMIEvent value)? calculateBMIEvent,
+    TResult Function(ToggleUnitEvent value)? toggleUnitEvent,
+    required TResult orElse(),
+  }) {
+    if (checkFormStateEvent != null) {
+      return checkFormStateEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CheckFormStateEvent implements BodyMassIndexEvent {
+  const factory CheckFormStateEvent() = _$CheckFormStateEventImpl;
+}
+
+/// @nodoc
+abstract class _$$CalculaBMIEventImplCopyWith<$Res> {
+  factory _$$CalculaBMIEventImplCopyWith(_$CalculaBMIEventImpl value,
+          $Res Function(_$CalculaBMIEventImpl) then) =
+      __$$CalculaBMIEventImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$CalculaBMIEventImplCopyWithImpl<$Res>
+    extends _$BodyMassIndexEventCopyWithImpl<$Res, _$CalculaBMIEventImpl>
+    implements _$$CalculaBMIEventImplCopyWith<$Res> {
+  __$$CalculaBMIEventImplCopyWithImpl(
+      _$CalculaBMIEventImpl _value, $Res Function(_$CalculaBMIEventImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$CalculaBMIEventImpl implements CalculaBMIEvent {
+  const _$CalculaBMIEventImpl();
+
+  @override
+  String toString() {
+    return 'BodyMassIndexEvent.calculateBMIEvent()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$CalculaBMIEventImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(HealthCalculator calculator)
+        bodyMassIndexBlocStarted,
+    required TResult Function() checkFormStateEvent,
+    required TResult Function() calculateBMIEvent,
+    required TResult Function() toggleUnitEvent,
+  }) {
+    return calculateBMIEvent();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(HealthCalculator calculator)? bodyMassIndexBlocStarted,
+    TResult? Function()? checkFormStateEvent,
+    TResult? Function()? calculateBMIEvent,
+    TResult? Function()? toggleUnitEvent,
+  }) {
+    return calculateBMIEvent?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(HealthCalculator calculator)? bodyMassIndexBlocStarted,
+    TResult Function()? checkFormStateEvent,
+    TResult Function()? calculateBMIEvent,
+    TResult Function()? toggleUnitEvent,
+    required TResult orElse(),
+  }) {
+    if (calculateBMIEvent != null) {
+      return calculateBMIEvent();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(BodyMassIndexBlocStarted value)
+        bodyMassIndexBlocStarted,
+    required TResult Function(CheckFormStateEvent value) checkFormStateEvent,
+    required TResult Function(CalculaBMIEvent value) calculateBMIEvent,
+    required TResult Function(ToggleUnitEvent value) toggleUnitEvent,
+  }) {
+    return calculateBMIEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(BodyMassIndexBlocStarted value)? bodyMassIndexBlocStarted,
+    TResult? Function(CheckFormStateEvent value)? checkFormStateEvent,
+    TResult? Function(CalculaBMIEvent value)? calculateBMIEvent,
+    TResult? Function(ToggleUnitEvent value)? toggleUnitEvent,
+  }) {
+    return calculateBMIEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(BodyMassIndexBlocStarted value)? bodyMassIndexBlocStarted,
+    TResult Function(CheckFormStateEvent value)? checkFormStateEvent,
+    TResult Function(CalculaBMIEvent value)? calculateBMIEvent,
+    TResult Function(ToggleUnitEvent value)? toggleUnitEvent,
+    required TResult orElse(),
+  }) {
+    if (calculateBMIEvent != null) {
+      return calculateBMIEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CalculaBMIEvent implements BodyMassIndexEvent {
+  const factory CalculaBMIEvent() = _$CalculaBMIEventImpl;
+}
+
+/// @nodoc
+abstract class _$$ToggleUnitEventImplCopyWith<$Res> {
+  factory _$$ToggleUnitEventImplCopyWith(_$ToggleUnitEventImpl value,
+          $Res Function(_$ToggleUnitEventImpl) then) =
+      __$$ToggleUnitEventImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ToggleUnitEventImplCopyWithImpl<$Res>
+    extends _$BodyMassIndexEventCopyWithImpl<$Res, _$ToggleUnitEventImpl>
+    implements _$$ToggleUnitEventImplCopyWith<$Res> {
+  __$$ToggleUnitEventImplCopyWithImpl(
+      _$ToggleUnitEventImpl _value, $Res Function(_$ToggleUnitEventImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ToggleUnitEventImpl implements ToggleUnitEvent {
+  const _$ToggleUnitEventImpl();
+
+  @override
+  String toString() {
+    return 'BodyMassIndexEvent.toggleUnitEvent()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ToggleUnitEventImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(HealthCalculator calculator)
+        bodyMassIndexBlocStarted,
+    required TResult Function() checkFormStateEvent,
+    required TResult Function() calculateBMIEvent,
+    required TResult Function() toggleUnitEvent,
+  }) {
+    return toggleUnitEvent();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(HealthCalculator calculator)? bodyMassIndexBlocStarted,
+    TResult? Function()? checkFormStateEvent,
+    TResult? Function()? calculateBMIEvent,
+    TResult? Function()? toggleUnitEvent,
+  }) {
+    return toggleUnitEvent?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(HealthCalculator calculator)? bodyMassIndexBlocStarted,
+    TResult Function()? checkFormStateEvent,
+    TResult Function()? calculateBMIEvent,
+    TResult Function()? toggleUnitEvent,
+    required TResult orElse(),
+  }) {
+    if (toggleUnitEvent != null) {
+      return toggleUnitEvent();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(BodyMassIndexBlocStarted value)
+        bodyMassIndexBlocStarted,
+    required TResult Function(CheckFormStateEvent value) checkFormStateEvent,
+    required TResult Function(CalculaBMIEvent value) calculateBMIEvent,
+    required TResult Function(ToggleUnitEvent value) toggleUnitEvent,
+  }) {
+    return toggleUnitEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(BodyMassIndexBlocStarted value)? bodyMassIndexBlocStarted,
+    TResult? Function(CheckFormStateEvent value)? checkFormStateEvent,
+    TResult? Function(CalculaBMIEvent value)? calculateBMIEvent,
+    TResult? Function(ToggleUnitEvent value)? toggleUnitEvent,
+  }) {
+    return toggleUnitEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(BodyMassIndexBlocStarted value)? bodyMassIndexBlocStarted,
+    TResult Function(CheckFormStateEvent value)? checkFormStateEvent,
+    TResult Function(CalculaBMIEvent value)? calculateBMIEvent,
+    TResult Function(ToggleUnitEvent value)? toggleUnitEvent,
+    required TResult orElse(),
+  }) {
+    if (toggleUnitEvent != null) {
+      return toggleUnitEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ToggleUnitEvent implements BodyMassIndexEvent {
+  const factory ToggleUnitEvent() = _$ToggleUnitEventImpl;
+}
+
+/// @nodoc
 mixin _$BodyMassIndexState {
-  dynamic get formKey => throw _privateConstructorUsedError;
+  GlobalKey<FormBuilderState> get formKey => throw _privateConstructorUsedError;
   HealthCalculator get calculatorData => throw _privateConstructorUsedError;
+  Units get unit => throw _privateConstructorUsedError;
+  double get result => throw _privateConstructorUsedError;
+  bool get isDiabled => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $BodyMassIndexStateCopyWith<BodyMassIndexState> get copyWith =>
@@ -258,7 +619,12 @@ abstract class $BodyMassIndexStateCopyWith<$Res> {
           BodyMassIndexState value, $Res Function(BodyMassIndexState) then) =
       _$BodyMassIndexStateCopyWithImpl<$Res, BodyMassIndexState>;
   @useResult
-  $Res call({dynamic formKey, HealthCalculator calculatorData});
+  $Res call(
+      {GlobalKey<FormBuilderState> formKey,
+      HealthCalculator calculatorData,
+      Units unit,
+      double result,
+      bool isDiabled});
 
   $HealthCalculatorCopyWith<$Res> get calculatorData;
 }
@@ -276,18 +642,33 @@ class _$BodyMassIndexStateCopyWithImpl<$Res, $Val extends BodyMassIndexState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? formKey = freezed,
+    Object? formKey = null,
     Object? calculatorData = null,
+    Object? unit = null,
+    Object? result = null,
+    Object? isDiabled = null,
   }) {
     return _then(_value.copyWith(
-      formKey: freezed == formKey
+      formKey: null == formKey
           ? _value.formKey
           : formKey // ignore: cast_nullable_to_non_nullable
-              as dynamic,
+              as GlobalKey<FormBuilderState>,
       calculatorData: null == calculatorData
           ? _value.calculatorData
           : calculatorData // ignore: cast_nullable_to_non_nullable
               as HealthCalculator,
+      unit: null == unit
+          ? _value.unit
+          : unit // ignore: cast_nullable_to_non_nullable
+              as Units,
+      result: null == result
+          ? _value.result
+          : result // ignore: cast_nullable_to_non_nullable
+              as double,
+      isDiabled: null == isDiabled
+          ? _value.isDiabled
+          : isDiabled // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 
@@ -308,7 +689,12 @@ abstract class _$$BodyMassIndexStateImplCopyWith<$Res>
       __$$BodyMassIndexStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({dynamic formKey, HealthCalculator calculatorData});
+  $Res call(
+      {GlobalKey<FormBuilderState> formKey,
+      HealthCalculator calculatorData,
+      Units unit,
+      double result,
+      bool isDiabled});
 
   @override
   $HealthCalculatorCopyWith<$Res> get calculatorData;
@@ -325,15 +711,33 @@ class __$$BodyMassIndexStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? formKey = freezed,
+    Object? formKey = null,
     Object? calculatorData = null,
+    Object? unit = null,
+    Object? result = null,
+    Object? isDiabled = null,
   }) {
     return _then(_$BodyMassIndexStateImpl(
-      formKey: freezed == formKey ? _value.formKey! : formKey,
+      formKey: null == formKey
+          ? _value.formKey
+          : formKey // ignore: cast_nullable_to_non_nullable
+              as GlobalKey<FormBuilderState>,
       calculatorData: null == calculatorData
           ? _value.calculatorData
           : calculatorData // ignore: cast_nullable_to_non_nullable
               as HealthCalculator,
+      unit: null == unit
+          ? _value.unit
+          : unit // ignore: cast_nullable_to_non_nullable
+              as Units,
+      result: null == result
+          ? _value.result
+          : result // ignore: cast_nullable_to_non_nullable
+              as double,
+      isDiabled: null == isDiabled
+          ? _value.isDiabled
+          : isDiabled // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -342,16 +746,29 @@ class __$$BodyMassIndexStateImplCopyWithImpl<$Res>
 
 class _$BodyMassIndexStateImpl implements _BodyMassIndexState {
   const _$BodyMassIndexStateImpl(
-      {required this.formKey, required this.calculatorData});
+      {required this.formKey,
+      required this.calculatorData,
+      this.unit = Units.imperial,
+      this.result = 0,
+      this.isDiabled = true});
 
   @override
-  final dynamic formKey;
+  final GlobalKey<FormBuilderState> formKey;
   @override
   final HealthCalculator calculatorData;
+  @override
+  @JsonKey()
+  final Units unit;
+  @override
+  @JsonKey()
+  final double result;
+  @override
+  @JsonKey()
+  final bool isDiabled;
 
   @override
   String toString() {
-    return 'BodyMassIndexState(formKey: $formKey, calculatorData: $calculatorData)';
+    return 'BodyMassIndexState(formKey: $formKey, calculatorData: $calculatorData, unit: $unit, result: $result, isDiabled: $isDiabled)';
   }
 
   @override
@@ -359,14 +776,18 @@ class _$BodyMassIndexStateImpl implements _BodyMassIndexState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BodyMassIndexStateImpl &&
-            const DeepCollectionEquality().equals(other.formKey, formKey) &&
+            (identical(other.formKey, formKey) || other.formKey == formKey) &&
             (identical(other.calculatorData, calculatorData) ||
-                other.calculatorData == calculatorData));
+                other.calculatorData == calculatorData) &&
+            (identical(other.unit, unit) || other.unit == unit) &&
+            (identical(other.result, result) || other.result == result) &&
+            (identical(other.isDiabled, isDiabled) ||
+                other.isDiabled == isDiabled));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType,
-      const DeepCollectionEquality().hash(formKey), calculatorData);
+  int get hashCode => Object.hash(
+      runtimeType, formKey, calculatorData, unit, result, isDiabled);
 
   @JsonKey(ignore: true)
   @override
@@ -378,14 +799,22 @@ class _$BodyMassIndexStateImpl implements _BodyMassIndexState {
 
 abstract class _BodyMassIndexState implements BodyMassIndexState {
   const factory _BodyMassIndexState(
-          {required final dynamic formKey,
-          required final HealthCalculator calculatorData}) =
-      _$BodyMassIndexStateImpl;
+      {required final GlobalKey<FormBuilderState> formKey,
+      required final HealthCalculator calculatorData,
+      final Units unit,
+      final double result,
+      final bool isDiabled}) = _$BodyMassIndexStateImpl;
 
   @override
-  dynamic get formKey;
+  GlobalKey<FormBuilderState> get formKey;
   @override
   HealthCalculator get calculatorData;
+  @override
+  Units get unit;
+  @override
+  double get result;
+  @override
+  bool get isDiabled;
   @override
   @JsonKey(ignore: true)
   _$$BodyMassIndexStateImplCopyWith<_$BodyMassIndexStateImpl> get copyWith =>

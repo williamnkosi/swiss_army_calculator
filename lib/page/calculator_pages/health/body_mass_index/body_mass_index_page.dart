@@ -30,9 +30,11 @@ class BodyMassIndexPage extends StatelessWidget {
               height: 16,
             ),
             AppTextField(
-                fieldName: BodyMassIndexTextFieldData.age.name,
-                fieldText: BodyMassIndexTextFieldData.age.name,
-                onChange: () {}),
+              fieldName: BodyMassIndexTextFieldData.age.name,
+              fieldText: BodyMassIndexTextFieldData.age.name,
+              onChange: (text) => BlocProvider.of<BodyMassIndexBloc>(context)
+                  .add(const BodyMassIndexEvent.checkFormStateEvent()),
+            ),
             const SizedBox(
               height: 16,
             ),
@@ -40,38 +42,61 @@ class BodyMassIndexPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(
-                  width: calculateWidthPercentage(context, 45),
-                  child: AppTextField(
-                      fieldName: BodyMassIndexTextFieldData.feet.name,
-                      fieldText: BodyMassIndexTextFieldData.feet.name,
-                      onChange: () {}),
-                ),
+                    width: calculateWidthPercentage(context, 45),
+                    child: AppTextField(
+                      fieldName: BodyMassIndexTextFieldData.heightFeet.name,
+                      fieldText: BodyMassIndexTextFieldData.heightFeet.name,
+                      onChange: (text) =>
+                          BlocProvider.of<BodyMassIndexBloc>(context).add(
+                              const BodyMassIndexEvent.checkFormStateEvent()),
+                    )),
                 SizedBox(
-                  width: calculateWidthPercentage(context, 45),
-                  child: AppTextField(
-                      fieldName: BodyMassIndexTextFieldData.inches.name,
-                      fieldText: BodyMassIndexTextFieldData.inches.name,
-                      onChange: () {}),
-                ),
+                    width: calculateWidthPercentage(context, 45),
+                    child: AppTextField(
+                      fieldName: BodyMassIndexTextFieldData.heightInches.name,
+                      fieldText: BodyMassIndexTextFieldData.heightInches.name,
+                      onChange: (text) =>
+                          BlocProvider.of<BodyMassIndexBloc>(context).add(
+                              const BodyMassIndexEvent.checkFormStateEvent()),
+                    )),
               ],
             ),
             const SizedBox(
               height: 16,
             ),
             AppTextField(
-                fieldName: BodyMassIndexTextFieldData.weight.name,
-                fieldText: BodyMassIndexTextFieldData.weight.name,
-                onChange: () {}),
+              fieldName: BodyMassIndexTextFieldData.weight.name,
+              fieldText: BodyMassIndexTextFieldData.weight.name,
+              onChange: (text) => BlocProvider.of<BodyMassIndexBloc>(context)
+                  .add(const BodyMassIndexEvent.checkFormStateEvent()),
+            ),
+            const SizedBox(
+              height: 16,
+            ),
+            BlocBuilder<BodyMassIndexBloc, BodyMassIndexState>(
+              builder: (context, state) {
+                return Text('Your BMI is ${state.result.toStringAsFixed(2)}');
+              },
+            ),
           ],
         ),
-        Positioned(
-            bottom: 24,
-            width: MediaQuery.of(context).size.width - 32,
-            child: AppMaterialButton(
-              isDisabled: true,
-              buttonTitle: 'CALCULATE',
-              onPressed: () {},
-            ))
+        BlocBuilder<BodyMassIndexBloc, BodyMassIndexState>(
+          buildWhen: (previous, current) =>
+              previous.isDiabled != current.isDiabled,
+          builder: (context, state) {
+            return Positioned(
+                bottom: 24,
+                width: MediaQuery.of(context).size.width - 32,
+                child: AppMaterialButton(
+                  isDisabled: state.isDiabled,
+                  buttonTitle: 'CALCULATE',
+                  onPressed: () {
+                    BlocProvider.of<BodyMassIndexBloc>(context)
+                        .add(const BodyMassIndexEvent.calculateBMIEvent());
+                  },
+                ));
+          },
+        )
       ]),
     );
   }

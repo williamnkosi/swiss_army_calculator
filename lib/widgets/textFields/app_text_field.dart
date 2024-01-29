@@ -6,7 +6,7 @@ class AppTextField extends StatelessWidget {
   final String fieldName;
   final String fieldText;
   final FormBuilderValidators? validators;
-  final Function onChange;
+  final Function(String?) onChange;
 
   const AppTextField(
       {super.key,
@@ -31,7 +31,7 @@ class AppTextField extends StatelessWidget {
         FormBuilderValidators.required(),
         FormBuilderValidators.numeric(),
       ]),
-      onChanged: onChange(),
+      onChanged: onChange,
     );
   }
 }

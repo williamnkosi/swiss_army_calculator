@@ -1,7 +1,8 @@
 enum BodyMassIndexTextFieldData {
   age('Age'),
-  feet('Feet'),
-  inches('Inches'),
+  heightFeet('Feet'),
+  heightInches('Inches'),
+  heightCM('Height'),
   weight('Weight');
 
   const BodyMassIndexTextFieldData(this.name);

@@ -331,6 +331,8 @@ abstract class $CompoundInterestPageStateCopyWith<$Res> {
       int investmentLengthYears,
       int investmentLengthMonths,
       double inflationRate});
+
+  $FinancialCalculatorCopyWith<$Res> get calculator;
 }
 
 /// @nodoc
@@ -347,7 +349,7 @@ class _$CompoundInterestPageStateCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? calculator = freezed,
+    Object? calculator = null,
     Object? formKey = null,
     Object? totalAmount = null,
     Object? isDiabled = null,
@@ -360,7 +362,7 @@ class _$CompoundInterestPageStateCopyWithImpl<$Res,
     Object? inflationRate = null,
   }) {
     return _then(_value.copyWith(
-      calculator: freezed == calculator
+      calculator: null == calculator
           ? _value.calculator
           : calculator // ignore: cast_nullable_to_non_nullable
               as FinancialCalculator,
@@ -406,6 +408,14 @@ class _$CompoundInterestPageStateCopyWithImpl<$Res,
               as double,
     ) as $Val);
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $FinancialCalculatorCopyWith<$Res> get calculator {
+    return $FinancialCalculatorCopyWith<$Res>(_value.calculator, (value) {
+      return _then(_value.copyWith(calculator: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -429,6 +439,9 @@ abstract class _$$CompoundInterestPageStateImplCopyWith<$Res>
       int investmentLengthYears,
       int investmentLengthMonths,
       double inflationRate});
+
+  @override
+  $FinancialCalculatorCopyWith<$Res> get calculator;
 }
 
 /// @nodoc
@@ -444,7 +457,7 @@ class __$$CompoundInterestPageStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? calculator = freezed,
+    Object? calculator = null,
     Object? formKey = null,
     Object? totalAmount = null,
     Object? isDiabled = null,
@@ -457,7 +470,7 @@ class __$$CompoundInterestPageStateImplCopyWithImpl<$Res>
     Object? inflationRate = null,
   }) {
     return _then(_$CompoundInterestPageStateImpl(
-      calculator: freezed == calculator
+      calculator: null == calculator
           ? _value.calculator
           : calculator // ignore: cast_nullable_to_non_nullable
               as FinancialCalculator,
@@ -563,8 +576,8 @@ class _$CompoundInterestPageStateImpl implements _CompoundInterestPageState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CompoundInterestPageStateImpl &&
-            const DeepCollectionEquality()
-                .equals(other.calculator, calculator) &&
+            (identical(other.calculator, calculator) ||
+                other.calculator == calculator) &&
             (identical(other.formKey, formKey) || other.formKey == formKey) &&
             (identical(other.totalAmount, totalAmount) ||
                 other.totalAmount == totalAmount) &&
@@ -589,7 +602,7 @@ class _$CompoundInterestPageStateImpl implements _CompoundInterestPageState {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(calculator),
+      calculator,
       formKey,
       totalAmount,
       isDiabled,
