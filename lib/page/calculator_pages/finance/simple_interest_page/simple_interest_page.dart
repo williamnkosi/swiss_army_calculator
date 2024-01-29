@@ -2,13 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
-
-import 'package:swiss_army_calculator/info/finance_info.dart';
 import 'package:swiss_army_calculator/models/time_types.dart';
 import 'package:swiss_army_calculator/services/bar_chart_service/bar_chart_service.dart';
 import 'package:swiss_army_calculator/widgets/app_expansion_tile.dart';
-
-import '../../../../models/calculator_types.dart';
+import '../../../../services/calculator_service.dart';
+import '../../../../services/locator_service.dart';
 import '../../../../widgets/app_material_button.dart';
 import '../../../../widgets/bottom_sheet/app_bottom_sheet.dart';
 import '../../../../widgets/pie_chart.dart/pie_chart.dart';
@@ -20,6 +18,7 @@ import 'simple_interes_text_field_names.dart';
 
 class SimpleInterest extends StatelessWidget {
   SimpleInterest({super.key});
+  final myServiceInstance = getIt<CalculatorFactoryService>();
   final barChartService = BarChartService();
   @override
   Widget build(BuildContext context) {
@@ -29,9 +28,13 @@ class SimpleInterest extends StatelessWidget {
       child: Stack(children: [
         ListView(
           children: [
-            AppExpansionTile(
-                title: FinanceCalculators.simpleInterest.value,
-                description: finanaceData[FinanceCalculators.simpleInterest]!),
+            BlocBuilder<SimpleInterestPageBloc, SimpleInterestPageState>(
+              builder: (context, state) {
+                return AppExpansionTile(
+                    title: state.calculatorData!.name,
+                    description: state.calculatorData!.shortDescription);
+              },
+            ),
             const SizedBox(
               height: 16,
             ),

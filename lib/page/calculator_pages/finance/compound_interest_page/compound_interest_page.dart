@@ -4,9 +4,6 @@ import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:swiss_army_calculator/page/calculator_pages/finance/compound_interest_page/bloc/compound_interest_page_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:swiss_army_calculator/page/calculator_pages/finance/compound_interest_page/consts.dart';
-
-import '../../../../info/finance_info.dart';
-import '../../../../models/calculator_types.dart';
 import '../../../../widgets/app_expansion_tile.dart';
 import '../../../../widgets/app_material_button.dart';
 import '../../../../widgets/bottom_sheet/app_bottom_sheet.dart';
@@ -25,10 +22,7 @@ class CompoundInterestPage extends StatelessWidget {
       child: Stack(children: [
         ListView(
           children: [
-            AppExpansionTile(
-                title: FinanceCalculators.compoundInterest.value,
-                description:
-                    finanaceData[FinanceCalculators.compoundInterest]!),
+            AppExpansionTile(title: 'testing', description: 'testing'),
             const SizedBox(
               height: 16,
             ),

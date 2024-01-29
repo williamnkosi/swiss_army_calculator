@@ -61,11 +61,11 @@ class CompoundInterestPageBloc
     //     .fields[CompoundInterestTextFieldData.inflationRate.name]!.value);
     return calculateCompoundInterestWithContributions(
         principal, interestRate, lengthYears.toInt(), 500);
-    return (principal *
-        (1 + interestRate / compoundedFrequency) *
-        pow(compoundedFrequency, lengthYears));
+    // return (principal *
+    //     (1 + interestRate / compoundedFrequency) *
+    //     pow(compoundedFrequency, lengthYears));
 
-    return null;
+    // return null;
   }
 
   double? _compoundFormualeWithContributions() {

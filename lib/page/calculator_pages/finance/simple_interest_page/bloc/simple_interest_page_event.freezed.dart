@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$SimpleInterestPageEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(FinancialCalculator calculator) blocCreatedEvent,
     required TResult Function() checkFormStateEvent,
     required TResult Function() calculateResultEvent,
     required TResult Function(RatePeriodTypes rateTimeDuration)
@@ -28,6 +29,7 @@ mixin _$SimpleInterestPageEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(FinancialCalculator calculator)? blocCreatedEvent,
     TResult? Function()? checkFormStateEvent,
     TResult? Function()? calculateResultEvent,
     TResult? Function(RatePeriodTypes rateTimeDuration)? changeRatePeriodEvent,
@@ -37,6 +39,7 @@ mixin _$SimpleInterestPageEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(FinancialCalculator calculator)? blocCreatedEvent,
     TResult Function()? checkFormStateEvent,
     TResult Function()? calculateResultEvent,
     TResult Function(RatePeriodTypes rateTimeDuration)? changeRatePeriodEvent,
@@ -47,6 +50,7 @@ mixin _$SimpleInterestPageEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(BlocCreatedEvent value) blocCreatedEvent,
     required TResult Function(CheckFormStateEvent value) checkFormStateEvent,
     required TResult Function(CalculateResultEvent value) calculateResultEvent,
     required TResult Function(ChangeRatePeriodEvent value)
@@ -57,6 +61,7 @@ mixin _$SimpleInterestPageEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(BlocCreatedEvent value)? blocCreatedEvent,
     TResult? Function(CheckFormStateEvent value)? checkFormStateEvent,
     TResult? Function(CalculateResultEvent value)? calculateResultEvent,
     TResult? Function(ChangeRatePeriodEvent value)? changeRatePeriodEvent,
@@ -65,6 +70,7 @@ mixin _$SimpleInterestPageEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(BlocCreatedEvent value)? blocCreatedEvent,
     TResult Function(CheckFormStateEvent value)? checkFormStateEvent,
     TResult Function(CalculateResultEvent value)? calculateResultEvent,
     TResult Function(ChangeRatePeriodEvent value)? changeRatePeriodEvent,
@@ -91,6 +97,176 @@ class _$SimpleInterestPageEventCopyWithImpl<$Res,
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+}
+
+/// @nodoc
+abstract class _$$BlocCreatedEventImplCopyWith<$Res> {
+  factory _$$BlocCreatedEventImplCopyWith(_$BlocCreatedEventImpl value,
+          $Res Function(_$BlocCreatedEventImpl) then) =
+      __$$BlocCreatedEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({FinancialCalculator calculator});
+
+  $FinancialCalculatorCopyWith<$Res> get calculator;
+}
+
+/// @nodoc
+class __$$BlocCreatedEventImplCopyWithImpl<$Res>
+    extends _$SimpleInterestPageEventCopyWithImpl<$Res, _$BlocCreatedEventImpl>
+    implements _$$BlocCreatedEventImplCopyWith<$Res> {
+  __$$BlocCreatedEventImplCopyWithImpl(_$BlocCreatedEventImpl _value,
+      $Res Function(_$BlocCreatedEventImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? calculator = null,
+  }) {
+    return _then(_$BlocCreatedEventImpl(
+      null == calculator
+          ? _value.calculator
+          : calculator // ignore: cast_nullable_to_non_nullable
+              as FinancialCalculator,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $FinancialCalculatorCopyWith<$Res> get calculator {
+    return $FinancialCalculatorCopyWith<$Res>(_value.calculator, (value) {
+      return _then(_value.copyWith(calculator: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$BlocCreatedEventImpl implements BlocCreatedEvent {
+  const _$BlocCreatedEventImpl(this.calculator);
+
+  @override
+  final FinancialCalculator calculator;
+
+  @override
+  String toString() {
+    return 'SimpleInterestPageEvent.blocCreatedEvent(calculator: $calculator)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$BlocCreatedEventImpl &&
+            (identical(other.calculator, calculator) ||
+                other.calculator == calculator));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, calculator);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$BlocCreatedEventImplCopyWith<_$BlocCreatedEventImpl> get copyWith =>
+      __$$BlocCreatedEventImplCopyWithImpl<_$BlocCreatedEventImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(FinancialCalculator calculator) blocCreatedEvent,
+    required TResult Function() checkFormStateEvent,
+    required TResult Function() calculateResultEvent,
+    required TResult Function(RatePeriodTypes rateTimeDuration)
+        changeRatePeriodEvent,
+    required TResult Function(TimePeriodsTypes timePeriodDuration)
+        changeTimePeriodEvent,
+  }) {
+    return blocCreatedEvent(calculator);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(FinancialCalculator calculator)? blocCreatedEvent,
+    TResult? Function()? checkFormStateEvent,
+    TResult? Function()? calculateResultEvent,
+    TResult? Function(RatePeriodTypes rateTimeDuration)? changeRatePeriodEvent,
+    TResult? Function(TimePeriodsTypes timePeriodDuration)?
+        changeTimePeriodEvent,
+  }) {
+    return blocCreatedEvent?.call(calculator);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(FinancialCalculator calculator)? blocCreatedEvent,
+    TResult Function()? checkFormStateEvent,
+    TResult Function()? calculateResultEvent,
+    TResult Function(RatePeriodTypes rateTimeDuration)? changeRatePeriodEvent,
+    TResult Function(TimePeriodsTypes timePeriodDuration)?
+        changeTimePeriodEvent,
+    required TResult orElse(),
+  }) {
+    if (blocCreatedEvent != null) {
+      return blocCreatedEvent(calculator);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(BlocCreatedEvent value) blocCreatedEvent,
+    required TResult Function(CheckFormStateEvent value) checkFormStateEvent,
+    required TResult Function(CalculateResultEvent value) calculateResultEvent,
+    required TResult Function(ChangeRatePeriodEvent value)
+        changeRatePeriodEvent,
+    required TResult Function(ChangeTimePeriodEvent value)
+        changeTimePeriodEvent,
+  }) {
+    return blocCreatedEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(BlocCreatedEvent value)? blocCreatedEvent,
+    TResult? Function(CheckFormStateEvent value)? checkFormStateEvent,
+    TResult? Function(CalculateResultEvent value)? calculateResultEvent,
+    TResult? Function(ChangeRatePeriodEvent value)? changeRatePeriodEvent,
+    TResult? Function(ChangeTimePeriodEvent value)? changeTimePeriodEvent,
+  }) {
+    return blocCreatedEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(BlocCreatedEvent value)? blocCreatedEvent,
+    TResult Function(CheckFormStateEvent value)? checkFormStateEvent,
+    TResult Function(CalculateResultEvent value)? calculateResultEvent,
+    TResult Function(ChangeRatePeriodEvent value)? changeRatePeriodEvent,
+    TResult Function(ChangeTimePeriodEvent value)? changeTimePeriodEvent,
+    required TResult orElse(),
+  }) {
+    if (blocCreatedEvent != null) {
+      return blocCreatedEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class BlocCreatedEvent implements SimpleInterestPageEvent {
+  const factory BlocCreatedEvent(final FinancialCalculator calculator) =
+      _$BlocCreatedEventImpl;
+
+  FinancialCalculator get calculator;
+  @JsonKey(ignore: true)
+  _$$BlocCreatedEventImplCopyWith<_$BlocCreatedEventImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -133,6 +309,7 @@ class _$CheckFormStateEventImpl implements CheckFormStateEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(FinancialCalculator calculator) blocCreatedEvent,
     required TResult Function() checkFormStateEvent,
     required TResult Function() calculateResultEvent,
     required TResult Function(RatePeriodTypes rateTimeDuration)
@@ -146,6 +323,7 @@ class _$CheckFormStateEventImpl implements CheckFormStateEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(FinancialCalculator calculator)? blocCreatedEvent,
     TResult? Function()? checkFormStateEvent,
     TResult? Function()? calculateResultEvent,
     TResult? Function(RatePeriodTypes rateTimeDuration)? changeRatePeriodEvent,
@@ -158,6 +336,7 @@ class _$CheckFormStateEventImpl implements CheckFormStateEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(FinancialCalculator calculator)? blocCreatedEvent,
     TResult Function()? checkFormStateEvent,
     TResult Function()? calculateResultEvent,
     TResult Function(RatePeriodTypes rateTimeDuration)? changeRatePeriodEvent,
@@ -174,6 +353,7 @@ class _$CheckFormStateEventImpl implements CheckFormStateEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(BlocCreatedEvent value) blocCreatedEvent,
     required TResult Function(CheckFormStateEvent value) checkFormStateEvent,
     required TResult Function(CalculateResultEvent value) calculateResultEvent,
     required TResult Function(ChangeRatePeriodEvent value)
@@ -187,6 +367,7 @@ class _$CheckFormStateEventImpl implements CheckFormStateEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(BlocCreatedEvent value)? blocCreatedEvent,
     TResult? Function(CheckFormStateEvent value)? checkFormStateEvent,
     TResult? Function(CalculateResultEvent value)? calculateResultEvent,
     TResult? Function(ChangeRatePeriodEvent value)? changeRatePeriodEvent,
@@ -198,6 +379,7 @@ class _$CheckFormStateEventImpl implements CheckFormStateEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(BlocCreatedEvent value)? blocCreatedEvent,
     TResult Function(CheckFormStateEvent value)? checkFormStateEvent,
     TResult Function(CalculateResultEvent value)? calculateResultEvent,
     TResult Function(ChangeRatePeriodEvent value)? changeRatePeriodEvent,
@@ -255,6 +437,7 @@ class _$CalculateResultEventImpl implements CalculateResultEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(FinancialCalculator calculator) blocCreatedEvent,
     required TResult Function() checkFormStateEvent,
     required TResult Function() calculateResultEvent,
     required TResult Function(RatePeriodTypes rateTimeDuration)
@@ -268,6 +451,7 @@ class _$CalculateResultEventImpl implements CalculateResultEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(FinancialCalculator calculator)? blocCreatedEvent,
     TResult? Function()? checkFormStateEvent,
     TResult? Function()? calculateResultEvent,
     TResult? Function(RatePeriodTypes rateTimeDuration)? changeRatePeriodEvent,
@@ -280,6 +464,7 @@ class _$CalculateResultEventImpl implements CalculateResultEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(FinancialCalculator calculator)? blocCreatedEvent,
     TResult Function()? checkFormStateEvent,
     TResult Function()? calculateResultEvent,
     TResult Function(RatePeriodTypes rateTimeDuration)? changeRatePeriodEvent,
@@ -296,6 +481,7 @@ class _$CalculateResultEventImpl implements CalculateResultEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(BlocCreatedEvent value) blocCreatedEvent,
     required TResult Function(CheckFormStateEvent value) checkFormStateEvent,
     required TResult Function(CalculateResultEvent value) calculateResultEvent,
     required TResult Function(ChangeRatePeriodEvent value)
@@ -309,6 +495,7 @@ class _$CalculateResultEventImpl implements CalculateResultEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(BlocCreatedEvent value)? blocCreatedEvent,
     TResult? Function(CheckFormStateEvent value)? checkFormStateEvent,
     TResult? Function(CalculateResultEvent value)? calculateResultEvent,
     TResult? Function(ChangeRatePeriodEvent value)? changeRatePeriodEvent,
@@ -320,6 +507,7 @@ class _$CalculateResultEventImpl implements CalculateResultEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(BlocCreatedEvent value)? blocCreatedEvent,
     TResult Function(CheckFormStateEvent value)? checkFormStateEvent,
     TResult Function(CalculateResultEvent value)? calculateResultEvent,
     TResult Function(ChangeRatePeriodEvent value)? changeRatePeriodEvent,
@@ -405,6 +593,7 @@ class _$ChangeRatePeriodEventImpl implements ChangeRatePeriodEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(FinancialCalculator calculator) blocCreatedEvent,
     required TResult Function() checkFormStateEvent,
     required TResult Function() calculateResultEvent,
     required TResult Function(RatePeriodTypes rateTimeDuration)
@@ -418,6 +607,7 @@ class _$ChangeRatePeriodEventImpl implements ChangeRatePeriodEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(FinancialCalculator calculator)? blocCreatedEvent,
     TResult? Function()? checkFormStateEvent,
     TResult? Function()? calculateResultEvent,
     TResult? Function(RatePeriodTypes rateTimeDuration)? changeRatePeriodEvent,
@@ -430,6 +620,7 @@ class _$ChangeRatePeriodEventImpl implements ChangeRatePeriodEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(FinancialCalculator calculator)? blocCreatedEvent,
     TResult Function()? checkFormStateEvent,
     TResult Function()? calculateResultEvent,
     TResult Function(RatePeriodTypes rateTimeDuration)? changeRatePeriodEvent,
@@ -446,6 +637,7 @@ class _$ChangeRatePeriodEventImpl implements ChangeRatePeriodEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(BlocCreatedEvent value) blocCreatedEvent,
     required TResult Function(CheckFormStateEvent value) checkFormStateEvent,
     required TResult Function(CalculateResultEvent value) calculateResultEvent,
     required TResult Function(ChangeRatePeriodEvent value)
@@ -459,6 +651,7 @@ class _$ChangeRatePeriodEventImpl implements ChangeRatePeriodEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(BlocCreatedEvent value)? blocCreatedEvent,
     TResult? Function(CheckFormStateEvent value)? checkFormStateEvent,
     TResult? Function(CalculateResultEvent value)? calculateResultEvent,
     TResult? Function(ChangeRatePeriodEvent value)? changeRatePeriodEvent,
@@ -470,6 +663,7 @@ class _$ChangeRatePeriodEventImpl implements ChangeRatePeriodEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(BlocCreatedEvent value)? blocCreatedEvent,
     TResult Function(CheckFormStateEvent value)? checkFormStateEvent,
     TResult Function(CalculateResultEvent value)? calculateResultEvent,
     TResult Function(ChangeRatePeriodEvent value)? changeRatePeriodEvent,
@@ -561,6 +755,7 @@ class _$ChangeTimePeriodEventImpl implements ChangeTimePeriodEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(FinancialCalculator calculator) blocCreatedEvent,
     required TResult Function() checkFormStateEvent,
     required TResult Function() calculateResultEvent,
     required TResult Function(RatePeriodTypes rateTimeDuration)
@@ -574,6 +769,7 @@ class _$ChangeTimePeriodEventImpl implements ChangeTimePeriodEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(FinancialCalculator calculator)? blocCreatedEvent,
     TResult? Function()? checkFormStateEvent,
     TResult? Function()? calculateResultEvent,
     TResult? Function(RatePeriodTypes rateTimeDuration)? changeRatePeriodEvent,
@@ -586,6 +782,7 @@ class _$ChangeTimePeriodEventImpl implements ChangeTimePeriodEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(FinancialCalculator calculator)? blocCreatedEvent,
     TResult Function()? checkFormStateEvent,
     TResult Function()? calculateResultEvent,
     TResult Function(RatePeriodTypes rateTimeDuration)? changeRatePeriodEvent,
@@ -602,6 +799,7 @@ class _$ChangeTimePeriodEventImpl implements ChangeTimePeriodEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(BlocCreatedEvent value) blocCreatedEvent,
     required TResult Function(CheckFormStateEvent value) checkFormStateEvent,
     required TResult Function(CalculateResultEvent value) calculateResultEvent,
     required TResult Function(ChangeRatePeriodEvent value)
@@ -615,6 +813,7 @@ class _$ChangeTimePeriodEventImpl implements ChangeTimePeriodEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(BlocCreatedEvent value)? blocCreatedEvent,
     TResult? Function(CheckFormStateEvent value)? checkFormStateEvent,
     TResult? Function(CalculateResultEvent value)? calculateResultEvent,
     TResult? Function(ChangeRatePeriodEvent value)? changeRatePeriodEvent,
@@ -626,6 +825,7 @@ class _$ChangeTimePeriodEventImpl implements ChangeTimePeriodEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(BlocCreatedEvent value)? blocCreatedEvent,
     TResult Function(CheckFormStateEvent value)? checkFormStateEvent,
     TResult Function(CalculateResultEvent value)? calculateResultEvent,
     TResult Function(ChangeRatePeriodEvent value)? changeRatePeriodEvent,

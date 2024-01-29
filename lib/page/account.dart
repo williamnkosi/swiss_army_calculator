@@ -18,7 +18,8 @@ class AccountPage extends StatelessWidget {
                     .add(AppSwitchTheme(themeName: entry.key));
               },
               style: ElevatedButton.styleFrom(
-                shape: const CircleBorder(), backgroundColor: entry.value.mainColor,
+                shape: const CircleBorder(),
+                backgroundColor: entry.value.mainColor,
                 padding: const EdgeInsets.all(16.0),
               ),
               child: const SizedBox(
