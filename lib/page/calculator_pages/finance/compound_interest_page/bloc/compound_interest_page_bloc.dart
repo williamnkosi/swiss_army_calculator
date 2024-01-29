@@ -4,6 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:swiss_army_calculator/models/calculators.dart';
 import 'package:swiss_army_calculator/page/calculator_pages/finance/compound_interest_page/compound_interest_text_field_data.dart';
 
 part 'compound_interest_page_event.dart';
@@ -12,9 +13,9 @@ part 'compound_interest_page_bloc.freezed.dart';
 
 class CompoundInterestPageBloc
     extends Bloc<CompoundInterestPageEvent, CompoundInterestPageState> {
-  CompoundInterestPageBloc()
-      : super(
-            CompoundInterestPageState(formKey: GlobalKey<FormBuilderState>())) {
+  CompoundInterestPageBloc(FinancialCalculator calculator)
+      : super(CompoundInterestPageState(
+            formKey: GlobalKey<FormBuilderState>(), calculator: calculator)) {
     on<CheckFormStateEvent>(_onCheckFormStateEvent);
     on<CalculateCompoundInterest>(_onCalculateCompoundInterest);
   }

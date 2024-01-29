@@ -296,6 +296,7 @@ abstract class CalculateCompoundInterest implements CompoundInterestPageEvent {
 
 /// @nodoc
 mixin _$CompoundInterestPageState {
+  FinancialCalculator get calculator => throw _privateConstructorUsedError;
   GlobalKey<FormBuilderState> get formKey => throw _privateConstructorUsedError;
   double get totalAmount => throw _privateConstructorUsedError;
   bool get isDiabled => throw _privateConstructorUsedError;
@@ -319,7 +320,8 @@ abstract class $CompoundInterestPageStateCopyWith<$Res> {
       _$CompoundInterestPageStateCopyWithImpl<$Res, CompoundInterestPageState>;
   @useResult
   $Res call(
-      {GlobalKey<FormBuilderState> formKey,
+      {FinancialCalculator calculator,
+      GlobalKey<FormBuilderState> formKey,
       double totalAmount,
       bool isDiabled,
       double initialInvestment,
@@ -345,6 +347,7 @@ class _$CompoundInterestPageStateCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? calculator = freezed,
     Object? formKey = null,
     Object? totalAmount = null,
     Object? isDiabled = null,
@@ -357,6 +360,10 @@ class _$CompoundInterestPageStateCopyWithImpl<$Res,
     Object? inflationRate = null,
   }) {
     return _then(_value.copyWith(
+      calculator: freezed == calculator
+          ? _value.calculator
+          : calculator // ignore: cast_nullable_to_non_nullable
+              as FinancialCalculator,
       formKey: null == formKey
           ? _value.formKey
           : formKey // ignore: cast_nullable_to_non_nullable
@@ -411,7 +418,8 @@ abstract class _$$CompoundInterestPageStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {GlobalKey<FormBuilderState> formKey,
+      {FinancialCalculator calculator,
+      GlobalKey<FormBuilderState> formKey,
       double totalAmount,
       bool isDiabled,
       double initialInvestment,
@@ -436,6 +444,7 @@ class __$$CompoundInterestPageStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? calculator = freezed,
     Object? formKey = null,
     Object? totalAmount = null,
     Object? isDiabled = null,
@@ -448,6 +457,10 @@ class __$$CompoundInterestPageStateImplCopyWithImpl<$Res>
     Object? inflationRate = null,
   }) {
     return _then(_$CompoundInterestPageStateImpl(
+      calculator: freezed == calculator
+          ? _value.calculator
+          : calculator // ignore: cast_nullable_to_non_nullable
+              as FinancialCalculator,
       formKey: null == formKey
           ? _value.formKey
           : formKey // ignore: cast_nullable_to_non_nullable
@@ -496,7 +509,8 @@ class __$$CompoundInterestPageStateImplCopyWithImpl<$Res>
 
 class _$CompoundInterestPageStateImpl implements _CompoundInterestPageState {
   const _$CompoundInterestPageStateImpl(
-      {required this.formKey,
+      {required this.calculator,
+      required this.formKey,
       this.totalAmount = 0,
       this.isDiabled = true,
       this.initialInvestment = 0,
@@ -507,6 +521,8 @@ class _$CompoundInterestPageStateImpl implements _CompoundInterestPageState {
       this.investmentLengthMonths = 0,
       this.inflationRate = 0});
 
+  @override
+  final FinancialCalculator calculator;
   @override
   final GlobalKey<FormBuilderState> formKey;
   @override
@@ -539,7 +555,7 @@ class _$CompoundInterestPageStateImpl implements _CompoundInterestPageState {
 
   @override
   String toString() {
-    return 'CompoundInterestPageState(formKey: $formKey, totalAmount: $totalAmount, isDiabled: $isDiabled, initialInvestment: $initialInvestment, annualContribution: $annualContribution, monthlyContribution: $monthlyContribution, interestRate: $interestRate, investmentLengthYears: $investmentLengthYears, investmentLengthMonths: $investmentLengthMonths, inflationRate: $inflationRate)';
+    return 'CompoundInterestPageState(calculator: $calculator, formKey: $formKey, totalAmount: $totalAmount, isDiabled: $isDiabled, initialInvestment: $initialInvestment, annualContribution: $annualContribution, monthlyContribution: $monthlyContribution, interestRate: $interestRate, investmentLengthYears: $investmentLengthYears, investmentLengthMonths: $investmentLengthMonths, inflationRate: $inflationRate)';
   }
 
   @override
@@ -547,6 +563,8 @@ class _$CompoundInterestPageStateImpl implements _CompoundInterestPageState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CompoundInterestPageStateImpl &&
+            const DeepCollectionEquality()
+                .equals(other.calculator, calculator) &&
             (identical(other.formKey, formKey) || other.formKey == formKey) &&
             (identical(other.totalAmount, totalAmount) ||
                 other.totalAmount == totalAmount) &&
@@ -571,6 +589,7 @@ class _$CompoundInterestPageStateImpl implements _CompoundInterestPageState {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(calculator),
       formKey,
       totalAmount,
       isDiabled,
@@ -592,7 +611,8 @@ class _$CompoundInterestPageStateImpl implements _CompoundInterestPageState {
 
 abstract class _CompoundInterestPageState implements CompoundInterestPageState {
   const factory _CompoundInterestPageState(
-      {required final GlobalKey<FormBuilderState> formKey,
+      {required final FinancialCalculator calculator,
+      required final GlobalKey<FormBuilderState> formKey,
       final double totalAmount,
       final bool isDiabled,
       final double initialInvestment,
@@ -603,6 +623,8 @@ abstract class _CompoundInterestPageState implements CompoundInterestPageState {
       final int investmentLengthMonths,
       final double inflationRate}) = _$CompoundInterestPageStateImpl;
 
+  @override
+  FinancialCalculator get calculator;
   @override
   GlobalKey<FormBuilderState> get formKey;
   @override
