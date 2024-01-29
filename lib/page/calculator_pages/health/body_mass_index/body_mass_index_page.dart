@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:form_builder_validators/form_builder_validators.dart';
+import 'package:swiss_army_calculator/page/calculator_pages/health/body_mass_index/body_mass_index_field_names.dart';
+import 'package:swiss_army_calculator/utils/functions.dart';
+import 'package:swiss_army_calculator/widgets/textFields/app_text_field.dart';
 import '../../../../widgets/app_expansion_tile.dart';
+import '../../../../widgets/app_material_button.dart';
 import 'bloc/body_mass_index_bloc.dart';
 
 class BodyMassIndexPage extends StatelessWidget {
@@ -26,34 +29,49 @@ class BodyMassIndexPage extends StatelessWidget {
             const SizedBox(
               height: 16,
             ),
-            const Age(),
+            AppTextField(
+                fieldName: BodyMassIndexTextFieldData.age.name,
+                fieldText: BodyMassIndexTextFieldData.age.name,
+                onChange: () {}),
             const SizedBox(
               height: 16,
             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SizedBox(
+                  width: calculateWidthPercentage(context, 45),
+                  child: AppTextField(
+                      fieldName: BodyMassIndexTextFieldData.feet.name,
+                      fieldText: BodyMassIndexTextFieldData.feet.name,
+                      onChange: () {}),
+                ),
+                SizedBox(
+                  width: calculateWidthPercentage(context, 45),
+                  child: AppTextField(
+                      fieldName: BodyMassIndexTextFieldData.inches.name,
+                      fieldText: BodyMassIndexTextFieldData.inches.name,
+                      onChange: () {}),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 16,
+            ),
+            AppTextField(
+                fieldName: BodyMassIndexTextFieldData.weight.name,
+                fieldText: BodyMassIndexTextFieldData.weight.name,
+                onChange: () {}),
           ],
-        )
-      ]),
-    );
-  }
-}
-
-class Age extends StatelessWidget {
-  const Age({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return FormBuilderTextField(
-      keyboardType: TextInputType.number,
-      name: 'age',
-      decoration: const InputDecoration(
-        border: OutlineInputBorder(),
-        hintText: 'Age',
-      ),
-      validator: FormBuilderValidators.compose([
-        FormBuilderValidators.required(),
-        FormBuilderValidators.numeric(),
+        ),
+        Positioned(
+            bottom: 24,
+            width: MediaQuery.of(context).size.width - 32,
+            child: AppMaterialButton(
+              isDisabled: true,
+              buttonTitle: 'CALCULATE',
+              onPressed: () {},
+            ))
       ]),
     );
   }

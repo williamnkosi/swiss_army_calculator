@@ -20,27 +20,27 @@ class CalculatorListBuilder extends StatelessWidget {
   const CalculatorListBuilder({Key? key, required this.calculators})
       : super(key: key);
 
-  Widget _onGeneratePage(Calculator _calculator) {
-    if (_calculator is FinancialCalculator) {
-      switch (_calculator.type) {
+  Widget _onGeneratePage(Calculator calculator) {
+    if (calculator is FinancialCalculator) {
+      switch (calculator.type) {
         case CalculatorsDefinedTypes.simpleInterest:
           return BlocProvider(
-            create: (context) => SimpleInterestPageBloc(_calculator),
+            create: (context) => SimpleInterestPageBloc(calculator),
             child: SimpleInterest(),
           );
         case CalculatorsDefinedTypes.compoundInterest:
           return BlocProvider(
-            create: (context) => CompoundInterestPageBloc(value),
+            create: (context) => CompoundInterestPageBloc(calculator),
             child: const CompoundInterestPage(),
           );
         default:
           return SimpleInterest();
       }
-    } else if (_calculator is HealthCalculator) {
-      switch (_calculator.type) {
+    } else if (calculator is HealthCalculator) {
+      switch (calculator.type) {
         case CalculatorsDefinedTypes.bmi:
           return BlocProvider(
-            create: (context) => BodyMassIndexBloc(_calculator),
+            create: (context) => BodyMassIndexBloc(calculator),
             child: const BodyMassIndexPage(),
           );
 
