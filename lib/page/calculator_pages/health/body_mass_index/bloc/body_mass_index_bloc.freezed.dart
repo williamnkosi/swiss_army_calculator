@@ -244,6 +244,7 @@ abstract class BodyMassIndexBlocStarted implements BodyMassIndexEvent {
 
 /// @nodoc
 mixin _$BodyMassIndexState {
+  dynamic get formKey => throw _privateConstructorUsedError;
   HealthCalculator get calculatorData => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -257,7 +258,7 @@ abstract class $BodyMassIndexStateCopyWith<$Res> {
           BodyMassIndexState value, $Res Function(BodyMassIndexState) then) =
       _$BodyMassIndexStateCopyWithImpl<$Res, BodyMassIndexState>;
   @useResult
-  $Res call({HealthCalculator calculatorData});
+  $Res call({dynamic formKey, HealthCalculator calculatorData});
 
   $HealthCalculatorCopyWith<$Res> get calculatorData;
 }
@@ -275,9 +276,14 @@ class _$BodyMassIndexStateCopyWithImpl<$Res, $Val extends BodyMassIndexState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? formKey = freezed,
     Object? calculatorData = null,
   }) {
     return _then(_value.copyWith(
+      formKey: freezed == formKey
+          ? _value.formKey
+          : formKey // ignore: cast_nullable_to_non_nullable
+              as dynamic,
       calculatorData: null == calculatorData
           ? _value.calculatorData
           : calculatorData // ignore: cast_nullable_to_non_nullable
@@ -302,7 +308,7 @@ abstract class _$$BodyMassIndexStateImplCopyWith<$Res>
       __$$BodyMassIndexStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({HealthCalculator calculatorData});
+  $Res call({dynamic formKey, HealthCalculator calculatorData});
 
   @override
   $HealthCalculatorCopyWith<$Res> get calculatorData;
@@ -319,9 +325,11 @@ class __$$BodyMassIndexStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? formKey = freezed,
     Object? calculatorData = null,
   }) {
     return _then(_$BodyMassIndexStateImpl(
+      formKey: freezed == formKey ? _value.formKey! : formKey,
       calculatorData: null == calculatorData
           ? _value.calculatorData
           : calculatorData // ignore: cast_nullable_to_non_nullable
@@ -333,14 +341,17 @@ class __$$BodyMassIndexStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$BodyMassIndexStateImpl implements _BodyMassIndexState {
-  const _$BodyMassIndexStateImpl({required this.calculatorData});
+  const _$BodyMassIndexStateImpl(
+      {required this.formKey, required this.calculatorData});
 
+  @override
+  final dynamic formKey;
   @override
   final HealthCalculator calculatorData;
 
   @override
   String toString() {
-    return 'BodyMassIndexState(calculatorData: $calculatorData)';
+    return 'BodyMassIndexState(formKey: $formKey, calculatorData: $calculatorData)';
   }
 
   @override
@@ -348,12 +359,14 @@ class _$BodyMassIndexStateImpl implements _BodyMassIndexState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BodyMassIndexStateImpl &&
+            const DeepCollectionEquality().equals(other.formKey, formKey) &&
             (identical(other.calculatorData, calculatorData) ||
                 other.calculatorData == calculatorData));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, calculatorData);
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(formKey), calculatorData);
 
   @JsonKey(ignore: true)
   @override
@@ -365,9 +378,12 @@ class _$BodyMassIndexStateImpl implements _BodyMassIndexState {
 
 abstract class _BodyMassIndexState implements BodyMassIndexState {
   const factory _BodyMassIndexState(
-          {required final HealthCalculator calculatorData}) =
+          {required final dynamic formKey,
+          required final HealthCalculator calculatorData}) =
       _$BodyMassIndexStateImpl;
 
+  @override
+  dynamic get formKey;
   @override
   HealthCalculator get calculatorData;
   @override

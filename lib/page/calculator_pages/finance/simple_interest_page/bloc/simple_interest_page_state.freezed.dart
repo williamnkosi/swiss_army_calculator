@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$SimpleInterestPageState {
   GlobalKey<FormBuilderState> get formKey => throw _privateConstructorUsedError;
-  FinancialCalculator? get calculatorData => throw _privateConstructorUsedError;
+  FinancialCalculator get calculatorData => throw _privateConstructorUsedError;
   List<PieChartSectionData> get sections => throw _privateConstructorUsedError;
   List<List<double>> get barChartData => throw _privateConstructorUsedError;
   RatePeriodTypes get ratePeriodType => throw _privateConstructorUsedError;
@@ -43,7 +43,7 @@ abstract class $SimpleInterestPageStateCopyWith<$Res> {
   @useResult
   $Res call(
       {GlobalKey<FormBuilderState> formKey,
-      FinancialCalculator? calculatorData,
+      FinancialCalculator calculatorData,
       List<PieChartSectionData> sections,
       List<List<double>> barChartData,
       RatePeriodTypes ratePeriodType,
@@ -56,7 +56,7 @@ abstract class $SimpleInterestPageStateCopyWith<$Res> {
       dynamic isExpanded,
       dynamic isDiabled});
 
-  $FinancialCalculatorCopyWith<$Res>? get calculatorData;
+  $FinancialCalculatorCopyWith<$Res> get calculatorData;
 }
 
 /// @nodoc
@@ -74,7 +74,7 @@ class _$SimpleInterestPageStateCopyWithImpl<$Res,
   @override
   $Res call({
     Object? formKey = null,
-    Object? calculatorData = freezed,
+    Object? calculatorData = null,
     Object? sections = null,
     Object? barChartData = null,
     Object? ratePeriodType = null,
@@ -92,10 +92,10 @@ class _$SimpleInterestPageStateCopyWithImpl<$Res,
           ? _value.formKey
           : formKey // ignore: cast_nullable_to_non_nullable
               as GlobalKey<FormBuilderState>,
-      calculatorData: freezed == calculatorData
+      calculatorData: null == calculatorData
           ? _value.calculatorData
           : calculatorData // ignore: cast_nullable_to_non_nullable
-              as FinancialCalculator?,
+              as FinancialCalculator,
       sections: null == sections
           ? _value.sections
           : sections // ignore: cast_nullable_to_non_nullable
@@ -145,12 +145,8 @@ class _$SimpleInterestPageStateCopyWithImpl<$Res,
 
   @override
   @pragma('vm:prefer-inline')
-  $FinancialCalculatorCopyWith<$Res>? get calculatorData {
-    if (_value.calculatorData == null) {
-      return null;
-    }
-
-    return $FinancialCalculatorCopyWith<$Res>(_value.calculatorData!, (value) {
+  $FinancialCalculatorCopyWith<$Res> get calculatorData {
+    return $FinancialCalculatorCopyWith<$Res>(_value.calculatorData, (value) {
       return _then(_value.copyWith(calculatorData: value) as $Val);
     });
   }
@@ -167,7 +163,7 @@ abstract class _$$SimpleInterestPageStateImplCopyWith<$Res>
   @useResult
   $Res call(
       {GlobalKey<FormBuilderState> formKey,
-      FinancialCalculator? calculatorData,
+      FinancialCalculator calculatorData,
       List<PieChartSectionData> sections,
       List<List<double>> barChartData,
       RatePeriodTypes ratePeriodType,
@@ -181,7 +177,7 @@ abstract class _$$SimpleInterestPageStateImplCopyWith<$Res>
       dynamic isDiabled});
 
   @override
-  $FinancialCalculatorCopyWith<$Res>? get calculatorData;
+  $FinancialCalculatorCopyWith<$Res> get calculatorData;
 }
 
 /// @nodoc
@@ -198,7 +194,7 @@ class __$$SimpleInterestPageStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? formKey = null,
-    Object? calculatorData = freezed,
+    Object? calculatorData = null,
     Object? sections = null,
     Object? barChartData = null,
     Object? ratePeriodType = null,
@@ -216,10 +212,10 @@ class __$$SimpleInterestPageStateImplCopyWithImpl<$Res>
           ? _value.formKey
           : formKey // ignore: cast_nullable_to_non_nullable
               as GlobalKey<FormBuilderState>,
-      calculatorData: freezed == calculatorData
+      calculatorData: null == calculatorData
           ? _value.calculatorData
           : calculatorData // ignore: cast_nullable_to_non_nullable
-              as FinancialCalculator?,
+              as FinancialCalculator,
       sections: null == sections
           ? _value._sections
           : sections // ignore: cast_nullable_to_non_nullable
@@ -267,7 +263,7 @@ class __$$SimpleInterestPageStateImplCopyWithImpl<$Res>
 class _$SimpleInterestPageStateImpl implements _SimpleInterestPageState {
   const _$SimpleInterestPageStateImpl(
       {required this.formKey,
-      this.calculatorData,
+      required this.calculatorData,
       final List<PieChartSectionData> sections = const [],
       final List<List<double>> barChartData = const [],
       this.ratePeriodType = RatePeriodTypes.years,
@@ -285,7 +281,7 @@ class _$SimpleInterestPageStateImpl implements _SimpleInterestPageState {
   @override
   final GlobalKey<FormBuilderState> formKey;
   @override
-  final FinancialCalculator? calculatorData;
+  final FinancialCalculator calculatorData;
   final List<PieChartSectionData> _sections;
   @override
   @JsonKey()
@@ -393,7 +389,7 @@ class _$SimpleInterestPageStateImpl implements _SimpleInterestPageState {
 abstract class _SimpleInterestPageState implements SimpleInterestPageState {
   const factory _SimpleInterestPageState(
       {required final GlobalKey<FormBuilderState> formKey,
-      final FinancialCalculator? calculatorData,
+      required final FinancialCalculator calculatorData,
       final List<PieChartSectionData> sections,
       final List<List<double>> barChartData,
       final RatePeriodTypes ratePeriodType,
@@ -409,7 +405,7 @@ abstract class _SimpleInterestPageState implements SimpleInterestPageState {
   @override
   GlobalKey<FormBuilderState> get formKey;
   @override
-  FinancialCalculator? get calculatorData;
+  FinancialCalculator get calculatorData;
   @override
   List<PieChartSectionData> get sections;
   @override
