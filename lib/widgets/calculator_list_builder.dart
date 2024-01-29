@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:swiss_army_calculator/models/calculator_types.dart';
 import 'package:swiss_army_calculator/page/calculator_pages/calculator_wrapper.dart';
+import 'package:swiss_army_calculator/page/calculator_pages/finance/compound_interest_page/bloc/compound_interest_page_bloc.dart';
+import 'package:swiss_army_calculator/page/calculator_pages/finance/compound_interest_page/compound_interest_page.dart';
+
 import 'package:swiss_army_calculator/page/calculator_pages/health/basal_metabolic_rate_page.dart';
 import 'package:swiss_army_calculator/page/calculator_pages/health/body_fat_page.dart';
 import 'package:swiss_army_calculator/page/calculator_pages/health/body_mass_index_page.dart';
@@ -9,7 +12,6 @@ import 'package:swiss_army_calculator/page/calculator_pages/health/calorie_page.
 import '../app_state/favorites_bloc/favorites_bloc.dart';
 import '../models/calculators.dart';
 import '../page/calculator_pages/finance/simple_interest_page/bloc/simple_interest_page_bloc.dart';
-import '../page/calculator_pages/finance/simple_interest_page/bloc/simple_interest_page_event.dart';
 import '../page/calculator_pages/finance/simple_interest_page/simple_interest_page.dart';
 
 class CalculatorListBuilder extends StatelessWidget {
@@ -22,9 +24,13 @@ class CalculatorListBuilder extends StatelessWidget {
       switch (value.type) {
         case CalculatorsDefinedTypes.simpleInterest:
           return BlocProvider(
-            create: (context) =>
-                SimpleInterestPageBloc()..add(BlocCreatedEvent(value)),
+            create: (context) => SimpleInterestPageBloc(value),
             child: SimpleInterest(),
+          );
+        case CalculatorsDefinedTypes.compoundInterest:
+          return BlocProvider(
+            create: (context) => CompoundInterestPageBloc(value),
+            child: const CompoundInterestPage(),
           );
         default:
           return SimpleInterest();
