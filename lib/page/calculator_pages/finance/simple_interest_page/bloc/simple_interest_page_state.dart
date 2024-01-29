@@ -10,7 +10,7 @@ part 'simple_interest_page_state.freezed.dart';
 class SimpleInterestPageState with _$SimpleInterestPageState {
   const factory SimpleInterestPageState({
     required GlobalKey<FormBuilderState> formKey,
-    FinancialCalculator? calculatorData,
+    required FinancialCalculator calculatorData,
     @Default([]) List<PieChartSectionData> sections,
     @Default([]) List<List<double>> barChartData,
     @Default(RatePeriodTypes.years) RatePeriodTypes ratePeriodType,

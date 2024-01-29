@@ -16,37 +16,44 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$BodyMassIndexEvent {
+  HealthCalculator get calculator => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function(HealthCalculator calculator)
+        bodyMassIndexBlocStarted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
+    TResult? Function(HealthCalculator calculator)? bodyMassIndexBlocStarted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function(HealthCalculator calculator)? bodyMassIndexBlocStarted,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(BodyMassIndexBlocStarted value)
+        bodyMassIndexBlocStarted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(BodyMassIndexBlocStarted value)? bodyMassIndexBlocStarted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(BodyMassIndexBlocStarted value)? bodyMassIndexBlocStarted,
     required TResult orElse(),
   }) =>
+      throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $BodyMassIndexEventCopyWith<BodyMassIndexEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -55,6 +62,10 @@ abstract class $BodyMassIndexEventCopyWith<$Res> {
   factory $BodyMassIndexEventCopyWith(
           BodyMassIndexEvent value, $Res Function(BodyMassIndexEvent) then) =
       _$BodyMassIndexEventCopyWithImpl<$Res, BodyMassIndexEvent>;
+  @useResult
+  $Res call({HealthCalculator calculator});
+
+  $HealthCalculatorCopyWith<$Res> get calculator;
 }
 
 /// @nodoc
@@ -66,67 +77,125 @@ class _$BodyMassIndexEventCopyWithImpl<$Res, $Val extends BodyMassIndexEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? calculator = null,
+  }) {
+    return _then(_value.copyWith(
+      calculator: null == calculator
+          ? _value.calculator
+          : calculator // ignore: cast_nullable_to_non_nullable
+              as HealthCalculator,
+    ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $HealthCalculatorCopyWith<$Res> get calculator {
+    return $HealthCalculatorCopyWith<$Res>(_value.calculator, (value) {
+      return _then(_value.copyWith(calculator: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
-abstract class _$$StartedImplCopyWith<$Res> {
-  factory _$$StartedImplCopyWith(
-          _$StartedImpl value, $Res Function(_$StartedImpl) then) =
-      __$$StartedImplCopyWithImpl<$Res>;
+abstract class _$$BodyMassIndexBlocStartedImplCopyWith<$Res>
+    implements $BodyMassIndexEventCopyWith<$Res> {
+  factory _$$BodyMassIndexBlocStartedImplCopyWith(
+          _$BodyMassIndexBlocStartedImpl value,
+          $Res Function(_$BodyMassIndexBlocStartedImpl) then) =
+      __$$BodyMassIndexBlocStartedImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({HealthCalculator calculator});
+
+  @override
+  $HealthCalculatorCopyWith<$Res> get calculator;
 }
 
 /// @nodoc
-class __$$StartedImplCopyWithImpl<$Res>
-    extends _$BodyMassIndexEventCopyWithImpl<$Res, _$StartedImpl>
-    implements _$$StartedImplCopyWith<$Res> {
-  __$$StartedImplCopyWithImpl(
-      _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
+class __$$BodyMassIndexBlocStartedImplCopyWithImpl<$Res>
+    extends _$BodyMassIndexEventCopyWithImpl<$Res,
+        _$BodyMassIndexBlocStartedImpl>
+    implements _$$BodyMassIndexBlocStartedImplCopyWith<$Res> {
+  __$$BodyMassIndexBlocStartedImplCopyWithImpl(
+      _$BodyMassIndexBlocStartedImpl _value,
+      $Res Function(_$BodyMassIndexBlocStartedImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? calculator = null,
+  }) {
+    return _then(_$BodyMassIndexBlocStartedImpl(
+      null == calculator
+          ? _value.calculator
+          : calculator // ignore: cast_nullable_to_non_nullable
+              as HealthCalculator,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$StartedImpl implements _Started {
-  const _$StartedImpl();
+class _$BodyMassIndexBlocStartedImpl implements BodyMassIndexBlocStarted {
+  const _$BodyMassIndexBlocStartedImpl(this.calculator);
+
+  @override
+  final HealthCalculator calculator;
 
   @override
   String toString() {
-    return 'BodyMassIndexEvent.started()';
+    return 'BodyMassIndexEvent.bodyMassIndexBlocStarted(calculator: $calculator)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$StartedImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$BodyMassIndexBlocStartedImpl &&
+            (identical(other.calculator, calculator) ||
+                other.calculator == calculator));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, calculator);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$BodyMassIndexBlocStartedImplCopyWith<_$BodyMassIndexBlocStartedImpl>
+      get copyWith => __$$BodyMassIndexBlocStartedImplCopyWithImpl<
+          _$BodyMassIndexBlocStartedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function(HealthCalculator calculator)
+        bodyMassIndexBlocStarted,
   }) {
-    return started();
+    return bodyMassIndexBlocStarted(calculator);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
+    TResult? Function(HealthCalculator calculator)? bodyMassIndexBlocStarted,
   }) {
-    return started?.call();
+    return bodyMassIndexBlocStarted?.call(calculator);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function(HealthCalculator calculator)? bodyMassIndexBlocStarted,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started();
+    if (bodyMassIndexBlocStarted != null) {
+      return bodyMassIndexBlocStarted(calculator);
     }
     return orElse();
   }
@@ -134,69 +203,51 @@ class _$StartedImpl implements _Started {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(BodyMassIndexBlocStarted value)
+        bodyMassIndexBlocStarted,
   }) {
-    return started(this);
+    return bodyMassIndexBlocStarted(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(BodyMassIndexBlocStarted value)? bodyMassIndexBlocStarted,
   }) {
-    return started?.call(this);
+    return bodyMassIndexBlocStarted?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(BodyMassIndexBlocStarted value)? bodyMassIndexBlocStarted,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started(this);
+    if (bodyMassIndexBlocStarted != null) {
+      return bodyMassIndexBlocStarted(this);
     }
     return orElse();
   }
 }
 
-abstract class _Started implements BodyMassIndexEvent {
-  const factory _Started() = _$StartedImpl;
+abstract class BodyMassIndexBlocStarted implements BodyMassIndexEvent {
+  const factory BodyMassIndexBlocStarted(final HealthCalculator calculator) =
+      _$BodyMassIndexBlocStartedImpl;
+
+  @override
+  HealthCalculator get calculator;
+  @override
+  @JsonKey(ignore: true)
+  _$$BodyMassIndexBlocStartedImplCopyWith<_$BodyMassIndexBlocStartedImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 mixin _$BodyMassIndexState {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    required TResult orElse(),
-  }) =>
+  HealthCalculator get calculatorData => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $BodyMassIndexStateCopyWith<BodyMassIndexState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -205,6 +256,10 @@ abstract class $BodyMassIndexStateCopyWith<$Res> {
   factory $BodyMassIndexStateCopyWith(
           BodyMassIndexState value, $Res Function(BodyMassIndexState) then) =
       _$BodyMassIndexStateCopyWithImpl<$Res, BodyMassIndexState>;
+  @useResult
+  $Res call({HealthCalculator calculatorData});
+
+  $HealthCalculatorCopyWith<$Res> get calculatorData;
 }
 
 /// @nodoc
@@ -216,100 +271,107 @@ class _$BodyMassIndexStateCopyWithImpl<$Res, $Val extends BodyMassIndexState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? calculatorData = null,
+  }) {
+    return _then(_value.copyWith(
+      calculatorData: null == calculatorData
+          ? _value.calculatorData
+          : calculatorData // ignore: cast_nullable_to_non_nullable
+              as HealthCalculator,
+    ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $HealthCalculatorCopyWith<$Res> get calculatorData {
+    return $HealthCalculatorCopyWith<$Res>(_value.calculatorData, (value) {
+      return _then(_value.copyWith(calculatorData: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
-abstract class _$$InitialImplCopyWith<$Res> {
-  factory _$$InitialImplCopyWith(
-          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
+abstract class _$$BodyMassIndexStateImplCopyWith<$Res>
+    implements $BodyMassIndexStateCopyWith<$Res> {
+  factory _$$BodyMassIndexStateImplCopyWith(_$BodyMassIndexStateImpl value,
+          $Res Function(_$BodyMassIndexStateImpl) then) =
+      __$$BodyMassIndexStateImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({HealthCalculator calculatorData});
+
+  @override
+  $HealthCalculatorCopyWith<$Res> get calculatorData;
 }
 
 /// @nodoc
-class __$$InitialImplCopyWithImpl<$Res>
-    extends _$BodyMassIndexStateCopyWithImpl<$Res, _$InitialImpl>
-    implements _$$InitialImplCopyWith<$Res> {
-  __$$InitialImplCopyWithImpl(
-      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
+class __$$BodyMassIndexStateImplCopyWithImpl<$Res>
+    extends _$BodyMassIndexStateCopyWithImpl<$Res, _$BodyMassIndexStateImpl>
+    implements _$$BodyMassIndexStateImplCopyWith<$Res> {
+  __$$BodyMassIndexStateImplCopyWithImpl(_$BodyMassIndexStateImpl _value,
+      $Res Function(_$BodyMassIndexStateImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? calculatorData = null,
+  }) {
+    return _then(_$BodyMassIndexStateImpl(
+      calculatorData: null == calculatorData
+          ? _value.calculatorData
+          : calculatorData // ignore: cast_nullable_to_non_nullable
+              as HealthCalculator,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$InitialImpl implements _Initial {
-  const _$InitialImpl();
+class _$BodyMassIndexStateImpl implements _BodyMassIndexState {
+  const _$BodyMassIndexStateImpl({required this.calculatorData});
+
+  @override
+  final HealthCalculator calculatorData;
 
   @override
   String toString() {
-    return 'BodyMassIndexState.initial()';
+    return 'BodyMassIndexState(calculatorData: $calculatorData)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitialImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$BodyMassIndexStateImpl &&
+            (identical(other.calculatorData, calculatorData) ||
+                other.calculatorData == calculatorData));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, calculatorData);
 
+  @JsonKey(ignore: true)
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-  }) {
-    return initial();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-  }) {
-    return initial?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
+  @pragma('vm:prefer-inline')
+  _$$BodyMassIndexStateImplCopyWith<_$BodyMassIndexStateImpl> get copyWith =>
+      __$$BodyMassIndexStateImplCopyWithImpl<_$BodyMassIndexStateImpl>(
+          this, _$identity);
 }
 
-abstract class _Initial implements BodyMassIndexState {
-  const factory _Initial() = _$InitialImpl;
+abstract class _BodyMassIndexState implements BodyMassIndexState {
+  const factory _BodyMassIndexState(
+          {required final HealthCalculator calculatorData}) =
+      _$BodyMassIndexStateImpl;
+
+  @override
+  HealthCalculator get calculatorData;
+  @override
+  @JsonKey(ignore: true)
+  _$$BodyMassIndexStateImplCopyWith<_$BodyMassIndexStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

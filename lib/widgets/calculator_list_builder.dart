@@ -4,13 +4,14 @@ import 'package:swiss_army_calculator/models/calculator_types.dart';
 import 'package:swiss_army_calculator/page/calculator_pages/calculator_wrapper.dart';
 import 'package:swiss_army_calculator/page/calculator_pages/health/basal_metabolic_rate_page.dart';
 import 'package:swiss_army_calculator/page/calculator_pages/health/body_fat_page.dart';
-import 'package:swiss_army_calculator/page/calculator_pages/health/body_mass_index_page.dart';
+import 'package:swiss_army_calculator/page/calculator_pages/health/body_mass_index/body_mass_index_page.dart';
 import 'package:swiss_army_calculator/page/calculator_pages/health/calorie_page.dart';
 import '../app_state/favorites_bloc/favorites_bloc.dart';
 import '../models/calculators.dart';
 import '../page/calculator_pages/finance/simple_interest_page/bloc/simple_interest_page_bloc.dart';
 import '../page/calculator_pages/finance/simple_interest_page/bloc/simple_interest_page_event.dart';
 import '../page/calculator_pages/finance/simple_interest_page/simple_interest_page.dart';
+import '../page/calculator_pages/health/body_mass_index/bloc/body_mass_index_bloc.dart';
 
 class CalculatorListBuilder extends StatelessWidget {
   final List<Calculator> calculators;
@@ -22,8 +23,7 @@ class CalculatorListBuilder extends StatelessWidget {
       switch (value.type) {
         case CalculatorsDefinedTypes.simpleInterest:
           return BlocProvider(
-            create: (context) =>
-                SimpleInterestPageBloc()..add(BlocCreatedEvent(value)),
+            create: (context) => SimpleInterestPageBloc(value),
             child: SimpleInterest(),
           );
         default:
@@ -32,7 +32,10 @@ class CalculatorListBuilder extends StatelessWidget {
     } else if (value is HealthCalculator) {
       switch (value.type) {
         case CalculatorsDefinedTypes.bmi:
-          return const BodyMassIndexPage();
+          return BlocProvider(
+            create: (context) => BodyMassIndexBloc(value),
+            child: const BodyMassIndexPage(),
+          );
 
         case CalculatorsDefinedTypes.bmr:
           return const BasalMetabolicRatePage();
