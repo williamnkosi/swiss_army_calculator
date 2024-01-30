@@ -40,6 +40,9 @@ const _$CalculatorsDefinedTypesEnumMap = {
   CalculatorsDefinedTypes.date: 'date',
   CalculatorsDefinedTypes.bmi: 'bmi',
   CalculatorsDefinedTypes.bmr: 'bmr',
+  CalculatorsDefinedTypes.calorie: 'calorie',
+  CalculatorsDefinedTypes.bodyFat: 'bodyFat',
+  CalculatorsDefinedTypes.idealWeight: 'idealWeight',
 };
 
 _$HealthCalculatorImpl _$$HealthCalculatorImplFromJson(

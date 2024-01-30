@@ -31,8 +31,8 @@ class SimpleInterest extends StatelessWidget {
             BlocBuilder<SimpleInterestPageBloc, SimpleInterestPageState>(
               builder: (context, state) {
                 return AppExpansionTile(
-                    title: state.calculatorData!.name,
-                    description: state.calculatorData!.shortDescription);
+                    title: state.calculatorData.name,
+                    description: state.calculatorData.shortDescription);
               },
             ),
             const SizedBox(

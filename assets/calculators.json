@@ -112,7 +112,7 @@
                 "fullDescription": "Body fat is "
             },
             {
-                "type": "IdealWeight",
+                "type": "idealWeight",
                 "name": "Ideal Weight",
                 "shortDesription": "Ideal weight calcularor is a tool to calculate the ideal weight of a person.",
                 "fullDescription": "Ideal weight calculator is a tool to calculate the ideal weight of a person. Ideal weight is the weight that is considered to be healthy for a given height."
