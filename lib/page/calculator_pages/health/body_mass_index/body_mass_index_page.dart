@@ -29,6 +29,9 @@ class BodyMassIndexPage extends StatelessWidget {
             const SizedBox(
               height: 16,
             ),
+            const SizedBox(
+              height: 16,
+            ),
             AppTextField(
               fieldName: BodyMassIndexTextFieldData.age.name,
               fieldText: BodyMassIndexTextFieldData.age.name,
@@ -75,7 +78,9 @@ class BodyMassIndexPage extends StatelessWidget {
             ),
             BlocBuilder<BodyMassIndexBloc, BodyMassIndexState>(
               builder: (context, state) {
-                return Text('Your BMI is ${state.result.toStringAsFixed(2)}');
+                return Center(
+                    child:
+                        Text('Your BMI is ${state.result.toStringAsFixed(2)}'));
               },
             ),
           ],
