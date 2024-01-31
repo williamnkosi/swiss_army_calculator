@@ -60,6 +60,11 @@ class ThemeService {
           collapsedTextColor: theme.mainColor,
           backgroundColor: theme.secondaryColor,
           collapsedBackgroundColor: theme.secondaryColor),
+      radioTheme: RadioThemeData(
+        fillColor: MaterialStateProperty.all(
+          theme.secondaryColor,
+        ),
+      ),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         backgroundColor: theme.mainColor,
         selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),

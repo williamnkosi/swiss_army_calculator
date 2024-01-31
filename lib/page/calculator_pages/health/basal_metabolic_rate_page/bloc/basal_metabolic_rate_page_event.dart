@@ -8,5 +8,7 @@ class BasalMetabolicRatePageEvent with _$BasalMetabolicRatePageEvent {
       CheckFormStateEvent;
   const factory BasalMetabolicRatePageEvent.calculateBMREvent() =
       CalculaBMREvent;
+  const factory BasalMetabolicRatePageEvent.toggleGenderEvent() =
+      ToggleGenderEvent;
   const factory BasalMetabolicRatePageEvent.toggleUnitEvent() = ToggleUnitEvent;
 }

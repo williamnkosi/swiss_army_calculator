@@ -4,7 +4,7 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../../../models/calculators.dart';
-import '../../../../../models/unit_types.dart';
+import '../../../../../models/types.dart';
 
 part 'basal_metabolic_rate_page_event.dart';
 part 'basal_metabolic_rate_page_state.dart';
@@ -19,6 +19,7 @@ class BasalMetabolicRatePageBloc
     on<BasalMetabolicRateBlocStarted>(_onBasalMetabolicRateBlocStarted);
     on<CheckFormStateEvent>(_onCheckFormStateEvent);
     on<CalculaBMREvent>(_onCalculateBMREvent);
+    on<ToggleGenderEvent>(_onToggleGenderEvent);
     on<ToggleUnitEvent>(_onToggleUnitEvent);
   }
 
@@ -45,6 +46,14 @@ class BasalMetabolicRatePageBloc
   }
 
   _onCalculateBMREvent(event, emit) {}
+
+  _onToggleGenderEvent(ToggleGenderEvent event, emit) {
+    if (state.gender == Gender.male) {
+      emit(state.copyWith(gender: Gender.female));
+    } else {
+      emit(state.copyWith(gender: Gender.male));
+    }
+  }
 
   _onToggleUnitEvent(
       ToggleUnitEvent event, Emitter<BasalMetabolicRatePageState> emit) {

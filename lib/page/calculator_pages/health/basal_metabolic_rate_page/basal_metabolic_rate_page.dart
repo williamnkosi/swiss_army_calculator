@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:swiss_army_calculator/models/types.dart';
 import 'package:swiss_army_calculator/page/calculator_pages/health/basal_metabolic_rate_page/basal_metabolic_rate_field_names.dart';
 import 'package:swiss_army_calculator/page/calculator_pages/health/basal_metabolic_rate_page/bloc/basal_metabolic_rate_page_bloc.dart';
 
@@ -40,6 +41,38 @@ class BasalMetabolicRatePage extends StatelessWidget {
               onChange: (text) =>
                   BlocProvider.of<BasalMetabolicRatePageBloc>(context).add(
                       const BasalMetabolicRatePageEvent.checkFormStateEvent()),
+            ),
+            const SizedBox(
+              height: 16,
+            ),
+            BlocBuilder<BasalMetabolicRatePageBloc,
+                BasalMetabolicRatePageState>(
+              buildWhen: (previous, current) =>
+                  previous.gender != current.gender,
+              builder: (context, state) {
+                return Row(
+                  children: [
+                    Radio(
+                      value: Gender.male,
+                      groupValue: state.gender,
+                      onChanged: (value) =>
+                          BlocProvider.of<BasalMetabolicRatePageBloc>(context)
+                              .add(const BasalMetabolicRatePageEvent
+                                  .toggleGenderEvent()),
+                    ),
+                    Text(Gender.male.value),
+                    Radio(
+                      value: Gender.female,
+                      groupValue: state.gender,
+                      onChanged: (value) =>
+                          BlocProvider.of<BasalMetabolicRatePageBloc>(context)
+                              .add(const BasalMetabolicRatePageEvent
+                                  .toggleGenderEvent()),
+                    ),
+                    Text(Gender.female.value),
+                  ],
+                );
+              },
             ),
             const SizedBox(
               height: 16,

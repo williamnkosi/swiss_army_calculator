@@ -5,6 +5,7 @@ class BasalMetabolicRatePageState with _$BasalMetabolicRatePageState {
   const factory BasalMetabolicRatePageState({
     required GlobalKey<FormBuilderState> formKey,
     required HealthCalculator calculatorData,
+    @Default(Gender.male) Gender gender,
     @Default(Units.imperial) Units unit,
     @Default(0) double result,
     @Default(true) bool isDiabled,
