@@ -1,6 +1,9 @@
 enum Units {
-  metric,
-  imperial,
+  metric('Metric'),
+  imperial('Imperial');
+
+  const Units(this.value);
+  final String value;
 }
 
 enum Gender {

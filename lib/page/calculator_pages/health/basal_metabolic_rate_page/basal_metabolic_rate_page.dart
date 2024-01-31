@@ -33,19 +33,6 @@ class BasalMetabolicRatePage extends StatelessWidget {
             const SizedBox(
               height: 16,
             ),
-            const SizedBox(
-              height: 16,
-            ),
-            AppTextField(
-              fieldName: BasalMetabolicRateTextFieldData.age.name,
-              fieldText: BasalMetabolicRateTextFieldData.age.name,
-              onChange: (text) =>
-                  BlocProvider.of<BasalMetabolicRatePageBloc>(context).add(
-                      const BasalMetabolicRatePageEvent.checkFormStateEvent()),
-            ),
-            const SizedBox(
-              height: 16,
-            ),
             BlocBuilder<BasalMetabolicRatePageBloc,
                 BasalMetabolicRatePageState>(
               buildWhen: (previous, current) =>
@@ -74,6 +61,45 @@ class BasalMetabolicRatePage extends StatelessWidget {
                   ],
                 );
               },
+            ),
+            BlocBuilder<BasalMetabolicRatePageBloc,
+                BasalMetabolicRatePageState>(
+              buildWhen: (previous, current) =>
+                  previous.gender != current.gender,
+              builder: (context, state) {
+                return Row(
+                  children: [
+                    Radio(
+                      value: Units.imperial,
+                      groupValue: state.unit,
+                      onChanged: (value) =>
+                          BlocProvider.of<BasalMetabolicRatePageBloc>(context)
+                              .add(const BasalMetabolicRatePageEvent
+                                  .toggleUnitEvent()),
+                    ),
+                    Text(Units.imperial.value),
+                    Radio(
+                      value: Units.metric,
+                      groupValue: state.unit,
+                      onChanged: (value) =>
+                          BlocProvider.of<BasalMetabolicRatePageBloc>(context)
+                              .add(const BasalMetabolicRatePageEvent
+                                  .toggleUnitEvent()),
+                    ),
+                    Text(Units.metric.value),
+                  ],
+                );
+              },
+            ),
+            const SizedBox(
+              height: 16,
+            ),
+            AppTextField(
+              fieldName: BasalMetabolicRateTextFieldData.age.name,
+              fieldText: BasalMetabolicRateTextFieldData.age.name,
+              onChange: (text) =>
+                  BlocProvider.of<BasalMetabolicRatePageBloc>(context).add(
+                      const BasalMetabolicRatePageEvent.checkFormStateEvent()),
             ),
             const SizedBox(
               height: 16,
@@ -123,9 +149,16 @@ class BasalMetabolicRatePage extends StatelessWidget {
             BlocBuilder<BasalMetabolicRatePageBloc,
                 BasalMetabolicRatePageState>(
               builder: (context, state) {
-                return Center(
-                    child:
-                        Text('Your BMR is ${state.result.toStringAsFixed(2)}'));
+                return Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: Center(
+                    child: Text(
+                        'Your BMR has been calculated at  ${state.result.toStringAsFixed(2)} Calories/day',
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold)),
+                  ),
+                );
               },
             ),
             BlocBuilder<BasalMetabolicRatePageBloc,

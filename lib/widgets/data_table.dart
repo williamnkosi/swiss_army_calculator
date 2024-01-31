@@ -13,7 +13,10 @@ class DataTableExample extends StatelessWidget {
     return rows.map((row) {
       return DataRow(cells: [
         DataCell(Text(row[0])),
-        DataCell(Text(row[1])),
+        DataCell(Text(
+          row[1],
+          style: const TextStyle(fontWeight: FontWeight.bold),
+        )),
       ]);
     }).toList();
   }
@@ -28,12 +31,18 @@ class DataTableExample extends StatelessWidget {
           DataColumn(
               label: Text(
             columns[0],
-            style: const TextStyle(color: Colors.white),
+            style: TextStyle(
+                color: Theme.of(context).colorScheme.secondary,
+                fontSize: 18,
+                fontWeight: FontWeight.bold),
           )),
           DataColumn(
               label: Text(
             columns[1],
-            style: const TextStyle(color: Colors.white),
+            style: TextStyle(
+                color: Theme.of(context).colorScheme.secondary,
+                fontSize: 18,
+                fontWeight: FontWeight.bold),
           )),
         ],
         rows: [
