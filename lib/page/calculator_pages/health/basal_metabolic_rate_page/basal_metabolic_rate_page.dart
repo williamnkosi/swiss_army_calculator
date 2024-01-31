@@ -64,8 +64,7 @@ class BasalMetabolicRatePage extends StatelessWidget {
             ),
             BlocBuilder<BasalMetabolicRatePageBloc,
                 BasalMetabolicRatePageState>(
-              buildWhen: (previous, current) =>
-                  previous.gender != current.gender,
+              buildWhen: (previous, current) => previous.unit != current.unit,
               builder: (context, state) {
                 return Row(
                   children: [
@@ -149,6 +148,7 @@ class BasalMetabolicRatePage extends StatelessWidget {
             BlocBuilder<BasalMetabolicRatePageBloc,
                 BasalMetabolicRatePageState>(
               builder: (context, state) {
+                if (state.result == 0) return const SizedBox();
                 return Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8.0),
                   child: Center(
