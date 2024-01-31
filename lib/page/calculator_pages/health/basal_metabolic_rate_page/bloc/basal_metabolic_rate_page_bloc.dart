@@ -73,12 +73,12 @@ class BasalMetabolicRatePageBloc
         final weightInKg = state.formKey.currentState!
             .fields[BasalMetabolicRateTextFieldData.weightInKg.name]!.value;
         final heightInCM = state.formKey.currentState!
-            .fields[BasalMetabolicRateTextFieldData.heightInches.name]!.value;
+            .fields[BasalMetabolicRateTextFieldData.heightCM.name]!.value;
 
         final result = cacluateBMR(
-            weightInKg: weightInKg,
-            heightInCm: heightInCM,
-            age: age,
+            weightInKg: double.parse(weightInKg),
+            heightInCm: double.parse(heightInCM),
+            age: int.parse(age),
             gender: state.gender);
         emit(state.copyWith(result: result));
       }
@@ -91,6 +91,7 @@ class BasalMetabolicRatePageBloc
   }
 
   _onToggleGenderEvent(ToggleGenderEvent event, emit) {
+    _resetFormState(emit);
     if (state.gender == Gender.male) {
       emit(state.copyWith(gender: Gender.female));
     } else {
@@ -100,6 +101,7 @@ class BasalMetabolicRatePageBloc
 
   _onToggleUnitEvent(
       ToggleUnitEvent event, Emitter<BasalMetabolicRatePageState> emit) {
+    _resetFormState(emit);
     if (state.unit == Units.imperial) {
       emit(state.copyWith(unit: Units.metric));
     } else {
@@ -122,5 +124,15 @@ class BasalMetabolicRatePageBloc
     }
 
     return rowData;
+  }
+
+  _resetFormState(Emitter<BasalMetabolicRatePageState> emit) {
+    try {
+      state.formKey.currentState!.reset();
+      emit(state.copyWith(
+          result: 0, isDiabled: true, rowData: [], formKey: state.formKey));
+    } catch (e) {
+      throw Exception('Error in resetting form state');
+    }
   }
 }
