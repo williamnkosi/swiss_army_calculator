@@ -125,7 +125,7 @@ class BasalMetabolicRatePage extends StatelessWidget {
               builder: (context, state) {
                 return Center(
                     child:
-                        Text('Your BMI is ${state.result.toStringAsFixed(2)}'));
+                        Text('Your BMR is ${state.result.toStringAsFixed(2)}'));
               },
             ),
             const DataTableExample(
