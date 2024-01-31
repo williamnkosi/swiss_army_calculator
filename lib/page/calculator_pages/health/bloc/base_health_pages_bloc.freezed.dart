@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'calorie_page_bloc.dart';
+part of 'base_health_pages_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,13 +15,13 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$CaloriePageEvent {
+mixin _$BaseHealthPagesEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(HealthCalculator calculator)
         bodyMassIndexBlocStarted,
     required TResult Function() checkFormStateEvent,
-    required TResult Function() calculateBMREvent,
+    required TResult Function() calculateEvent,
     required TResult Function() toggleGenderEvent,
     required TResult Function() toggleUnitEvent,
   }) =>
@@ -30,7 +30,7 @@ mixin _$CaloriePageEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(HealthCalculator calculator)? bodyMassIndexBlocStarted,
     TResult? Function()? checkFormStateEvent,
-    TResult? Function()? calculateBMREvent,
+    TResult? Function()? calculateEvent,
     TResult? Function()? toggleGenderEvent,
     TResult? Function()? toggleUnitEvent,
   }) =>
@@ -39,7 +39,7 @@ mixin _$CaloriePageEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(HealthCalculator calculator)? bodyMassIndexBlocStarted,
     TResult Function()? checkFormStateEvent,
-    TResult Function()? calculateBMREvent,
+    TResult Function()? calculateEvent,
     TResult Function()? toggleGenderEvent,
     TResult Function()? toggleUnitEvent,
     required TResult orElse(),
@@ -47,30 +47,30 @@ mixin _$CaloriePageEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(BasalMetabolicRateBlocStarted value)
+    required TResult Function(StartedBaseHealthPagesBlocStarted value)
         bodyMassIndexBlocStarted,
     required TResult Function(CheckFormStateEvent value) checkFormStateEvent,
-    required TResult Function(CalculaBMREvent value) calculateBMREvent,
+    required TResult Function(CalculateEvent value) calculateEvent,
     required TResult Function(ToggleGenderEvent value) toggleGenderEvent,
     required TResult Function(ToggleUnitEvent value) toggleUnitEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(BasalMetabolicRateBlocStarted value)?
+    TResult? Function(StartedBaseHealthPagesBlocStarted value)?
         bodyMassIndexBlocStarted,
     TResult? Function(CheckFormStateEvent value)? checkFormStateEvent,
-    TResult? Function(CalculaBMREvent value)? calculateBMREvent,
+    TResult? Function(CalculateEvent value)? calculateEvent,
     TResult? Function(ToggleGenderEvent value)? toggleGenderEvent,
     TResult? Function(ToggleUnitEvent value)? toggleUnitEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(BasalMetabolicRateBlocStarted value)?
+    TResult Function(StartedBaseHealthPagesBlocStarted value)?
         bodyMassIndexBlocStarted,
     TResult Function(CheckFormStateEvent value)? checkFormStateEvent,
-    TResult Function(CalculaBMREvent value)? calculateBMREvent,
+    TResult Function(CalculateEvent value)? calculateEvent,
     TResult Function(ToggleGenderEvent value)? toggleGenderEvent,
     TResult Function(ToggleUnitEvent value)? toggleUnitEvent,
     required TResult orElse(),
@@ -79,16 +79,17 @@ mixin _$CaloriePageEvent {
 }
 
 /// @nodoc
-abstract class $CaloriePageEventCopyWith<$Res> {
-  factory $CaloriePageEventCopyWith(
-          CaloriePageEvent value, $Res Function(CaloriePageEvent) then) =
-      _$CaloriePageEventCopyWithImpl<$Res, CaloriePageEvent>;
+abstract class $BaseHealthPagesEventCopyWith<$Res> {
+  factory $BaseHealthPagesEventCopyWith(BaseHealthPagesEvent value,
+          $Res Function(BaseHealthPagesEvent) then) =
+      _$BaseHealthPagesEventCopyWithImpl<$Res, BaseHealthPagesEvent>;
 }
 
 /// @nodoc
-class _$CaloriePageEventCopyWithImpl<$Res, $Val extends CaloriePageEvent>
-    implements $CaloriePageEventCopyWith<$Res> {
-  _$CaloriePageEventCopyWithImpl(this._value, this._then);
+class _$BaseHealthPagesEventCopyWithImpl<$Res,
+        $Val extends BaseHealthPagesEvent>
+    implements $BaseHealthPagesEventCopyWith<$Res> {
+  _$BaseHealthPagesEventCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -97,11 +98,11 @@ class _$CaloriePageEventCopyWithImpl<$Res, $Val extends CaloriePageEvent>
 }
 
 /// @nodoc
-abstract class _$$BasalMetabolicRateBlocStartedImplCopyWith<$Res> {
-  factory _$$BasalMetabolicRateBlocStartedImplCopyWith(
-          _$BasalMetabolicRateBlocStartedImpl value,
-          $Res Function(_$BasalMetabolicRateBlocStartedImpl) then) =
-      __$$BasalMetabolicRateBlocStartedImplCopyWithImpl<$Res>;
+abstract class _$$StartedBaseHealthPagesBlocStartedImplCopyWith<$Res> {
+  factory _$$StartedBaseHealthPagesBlocStartedImplCopyWith(
+          _$StartedBaseHealthPagesBlocStartedImpl value,
+          $Res Function(_$StartedBaseHealthPagesBlocStartedImpl) then) =
+      __$$StartedBaseHealthPagesBlocStartedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({HealthCalculator calculator});
 
@@ -109,13 +110,13 @@ abstract class _$$BasalMetabolicRateBlocStartedImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$BasalMetabolicRateBlocStartedImplCopyWithImpl<$Res>
-    extends _$CaloriePageEventCopyWithImpl<$Res,
-        _$BasalMetabolicRateBlocStartedImpl>
-    implements _$$BasalMetabolicRateBlocStartedImplCopyWith<$Res> {
-  __$$BasalMetabolicRateBlocStartedImplCopyWithImpl(
-      _$BasalMetabolicRateBlocStartedImpl _value,
-      $Res Function(_$BasalMetabolicRateBlocStartedImpl) _then)
+class __$$StartedBaseHealthPagesBlocStartedImplCopyWithImpl<$Res>
+    extends _$BaseHealthPagesEventCopyWithImpl<$Res,
+        _$StartedBaseHealthPagesBlocStartedImpl>
+    implements _$$StartedBaseHealthPagesBlocStartedImplCopyWith<$Res> {
+  __$$StartedBaseHealthPagesBlocStartedImplCopyWithImpl(
+      _$StartedBaseHealthPagesBlocStartedImpl _value,
+      $Res Function(_$StartedBaseHealthPagesBlocStartedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -123,7 +124,7 @@ class __$$BasalMetabolicRateBlocStartedImplCopyWithImpl<$Res>
   $Res call({
     Object? calculator = null,
   }) {
-    return _then(_$BasalMetabolicRateBlocStartedImpl(
+    return _then(_$StartedBaseHealthPagesBlocStartedImpl(
       null == calculator
           ? _value.calculator
           : calculator // ignore: cast_nullable_to_non_nullable
@@ -142,23 +143,23 @@ class __$$BasalMetabolicRateBlocStartedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$BasalMetabolicRateBlocStartedImpl
-    implements BasalMetabolicRateBlocStarted {
-  const _$BasalMetabolicRateBlocStartedImpl(this.calculator);
+class _$StartedBaseHealthPagesBlocStartedImpl
+    implements StartedBaseHealthPagesBlocStarted {
+  const _$StartedBaseHealthPagesBlocStartedImpl(this.calculator);
 
   @override
   final HealthCalculator calculator;
 
   @override
   String toString() {
-    return 'CaloriePageEvent.bodyMassIndexBlocStarted(calculator: $calculator)';
+    return 'BaseHealthPagesEvent.bodyMassIndexBlocStarted(calculator: $calculator)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$BasalMetabolicRateBlocStartedImpl &&
+            other is _$StartedBaseHealthPagesBlocStartedImpl &&
             (identical(other.calculator, calculator) ||
                 other.calculator == calculator));
   }
@@ -169,10 +170,10 @@ class _$BasalMetabolicRateBlocStartedImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$BasalMetabolicRateBlocStartedImplCopyWith<
-          _$BasalMetabolicRateBlocStartedImpl>
-      get copyWith => __$$BasalMetabolicRateBlocStartedImplCopyWithImpl<
-          _$BasalMetabolicRateBlocStartedImpl>(this, _$identity);
+  _$$StartedBaseHealthPagesBlocStartedImplCopyWith<
+          _$StartedBaseHealthPagesBlocStartedImpl>
+      get copyWith => __$$StartedBaseHealthPagesBlocStartedImplCopyWithImpl<
+          _$StartedBaseHealthPagesBlocStartedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -180,7 +181,7 @@ class _$BasalMetabolicRateBlocStartedImpl
     required TResult Function(HealthCalculator calculator)
         bodyMassIndexBlocStarted,
     required TResult Function() checkFormStateEvent,
-    required TResult Function() calculateBMREvent,
+    required TResult Function() calculateEvent,
     required TResult Function() toggleGenderEvent,
     required TResult Function() toggleUnitEvent,
   }) {
@@ -192,7 +193,7 @@ class _$BasalMetabolicRateBlocStartedImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(HealthCalculator calculator)? bodyMassIndexBlocStarted,
     TResult? Function()? checkFormStateEvent,
-    TResult? Function()? calculateBMREvent,
+    TResult? Function()? calculateEvent,
     TResult? Function()? toggleGenderEvent,
     TResult? Function()? toggleUnitEvent,
   }) {
@@ -204,7 +205,7 @@ class _$BasalMetabolicRateBlocStartedImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(HealthCalculator calculator)? bodyMassIndexBlocStarted,
     TResult Function()? checkFormStateEvent,
-    TResult Function()? calculateBMREvent,
+    TResult Function()? calculateEvent,
     TResult Function()? toggleGenderEvent,
     TResult Function()? toggleUnitEvent,
     required TResult orElse(),
@@ -218,10 +219,10 @@ class _$BasalMetabolicRateBlocStartedImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(BasalMetabolicRateBlocStarted value)
+    required TResult Function(StartedBaseHealthPagesBlocStarted value)
         bodyMassIndexBlocStarted,
     required TResult Function(CheckFormStateEvent value) checkFormStateEvent,
-    required TResult Function(CalculaBMREvent value) calculateBMREvent,
+    required TResult Function(CalculateEvent value) calculateEvent,
     required TResult Function(ToggleGenderEvent value) toggleGenderEvent,
     required TResult Function(ToggleUnitEvent value) toggleUnitEvent,
   }) {
@@ -231,10 +232,10 @@ class _$BasalMetabolicRateBlocStartedImpl
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(BasalMetabolicRateBlocStarted value)?
+    TResult? Function(StartedBaseHealthPagesBlocStarted value)?
         bodyMassIndexBlocStarted,
     TResult? Function(CheckFormStateEvent value)? checkFormStateEvent,
-    TResult? Function(CalculaBMREvent value)? calculateBMREvent,
+    TResult? Function(CalculateEvent value)? calculateEvent,
     TResult? Function(ToggleGenderEvent value)? toggleGenderEvent,
     TResult? Function(ToggleUnitEvent value)? toggleUnitEvent,
   }) {
@@ -244,10 +245,10 @@ class _$BasalMetabolicRateBlocStartedImpl
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(BasalMetabolicRateBlocStarted value)?
+    TResult Function(StartedBaseHealthPagesBlocStarted value)?
         bodyMassIndexBlocStarted,
     TResult Function(CheckFormStateEvent value)? checkFormStateEvent,
-    TResult Function(CalculaBMREvent value)? calculateBMREvent,
+    TResult Function(CalculateEvent value)? calculateEvent,
     TResult Function(ToggleGenderEvent value)? toggleGenderEvent,
     TResult Function(ToggleUnitEvent value)? toggleUnitEvent,
     required TResult orElse(),
@@ -259,14 +260,16 @@ class _$BasalMetabolicRateBlocStartedImpl
   }
 }
 
-abstract class BasalMetabolicRateBlocStarted implements CaloriePageEvent {
-  const factory BasalMetabolicRateBlocStarted(
-      final HealthCalculator calculator) = _$BasalMetabolicRateBlocStartedImpl;
+abstract class StartedBaseHealthPagesBlocStarted
+    implements BaseHealthPagesEvent {
+  const factory StartedBaseHealthPagesBlocStarted(
+          final HealthCalculator calculator) =
+      _$StartedBaseHealthPagesBlocStartedImpl;
 
   HealthCalculator get calculator;
   @JsonKey(ignore: true)
-  _$$BasalMetabolicRateBlocStartedImplCopyWith<
-          _$BasalMetabolicRateBlocStartedImpl>
+  _$$StartedBaseHealthPagesBlocStartedImplCopyWith<
+          _$StartedBaseHealthPagesBlocStartedImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -279,7 +282,7 @@ abstract class _$$CheckFormStateEventImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$CheckFormStateEventImplCopyWithImpl<$Res>
-    extends _$CaloriePageEventCopyWithImpl<$Res, _$CheckFormStateEventImpl>
+    extends _$BaseHealthPagesEventCopyWithImpl<$Res, _$CheckFormStateEventImpl>
     implements _$$CheckFormStateEventImplCopyWith<$Res> {
   __$$CheckFormStateEventImplCopyWithImpl(_$CheckFormStateEventImpl _value,
       $Res Function(_$CheckFormStateEventImpl) _then)
@@ -293,7 +296,7 @@ class _$CheckFormStateEventImpl implements CheckFormStateEvent {
 
   @override
   String toString() {
-    return 'CaloriePageEvent.checkFormStateEvent()';
+    return 'BaseHealthPagesEvent.checkFormStateEvent()';
   }
 
   @override
@@ -312,7 +315,7 @@ class _$CheckFormStateEventImpl implements CheckFormStateEvent {
     required TResult Function(HealthCalculator calculator)
         bodyMassIndexBlocStarted,
     required TResult Function() checkFormStateEvent,
-    required TResult Function() calculateBMREvent,
+    required TResult Function() calculateEvent,
     required TResult Function() toggleGenderEvent,
     required TResult Function() toggleUnitEvent,
   }) {
@@ -324,7 +327,7 @@ class _$CheckFormStateEventImpl implements CheckFormStateEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(HealthCalculator calculator)? bodyMassIndexBlocStarted,
     TResult? Function()? checkFormStateEvent,
-    TResult? Function()? calculateBMREvent,
+    TResult? Function()? calculateEvent,
     TResult? Function()? toggleGenderEvent,
     TResult? Function()? toggleUnitEvent,
   }) {
@@ -336,7 +339,7 @@ class _$CheckFormStateEventImpl implements CheckFormStateEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(HealthCalculator calculator)? bodyMassIndexBlocStarted,
     TResult Function()? checkFormStateEvent,
-    TResult Function()? calculateBMREvent,
+    TResult Function()? calculateEvent,
     TResult Function()? toggleGenderEvent,
     TResult Function()? toggleUnitEvent,
     required TResult orElse(),
@@ -350,10 +353,10 @@ class _$CheckFormStateEventImpl implements CheckFormStateEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(BasalMetabolicRateBlocStarted value)
+    required TResult Function(StartedBaseHealthPagesBlocStarted value)
         bodyMassIndexBlocStarted,
     required TResult Function(CheckFormStateEvent value) checkFormStateEvent,
-    required TResult Function(CalculaBMREvent value) calculateBMREvent,
+    required TResult Function(CalculateEvent value) calculateEvent,
     required TResult Function(ToggleGenderEvent value) toggleGenderEvent,
     required TResult Function(ToggleUnitEvent value) toggleUnitEvent,
   }) {
@@ -363,10 +366,10 @@ class _$CheckFormStateEventImpl implements CheckFormStateEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(BasalMetabolicRateBlocStarted value)?
+    TResult? Function(StartedBaseHealthPagesBlocStarted value)?
         bodyMassIndexBlocStarted,
     TResult? Function(CheckFormStateEvent value)? checkFormStateEvent,
-    TResult? Function(CalculaBMREvent value)? calculateBMREvent,
+    TResult? Function(CalculateEvent value)? calculateEvent,
     TResult? Function(ToggleGenderEvent value)? toggleGenderEvent,
     TResult? Function(ToggleUnitEvent value)? toggleUnitEvent,
   }) {
@@ -376,10 +379,10 @@ class _$CheckFormStateEventImpl implements CheckFormStateEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(BasalMetabolicRateBlocStarted value)?
+    TResult Function(StartedBaseHealthPagesBlocStarted value)?
         bodyMassIndexBlocStarted,
     TResult Function(CheckFormStateEvent value)? checkFormStateEvent,
-    TResult Function(CalculaBMREvent value)? calculateBMREvent,
+    TResult Function(CalculateEvent value)? calculateEvent,
     TResult Function(ToggleGenderEvent value)? toggleGenderEvent,
     TResult Function(ToggleUnitEvent value)? toggleUnitEvent,
     required TResult orElse(),
@@ -391,40 +394,40 @@ class _$CheckFormStateEventImpl implements CheckFormStateEvent {
   }
 }
 
-abstract class CheckFormStateEvent implements CaloriePageEvent {
+abstract class CheckFormStateEvent implements BaseHealthPagesEvent {
   const factory CheckFormStateEvent() = _$CheckFormStateEventImpl;
 }
 
 /// @nodoc
-abstract class _$$CalculaBMREventImplCopyWith<$Res> {
-  factory _$$CalculaBMREventImplCopyWith(_$CalculaBMREventImpl value,
-          $Res Function(_$CalculaBMREventImpl) then) =
-      __$$CalculaBMREventImplCopyWithImpl<$Res>;
+abstract class _$$CalculateEventImplCopyWith<$Res> {
+  factory _$$CalculateEventImplCopyWith(_$CalculateEventImpl value,
+          $Res Function(_$CalculateEventImpl) then) =
+      __$$CalculateEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$CalculaBMREventImplCopyWithImpl<$Res>
-    extends _$CaloriePageEventCopyWithImpl<$Res, _$CalculaBMREventImpl>
-    implements _$$CalculaBMREventImplCopyWith<$Res> {
-  __$$CalculaBMREventImplCopyWithImpl(
-      _$CalculaBMREventImpl _value, $Res Function(_$CalculaBMREventImpl) _then)
+class __$$CalculateEventImplCopyWithImpl<$Res>
+    extends _$BaseHealthPagesEventCopyWithImpl<$Res, _$CalculateEventImpl>
+    implements _$$CalculateEventImplCopyWith<$Res> {
+  __$$CalculateEventImplCopyWithImpl(
+      _$CalculateEventImpl _value, $Res Function(_$CalculateEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$CalculaBMREventImpl implements CalculaBMREvent {
-  const _$CalculaBMREventImpl();
+class _$CalculateEventImpl implements CalculateEvent {
+  const _$CalculateEventImpl();
 
   @override
   String toString() {
-    return 'CaloriePageEvent.calculateBMREvent()';
+    return 'BaseHealthPagesEvent.calculateEvent()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$CalculaBMREventImpl);
+        (other.runtimeType == runtimeType && other is _$CalculateEventImpl);
   }
 
   @override
@@ -436,11 +439,11 @@ class _$CalculaBMREventImpl implements CalculaBMREvent {
     required TResult Function(HealthCalculator calculator)
         bodyMassIndexBlocStarted,
     required TResult Function() checkFormStateEvent,
-    required TResult Function() calculateBMREvent,
+    required TResult Function() calculateEvent,
     required TResult Function() toggleGenderEvent,
     required TResult Function() toggleUnitEvent,
   }) {
-    return calculateBMREvent();
+    return calculateEvent();
   }
 
   @override
@@ -448,11 +451,11 @@ class _$CalculaBMREventImpl implements CalculaBMREvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(HealthCalculator calculator)? bodyMassIndexBlocStarted,
     TResult? Function()? checkFormStateEvent,
-    TResult? Function()? calculateBMREvent,
+    TResult? Function()? calculateEvent,
     TResult? Function()? toggleGenderEvent,
     TResult? Function()? toggleUnitEvent,
   }) {
-    return calculateBMREvent?.call();
+    return calculateEvent?.call();
   }
 
   @override
@@ -460,13 +463,13 @@ class _$CalculaBMREventImpl implements CalculaBMREvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(HealthCalculator calculator)? bodyMassIndexBlocStarted,
     TResult Function()? checkFormStateEvent,
-    TResult Function()? calculateBMREvent,
+    TResult Function()? calculateEvent,
     TResult Function()? toggleGenderEvent,
     TResult Function()? toggleUnitEvent,
     required TResult orElse(),
   }) {
-    if (calculateBMREvent != null) {
-      return calculateBMREvent();
+    if (calculateEvent != null) {
+      return calculateEvent();
     }
     return orElse();
   }
@@ -474,49 +477,49 @@ class _$CalculaBMREventImpl implements CalculaBMREvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(BasalMetabolicRateBlocStarted value)
+    required TResult Function(StartedBaseHealthPagesBlocStarted value)
         bodyMassIndexBlocStarted,
     required TResult Function(CheckFormStateEvent value) checkFormStateEvent,
-    required TResult Function(CalculaBMREvent value) calculateBMREvent,
+    required TResult Function(CalculateEvent value) calculateEvent,
     required TResult Function(ToggleGenderEvent value) toggleGenderEvent,
     required TResult Function(ToggleUnitEvent value) toggleUnitEvent,
   }) {
-    return calculateBMREvent(this);
+    return calculateEvent(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(BasalMetabolicRateBlocStarted value)?
+    TResult? Function(StartedBaseHealthPagesBlocStarted value)?
         bodyMassIndexBlocStarted,
     TResult? Function(CheckFormStateEvent value)? checkFormStateEvent,
-    TResult? Function(CalculaBMREvent value)? calculateBMREvent,
+    TResult? Function(CalculateEvent value)? calculateEvent,
     TResult? Function(ToggleGenderEvent value)? toggleGenderEvent,
     TResult? Function(ToggleUnitEvent value)? toggleUnitEvent,
   }) {
-    return calculateBMREvent?.call(this);
+    return calculateEvent?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(BasalMetabolicRateBlocStarted value)?
+    TResult Function(StartedBaseHealthPagesBlocStarted value)?
         bodyMassIndexBlocStarted,
     TResult Function(CheckFormStateEvent value)? checkFormStateEvent,
-    TResult Function(CalculaBMREvent value)? calculateBMREvent,
+    TResult Function(CalculateEvent value)? calculateEvent,
     TResult Function(ToggleGenderEvent value)? toggleGenderEvent,
     TResult Function(ToggleUnitEvent value)? toggleUnitEvent,
     required TResult orElse(),
   }) {
-    if (calculateBMREvent != null) {
-      return calculateBMREvent(this);
+    if (calculateEvent != null) {
+      return calculateEvent(this);
     }
     return orElse();
   }
 }
 
-abstract class CalculaBMREvent implements CaloriePageEvent {
-  const factory CalculaBMREvent() = _$CalculaBMREventImpl;
+abstract class CalculateEvent implements BaseHealthPagesEvent {
+  const factory CalculateEvent() = _$CalculateEventImpl;
 }
 
 /// @nodoc
@@ -528,7 +531,7 @@ abstract class _$$ToggleGenderEventImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$ToggleGenderEventImplCopyWithImpl<$Res>
-    extends _$CaloriePageEventCopyWithImpl<$Res, _$ToggleGenderEventImpl>
+    extends _$BaseHealthPagesEventCopyWithImpl<$Res, _$ToggleGenderEventImpl>
     implements _$$ToggleGenderEventImplCopyWith<$Res> {
   __$$ToggleGenderEventImplCopyWithImpl(_$ToggleGenderEventImpl _value,
       $Res Function(_$ToggleGenderEventImpl) _then)
@@ -542,7 +545,7 @@ class _$ToggleGenderEventImpl implements ToggleGenderEvent {
 
   @override
   String toString() {
-    return 'CaloriePageEvent.toggleGenderEvent()';
+    return 'BaseHealthPagesEvent.toggleGenderEvent()';
   }
 
   @override
@@ -560,7 +563,7 @@ class _$ToggleGenderEventImpl implements ToggleGenderEvent {
     required TResult Function(HealthCalculator calculator)
         bodyMassIndexBlocStarted,
     required TResult Function() checkFormStateEvent,
-    required TResult Function() calculateBMREvent,
+    required TResult Function() calculateEvent,
     required TResult Function() toggleGenderEvent,
     required TResult Function() toggleUnitEvent,
   }) {
@@ -572,7 +575,7 @@ class _$ToggleGenderEventImpl implements ToggleGenderEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(HealthCalculator calculator)? bodyMassIndexBlocStarted,
     TResult? Function()? checkFormStateEvent,
-    TResult? Function()? calculateBMREvent,
+    TResult? Function()? calculateEvent,
     TResult? Function()? toggleGenderEvent,
     TResult? Function()? toggleUnitEvent,
   }) {
@@ -584,7 +587,7 @@ class _$ToggleGenderEventImpl implements ToggleGenderEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(HealthCalculator calculator)? bodyMassIndexBlocStarted,
     TResult Function()? checkFormStateEvent,
-    TResult Function()? calculateBMREvent,
+    TResult Function()? calculateEvent,
     TResult Function()? toggleGenderEvent,
     TResult Function()? toggleUnitEvent,
     required TResult orElse(),
@@ -598,10 +601,10 @@ class _$ToggleGenderEventImpl implements ToggleGenderEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(BasalMetabolicRateBlocStarted value)
+    required TResult Function(StartedBaseHealthPagesBlocStarted value)
         bodyMassIndexBlocStarted,
     required TResult Function(CheckFormStateEvent value) checkFormStateEvent,
-    required TResult Function(CalculaBMREvent value) calculateBMREvent,
+    required TResult Function(CalculateEvent value) calculateEvent,
     required TResult Function(ToggleGenderEvent value) toggleGenderEvent,
     required TResult Function(ToggleUnitEvent value) toggleUnitEvent,
   }) {
@@ -611,10 +614,10 @@ class _$ToggleGenderEventImpl implements ToggleGenderEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(BasalMetabolicRateBlocStarted value)?
+    TResult? Function(StartedBaseHealthPagesBlocStarted value)?
         bodyMassIndexBlocStarted,
     TResult? Function(CheckFormStateEvent value)? checkFormStateEvent,
-    TResult? Function(CalculaBMREvent value)? calculateBMREvent,
+    TResult? Function(CalculateEvent value)? calculateEvent,
     TResult? Function(ToggleGenderEvent value)? toggleGenderEvent,
     TResult? Function(ToggleUnitEvent value)? toggleUnitEvent,
   }) {
@@ -624,10 +627,10 @@ class _$ToggleGenderEventImpl implements ToggleGenderEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(BasalMetabolicRateBlocStarted value)?
+    TResult Function(StartedBaseHealthPagesBlocStarted value)?
         bodyMassIndexBlocStarted,
     TResult Function(CheckFormStateEvent value)? checkFormStateEvent,
-    TResult Function(CalculaBMREvent value)? calculateBMREvent,
+    TResult Function(CalculateEvent value)? calculateEvent,
     TResult Function(ToggleGenderEvent value)? toggleGenderEvent,
     TResult Function(ToggleUnitEvent value)? toggleUnitEvent,
     required TResult orElse(),
@@ -639,7 +642,7 @@ class _$ToggleGenderEventImpl implements ToggleGenderEvent {
   }
 }
 
-abstract class ToggleGenderEvent implements CaloriePageEvent {
+abstract class ToggleGenderEvent implements BaseHealthPagesEvent {
   const factory ToggleGenderEvent() = _$ToggleGenderEventImpl;
 }
 
@@ -652,7 +655,7 @@ abstract class _$$ToggleUnitEventImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$ToggleUnitEventImplCopyWithImpl<$Res>
-    extends _$CaloriePageEventCopyWithImpl<$Res, _$ToggleUnitEventImpl>
+    extends _$BaseHealthPagesEventCopyWithImpl<$Res, _$ToggleUnitEventImpl>
     implements _$$ToggleUnitEventImplCopyWith<$Res> {
   __$$ToggleUnitEventImplCopyWithImpl(
       _$ToggleUnitEventImpl _value, $Res Function(_$ToggleUnitEventImpl) _then)
@@ -666,7 +669,7 @@ class _$ToggleUnitEventImpl implements ToggleUnitEvent {
 
   @override
   String toString() {
-    return 'CaloriePageEvent.toggleUnitEvent()';
+    return 'BaseHealthPagesEvent.toggleUnitEvent()';
   }
 
   @override
@@ -684,7 +687,7 @@ class _$ToggleUnitEventImpl implements ToggleUnitEvent {
     required TResult Function(HealthCalculator calculator)
         bodyMassIndexBlocStarted,
     required TResult Function() checkFormStateEvent,
-    required TResult Function() calculateBMREvent,
+    required TResult Function() calculateEvent,
     required TResult Function() toggleGenderEvent,
     required TResult Function() toggleUnitEvent,
   }) {
@@ -696,7 +699,7 @@ class _$ToggleUnitEventImpl implements ToggleUnitEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(HealthCalculator calculator)? bodyMassIndexBlocStarted,
     TResult? Function()? checkFormStateEvent,
-    TResult? Function()? calculateBMREvent,
+    TResult? Function()? calculateEvent,
     TResult? Function()? toggleGenderEvent,
     TResult? Function()? toggleUnitEvent,
   }) {
@@ -708,7 +711,7 @@ class _$ToggleUnitEventImpl implements ToggleUnitEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(HealthCalculator calculator)? bodyMassIndexBlocStarted,
     TResult Function()? checkFormStateEvent,
-    TResult Function()? calculateBMREvent,
+    TResult Function()? calculateEvent,
     TResult Function()? toggleGenderEvent,
     TResult Function()? toggleUnitEvent,
     required TResult orElse(),
@@ -722,10 +725,10 @@ class _$ToggleUnitEventImpl implements ToggleUnitEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(BasalMetabolicRateBlocStarted value)
+    required TResult Function(StartedBaseHealthPagesBlocStarted value)
         bodyMassIndexBlocStarted,
     required TResult Function(CheckFormStateEvent value) checkFormStateEvent,
-    required TResult Function(CalculaBMREvent value) calculateBMREvent,
+    required TResult Function(CalculateEvent value) calculateEvent,
     required TResult Function(ToggleGenderEvent value) toggleGenderEvent,
     required TResult Function(ToggleUnitEvent value) toggleUnitEvent,
   }) {
@@ -735,10 +738,10 @@ class _$ToggleUnitEventImpl implements ToggleUnitEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(BasalMetabolicRateBlocStarted value)?
+    TResult? Function(StartedBaseHealthPagesBlocStarted value)?
         bodyMassIndexBlocStarted,
     TResult? Function(CheckFormStateEvent value)? checkFormStateEvent,
-    TResult? Function(CalculaBMREvent value)? calculateBMREvent,
+    TResult? Function(CalculateEvent value)? calculateEvent,
     TResult? Function(ToggleGenderEvent value)? toggleGenderEvent,
     TResult? Function(ToggleUnitEvent value)? toggleUnitEvent,
   }) {
@@ -748,10 +751,10 @@ class _$ToggleUnitEventImpl implements ToggleUnitEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(BasalMetabolicRateBlocStarted value)?
+    TResult Function(StartedBaseHealthPagesBlocStarted value)?
         bodyMassIndexBlocStarted,
     TResult Function(CheckFormStateEvent value)? checkFormStateEvent,
-    TResult Function(CalculaBMREvent value)? calculateBMREvent,
+    TResult Function(CalculateEvent value)? calculateEvent,
     TResult Function(ToggleGenderEvent value)? toggleGenderEvent,
     TResult Function(ToggleUnitEvent value)? toggleUnitEvent,
     required TResult orElse(),
@@ -763,12 +766,12 @@ class _$ToggleUnitEventImpl implements ToggleUnitEvent {
   }
 }
 
-abstract class ToggleUnitEvent implements CaloriePageEvent {
+abstract class ToggleUnitEvent implements BaseHealthPagesEvent {
   const factory ToggleUnitEvent() = _$ToggleUnitEventImpl;
 }
 
 /// @nodoc
-mixin _$CaloriePageState {
+mixin _$BaseHealthPagesState {
   GlobalKey<FormBuilderState> get formKey => throw _privateConstructorUsedError;
   HealthCalculator get calculatorData => throw _privateConstructorUsedError;
   List<List<String>> get rowData => throw _privateConstructorUsedError;
@@ -778,15 +781,15 @@ mixin _$CaloriePageState {
   bool get isDiabled => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $CaloriePageStateCopyWith<CaloriePageState> get copyWith =>
+  $BaseHealthPagesStateCopyWith<BaseHealthPagesState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CaloriePageStateCopyWith<$Res> {
-  factory $CaloriePageStateCopyWith(
-          CaloriePageState value, $Res Function(CaloriePageState) then) =
-      _$CaloriePageStateCopyWithImpl<$Res, CaloriePageState>;
+abstract class $BaseHealthPagesStateCopyWith<$Res> {
+  factory $BaseHealthPagesStateCopyWith(BaseHealthPagesState value,
+          $Res Function(BaseHealthPagesState) then) =
+      _$BaseHealthPagesStateCopyWithImpl<$Res, BaseHealthPagesState>;
   @useResult
   $Res call(
       {GlobalKey<FormBuilderState> formKey,
@@ -801,9 +804,10 @@ abstract class $CaloriePageStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$CaloriePageStateCopyWithImpl<$Res, $Val extends CaloriePageState>
-    implements $CaloriePageStateCopyWith<$Res> {
-  _$CaloriePageStateCopyWithImpl(this._value, this._then);
+class _$BaseHealthPagesStateCopyWithImpl<$Res,
+        $Val extends BaseHealthPagesState>
+    implements $BaseHealthPagesStateCopyWith<$Res> {
+  _$BaseHealthPagesStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -863,11 +867,11 @@ class _$CaloriePageStateCopyWithImpl<$Res, $Val extends CaloriePageState>
 }
 
 /// @nodoc
-abstract class _$$CaloriePageStateImplCopyWith<$Res>
-    implements $CaloriePageStateCopyWith<$Res> {
-  factory _$$CaloriePageStateImplCopyWith(_$CaloriePageStateImpl value,
-          $Res Function(_$CaloriePageStateImpl) then) =
-      __$$CaloriePageStateImplCopyWithImpl<$Res>;
+abstract class _$$BaseHealthPagesStateImplCopyWith<$Res>
+    implements $BaseHealthPagesStateCopyWith<$Res> {
+  factory _$$BaseHealthPagesStateImplCopyWith(_$BaseHealthPagesStateImpl value,
+          $Res Function(_$BaseHealthPagesStateImpl) then) =
+      __$$BaseHealthPagesStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -884,11 +888,11 @@ abstract class _$$CaloriePageStateImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$CaloriePageStateImplCopyWithImpl<$Res>
-    extends _$CaloriePageStateCopyWithImpl<$Res, _$CaloriePageStateImpl>
-    implements _$$CaloriePageStateImplCopyWith<$Res> {
-  __$$CaloriePageStateImplCopyWithImpl(_$CaloriePageStateImpl _value,
-      $Res Function(_$CaloriePageStateImpl) _then)
+class __$$BaseHealthPagesStateImplCopyWithImpl<$Res>
+    extends _$BaseHealthPagesStateCopyWithImpl<$Res, _$BaseHealthPagesStateImpl>
+    implements _$$BaseHealthPagesStateImplCopyWith<$Res> {
+  __$$BaseHealthPagesStateImplCopyWithImpl(_$BaseHealthPagesStateImpl _value,
+      $Res Function(_$BaseHealthPagesStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -902,7 +906,7 @@ class __$$CaloriePageStateImplCopyWithImpl<$Res>
     Object? result = null,
     Object? isDiabled = null,
   }) {
-    return _then(_$CaloriePageStateImpl(
+    return _then(_$BaseHealthPagesStateImpl(
       formKey: null == formKey
           ? _value.formKey
           : formKey // ignore: cast_nullable_to_non_nullable
@@ -937,8 +941,8 @@ class __$$CaloriePageStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CaloriePageStateImpl implements _CaloriePageState {
-  const _$CaloriePageStateImpl(
+class _$BaseHealthPagesStateImpl implements _BaseHealthPagesState {
+  const _$BaseHealthPagesStateImpl(
       {required this.formKey,
       required this.calculatorData,
       final List<List<String>> rowData = const [],
@@ -976,14 +980,14 @@ class _$CaloriePageStateImpl implements _CaloriePageState {
 
   @override
   String toString() {
-    return 'CaloriePageState(formKey: $formKey, calculatorData: $calculatorData, rowData: $rowData, gender: $gender, unit: $unit, result: $result, isDiabled: $isDiabled)';
+    return 'BaseHealthPagesState(formKey: $formKey, calculatorData: $calculatorData, rowData: $rowData, gender: $gender, unit: $unit, result: $result, isDiabled: $isDiabled)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CaloriePageStateImpl &&
+            other is _$BaseHealthPagesStateImpl &&
             (identical(other.formKey, formKey) || other.formKey == formKey) &&
             (identical(other.calculatorData, calculatorData) ||
                 other.calculatorData == calculatorData) &&
@@ -1009,20 +1013,21 @@ class _$CaloriePageStateImpl implements _CaloriePageState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$CaloriePageStateImplCopyWith<_$CaloriePageStateImpl> get copyWith =>
-      __$$CaloriePageStateImplCopyWithImpl<_$CaloriePageStateImpl>(
-          this, _$identity);
+  _$$BaseHealthPagesStateImplCopyWith<_$BaseHealthPagesStateImpl>
+      get copyWith =>
+          __$$BaseHealthPagesStateImplCopyWithImpl<_$BaseHealthPagesStateImpl>(
+              this, _$identity);
 }
 
-abstract class _CaloriePageState implements CaloriePageState {
-  const factory _CaloriePageState(
+abstract class _BaseHealthPagesState implements BaseHealthPagesState {
+  const factory _BaseHealthPagesState(
       {required final GlobalKey<FormBuilderState> formKey,
       required final HealthCalculator calculatorData,
       final List<List<String>> rowData,
       final Gender gender,
       final Units unit,
       final double result,
-      final bool isDiabled}) = _$CaloriePageStateImpl;
+      final bool isDiabled}) = _$BaseHealthPagesStateImpl;
 
   @override
   GlobalKey<FormBuilderState> get formKey;
@@ -1040,6 +1045,6 @@ abstract class _CaloriePageState implements CaloriePageState {
   bool get isDiabled;
   @override
   @JsonKey(ignore: true)
-  _$$CaloriePageStateImplCopyWith<_$CaloriePageStateImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$BaseHealthPagesStateImplCopyWith<_$BaseHealthPagesStateImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
