@@ -4,6 +4,7 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:swiss_army_calculator/models/types.dart';
 import 'package:swiss_army_calculator/page/calculator_pages/health/basal_metabolic_rate_page/basal_metabolic_rate_field_names.dart';
 import 'package:swiss_army_calculator/page/calculator_pages/health/basal_metabolic_rate_page/bloc/basal_metabolic_rate_page_bloc.dart';
+import 'package:swiss_army_calculator/widgets/data_table.dart';
 
 import '../../../../utils/functions.dart';
 import '../../../../widgets/app_expansion_tile.dart';
@@ -126,6 +127,9 @@ class BasalMetabolicRatePage extends StatelessWidget {
                     child:
                         Text('Your BMI is ${state.result.toStringAsFixed(2)}'));
               },
+            ),
+            const DataTableExample(
+              columns: ['Activity Level', 'Calorie'],
             ),
           ],
         ),

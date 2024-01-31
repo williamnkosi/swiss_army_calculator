@@ -69,6 +69,9 @@ class ThemeService {
         backgroundColor: theme.mainColor,
         selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
       ),
+      dividerTheme: DividerThemeData(
+        color: theme.secondaryColor,
+      ),
     );
   }
 }
