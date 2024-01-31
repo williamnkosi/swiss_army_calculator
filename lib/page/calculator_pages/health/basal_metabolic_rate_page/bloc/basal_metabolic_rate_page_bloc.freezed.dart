@@ -777,6 +777,7 @@ abstract class ToggleUnitEvent implements BasalMetabolicRatePageEvent {
 mixin _$BasalMetabolicRatePageState {
   GlobalKey<FormBuilderState> get formKey => throw _privateConstructorUsedError;
   HealthCalculator get calculatorData => throw _privateConstructorUsedError;
+  List<List<String>> get rowData => throw _privateConstructorUsedError;
   Gender get gender => throw _privateConstructorUsedError;
   Units get unit => throw _privateConstructorUsedError;
   double get result => throw _privateConstructorUsedError;
@@ -798,6 +799,7 @@ abstract class $BasalMetabolicRatePageStateCopyWith<$Res> {
   $Res call(
       {GlobalKey<FormBuilderState> formKey,
       HealthCalculator calculatorData,
+      List<List<String>> rowData,
       Gender gender,
       Units unit,
       double result,
@@ -822,8 +824,9 @@ class _$BasalMetabolicRatePageStateCopyWithImpl<$Res,
   $Res call({
     Object? formKey = null,
     Object? calculatorData = null,
-    Object? gender = freezed,
-    Object? unit = freezed,
+    Object? rowData = null,
+    Object? gender = null,
+    Object? unit = null,
     Object? result = null,
     Object? isDiabled = null,
   }) {
@@ -836,11 +839,15 @@ class _$BasalMetabolicRatePageStateCopyWithImpl<$Res,
           ? _value.calculatorData
           : calculatorData // ignore: cast_nullable_to_non_nullable
               as HealthCalculator,
-      gender: freezed == gender
+      rowData: null == rowData
+          ? _value.rowData
+          : rowData // ignore: cast_nullable_to_non_nullable
+              as List<List<String>>,
+      gender: null == gender
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
               as Gender,
-      unit: freezed == unit
+      unit: null == unit
           ? _value.unit
           : unit // ignore: cast_nullable_to_non_nullable
               as Units,
@@ -876,6 +883,7 @@ abstract class _$$BasalMetabolicRatePageStateImplCopyWith<$Res>
   $Res call(
       {GlobalKey<FormBuilderState> formKey,
       HealthCalculator calculatorData,
+      List<List<String>> rowData,
       Gender gender,
       Units unit,
       double result,
@@ -900,8 +908,9 @@ class __$$BasalMetabolicRatePageStateImplCopyWithImpl<$Res>
   $Res call({
     Object? formKey = null,
     Object? calculatorData = null,
-    Object? gender = freezed,
-    Object? unit = freezed,
+    Object? rowData = null,
+    Object? gender = null,
+    Object? unit = null,
     Object? result = null,
     Object? isDiabled = null,
   }) {
@@ -914,11 +923,15 @@ class __$$BasalMetabolicRatePageStateImplCopyWithImpl<$Res>
           ? _value.calculatorData
           : calculatorData // ignore: cast_nullable_to_non_nullable
               as HealthCalculator,
-      gender: freezed == gender
+      rowData: null == rowData
+          ? _value._rowData
+          : rowData // ignore: cast_nullable_to_non_nullable
+              as List<List<String>>,
+      gender: null == gender
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
               as Gender,
-      unit: freezed == unit
+      unit: null == unit
           ? _value.unit
           : unit // ignore: cast_nullable_to_non_nullable
               as Units,
@@ -941,15 +954,26 @@ class _$BasalMetabolicRatePageStateImpl
   const _$BasalMetabolicRatePageStateImpl(
       {required this.formKey,
       required this.calculatorData,
+      final List<List<String>> rowData = const [],
       this.gender = Gender.male,
       this.unit = Units.imperial,
       this.result = 0,
-      this.isDiabled = true});
+      this.isDiabled = true})
+      : _rowData = rowData;
 
   @override
   final GlobalKey<FormBuilderState> formKey;
   @override
   final HealthCalculator calculatorData;
+  final List<List<String>> _rowData;
+  @override
+  @JsonKey()
+  List<List<String>> get rowData {
+    if (_rowData is EqualUnmodifiableListView) return _rowData;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_rowData);
+  }
+
   @override
   @JsonKey()
   final Gender gender;
@@ -965,7 +989,7 @@ class _$BasalMetabolicRatePageStateImpl
 
   @override
   String toString() {
-    return 'BasalMetabolicRatePageState(formKey: $formKey, calculatorData: $calculatorData, gender: $gender, unit: $unit, result: $result, isDiabled: $isDiabled)';
+    return 'BasalMetabolicRatePageState(formKey: $formKey, calculatorData: $calculatorData, rowData: $rowData, gender: $gender, unit: $unit, result: $result, isDiabled: $isDiabled)';
   }
 
   @override
@@ -976,8 +1000,9 @@ class _$BasalMetabolicRatePageStateImpl
             (identical(other.formKey, formKey) || other.formKey == formKey) &&
             (identical(other.calculatorData, calculatorData) ||
                 other.calculatorData == calculatorData) &&
-            const DeepCollectionEquality().equals(other.gender, gender) &&
-            const DeepCollectionEquality().equals(other.unit, unit) &&
+            const DeepCollectionEquality().equals(other._rowData, _rowData) &&
+            (identical(other.gender, gender) || other.gender == gender) &&
+            (identical(other.unit, unit) || other.unit == unit) &&
             (identical(other.result, result) || other.result == result) &&
             (identical(other.isDiabled, isDiabled) ||
                 other.isDiabled == isDiabled));
@@ -988,8 +1013,9 @@ class _$BasalMetabolicRatePageStateImpl
       runtimeType,
       formKey,
       calculatorData,
-      const DeepCollectionEquality().hash(gender),
-      const DeepCollectionEquality().hash(unit),
+      const DeepCollectionEquality().hash(_rowData),
+      gender,
+      unit,
       result,
       isDiabled);
 
@@ -1006,6 +1032,7 @@ abstract class _BasalMetabolicRatePageState
   const factory _BasalMetabolicRatePageState(
       {required final GlobalKey<FormBuilderState> formKey,
       required final HealthCalculator calculatorData,
+      final List<List<String>> rowData,
       final Gender gender,
       final Units unit,
       final double result,
@@ -1015,6 +1042,8 @@ abstract class _BasalMetabolicRatePageState
   GlobalKey<FormBuilderState> get formKey;
   @override
   HealthCalculator get calculatorData;
+  @override
+  List<List<String>> get rowData;
   @override
   Gender get gender;
   @override

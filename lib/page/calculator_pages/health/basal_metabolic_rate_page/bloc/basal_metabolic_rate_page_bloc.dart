@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:swiss_army_calculator/page/calculator_pages/health/basal_metabolic_rate_page/info.dart';
 import 'package:swiss_army_calculator/utils/functions.dart';
 
 import '../../../../../models/calculators.dart';
@@ -66,6 +67,7 @@ class BasalMetabolicRatePageBloc
           weightInKg: weightInKg,
           heightInCm: heightInCm,
           gender: state.gender);
+
       emit(state.copyWith(result: result));
     } else {
       final heightInCM = state.formKey.currentState!
@@ -78,6 +80,10 @@ class BasalMetabolicRatePageBloc
           gender: state.gender);
       emit(state.copyWith(result: result));
     }
+
+    final rowData =
+        _createTableRowData(state.result, [1.2, 1.375, 1.55, 1.725, 1.9]);
+    emit(state.copyWith(rowData: rowData));
   }
 
   _onToggleGenderEvent(ToggleGenderEvent event, emit) {
@@ -95,5 +101,22 @@ class BasalMetabolicRatePageBloc
     } else {
       emit(state.copyWith(unit: Units.imperial));
     }
+  }
+
+  List<List<String>> _createTableRowData(
+      double bmr, List<double> listOfMultipliers) {
+    List<List<String>> rowData = [];
+    try {
+      for (int i = 0; i < activity_level.length; i++) {
+        rowData.add([
+          activity_level[i],
+          (bmr * listOfMultipliers[i]).toStringAsFixed(2)
+        ]);
+      }
+    } catch (e) {
+      throw Exception('Error in creating table row data');
+    }
+
+    return rowData;
   }
 }

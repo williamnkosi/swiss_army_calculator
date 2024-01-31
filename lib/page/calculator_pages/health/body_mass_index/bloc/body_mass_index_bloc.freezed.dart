@@ -644,7 +644,7 @@ class _$BodyMassIndexStateCopyWithImpl<$Res, $Val extends BodyMassIndexState>
   $Res call({
     Object? formKey = null,
     Object? calculatorData = null,
-    Object? unit = freezed,
+    Object? unit = null,
     Object? result = null,
     Object? isDiabled = null,
   }) {
@@ -657,7 +657,7 @@ class _$BodyMassIndexStateCopyWithImpl<$Res, $Val extends BodyMassIndexState>
           ? _value.calculatorData
           : calculatorData // ignore: cast_nullable_to_non_nullable
               as HealthCalculator,
-      unit: freezed == unit
+      unit: null == unit
           ? _value.unit
           : unit // ignore: cast_nullable_to_non_nullable
               as Units,
@@ -713,7 +713,7 @@ class __$$BodyMassIndexStateImplCopyWithImpl<$Res>
   $Res call({
     Object? formKey = null,
     Object? calculatorData = null,
-    Object? unit = freezed,
+    Object? unit = null,
     Object? result = null,
     Object? isDiabled = null,
   }) {
@@ -726,7 +726,7 @@ class __$$BodyMassIndexStateImplCopyWithImpl<$Res>
           ? _value.calculatorData
           : calculatorData // ignore: cast_nullable_to_non_nullable
               as HealthCalculator,
-      unit: freezed == unit
+      unit: null == unit
           ? _value.unit
           : unit // ignore: cast_nullable_to_non_nullable
               as Units,
@@ -779,15 +779,15 @@ class _$BodyMassIndexStateImpl implements _BodyMassIndexState {
             (identical(other.formKey, formKey) || other.formKey == formKey) &&
             (identical(other.calculatorData, calculatorData) ||
                 other.calculatorData == calculatorData) &&
-            const DeepCollectionEquality().equals(other.unit, unit) &&
+            (identical(other.unit, unit) || other.unit == unit) &&
             (identical(other.result, result) || other.result == result) &&
             (identical(other.isDiabled, isDiabled) ||
                 other.isDiabled == isDiabled));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, formKey, calculatorData,
-      const DeepCollectionEquality().hash(unit), result, isDiabled);
+  int get hashCode => Object.hash(
+      runtimeType, formKey, calculatorData, unit, result, isDiabled);
 
   @JsonKey(ignore: true)
   @override

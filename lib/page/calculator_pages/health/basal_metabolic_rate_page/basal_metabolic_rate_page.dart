@@ -128,8 +128,17 @@ class BasalMetabolicRatePage extends StatelessWidget {
                         Text('Your BMR is ${state.result.toStringAsFixed(2)}'));
               },
             ),
-            const DataTableExample(
-              columns: ['Activity Level', 'Calorie'],
+            BlocBuilder<BasalMetabolicRatePageBloc,
+                BasalMetabolicRatePageState>(
+              buildWhen: (previous, current) =>
+                  previous.rowData != current.rowData,
+              builder: (context, state) {
+                if (state.rowData.isEmpty) return const SizedBox();
+                return DataTableExample(
+                  columns: const ['Activity Level', 'Calorie'],
+                  rows: state.rowData,
+                );
+              },
             ),
           ],
         ),
