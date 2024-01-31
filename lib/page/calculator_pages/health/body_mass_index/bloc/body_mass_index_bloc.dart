@@ -5,6 +5,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:swiss_army_calculator/models/calculators.dart';
 import 'package:swiss_army_calculator/utils/health_formulas.dart';
 
+import '../../../../../models/unit_types.dart';
 import '../body_mass_index_field_names.dart';
 
 part 'body_mass_index_event.dart';
