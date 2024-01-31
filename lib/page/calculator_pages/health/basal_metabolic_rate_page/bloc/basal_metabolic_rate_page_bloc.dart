@@ -49,41 +49,45 @@ class BasalMetabolicRatePageBloc
   }
 
   _onCalculateBMREvent(event, emit) {
-    final age = state.formKey.currentState!
-        .fields[BasalMetabolicRateTextFieldData.age.name]!.value;
-    final weight = state.formKey.currentState!
-        .fields[BasalMetabolicRateTextFieldData.weight.name]!.value;
-    final heightFeet = state.formKey.currentState!
-        .fields[BasalMetabolicRateTextFieldData.heightFeet.name]!.value;
-    final heightInches = state.formKey.currentState!
-        .fields[BasalMetabolicRateTextFieldData.heightInches.name]!.value;
+    try {
+      final age = state.formKey.currentState!
+          .fields[BasalMetabolicRateTextFieldData.age.name]!.value;
+      if (state.unit == Units.imperial) {
+        final weight = state.formKey.currentState!
+            .fields[BasalMetabolicRateTextFieldData.weightInPounds.name]!.value;
+        final heightFeet = state.formKey.currentState!
+            .fields[BasalMetabolicRateTextFieldData.heightFeet.name]!.value;
+        final heightInches = state.formKey.currentState!
+            .fields[BasalMetabolicRateTextFieldData.heightInches.name]!.value;
+        final weightInKg = poundsToKg(double.parse(weight));
+        final heightInCm =
+            feetAndInchesToCm(int.parse(heightFeet), int.parse(heightInches));
+        final result = cacluateBMR(
+            age: int.parse(age),
+            weightInKg: weightInKg,
+            heightInCm: heightInCm,
+            gender: state.gender);
 
-    if (state.unit == Units.imperial) {
-      final weightInKg = poundsToKg(double.parse(weight));
-      final heightInCm =
-          feetAndInchesToCm(int.parse(heightFeet), int.parse(heightInches));
-      final result = cacluateBMR(
-          age: int.parse(age),
-          weightInKg: weightInKg,
-          heightInCm: heightInCm,
-          gender: state.gender);
+        emit(state.copyWith(result: result));
+      } else {
+        final weightInKg = state.formKey.currentState!
+            .fields[BasalMetabolicRateTextFieldData.weightInKg.name]!.value;
+        final heightInCM = state.formKey.currentState!
+            .fields[BasalMetabolicRateTextFieldData.heightInches.name]!.value;
 
-      emit(state.copyWith(result: result));
-    } else {
-      final heightInCM = state.formKey.currentState!
-          .fields[BasalMetabolicRateTextFieldData.heightInches.name]!.value;
-
-      final result = cacluateBMR(
-          weightInKg: weight,
-          heightInCm: heightInCM,
-          age: age,
-          gender: state.gender);
-      emit(state.copyWith(result: result));
+        final result = cacluateBMR(
+            weightInKg: weightInKg,
+            heightInCm: heightInCM,
+            age: age,
+            gender: state.gender);
+        emit(state.copyWith(result: result));
+      }
+      final rowData =
+          _createTableRowData(state.result, [1.2, 1.375, 1.55, 1.725, 1.9]);
+      emit(state.copyWith(rowData: rowData));
+    } catch (e) {
+      throw Exception('Error in calculating BMR');
     }
-
-    final rowData =
-        _createTableRowData(state.result, [1.2, 1.375, 1.55, 1.725, 1.9]);
-    emit(state.copyWith(rowData: rowData));
   }
 
   _onToggleGenderEvent(ToggleGenderEvent event, emit) {

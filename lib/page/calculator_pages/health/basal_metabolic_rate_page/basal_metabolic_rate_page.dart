@@ -103,50 +103,89 @@ class BasalMetabolicRatePage extends StatelessWidget {
             const SizedBox(
               height: 16,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                SizedBox(
-                    width: calculateWidthPercentage(context, 45),
-                    child: AppTextField(
-                      fieldName:
-                          BasalMetabolicRateTextFieldData.heightFeet.name,
-                      fieldText:
-                          BasalMetabolicRateTextFieldData.heightFeet.name,
-                      onChange: (text) =>
-                          BlocProvider.of<BasalMetabolicRatePageBloc>(context)
-                              .add(const BasalMetabolicRatePageEvent
-                                  .checkFormStateEvent()),
-                    )),
-                SizedBox(
-                    width: calculateWidthPercentage(context, 45),
-                    child: AppTextField(
-                      fieldName:
-                          BasalMetabolicRateTextFieldData.heightInches.name,
-                      fieldText:
-                          BasalMetabolicRateTextFieldData.heightInches.name,
-                      onChange: (text) =>
-                          BlocProvider.of<BasalMetabolicRatePageBloc>(context)
-                              .add(const BasalMetabolicRatePageEvent
-                                  .checkFormStateEvent()),
-                    )),
-              ],
-            ),
-            const SizedBox(
-              height: 16,
-            ),
-            AppTextField(
-              fieldName: BasalMetabolicRateTextFieldData.weight.name,
-              fieldText: BasalMetabolicRateTextFieldData.weight.name,
-              onChange: (text) =>
-                  BlocProvider.of<BasalMetabolicRatePageBloc>(context).add(
-                      const BasalMetabolicRatePageEvent.checkFormStateEvent()),
+            BlocBuilder<BasalMetabolicRatePageBloc,
+                BasalMetabolicRatePageState>(
+              buildWhen: (previous, current) => previous.unit != current.unit,
+              builder: (context, state) {
+                if (state.unit == Units.metric) {
+                  return AppTextField(
+                    fieldName: BasalMetabolicRateTextFieldData.heightCM.name,
+                    fieldText: BasalMetabolicRateTextFieldData.heightCM.name,
+                    onChange: (text) =>
+                        BlocProvider.of<BasalMetabolicRatePageBloc>(context)
+                            .add(const BasalMetabolicRatePageEvent
+                                .checkFormStateEvent()),
+                  );
+                }
+
+                return Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SizedBox(
+                        width: calculateWidthPercentage(context, 45),
+                        child: AppTextField(
+                          fieldName:
+                              BasalMetabolicRateTextFieldData.heightFeet.name,
+                          fieldText:
+                              BasalMetabolicRateTextFieldData.heightFeet.name,
+                          onChange: (text) =>
+                              BlocProvider.of<BasalMetabolicRatePageBloc>(
+                                      context)
+                                  .add(const BasalMetabolicRatePageEvent
+                                      .checkFormStateEvent()),
+                        )),
+                    SizedBox(
+                        width: calculateWidthPercentage(context, 45),
+                        child: AppTextField(
+                          fieldName:
+                              BasalMetabolicRateTextFieldData.heightInches.name,
+                          fieldText:
+                              BasalMetabolicRateTextFieldData.heightInches.name,
+                          onChange: (text) =>
+                              BlocProvider.of<BasalMetabolicRatePageBloc>(
+                                      context)
+                                  .add(const BasalMetabolicRatePageEvent
+                                      .checkFormStateEvent()),
+                        )),
+                  ],
+                );
+              },
             ),
             const SizedBox(
               height: 16,
             ),
             BlocBuilder<BasalMetabolicRatePageBloc,
                 BasalMetabolicRatePageState>(
+              builder: (context, state) {
+                if (state.unit == Units.metric) {
+                  return AppTextField(
+                    fieldName: BasalMetabolicRateTextFieldData.weightInKg.name,
+                    fieldText: BasalMetabolicRateTextFieldData.weightInKg.name,
+                    onChange: (text) =>
+                        BlocProvider.of<BasalMetabolicRatePageBloc>(context)
+                            .add(const BasalMetabolicRatePageEvent
+                                .checkFormStateEvent()),
+                  );
+                }
+                return AppTextField(
+                  fieldName:
+                      BasalMetabolicRateTextFieldData.weightInPounds.name,
+                  fieldText:
+                      BasalMetabolicRateTextFieldData.weightInPounds.name,
+                  onChange: (text) =>
+                      BlocProvider.of<BasalMetabolicRatePageBloc>(context).add(
+                          const BasalMetabolicRatePageEvent
+                              .checkFormStateEvent()),
+                );
+              },
+            ),
+            const SizedBox(
+              height: 16,
+            ),
+            BlocBuilder<BasalMetabolicRatePageBloc,
+                BasalMetabolicRatePageState>(
+              buildWhen: (previous, current) =>
+                  previous.result != current.result,
               builder: (context, state) {
                 if (state.result == 0) return const SizedBox();
                 return Padding(
