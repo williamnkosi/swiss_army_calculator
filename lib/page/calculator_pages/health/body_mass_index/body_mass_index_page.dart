@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:swiss_army_calculator/page/calculator_pages/health/body_mass_index/body_mass_index_field_names.dart';
 import 'package:swiss_army_calculator/utils/functions.dart';
 import 'package:swiss_army_calculator/widgets/textFields/app_text_field.dart';
+import '../../../../models/types.dart';
 import '../../../../widgets/app_expansion_tile.dart';
 import '../../../../widgets/app_material_button.dart';
 import 'bloc/body_mass_index_bloc.dart';
@@ -28,6 +29,57 @@ class BodyMassIndexPage extends StatelessWidget {
             ),
             const SizedBox(
               height: 16,
+            ),
+            BlocBuilder<BodyMassIndexBloc, BodyMassIndexState>(
+              buildWhen: (previous, current) =>
+                  previous.gender != current.gender,
+              builder: (context, state) {
+                return Row(
+                  children: [
+                    Radio(
+                      value: Gender.male,
+                      groupValue: state.gender,
+                      onChanged: (value) =>
+                          BlocProvider.of<BodyMassIndexBloc>(context).add(
+                              const BodyMassIndexEvent.toggleGenderEvent()),
+                    ),
+                    Text(Gender.male.value),
+                    Radio(
+                      value: Gender.female,
+                      groupValue: state.gender,
+                      onChanged: (value) =>
+                          BlocProvider.of<BodyMassIndexBloc>(context).add(
+                              const BodyMassIndexEvent.toggleGenderEvent()),
+                    ),
+                    Text(Gender.female.value),
+                  ],
+                );
+              },
+            ),
+            BlocBuilder<BodyMassIndexBloc, BodyMassIndexState>(
+              buildWhen: (previous, current) => previous.unit != current.unit,
+              builder: (context, state) {
+                return Row(
+                  children: [
+                    Radio(
+                      value: Units.imperial,
+                      groupValue: state.unit,
+                      onChanged: (value) =>
+                          BlocProvider.of<BodyMassIndexBloc>(context)
+                              .add(const BodyMassIndexEvent.toggleUnitEvent()),
+                    ),
+                    Text(Units.imperial.value),
+                    Radio(
+                      value: Units.metric,
+                      groupValue: state.unit,
+                      onChanged: (value) =>
+                          BlocProvider.of<BodyMassIndexBloc>(context)
+                              .add(const BodyMassIndexEvent.toggleUnitEvent()),
+                    ),
+                    Text(Units.metric.value),
+                  ],
+                );
+              },
             ),
             const SizedBox(
               height: 16,
@@ -77,10 +129,17 @@ class BodyMassIndexPage extends StatelessWidget {
               height: 16,
             ),
             BlocBuilder<BodyMassIndexBloc, BodyMassIndexState>(
+              buildWhen: (previous, current) =>
+                  previous.result != current.result,
               builder: (context, state) {
+                if (state.result == 0) return const SizedBox();
                 return Center(
-                    child:
-                        Text('Your BMI is ${state.result.toStringAsFixed(2)}'));
+                  child: Text(
+                      'Your BMI has been calculated at  ${state.result.toStringAsFixed(2)}',
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                          fontSize: 18, fontWeight: FontWeight.bold)),
+                );
               },
             ),
           ],

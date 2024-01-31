@@ -97,7 +97,7 @@
                 "type": "bmr",
                 "name": "Basal Metabolic Rate",
                 "shortDesription": "Basal Metabolic Rate is the amount of energy expended while at rest in a neutrally temperate environment.",
-                "fullDescription": "Basal Metabolic"
+                "fullDescription": "BMR stands for Basal Metabolic Rate. It represents the amount of energy or calories that your body requires at rest to maintain basic physiological functions such as breathing, circulating blood, regulating body temperature, and supporting cell production."
             },
             {
                 "type": "calorie",

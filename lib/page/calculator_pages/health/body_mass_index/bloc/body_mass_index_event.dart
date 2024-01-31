@@ -7,4 +7,5 @@ class BodyMassIndexEvent with _$BodyMassIndexEvent {
   const factory BodyMassIndexEvent.checkFormStateEvent() = CheckFormStateEvent;
   const factory BodyMassIndexEvent.calculateBMIEvent() = CalculaBMIEvent;
   const factory BodyMassIndexEvent.toggleUnitEvent() = ToggleUnitEvent;
+  const factory BodyMassIndexEvent.toggleGenderEvent() = ToggleGenderEvent;
 }

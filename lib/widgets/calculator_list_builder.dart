@@ -4,8 +4,7 @@ import 'package:swiss_army_calculator/models/calculator_types.dart';
 import 'package:swiss_army_calculator/page/calculator_pages/calculator_wrapper.dart';
 import 'package:swiss_army_calculator/page/calculator_pages/finance/compound_interest_page/bloc/compound_interest_page_bloc.dart';
 import 'package:swiss_army_calculator/page/calculator_pages/finance/compound_interest_page/compound_interest_page.dart';
-
-import 'package:swiss_army_calculator/page/calculator_pages/health/basal_metabolic_rate_page.dart';
+import 'package:swiss_army_calculator/page/calculator_pages/health/basal_metabolic_rate_page/bloc/basal_metabolic_rate_page_bloc.dart';
 import 'package:swiss_army_calculator/page/calculator_pages/health/body_fat_page.dart';
 import 'package:swiss_army_calculator/page/calculator_pages/health/body_mass_index/body_mass_index_page.dart';
 import 'package:swiss_army_calculator/page/calculator_pages/health/calorie_page.dart';
@@ -13,6 +12,7 @@ import '../app_state/favorites_bloc/favorites_bloc.dart';
 import '../models/calculators.dart';
 import '../page/calculator_pages/finance/simple_interest_page/bloc/simple_interest_page_bloc.dart';
 import '../page/calculator_pages/finance/simple_interest_page/simple_interest_page.dart';
+import '../page/calculator_pages/health/basal_metabolic_rate_page/basal_metabolic_rate_page.dart';
 import '../page/calculator_pages/health/body_mass_index/bloc/body_mass_index_bloc.dart';
 
 class CalculatorListBuilder extends StatelessWidget {
@@ -45,7 +45,10 @@ class CalculatorListBuilder extends StatelessWidget {
           );
 
         case CalculatorsDefinedTypes.bmr:
-          return const BasalMetabolicRatePage();
+          return BlocProvider(
+            create: (context) => BasalMetabolicRatePageBloc(calculator),
+            child: const BasalMetabolicRatePage(),
+          );
         case CalculatorsDefinedTypes.calorie:
           return const CaloriePage();
         case CalculatorsDefinedTypes.idealWeight:
