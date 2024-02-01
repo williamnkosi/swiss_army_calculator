@@ -5,6 +5,7 @@ import 'package:swiss_army_calculator/page/calculator_pages/health/bloc/base_hea
 
 import '../../../../models/types.dart';
 import '../../../../utils/functions.dart';
+import '../../../../widgets/app_drop_down_button.dart';
 import '../../../../widgets/app_expansion_tile.dart';
 import '../../../../widgets/app_material_button.dart';
 import '../../../../widgets/data_table.dart';
@@ -161,6 +162,12 @@ class CaloriePage extends StatelessWidget {
                           const BaseHealthPagesEvent.checkFormStateEvent()),
                 );
               },
+            ),
+            const SizedBox(
+              height: 16,
+            ),
+            AppDropDownButton(
+              title: 'Activity Level',
             ),
             const SizedBox(
               height: 16,
