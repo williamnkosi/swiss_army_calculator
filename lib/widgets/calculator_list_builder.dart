@@ -5,15 +5,16 @@ import 'package:swiss_army_calculator/page/calculator_pages/calculator_wrapper.d
 import 'package:swiss_army_calculator/page/calculator_pages/finance/compound_interest_page/bloc/compound_interest_page_bloc.dart';
 import 'package:swiss_army_calculator/page/calculator_pages/finance/compound_interest_page/compound_interest_page.dart';
 import 'package:swiss_army_calculator/page/calculator_pages/health/basal_metabolic_rate_page/bloc/basal_metabolic_rate_page_bloc.dart';
+import 'package:swiss_army_calculator/page/calculator_pages/health/bloc/base_health_pages_bloc.dart';
 import 'package:swiss_army_calculator/page/calculator_pages/health/body_fat_page.dart';
 import 'package:swiss_army_calculator/page/calculator_pages/health/body_mass_index/body_mass_index_page.dart';
-import 'package:swiss_army_calculator/page/calculator_pages/health/calorie_page.dart';
 import '../app_state/favorites_bloc/favorites_bloc.dart';
 import '../models/calculators.dart';
 import '../page/calculator_pages/finance/simple_interest_page/bloc/simple_interest_page_bloc.dart';
 import '../page/calculator_pages/finance/simple_interest_page/simple_interest_page.dart';
 import '../page/calculator_pages/health/basal_metabolic_rate_page/basal_metabolic_rate_page.dart';
 import '../page/calculator_pages/health/body_mass_index/bloc/body_mass_index_bloc.dart';
+import '../page/calculator_pages/health/calorie_page/calorie_page.dart';
 
 class CalculatorListBuilder extends StatelessWidget {
   final List<Calculator> calculators;
@@ -50,7 +51,10 @@ class CalculatorListBuilder extends StatelessWidget {
             child: const BasalMetabolicRatePage(),
           );
         case CalculatorsDefinedTypes.calorie:
-          return const CaloriePage();
+          return BlocProvider(
+            create: (context) => BaseHealthPagesBloc(calculator),
+            child: const CaloriePage(),
+          );
         case CalculatorsDefinedTypes.idealWeight:
           return const BodyMassIndexPage();
         case CalculatorsDefinedTypes.bodyFat:
