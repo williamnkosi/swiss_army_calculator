@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:swiss_army_calculator/page/calculator_pages/health/bloc/base_health_pages_bloc.dart';
+import 'package:swiss_army_calculator/page/calculator_pages/health/calorie_page/bloc/calorie_page_bloc.dart';
 
 import '../../../../models/types.dart';
 import '../../../../utils/functions.dart';
@@ -19,11 +20,11 @@ class CaloriePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return FormBuilder(
       autovalidateMode: AutovalidateMode.disabled,
-      key: BlocProvider.of<BaseHealthPagesBloc>(context).state.formKey,
+      key: BlocProvider.of<CaloriePageBloc>(context).state.formKey,
       child: Stack(children: [
         ListView(
           children: [
-            BlocBuilder<BaseHealthPagesBloc, BaseHealthPagesState>(
+            BlocBuilder<CaloriePageBloc, CaloriePageState>(
               builder: (context, state) {
                 return AppExpansionTile(
                     title: state.calculatorData.name,
@@ -33,7 +34,7 @@ class CaloriePage extends StatelessWidget {
             const SizedBox(
               height: 16,
             ),
-            BlocBuilder<BaseHealthPagesBloc, BaseHealthPagesState>(
+            BlocBuilder<CaloriePageBloc, CaloriePageState>(
               buildWhen: (previous, current) =>
                   previous.gender != current.gender,
               builder: (context, state) {
@@ -43,23 +44,23 @@ class CaloriePage extends StatelessWidget {
                       value: Gender.male,
                       groupValue: state.gender,
                       onChanged: (value) =>
-                          BlocProvider.of<BaseHealthPagesBloc>(context).add(
-                              const BaseHealthPagesEvent.toggleGenderEvent()),
+                          BlocProvider.of<CaloriePageBloc>(context)
+                              .add(const CaloriePageEvent.toggleGenderEvent()),
                     ),
                     Text(Gender.male.value),
                     Radio(
                       value: Gender.female,
                       groupValue: state.gender,
                       onChanged: (value) =>
-                          BlocProvider.of<BaseHealthPagesBloc>(context).add(
-                              const BaseHealthPagesEvent.toggleGenderEvent()),
+                          BlocProvider.of<CaloriePageBloc>(context)
+                              .add(const CaloriePageEvent.toggleGenderEvent()),
                     ),
                     Text(Gender.female.value),
                   ],
                 );
               },
             ),
-            BlocBuilder<BaseHealthPagesBloc, BaseHealthPagesState>(
+            BlocBuilder<CaloriePageBloc, CaloriePageState>(
               buildWhen: (previous, current) => previous.unit != current.unit,
               builder: (context, state) {
                 return Row(
@@ -68,16 +69,16 @@ class CaloriePage extends StatelessWidget {
                       value: Units.imperial,
                       groupValue: state.unit,
                       onChanged: (value) =>
-                          BlocProvider.of<BaseHealthPagesBloc>(context).add(
-                              const BaseHealthPagesEvent.toggleUnitEvent()),
+                          BlocProvider.of<CaloriePageBloc>(context)
+                              .add(const CaloriePageEvent.toggleUnitEvent()),
                     ),
                     Text(Units.imperial.value),
                     Radio(
                       value: Units.metric,
                       groupValue: state.unit,
                       onChanged: (value) =>
-                          BlocProvider.of<BaseHealthPagesBloc>(context).add(
-                              const BaseHealthPagesEvent.toggleUnitEvent()),
+                          BlocProvider.of<CaloriePageBloc>(context)
+                              .add(const CaloriePageEvent.toggleUnitEvent()),
                     ),
                     Text(Units.metric.value),
                   ],
@@ -90,13 +91,13 @@ class CaloriePage extends StatelessWidget {
             AppTextField(
               fieldName: BaseHealthPagesTextFieldData.age.name,
               fieldText: BaseHealthPagesTextFieldData.age.name,
-              onChange: (text) => BlocProvider.of<BaseHealthPagesBloc>(context)
-                  .add(const BaseHealthPagesEvent.checkFormStateEvent()),
+              onChange: (text) => BlocProvider.of<CaloriePageBloc>(context)
+                  .add(const CaloriePageEvent.checkFormStateEvent()),
             ),
             const SizedBox(
               height: 16,
             ),
-            BlocBuilder<BaseHealthPagesBloc, BaseHealthPagesState>(
+            BlocBuilder<CaloriePageBloc, CaloriePageState>(
               buildWhen: (previous, current) => previous.unit != current.unit,
               builder: (context, state) {
                 if (state.unit == Units.metric) {
@@ -104,8 +105,8 @@ class CaloriePage extends StatelessWidget {
                     fieldName: BaseHealthPagesTextFieldData.heightCM.name,
                     fieldText: BaseHealthPagesTextFieldData.heightCM.name,
                     onChange: (text) =>
-                        BlocProvider.of<BaseHealthPagesBloc>(context).add(
-                            const BaseHealthPagesEvent.checkFormStateEvent()),
+                        BlocProvider.of<CaloriePageBloc>(context)
+                            .add(const CaloriePageEvent.checkFormStateEvent()),
                   );
                 }
 
@@ -120,9 +121,8 @@ class CaloriePage extends StatelessWidget {
                           fieldText:
                               BaseHealthPagesTextFieldData.heightFeet.name,
                           onChange: (text) =>
-                              BlocProvider.of<BaseHealthPagesBloc>(context).add(
-                                  const BaseHealthPagesEvent
-                                      .checkFormStateEvent()),
+                              BlocProvider.of<CaloriePageBloc>(context).add(
+                                  const CaloriePageEvent.checkFormStateEvent()),
                         )),
                     SizedBox(
                         width: calculateWidthPercentage(context, 45),
@@ -132,9 +132,8 @@ class CaloriePage extends StatelessWidget {
                           fieldText:
                               BaseHealthPagesTextFieldData.heightInches.name,
                           onChange: (text) =>
-                              BlocProvider.of<BaseHealthPagesBloc>(context).add(
-                                  const BaseHealthPagesEvent
-                                      .checkFormStateEvent()),
+                              BlocProvider.of<CaloriePageBloc>(context).add(
+                                  const CaloriePageEvent.checkFormStateEvent()),
                         )),
                   ],
                 );
@@ -143,36 +142,40 @@ class CaloriePage extends StatelessWidget {
             const SizedBox(
               height: 16,
             ),
-            BlocBuilder<BaseHealthPagesBloc, BaseHealthPagesState>(
+            BlocBuilder<CaloriePageBloc, CaloriePageState>(
               builder: (context, state) {
                 if (state.unit == Units.metric) {
                   return AppTextField(
                     fieldName: BaseHealthPagesTextFieldData.weightInKg.name,
                     fieldText: BaseHealthPagesTextFieldData.weightInKg.name,
                     onChange: (text) =>
-                        BlocProvider.of<BaseHealthPagesBloc>(context).add(
-                            const BaseHealthPagesEvent.checkFormStateEvent()),
+                        BlocProvider.of<CaloriePageBloc>(context)
+                            .add(const CaloriePageEvent.checkFormStateEvent()),
                   );
                 }
                 return AppTextField(
                   fieldName: BaseHealthPagesTextFieldData.weightInPounds.name,
                   fieldText: BaseHealthPagesTextFieldData.weightInPounds.name,
-                  onChange: (text) =>
-                      BlocProvider.of<BaseHealthPagesBloc>(context).add(
-                          const BaseHealthPagesEvent.checkFormStateEvent()),
+                  onChange: (text) => BlocProvider.of<CaloriePageBloc>(context)
+                      .add(const CaloriePageEvent.checkFormStateEvent()),
                 );
               },
             ),
             const SizedBox(
               height: 16,
             ),
-            AppDropDownButton(
-              title: 'Activity Level',
+            BlocBuilder<CaloriePageBloc, CaloriePageState>(
+              builder: (context, state) {
+                return const AppDropDownButton(
+                  title: 'Activity Level',
+                  child: Text('This is the activity level'),
+                );
+              },
             ),
             const SizedBox(
               height: 16,
             ),
-            BlocBuilder<BaseHealthPagesBloc, BaseHealthPagesState>(
+            BlocBuilder<CaloriePageBloc, CaloriePageState>(
               buildWhen: (previous, current) =>
                   previous.result != current.result,
               builder: (context, state) {
@@ -189,7 +192,7 @@ class CaloriePage extends StatelessWidget {
                 );
               },
             ),
-            BlocBuilder<BaseHealthPagesBloc, BaseHealthPagesState>(
+            BlocBuilder<CaloriePageBloc, CaloriePageState>(
               buildWhen: (previous, current) =>
                   previous.rowData != current.rowData,
               builder: (context, state) {
@@ -202,7 +205,7 @@ class CaloriePage extends StatelessWidget {
             ),
           ],
         ),
-        BlocBuilder<BaseHealthPagesBloc, BaseHealthPagesState>(
+        BlocBuilder<CaloriePageBloc, CaloriePageState>(
           buildWhen: (previous, current) =>
               previous.isDiabled != current.isDiabled,
           builder: (context, state) {
@@ -213,8 +216,8 @@ class CaloriePage extends StatelessWidget {
                   isDisabled: state.isDiabled,
                   buttonTitle: 'CALCULATE',
                   onPressed: () {
-                    BlocProvider.of<BaseHealthPagesBloc>(context)
-                        .add(const BaseHealthPagesEvent.calculateEvent());
+                    BlocProvider.of<CaloriePageBloc>(context)
+                        .add(const CaloriePageEvent.calculateCaloriesEvent());
                   },
                 ));
           },

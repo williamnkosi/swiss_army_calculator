@@ -8,6 +8,7 @@ import 'package:swiss_army_calculator/page/calculator_pages/health/basal_metabol
 import 'package:swiss_army_calculator/page/calculator_pages/health/bloc/base_health_pages_bloc.dart';
 import 'package:swiss_army_calculator/page/calculator_pages/health/body_fat_page.dart';
 import 'package:swiss_army_calculator/page/calculator_pages/health/body_mass_index/body_mass_index_page.dart';
+import 'package:swiss_army_calculator/page/calculator_pages/health/calorie_page/bloc/calorie_page_bloc.dart';
 import '../app_state/favorites_bloc/favorites_bloc.dart';
 import '../models/calculators.dart';
 import '../page/calculator_pages/finance/simple_interest_page/bloc/simple_interest_page_bloc.dart';
@@ -52,7 +53,7 @@ class CalculatorListBuilder extends StatelessWidget {
           );
         case CalculatorsDefinedTypes.calorie:
           return BlocProvider(
-            create: (context) => BaseHealthPagesBloc(calculator),
+            create: (context) => CaloriePageBloc(calculator),
             child: const CaloriePage(),
           );
         case CalculatorsDefinedTypes.idealWeight:

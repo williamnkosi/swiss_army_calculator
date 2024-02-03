@@ -4,10 +4,12 @@ import 'bottom_sheet/app_bottom_sheet.dart';
 
 class AppDropDownButton extends StatelessWidget {
   final String title;
+  final Widget child;
 
   const AppDropDownButton({
     super.key,
     required this.title,
+    required this.child,
   });
 
   @override
@@ -19,7 +21,7 @@ class AppDropDownButton extends StatelessWidget {
             title: 'Rate',
             subTitle:
                 'This rate determines the amount of interest accrued on a principal amount over a specified period. ',
-            child: Text('This is the content'));
+            child: child);
       },
       child: Card(
         shape: RoundedRectangleBorder(
