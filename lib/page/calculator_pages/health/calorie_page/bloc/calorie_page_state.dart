@@ -5,7 +5,8 @@ class CaloriePageState with _$CaloriePageState {
   const factory CaloriePageState({
     required GlobalKey<FormBuilderState> formKey,
     required HealthCalculator calculatorData,
-    @Default([]) List<List<String>> rowData,
+    @Default([]) List<List<String>> weightLossRowData,
+    @Default([]) List<List<String>> weightGainRowData,
     @Default(Gender.male) Gender gender,
     @Default(Units.imperial) Units unit,
     @Default(0) double result,

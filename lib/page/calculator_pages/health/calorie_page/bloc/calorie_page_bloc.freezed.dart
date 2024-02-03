@@ -764,7 +764,10 @@ abstract class ToggleUnitEvent implements CaloriePageEvent {
 mixin _$CaloriePageState {
   GlobalKey<FormBuilderState> get formKey => throw _privateConstructorUsedError;
   HealthCalculator get calculatorData => throw _privateConstructorUsedError;
-  List<List<String>> get rowData => throw _privateConstructorUsedError;
+  List<List<String>> get weightLossRowData =>
+      throw _privateConstructorUsedError;
+  List<List<String>> get weightGainRowData =>
+      throw _privateConstructorUsedError;
   Gender get gender => throw _privateConstructorUsedError;
   Units get unit => throw _privateConstructorUsedError;
   double get result => throw _privateConstructorUsedError;
@@ -784,7 +787,8 @@ abstract class $CaloriePageStateCopyWith<$Res> {
   $Res call(
       {GlobalKey<FormBuilderState> formKey,
       HealthCalculator calculatorData,
-      List<List<String>> rowData,
+      List<List<String>> weightLossRowData,
+      List<List<String>> weightGainRowData,
       Gender gender,
       Units unit,
       double result,
@@ -808,7 +812,8 @@ class _$CaloriePageStateCopyWithImpl<$Res, $Val extends CaloriePageState>
   $Res call({
     Object? formKey = null,
     Object? calculatorData = null,
-    Object? rowData = null,
+    Object? weightLossRowData = null,
+    Object? weightGainRowData = null,
     Object? gender = null,
     Object? unit = null,
     Object? result = null,
@@ -823,9 +828,13 @@ class _$CaloriePageStateCopyWithImpl<$Res, $Val extends CaloriePageState>
           ? _value.calculatorData
           : calculatorData // ignore: cast_nullable_to_non_nullable
               as HealthCalculator,
-      rowData: null == rowData
-          ? _value.rowData
-          : rowData // ignore: cast_nullable_to_non_nullable
+      weightLossRowData: null == weightLossRowData
+          ? _value.weightLossRowData
+          : weightLossRowData // ignore: cast_nullable_to_non_nullable
+              as List<List<String>>,
+      weightGainRowData: null == weightGainRowData
+          ? _value.weightGainRowData
+          : weightGainRowData // ignore: cast_nullable_to_non_nullable
               as List<List<String>>,
       gender: null == gender
           ? _value.gender
@@ -866,7 +875,8 @@ abstract class _$$CaloriePageStateImplCopyWith<$Res>
   $Res call(
       {GlobalKey<FormBuilderState> formKey,
       HealthCalculator calculatorData,
-      List<List<String>> rowData,
+      List<List<String>> weightLossRowData,
+      List<List<String>> weightGainRowData,
       Gender gender,
       Units unit,
       double result,
@@ -889,7 +899,8 @@ class __$$CaloriePageStateImplCopyWithImpl<$Res>
   $Res call({
     Object? formKey = null,
     Object? calculatorData = null,
-    Object? rowData = null,
+    Object? weightLossRowData = null,
+    Object? weightGainRowData = null,
     Object? gender = null,
     Object? unit = null,
     Object? result = null,
@@ -904,9 +915,13 @@ class __$$CaloriePageStateImplCopyWithImpl<$Res>
           ? _value.calculatorData
           : calculatorData // ignore: cast_nullable_to_non_nullable
               as HealthCalculator,
-      rowData: null == rowData
-          ? _value._rowData
-          : rowData // ignore: cast_nullable_to_non_nullable
+      weightLossRowData: null == weightLossRowData
+          ? _value._weightLossRowData
+          : weightLossRowData // ignore: cast_nullable_to_non_nullable
+              as List<List<String>>,
+      weightGainRowData: null == weightGainRowData
+          ? _value._weightGainRowData
+          : weightGainRowData // ignore: cast_nullable_to_non_nullable
               as List<List<String>>,
       gender: null == gender
           ? _value.gender
@@ -934,24 +949,37 @@ class _$CaloriePageStateImpl implements _CaloriePageState {
   const _$CaloriePageStateImpl(
       {required this.formKey,
       required this.calculatorData,
-      final List<List<String>> rowData = const [],
+      final List<List<String>> weightLossRowData = const [],
+      final List<List<String>> weightGainRowData = const [],
       this.gender = Gender.male,
       this.unit = Units.imperial,
       this.result = 0,
       this.isDiabled = true})
-      : _rowData = rowData;
+      : _weightLossRowData = weightLossRowData,
+        _weightGainRowData = weightGainRowData;
 
   @override
   final GlobalKey<FormBuilderState> formKey;
   @override
   final HealthCalculator calculatorData;
-  final List<List<String>> _rowData;
+  final List<List<String>> _weightLossRowData;
   @override
   @JsonKey()
-  List<List<String>> get rowData {
-    if (_rowData is EqualUnmodifiableListView) return _rowData;
+  List<List<String>> get weightLossRowData {
+    if (_weightLossRowData is EqualUnmodifiableListView)
+      return _weightLossRowData;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_rowData);
+    return EqualUnmodifiableListView(_weightLossRowData);
+  }
+
+  final List<List<String>> _weightGainRowData;
+  @override
+  @JsonKey()
+  List<List<String>> get weightGainRowData {
+    if (_weightGainRowData is EqualUnmodifiableListView)
+      return _weightGainRowData;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_weightGainRowData);
   }
 
   @override
@@ -969,7 +997,7 @@ class _$CaloriePageStateImpl implements _CaloriePageState {
 
   @override
   String toString() {
-    return 'CaloriePageState(formKey: $formKey, calculatorData: $calculatorData, rowData: $rowData, gender: $gender, unit: $unit, result: $result, isDiabled: $isDiabled)';
+    return 'CaloriePageState(formKey: $formKey, calculatorData: $calculatorData, weightLossRowData: $weightLossRowData, weightGainRowData: $weightGainRowData, gender: $gender, unit: $unit, result: $result, isDiabled: $isDiabled)';
   }
 
   @override
@@ -980,7 +1008,10 @@ class _$CaloriePageStateImpl implements _CaloriePageState {
             (identical(other.formKey, formKey) || other.formKey == formKey) &&
             (identical(other.calculatorData, calculatorData) ||
                 other.calculatorData == calculatorData) &&
-            const DeepCollectionEquality().equals(other._rowData, _rowData) &&
+            const DeepCollectionEquality()
+                .equals(other._weightLossRowData, _weightLossRowData) &&
+            const DeepCollectionEquality()
+                .equals(other._weightGainRowData, _weightGainRowData) &&
             (identical(other.gender, gender) || other.gender == gender) &&
             (identical(other.unit, unit) || other.unit == unit) &&
             (identical(other.result, result) || other.result == result) &&
@@ -993,7 +1024,8 @@ class _$CaloriePageStateImpl implements _CaloriePageState {
       runtimeType,
       formKey,
       calculatorData,
-      const DeepCollectionEquality().hash(_rowData),
+      const DeepCollectionEquality().hash(_weightLossRowData),
+      const DeepCollectionEquality().hash(_weightGainRowData),
       gender,
       unit,
       result,
@@ -1011,7 +1043,8 @@ abstract class _CaloriePageState implements CaloriePageState {
   const factory _CaloriePageState(
       {required final GlobalKey<FormBuilderState> formKey,
       required final HealthCalculator calculatorData,
-      final List<List<String>> rowData,
+      final List<List<String>> weightLossRowData,
+      final List<List<String>> weightGainRowData,
       final Gender gender,
       final Units unit,
       final double result,
@@ -1022,7 +1055,9 @@ abstract class _CaloriePageState implements CaloriePageState {
   @override
   HealthCalculator get calculatorData;
   @override
-  List<List<String>> get rowData;
+  List<List<String>> get weightLossRowData;
+  @override
+  List<List<String>> get weightGainRowData;
   @override
   Gender get gender;
   @override

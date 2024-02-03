@@ -5,3 +5,17 @@ List<String> activity_level = [
   'Intensely Active: Intense exercise 6-7 times/week',
   'Extremely Active: Very intense exercise daily, or physical job',
 ];
+
+List<String> weightLossNames = [
+  'Maintain Weight',
+  'Mildest Weight Loss',
+  'Weight Loss',
+  'Extreme Weight Loss'
+];
+
+List<String> weightGainNames = [
+  'Maintain Weight',
+  'Mildest Weight Gain ',
+  'Weight Gain',
+  'Extreme Weight Gain'
+];

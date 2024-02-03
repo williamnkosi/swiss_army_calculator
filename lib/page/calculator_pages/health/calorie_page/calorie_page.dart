@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
-import 'package:swiss_army_calculator/page/calculator_pages/health/bloc/base_health_pages_bloc.dart';
 import 'package:swiss_army_calculator/page/calculator_pages/health/calorie_page/bloc/calorie_page_bloc.dart';
 
 import '../../../../models/types.dart';
@@ -184,7 +183,7 @@ class CaloriePage extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 8.0),
                   child: Center(
                     child: Text(
-                        'Your BMR has been calculated at  ${state.result.toStringAsFixed(2)} Calories/day',
+                        'To maintain you current weight, you need to consume about ${state.result.toStringAsFixed(2)} Calories/day',
                         textAlign: TextAlign.center,
                         style: const TextStyle(
                             fontSize: 18, fontWeight: FontWeight.bold)),
@@ -194,12 +193,23 @@ class CaloriePage extends StatelessWidget {
             ),
             BlocBuilder<CaloriePageBloc, CaloriePageState>(
               buildWhen: (previous, current) =>
-                  previous.rowData != current.rowData,
+                  previous.weightGainRowData != current.weightGainRowData,
               builder: (context, state) {
-                if (state.rowData.isEmpty) return const SizedBox();
+                if (state.weightGainRowData.isEmpty) return const SizedBox();
                 return DataTableExample(
-                  columns: const ['Activity Level', 'Calorie'],
-                  rows: state.rowData,
+                  columns: const ['Activity Level', 'Calories'],
+                  rows: state.weightGainRowData,
+                );
+              },
+            ),
+            BlocBuilder<CaloriePageBloc, CaloriePageState>(
+              buildWhen: (previous, current) =>
+                  previous.weightLossRowData != current.weightLossRowData,
+              builder: (context, state) {
+                if (state.weightLossRowData.isEmpty) return const SizedBox();
+                return DataTableExample(
+                  columns: const ['Activity Level', 'Calories'],
+                  rows: state.weightLossRowData,
                 );
               },
             ),
