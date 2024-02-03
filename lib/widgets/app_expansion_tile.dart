@@ -17,6 +17,10 @@ class AppExpansionTile extends StatelessWidget {
       clipBehavior: Clip.antiAlias,
       margin: EdgeInsets.zero,
       child: ExpansionTile(
+        trailing: Icon(
+          Icons.info_outline_rounded,
+          color: Theme.of(context).colorScheme.primary,
+        ),
         title: Text(
           title,
           style: const TextStyle(fontSize: 16.0, fontWeight: FontWeight.w500),
