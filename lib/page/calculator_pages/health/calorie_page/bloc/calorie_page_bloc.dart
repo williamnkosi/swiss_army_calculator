@@ -95,8 +95,7 @@ class CaloriePageBloc extends Bloc<CaloriePageEvent, CaloriePageState> {
     }
   }
 
-  _onToggleGenderEvent(
-      ToggleGenderEvent event, Emitter<CaloriePageState> emit) {
+  _onToggleUnitEvent(ToggleUnitEvent event, Emitter<CaloriePageState> emit) {
     _resetFormState(emit);
     if (state.unit == Units.imperial) {
       emit(state.copyWith(unit: Units.metric));
@@ -105,7 +104,8 @@ class CaloriePageBloc extends Bloc<CaloriePageEvent, CaloriePageState> {
     }
   }
 
-  _onToggleUnitEvent(ToggleUnitEvent event, Emitter<CaloriePageState> emit) {
+  _onToggleGenderEvent(
+      ToggleGenderEvent event, Emitter<CaloriePageState> emit) {
     _resetFormState(emit);
     if (state.gender == Gender.male) {
       emit(state.copyWith(gender: Gender.female));

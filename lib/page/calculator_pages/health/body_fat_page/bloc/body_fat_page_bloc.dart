@@ -31,7 +31,32 @@ class BodyFatPageBloc extends Bloc<BodyFatPageEvent, BodyFatPageState> {
 
   _onCalculateBMREvent(event, emit) {}
 
-  _onToggleGenderEvent(event, emit) {}
+  _onToggleGenderEvent(
+      ToggleGenderEvent event, Emitter<BodyFatPageState> emit) {
+    _resetFormState(emit);
+    if (state.gender == Gender.male) {
+      emit(state.copyWith(gender: Gender.female));
+    } else {
+      emit(state.copyWith(gender: Gender.male));
+    }
+  }
 
-  _onToggleUnitEvent(event, emit) {}
+  _onToggleUnitEvent(ToggleUnitEvent event, Emitter<BodyFatPageState> emit) {
+    _resetFormState(emit);
+    if (state.unit == Units.imperial) {
+      emit(state.copyWith(unit: Units.metric));
+    } else {
+      emit(state.copyWith(unit: Units.imperial));
+    }
+  }
+
+  _resetFormState(Emitter<BodyFatPageState> emit) {
+    try {
+      state.formKey.currentState!.reset();
+      emit(state.copyWith(
+          result: 0, isDiabled: true, rowData: [], formKey: state.formKey));
+    } catch (e) {
+      throw Exception('Error in resetting form state');
+    }
+  }
 }
