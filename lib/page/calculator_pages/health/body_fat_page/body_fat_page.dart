@@ -213,3 +213,12 @@ class BodyFatPage extends StatelessWidget {
     );
   }
 }
+
+class NeckSection extends StatelessWidget {
+  const NeckSection({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
+  }
+}
