@@ -66,11 +66,16 @@ class BodyFatPageBloc extends Bloc<BodyFatPageEvent, BodyFatPageState> {
         emit(state.copyWith(result: bodyFatPercentage));
       } else {
         Map<String, dynamic> formData = state.formKey.currentState?.value ?? {};
-        String age = formData[HealthTextData.age.name];
-        String weightInKg = formData[HealthTextData.weightInKg.name];
-        String neckInCM = formData[HealthTextData.neckInCM.name];
-        String waistInCM = formData[HealthTextData.waistInCM.name];
-        String heightCM = formData[HealthTextData.heightCM.name];
+
+        double neckInCM = double.parse(formData[HealthTextData.neckInCM.name]);
+        double waistInCM =
+            double.parse(formData[HealthTextData.waistInCM.name]);
+        double heightCM = double.parse(formData[HealthTextData.heightCM.name]);
+        final bodyFatPercentage = calculateNavyMethodMetric(
+            neckCircumferenceInCM: neckInCM,
+            waistCircumferenceInCM: waistInCM,
+            heightInCM: heightCM);
+        emit(state.copyWith(result: bodyFatPercentage));
       }
     } catch (e) {
       throw Exception('Error in calculating body fat');
