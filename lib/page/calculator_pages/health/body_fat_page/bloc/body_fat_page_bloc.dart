@@ -2,6 +2,8 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:swiss_army_calculator/utils/functions.dart';
+import 'package:swiss_army_calculator/utils/health_formulas.dart';
 
 import '../../../../../models/calculators.dart';
 import '../../../../../models/types.dart';
@@ -28,16 +30,48 @@ class BodyFatPageBloc extends Bloc<BodyFatPageEvent, BodyFatPageState> {
   }
 
   _onCheckFormStateEvent(
-      CheckFormStateEvent event, Emitter<BodyFatPageState> emit) {}
+      CheckFormStateEvent event, Emitter<BodyFatPageState> emit) {
+    if (state.formKey.currentState!.isValid) {
+      try {
+        if (state.formKey.currentState!.validate()) {
+          state.formKey.currentState?.save();
+
+          emit(state.copyWith(isDiabled: false));
+        } else {
+          emit(state.copyWith(isDiabled: true));
+        }
+      } catch (e) {
+        emit(state.copyWith(isDiabled: true));
+      }
+    }
+  }
 
   _onCalculateBodyFatEvent(
       CalculaBodyFatEvent event, Emitter<BodyFatPageState> emit) {
     try {
       if (state.unit == Units.imperial) {
         Map<String, dynamic> formData = state.formKey.currentState?.value ?? {};
+        int neckFeet = int.parse(formData[HealthTextData.neckFeet.name]);
+        int neckInches = int.parse(formData[HealthTextData.neckInches.name]);
+        int waistFeet = int.parse(formData[HealthTextData.waistFeet.name]);
+        int waistInches = int.parse(formData[HealthTextData.waistInches.name]);
+        int heightFeet = int.parse(formData[HealthTextData.heightFeet.name]);
+        int heightInches =
+            int.parse(formData[HealthTextData.heightInches.name]);
+
+        final bodyFatPercentage = calculateNavyMethodMetric(
+            neckCircumferenceInCM: feetAndInchesToCm(neckFeet, neckInches),
+            waistCircumferenceInCM: feetAndInchesToCm(waistFeet, waistInches),
+            heightInCM: feetAndInchesToCm(heightFeet, heightInches));
+        emit(state.copyWith(result: bodyFatPercentage));
+      } else {
+        Map<String, dynamic> formData = state.formKey.currentState?.value ?? {};
         String age = formData[HealthTextData.age.name];
-        String weightInPounds = formData[HealthTextData.weightInPounds.name];
-      } else {}
+        String weightInKg = formData[HealthTextData.weightInKg.name];
+        String neckInCM = formData[HealthTextData.neckInCM.name];
+        String waistInCM = formData[HealthTextData.waistInCM.name];
+        String heightCM = formData[HealthTextData.heightCM.name];
+      }
     } catch (e) {
       throw Exception('Error in calculating body fat');
     }

@@ -126,11 +126,15 @@ class AgeSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppTextField(
-      fieldName: HealthTextData.age.name,
-      fieldText: HealthTextData.age.name,
-      onChange: (text) => BlocProvider.of<BodyFatPageBloc>(context)
-          .add(const BodyFatPageEvent.checkFormStateEvent()),
+    return BlocBuilder<BodyFatPageBloc, BodyFatPageState>(
+      builder: (context, state) {
+        return AppTextField(
+          fieldName: HealthTextData.age.name,
+          fieldText: HealthTextData.age.name,
+          onChange: (text) => BlocProvider.of<BodyFatPageBloc>(context)
+              .add(const BodyFatPageEvent.checkFormStateEvent()),
+        );
+      },
     );
   }
 }
