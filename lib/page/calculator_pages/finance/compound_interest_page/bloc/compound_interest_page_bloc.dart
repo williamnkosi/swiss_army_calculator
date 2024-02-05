@@ -46,19 +46,19 @@ class CompoundInterestPageBloc
   }
 
   double? _compoundFormuale() {
-    print(state.formKey.currentState!
-        .fields[CompoundInterestTextFieldData.initialInvestment.name]!.value);
     final principal = double.parse(state.formKey.currentState!
         .fields[CompoundInterestTextFieldData.initialInvestment.name]!.value);
     final interestRate = double.parse(state.formKey.currentState!
         .fields[CompoundInterestTextFieldData.interestRate.name]!.value);
-    final compoundedFrequency = state.formKey.currentState!
-            .fields[CompoundInterestTextFieldData.compounded.name]?.value ??
-        12;
+
+    // TODO: Check commented out code
+    // final compoundedFrequency = state.formKey.currentState!
+    //         .fields[CompoundInterestTextFieldData.compounded.name]?.value ??
+    //     12;
     final lengthYears = double.parse(state.formKey.currentState!
         .fields[CompoundInterestTextFieldData.lengthYears.name]!.value);
-    final lengthMonths = double.parse(state.formKey.currentState!
-        .fields[CompoundInterestTextFieldData.lengthMonths.name]!.value);
+    // final lengthMonths = double.parse(state.formKey.currentState!
+    //     .fields[CompoundInterestTextFieldData.lengthMonths.name]!.value);
     // final inflationRate = double.parse(state.formKey.currentState!
     //     .fields[CompoundInterestTextFieldData.inflationRate.name]!.value);
     return calculateCompoundInterestWithContributions(

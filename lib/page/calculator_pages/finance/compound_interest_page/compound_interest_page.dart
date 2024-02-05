@@ -21,36 +21,36 @@ class CompoundInterestPage extends StatelessWidget {
       key: BlocProvider.of<CompoundInterestPageBloc>(context).state.formKey,
       child: Stack(children: [
         ListView(
-          children: [
+          children: const [
             AppExpansionTile(title: 'testing', description: 'testing'),
-            const SizedBox(
+            SizedBox(
               height: 16,
             ),
-            const _InitiInvestmentField(),
-            const SizedBox(
+            _InitiInvestmentField(),
+            SizedBox(
               height: 16,
             ),
-            const _AnnualContributionField(),
-            const SizedBox(
+            _AnnualContributionField(),
+            SizedBox(
               height: 16,
             ),
-            const _MothlyContributionField(),
-            const SizedBox(
+            _MothlyContributionField(),
+            SizedBox(
               height: 16,
             ),
-            const _InterestRateField(),
-            const SizedBox(
+            _InterestRateField(),
+            SizedBox(
               height: 16,
             ),
-            const _CompoundInterestField(),
-            const SizedBox(
+            _CompoundInterestField(),
+            SizedBox(
               height: 16,
             ),
-            const _InvestmentLength(),
-            const SizedBox(
+            _InvestmentLength(),
+            SizedBox(
               height: 16,
             ),
-            const _InflationRateField()
+            _InflationRateField()
           ],
         ),
         BlocBuilder<CompoundInterestPageBloc, CompoundInterestPageState>(

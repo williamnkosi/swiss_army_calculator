@@ -47,8 +47,9 @@ class BodyMassIndexBloc extends Bloc<BodyMassIndexEvent, BodyMassIndexState> {
 
   _onCalculaBMIEvent(CalculaBMIEvent event, Emitter<BodyMassIndexState> emit) {
     try {
-      final age = state.formKey.currentState!
-          .fields[BodyMassIndexTextFieldData.age.name]!.value;
+      // TODO: check if this is need
+      // final age = state.formKey.currentState!
+      //     .fields[BodyMassIndexTextFieldData.age.name]!.value;
       final weight = state.formKey.currentState!
           .fields[BodyMassIndexTextFieldData.weight.name]!.value;
       final heightFeet = state.formKey.currentState!
@@ -69,7 +70,7 @@ class BodyMassIndexBloc extends Bloc<BodyMassIndexEvent, BodyMassIndexState> {
         emit(state.copyWith(result: result));
       }
     } catch (e) {
-      print(e);
+      throw Exception('Error in calculating BMI');
     }
   }
 
