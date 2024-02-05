@@ -8,4 +8,6 @@ class BodyFatPageEvent with _$BodyFatPageEvent {
   const factory BodyFatPageEvent.calculateBodyFatEvent() = CalculaBodyFatEvent;
   const factory BodyFatPageEvent.toggleGenderEvent() = ToggleGenderEvent;
   const factory BodyFatPageEvent.toggleUnitEvent() = ToggleUnitEvent;
+  const factory BodyFatPageEvent.toggleFormulaMethodEvent() =
+      ToggleFormulaMethodEvent;
 }

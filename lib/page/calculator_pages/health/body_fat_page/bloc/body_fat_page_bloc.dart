@@ -23,6 +23,7 @@ class BodyFatPageBloc extends Bloc<BodyFatPageEvent, BodyFatPageState> {
     on<CalculaBodyFatEvent>(_onCalculateBodyFatEvent);
     on<ToggleGenderEvent>(_onToggleGenderEvent);
     on<ToggleUnitEvent>(_onToggleUnitEvent);
+    on<ToggleFormulaMethodEvent>(_onToggleFormulaMethodEvent);
   }
   _onBodyFatPageBlocStarted(
       BodyFatPageBlocStarted event, Emitter<BodyFatPageState> emit) {
@@ -98,6 +99,16 @@ class BodyFatPageBloc extends Bloc<BodyFatPageEvent, BodyFatPageState> {
       emit(state.copyWith(unit: Units.metric));
     } else {
       emit(state.copyWith(unit: Units.imperial));
+    }
+  }
+
+  _onToggleFormulaMethodEvent(
+      ToggleFormulaMethodEvent event, Emitter<BodyFatPageState> emit) {
+    _resetFormState(emit);
+    if (state.navyVsBmiMethod == NavyVsBmiMethod.navy) {
+      emit(state.copyWith(navyVsBmiMethod: NavyVsBmiMethod.bmi));
+    } else {
+      emit(state.copyWith(navyVsBmiMethod: NavyVsBmiMethod.navy));
     }
   }
 
