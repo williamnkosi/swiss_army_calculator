@@ -50,33 +50,10 @@ class BodyFatPageBloc extends Bloc<BodyFatPageEvent, BodyFatPageState> {
   _onCalculateBodyFatEvent(
       CalculaBodyFatEvent event, Emitter<BodyFatPageState> emit) {
     try {
-      if (state.unit == Units.imperial) {
-        Map<String, dynamic> formData = state.formKey.currentState?.value ?? {};
-        int neckFeet = int.parse(formData[HealthTextData.neckFeet.name]);
-        int neckInches = int.parse(formData[HealthTextData.neckInches.name]);
-        int waistFeet = int.parse(formData[HealthTextData.waistFeet.name]);
-        int waistInches = int.parse(formData[HealthTextData.waistInches.name]);
-        int heightFeet = int.parse(formData[HealthTextData.heightFeet.name]);
-        int heightInches =
-            int.parse(formData[HealthTextData.heightInches.name]);
-
-        final bodyFatPercentage = calculateNavyMethodMetric(
-            neckCircumferenceInCM: feetAndInchesToCm(neckFeet, neckInches),
-            waistCircumferenceInCM: feetAndInchesToCm(waistFeet, waistInches),
-            heightInCM: feetAndInchesToCm(heightFeet, heightInches));
-        emit(state.copyWith(result: bodyFatPercentage));
+      if (state.navyVsBmiMethod == NavyVsBmiMethod.navy) {
+        _calculationUsingTheNavyFormula(emit);
       } else {
-        Map<String, dynamic> formData = state.formKey.currentState?.value ?? {};
-
-        double neckInCM = double.parse(formData[HealthTextData.neckInCM.name]);
-        double waistInCM =
-            double.parse(formData[HealthTextData.waistInCM.name]);
-        double heightCM = double.parse(formData[HealthTextData.heightCM.name]);
-        final bodyFatPercentage = calculateNavyMethodMetric(
-            neckCircumferenceInCM: neckInCM,
-            waistCircumferenceInCM: waistInCM,
-            heightInCM: heightCM);
-        emit(state.copyWith(result: bodyFatPercentage));
+        _calculationgUsingTheBMIFormula(emit);
       }
     } catch (e) {
       throw Exception('Error in calculating body fat');
@@ -119,6 +96,83 @@ class BodyFatPageBloc extends Bloc<BodyFatPageEvent, BodyFatPageState> {
           result: 0, isDiabled: true, rowData: [], formKey: state.formKey));
     } catch (e) {
       throw Exception('Error in resetting form state');
+    }
+  }
+
+  _calculationUsingTheNavyFormula(Emitter<BodyFatPageState> emit) {
+    try {
+      if (state.unit == Units.imperial) {
+        Map<String, dynamic> formData = state.formKey.currentState?.value ?? {};
+        int neckFeet = int.parse(formData[HealthTextData.neckFeet.name]);
+        int neckInches = int.parse(formData[HealthTextData.neckInches.name]);
+        int waistFeet = int.parse(formData[HealthTextData.waistFeet.name]);
+        int waistInches = int.parse(formData[HealthTextData.waistInches.name]);
+        int heightFeet = int.parse(formData[HealthTextData.heightFeet.name]);
+        int heightInches =
+            int.parse(formData[HealthTextData.heightInches.name]);
+
+        final bodyFatPercentage = calculateNavyMethodMetric(
+            neckCircumferenceInCM:
+                ConvertFeetAndInchesToCm(neckFeet, neckInches),
+            waistCircumferenceInCM:
+                ConvertFeetAndInchesToCm(waistFeet, waistInches),
+            heightInCM: ConvertFeetAndInchesToCm(heightFeet, heightInches));
+        emit(state.copyWith(result: bodyFatPercentage));
+      } else {
+        Map<String, dynamic> formData = state.formKey.currentState?.value ?? {};
+
+        double neckInCM = double.parse(formData[HealthTextData.neckInCM.name]);
+        double waistInCM =
+            double.parse(formData[HealthTextData.waistInCM.name]);
+        double heightCM = double.parse(formData[HealthTextData.heightCM.name]);
+        final bodyFatPercentage = calculateNavyMethodMetric(
+            neckCircumferenceInCM: neckInCM,
+            waistCircumferenceInCM: waistInCM,
+            heightInCM: heightCM);
+        emit(state.copyWith(result: bodyFatPercentage));
+      }
+    } catch (e) {
+      throw Exception(
+          'Error in calculating body fat in the calculationUsingTheNavyFormula');
+    }
+  }
+
+  _calculationgUsingTheBMIFormula(Emitter<BodyFatPageState> emit) {
+    try {
+      if (state.unit == Units.imperial) {
+        Map<String, dynamic> formData = state.formKey.currentState?.value ?? {};
+        double weightInPounds =
+            double.parse(formData[HealthTextData.weightInPounds.name]);
+        int age = int.parse(formData[HealthTextData.age.name]);
+        int heightFeet = int.parse(formData[HealthTextData.heightFeet.name]);
+        int heightInches =
+            int.parse(formData[HealthTextData.heightInches.name]);
+
+        final bodyFatPercentage = calculateBodyFatUsingBMI(
+          weightInKg: ConvertPoundsToKg(weightInPounds),
+          heightInCM: ConvertFeetAndInchesToCm(heightFeet, heightInches),
+          gender: state.gender,
+          age: age,
+        );
+        emit(state.copyWith(result: bodyFatPercentage));
+      } else {
+        Map<String, dynamic> formData = state.formKey.currentState?.value ?? {};
+        double weightInKg =
+            double.parse(formData[HealthTextData.weightInKg.name]);
+        int age = int.parse(formData[HealthTextData.age.name]);
+        double heightCM = double.parse(formData[HealthTextData.heightCM.name]);
+
+        final bodyFatPercentage = calculateBodyFatUsingBMI(
+            weightInKg: weightInKg,
+            heightInCM: heightCM,
+            age: age,
+            gender: state.gender);
+
+        emit(state.copyWith(result: bodyFatPercentage));
+      }
+    } catch (e) {
+      throw Exception(
+          'Error in calculating body fat in the calculationgUsingTheBMIFormula');
     }
   }
 }

@@ -57,9 +57,9 @@ class CaloriePageBloc extends Bloc<CaloriePageEvent, CaloriePageState> {
             .fields[HealthTextData.heightFeet.name]!.value;
         final heightInches = state.formKey.currentState!
             .fields[HealthTextData.heightInches.name]!.value;
-        final weightInKg = poundsToKg(double.parse(weight));
-        final heightInCm =
-            feetAndInchesToCm(int.parse(heightFeet), int.parse(heightInches));
+        final weightInKg = ConvertPoundsToKg(double.parse(weight));
+        final heightInCm = ConvertFeetAndInchesToCm(
+            int.parse(heightFeet), int.parse(heightInches));
         final result = cacluateBMR(
             age: int.parse(age),
             weightInKg: weightInKg,

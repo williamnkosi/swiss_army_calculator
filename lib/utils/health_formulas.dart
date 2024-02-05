@@ -2,8 +2,8 @@ import 'dart:math';
 
 import '../models/types.dart';
 
-double calculateBMIinKilograms(double weightInKg, double heightInCM) {
-  return weightInKg / (heightInCM * heightInCM);
+double calculateBmiUsingMetric(double weightInKg, double heightInCM) {
+  return weightInKg / ((heightInCM / 100) * (heightInCM / 100));
 }
 
 double calculateBMIinPounds(
@@ -21,7 +21,7 @@ double calculateBodyFatUsingBMI(
     required int age,
     required Gender gender}) {
   // Calculate BMI
-  final bmi = calculateBMIinKilograms(weightInKg, heightInCM);
+  final bmi = calculateBmiUsingMetric(weightInKg, heightInCM);
   double bodyFat = 0.0;
   if (gender == Gender.male) {
     bodyFat = (1.20 * bmi) + (0.23 * age) - 16.2;

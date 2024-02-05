@@ -64,7 +64,7 @@ class BodyMassIndexBloc extends Bloc<BodyMassIndexEvent, BodyMassIndexState> {
       } else {
         final heightInMeters = state.formKey.currentState!
             .fields[BodyMassIndexTextFieldData.heightCM.name]!.value;
-        double result = calculateBMIinKilograms(
+        double result = calculateBmiUsingMetric(
             double.parse(weight), double.parse(heightInMeters));
         emit(state.copyWith(result: result));
       }

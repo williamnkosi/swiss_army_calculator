@@ -7,7 +7,7 @@ double calculateWidthPercentage(BuildContext context, double percentage) {
   return widthPercentage;
 }
 
-double feetAndInchesToCm(int feet, int inches) {
+double ConvertFeetAndInchesToCm(int feet, int inches) {
   // 1 foot = 30.48 cm
   // 1 inch = 2.54 cm
   const footInCm = 30.48;
@@ -16,7 +16,7 @@ double feetAndInchesToCm(int feet, int inches) {
   return cm;
 }
 
-double poundsToKg(double pounds) {
+double ConvertPoundsToKg(double pounds) {
   // 1 pound = 0.453592 kg
   double weightInKg = pounds * 0.453592;
   return weightInKg;

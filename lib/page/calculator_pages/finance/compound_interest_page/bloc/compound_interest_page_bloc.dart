@@ -40,8 +40,9 @@ class CompoundInterestPageBloc
     try {
       final amount = _compoundFormuale()!;
       emit(state.copyWith(totalAmount: amount));
-      print('amount: $amount');
-    } catch (e) {}
+    } catch (e) {
+      throw Exception('Error in calculating compound interest');
+    }
   }
 
   double? _compoundFormuale() {
@@ -92,9 +93,8 @@ class CompoundInterestPageBloc
                       pow(compoundedFrequency, lengthYears - 1))) /
               (interestRate / compoundedFrequency));
     } catch (e) {
-      print('failed 2');
+      throw Exception('Error in calculating compound interest');
     }
-    return null;
   }
 
   double calculateCompoundInterestWithContributions(double principal,
