@@ -40,24 +40,25 @@ class CompoundInterestPageBloc
     try {
       final amount = _compoundFormuale()!;
       emit(state.copyWith(totalAmount: amount));
-      print('amount: $amount');
-    } catch (e) {}
+    } catch (e) {
+      throw Exception('Error in calculating compound interest');
+    }
   }
 
   double? _compoundFormuale() {
-    print(state.formKey.currentState!
-        .fields[CompoundInterestTextFieldData.initialInvestment.name]!.value);
     final principal = double.parse(state.formKey.currentState!
         .fields[CompoundInterestTextFieldData.initialInvestment.name]!.value);
     final interestRate = double.parse(state.formKey.currentState!
         .fields[CompoundInterestTextFieldData.interestRate.name]!.value);
-    final compoundedFrequency = state.formKey.currentState!
-            .fields[CompoundInterestTextFieldData.compounded.name]?.value ??
-        12;
+
+    // TODO: Check commented out code
+    // final compoundedFrequency = state.formKey.currentState!
+    //         .fields[CompoundInterestTextFieldData.compounded.name]?.value ??
+    //     12;
     final lengthYears = double.parse(state.formKey.currentState!
         .fields[CompoundInterestTextFieldData.lengthYears.name]!.value);
-    final lengthMonths = double.parse(state.formKey.currentState!
-        .fields[CompoundInterestTextFieldData.lengthMonths.name]!.value);
+    // final lengthMonths = double.parse(state.formKey.currentState!
+    //     .fields[CompoundInterestTextFieldData.lengthMonths.name]!.value);
     // final inflationRate = double.parse(state.formKey.currentState!
     //     .fields[CompoundInterestTextFieldData.inflationRate.name]!.value);
     return calculateCompoundInterestWithContributions(
@@ -92,9 +93,8 @@ class CompoundInterestPageBloc
                       pow(compoundedFrequency, lengthYears - 1))) /
               (interestRate / compoundedFrequency));
     } catch (e) {
-      print('failed 2');
+      throw Exception('Error in calculating compound interest');
     }
-    return null;
   }
 
   double calculateCompoundInterestWithContributions(double principal,

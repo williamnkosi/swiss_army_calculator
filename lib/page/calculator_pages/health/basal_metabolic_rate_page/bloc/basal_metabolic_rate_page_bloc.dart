@@ -59,9 +59,9 @@ class BasalMetabolicRatePageBloc
             .fields[BasalMetabolicRateTextFieldData.heightFeet.name]!.value;
         final heightInches = state.formKey.currentState!
             .fields[BasalMetabolicRateTextFieldData.heightInches.name]!.value;
-        final weightInKg = poundsToKg(double.parse(weight));
-        final heightInCm =
-            feetAndInchesToCm(int.parse(heightFeet), int.parse(heightInches));
+        final weightInKg = convertPoundsToKg(double.parse(weight));
+        final heightInCm = convertFeetAndInchesToCm(
+            int.parse(heightFeet), int.parse(heightInches));
         final result = cacluateBMR(
             age: int.parse(age),
             weightInKg: weightInKg,

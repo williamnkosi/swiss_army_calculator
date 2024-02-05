@@ -48,18 +48,18 @@ class CaloriePageBloc extends Bloc<CaloriePageEvent, CaloriePageState> {
   _onCalculateCaloriesEvent(
       CalculateCaloriesEvent event, Emitter<CaloriePageState> emit) {
     try {
-      final age = state.formKey.currentState!
-          .fields[BaseHealthPagesTextFieldData.age.name]!.value;
+      final age =
+          state.formKey.currentState!.fields[HealthTextData.age.name]!.value;
       if (state.unit == Units.imperial) {
         final weight = state.formKey.currentState!
-            .fields[BaseHealthPagesTextFieldData.weightInPounds.name]!.value;
+            .fields[HealthTextData.weightInPounds.name]!.value;
         final heightFeet = state.formKey.currentState!
-            .fields[BaseHealthPagesTextFieldData.heightFeet.name]!.value;
+            .fields[HealthTextData.heightFeet.name]!.value;
         final heightInches = state.formKey.currentState!
-            .fields[BaseHealthPagesTextFieldData.heightInches.name]!.value;
-        final weightInKg = poundsToKg(double.parse(weight));
-        final heightInCm =
-            feetAndInchesToCm(int.parse(heightFeet), int.parse(heightInches));
+            .fields[HealthTextData.heightInches.name]!.value;
+        final weightInKg = convertPoundsToKg(double.parse(weight));
+        final heightInCm = convertFeetAndInchesToCm(
+            int.parse(heightFeet), int.parse(heightInches));
         final result = cacluateBMR(
             age: int.parse(age),
             weightInKg: weightInKg,
@@ -69,9 +69,9 @@ class CaloriePageBloc extends Bloc<CaloriePageEvent, CaloriePageState> {
         emit(state.copyWith(result: result));
       } else {
         final weightInKg = state.formKey.currentState!
-            .fields[BaseHealthPagesTextFieldData.weightInKg.name]!.value;
-        final heightInCM = state.formKey.currentState!
-            .fields[BaseHealthPagesTextFieldData.heightCM.name]!.value;
+            .fields[HealthTextData.weightInKg.name]!.value;
+        final heightInCM = state
+            .formKey.currentState!.fields[HealthTextData.heightCM.name]!.value;
 
         final result = cacluateBMR(
             weightInKg: double.parse(weightInKg),
@@ -95,8 +95,7 @@ class CaloriePageBloc extends Bloc<CaloriePageEvent, CaloriePageState> {
     }
   }
 
-  _onToggleGenderEvent(
-      ToggleGenderEvent event, Emitter<CaloriePageState> emit) {
+  _onToggleUnitEvent(ToggleUnitEvent event, Emitter<CaloriePageState> emit) {
     _resetFormState(emit);
     if (state.unit == Units.imperial) {
       emit(state.copyWith(unit: Units.metric));
@@ -105,7 +104,8 @@ class CaloriePageBloc extends Bloc<CaloriePageEvent, CaloriePageState> {
     }
   }
 
-  _onToggleUnitEvent(ToggleUnitEvent event, Emitter<CaloriePageState> emit) {
+  _onToggleGenderEvent(
+      ToggleGenderEvent event, Emitter<CaloriePageState> emit) {
     _resetFormState(emit);
     if (state.gender == Gender.male) {
       emit(state.copyWith(gender: Gender.female));

@@ -13,3 +13,11 @@ enum Gender {
   const Gender(this.value);
   final String value;
 }
+
+enum NavyVsBmiMethod {
+  navy('Navy Method'),
+  bmi('BMI Method');
+
+  const NavyVsBmiMethod(this.value);
+  final String value;
+}
