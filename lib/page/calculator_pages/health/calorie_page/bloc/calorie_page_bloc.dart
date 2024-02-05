@@ -48,15 +48,15 @@ class CaloriePageBloc extends Bloc<CaloriePageEvent, CaloriePageState> {
   _onCalculateCaloriesEvent(
       CalculateCaloriesEvent event, Emitter<CaloriePageState> emit) {
     try {
-      final age = state.formKey.currentState!
-          .fields[BaseHealthPagesTextFieldData.age.name]!.value;
+      final age =
+          state.formKey.currentState!.fields[HealthTextData.age.name]!.value;
       if (state.unit == Units.imperial) {
         final weight = state.formKey.currentState!
-            .fields[BaseHealthPagesTextFieldData.weightInPounds.name]!.value;
+            .fields[HealthTextData.weightInPounds.name]!.value;
         final heightFeet = state.formKey.currentState!
-            .fields[BaseHealthPagesTextFieldData.heightFeet.name]!.value;
+            .fields[HealthTextData.heightFeet.name]!.value;
         final heightInches = state.formKey.currentState!
-            .fields[BaseHealthPagesTextFieldData.heightInches.name]!.value;
+            .fields[HealthTextData.heightInches.name]!.value;
         final weightInKg = poundsToKg(double.parse(weight));
         final heightInCm =
             feetAndInchesToCm(int.parse(heightFeet), int.parse(heightInches));
@@ -69,9 +69,9 @@ class CaloriePageBloc extends Bloc<CaloriePageEvent, CaloriePageState> {
         emit(state.copyWith(result: result));
       } else {
         final weightInKg = state.formKey.currentState!
-            .fields[BaseHealthPagesTextFieldData.weightInKg.name]!.value;
-        final heightInCM = state.formKey.currentState!
-            .fields[BaseHealthPagesTextFieldData.heightCM.name]!.value;
+            .fields[HealthTextData.weightInKg.name]!.value;
+        final heightInCM = state
+            .formKey.currentState!.fields[HealthTextData.heightCM.name]!.value;
 
         final result = cacluateBMR(
             weightInKg: double.parse(weightInKg),

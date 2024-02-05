@@ -1,4 +1,4 @@
-enum BaseHealthPagesTextFieldData {
+enum HealthTextData {
   age('Age'),
   heightFeet('Feet'),
   heightInches('Inches'),
@@ -14,6 +14,6 @@ enum BaseHealthPagesTextFieldData {
   waistInches('Waist size in inches'),
   waistFeet('Waist size in feet');
 
-  const BaseHealthPagesTextFieldData(this.name);
+  const HealthTextData(this.name);
   final String name;
 }

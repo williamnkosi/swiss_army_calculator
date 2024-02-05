@@ -88,8 +88,8 @@ class CaloriePage extends StatelessWidget {
               height: 16,
             ),
             AppTextField(
-              fieldName: BaseHealthPagesTextFieldData.age.name,
-              fieldText: BaseHealthPagesTextFieldData.age.name,
+              fieldName: HealthTextData.age.name,
+              fieldText: HealthTextData.age.name,
               onChange: (text) => BlocProvider.of<CaloriePageBloc>(context)
                   .add(const CaloriePageEvent.checkFormStateEvent()),
             ),
@@ -101,8 +101,8 @@ class CaloriePage extends StatelessWidget {
               builder: (context, state) {
                 if (state.unit == Units.metric) {
                   return AppTextField(
-                    fieldName: BaseHealthPagesTextFieldData.heightCM.name,
-                    fieldText: BaseHealthPagesTextFieldData.heightCM.name,
+                    fieldName: HealthTextData.heightCM.name,
+                    fieldText: HealthTextData.heightCM.name,
                     onChange: (text) =>
                         BlocProvider.of<CaloriePageBloc>(context)
                             .add(const CaloriePageEvent.checkFormStateEvent()),
@@ -115,10 +115,8 @@ class CaloriePage extends StatelessWidget {
                     SizedBox(
                         width: calculateWidthPercentage(context, 45),
                         child: AppTextField(
-                          fieldName:
-                              BaseHealthPagesTextFieldData.heightFeet.name,
-                          fieldText:
-                              BaseHealthPagesTextFieldData.heightFeet.name,
+                          fieldName: HealthTextData.heightFeet.name,
+                          fieldText: HealthTextData.heightFeet.name,
                           onChange: (text) =>
                               BlocProvider.of<CaloriePageBloc>(context).add(
                                   const CaloriePageEvent.checkFormStateEvent()),
@@ -126,10 +124,8 @@ class CaloriePage extends StatelessWidget {
                     SizedBox(
                         width: calculateWidthPercentage(context, 45),
                         child: AppTextField(
-                          fieldName:
-                              BaseHealthPagesTextFieldData.heightInches.name,
-                          fieldText:
-                              BaseHealthPagesTextFieldData.heightInches.name,
+                          fieldName: HealthTextData.heightInches.name,
+                          fieldText: HealthTextData.heightInches.name,
                           onChange: (text) =>
                               BlocProvider.of<CaloriePageBloc>(context).add(
                                   const CaloriePageEvent.checkFormStateEvent()),
@@ -145,16 +141,16 @@ class CaloriePage extends StatelessWidget {
               builder: (context, state) {
                 if (state.unit == Units.metric) {
                   return AppTextField(
-                    fieldName: BaseHealthPagesTextFieldData.weightInKg.name,
-                    fieldText: BaseHealthPagesTextFieldData.weightInKg.name,
+                    fieldName: HealthTextData.weightInKg.name,
+                    fieldText: HealthTextData.weightInKg.name,
                     onChange: (text) =>
                         BlocProvider.of<CaloriePageBloc>(context)
                             .add(const CaloriePageEvent.checkFormStateEvent()),
                   );
                 }
                 return AppTextField(
-                  fieldName: BaseHealthPagesTextFieldData.weightInPounds.name,
-                  fieldText: BaseHealthPagesTextFieldData.weightInPounds.name,
+                  fieldName: HealthTextData.weightInPounds.name,
+                  fieldText: HealthTextData.weightInPounds.name,
                   onChange: (text) => BlocProvider.of<CaloriePageBloc>(context)
                       .add(const CaloriePageEvent.checkFormStateEvent()),
                 );

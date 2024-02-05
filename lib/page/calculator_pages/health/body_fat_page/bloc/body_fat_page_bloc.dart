@@ -5,6 +5,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../../../models/calculators.dart';
 import '../../../../../models/types.dart';
+import '../../health_page_text_field_names.dart';
 
 part 'body_fat_page_event.dart';
 part 'body_fat_page_state.dart';
@@ -17,7 +18,7 @@ class BodyFatPageBloc extends Bloc<BodyFatPageEvent, BodyFatPageState> {
             calculatorData: calculator)) {
     on<BodyFatPageBlocStarted>(_onBodyFatPageBlocStarted);
     on<CheckFormStateEvent>(_onCheckFormStateEvent);
-    on<CalculaBMREvent>(_onCalculateBMREvent);
+    on<CalculaBodyFatEvent>(_onCalculateBodyFatEvent);
     on<ToggleGenderEvent>(_onToggleGenderEvent);
     on<ToggleUnitEvent>(_onToggleUnitEvent);
   }
@@ -29,7 +30,18 @@ class BodyFatPageBloc extends Bloc<BodyFatPageEvent, BodyFatPageState> {
   _onCheckFormStateEvent(
       CheckFormStateEvent event, Emitter<BodyFatPageState> emit) {}
 
-  _onCalculateBMREvent(event, emit) {}
+  _onCalculateBodyFatEvent(
+      CalculaBodyFatEvent event, Emitter<BodyFatPageState> emit) {
+    try {
+      if (state.unit == Units.imperial) {
+        Map<String, dynamic> formData = state.formKey.currentState?.value ?? {};
+        String age = formData[HealthTextData.age.name];
+        String weightInPounds = formData[HealthTextData.weightInPounds.name];
+      } else {}
+    } catch (e) {
+      throw Exception('Error in calculating body fat');
+    }
+  }
 
   _onToggleGenderEvent(
       ToggleGenderEvent event, Emitter<BodyFatPageState> emit) {

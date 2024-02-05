@@ -83,7 +83,7 @@ class BodyFatPage extends StatelessWidget {
                   buttonTitle: 'CALCULATE',
                   onPressed: () {
                     BlocProvider.of<BodyFatPageBloc>(context)
-                        .add(const BodyFatPageEvent.calculateBMREvent());
+                        .add(const BodyFatPageEvent.calculateBodyFatEvent());
                   },
                 ));
           },
@@ -127,8 +127,8 @@ class AgeSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppTextField(
-      fieldName: BaseHealthPagesTextFieldData.age.name,
-      fieldText: BaseHealthPagesTextFieldData.age.name,
+      fieldName: HealthTextData.age.name,
+      fieldText: HealthTextData.age.name,
       onChange: (text) => BlocProvider.of<BodyFatPageBloc>(context)
           .add(const BodyFatPageEvent.checkFormStateEvent()),
     );
@@ -210,15 +210,15 @@ class WeightSection extends StatelessWidget {
       builder: (context, state) {
         if (state.unit == Units.metric) {
           return AppTextField(
-            fieldName: BaseHealthPagesTextFieldData.weightInKg.name,
-            fieldText: BaseHealthPagesTextFieldData.weightInKg.name,
+            fieldName: HealthTextData.weightInKg.name,
+            fieldText: HealthTextData.weightInKg.name,
             onChange: (text) => BlocProvider.of<BodyFatPageBloc>(context)
                 .add(const BodyFatPageEvent.checkFormStateEvent()),
           );
         }
         return AppTextField(
-          fieldName: BaseHealthPagesTextFieldData.weightInPounds.name,
-          fieldText: BaseHealthPagesTextFieldData.weightInPounds.name,
+          fieldName: HealthTextData.weightInPounds.name,
+          fieldText: HealthTextData.weightInPounds.name,
           onChange: (text) => BlocProvider.of<BodyFatPageBloc>(context)
               .add(const BodyFatPageEvent.checkFormStateEvent()),
         );
@@ -237,8 +237,8 @@ class HeightSection extends StatelessWidget {
       builder: (context, state) {
         if (state.unit == Units.metric) {
           return AppTextField(
-            fieldName: BaseHealthPagesTextFieldData.heightCM.name,
-            fieldText: BaseHealthPagesTextFieldData.heightCM.name,
+            fieldName: HealthTextData.heightCM.name,
+            fieldText: HealthTextData.heightCM.name,
             onChange: (text) => BlocProvider.of<BodyFatPageBloc>(context)
                 .add(const BodyFatPageEvent.checkFormStateEvent()),
           );
@@ -250,16 +250,16 @@ class HeightSection extends StatelessWidget {
             SizedBox(
                 width: calculateWidthPercentage(context, 45),
                 child: AppTextField(
-                  fieldName: BaseHealthPagesTextFieldData.heightFeet.name,
-                  fieldText: BaseHealthPagesTextFieldData.heightFeet.name,
+                  fieldName: HealthTextData.heightFeet.name,
+                  fieldText: HealthTextData.heightFeet.name,
                   onChange: (text) => BlocProvider.of<BodyFatPageBloc>(context)
                       .add(const BodyFatPageEvent.checkFormStateEvent()),
                 )),
             SizedBox(
                 width: calculateWidthPercentage(context, 45),
                 child: AppTextField(
-                  fieldName: BaseHealthPagesTextFieldData.heightInches.name,
-                  fieldText: BaseHealthPagesTextFieldData.heightInches.name,
+                  fieldName: HealthTextData.heightInches.name,
+                  fieldText: HealthTextData.heightInches.name,
                   onChange: (text) => BlocProvider.of<BodyFatPageBloc>(context)
                       .add(const BodyFatPageEvent.checkFormStateEvent()),
                 )),
@@ -280,8 +280,8 @@ class NeckSection extends StatelessWidget {
       builder: (context, state) {
         if (state.unit == Units.metric) {
           return AppTextField(
-            fieldName: BaseHealthPagesTextFieldData.neckInCM.name,
-            fieldText: BaseHealthPagesTextFieldData.neckInCM.name,
+            fieldName: HealthTextData.neckInCM.name,
+            fieldText: HealthTextData.neckInCM.name,
             onChange: (text) => BlocProvider.of<BodyFatPageBloc>(context)
                 .add(const BodyFatPageEvent.checkFormStateEvent()),
           );
@@ -293,16 +293,16 @@ class NeckSection extends StatelessWidget {
             SizedBox(
                 width: calculateWidthPercentage(context, 45),
                 child: AppTextField(
-                  fieldName: BaseHealthPagesTextFieldData.neckFeet.name,
-                  fieldText: BaseHealthPagesTextFieldData.neckFeet.name,
+                  fieldName: HealthTextData.neckFeet.name,
+                  fieldText: HealthTextData.neckFeet.name,
                   onChange: (text) => BlocProvider.of<BodyFatPageBloc>(context)
                       .add(const BodyFatPageEvent.checkFormStateEvent()),
                 )),
             SizedBox(
                 width: calculateWidthPercentage(context, 45),
                 child: AppTextField(
-                  fieldName: BaseHealthPagesTextFieldData.neckInches.name,
-                  fieldText: BaseHealthPagesTextFieldData.neckInches.name,
+                  fieldName: HealthTextData.neckInches.name,
+                  fieldText: HealthTextData.neckInches.name,
                   onChange: (text) => BlocProvider.of<BodyFatPageBloc>(context)
                       .add(const BodyFatPageEvent.checkFormStateEvent()),
                 )),
@@ -323,8 +323,8 @@ class WaistSection extends StatelessWidget {
       builder: (context, state) {
         if (state.unit == Units.metric) {
           return AppTextField(
-            fieldName: BaseHealthPagesTextFieldData.waistInCM.name,
-            fieldText: BaseHealthPagesTextFieldData.waistInCM.name,
+            fieldName: HealthTextData.waistInCM.name,
+            fieldText: HealthTextData.waistInCM.name,
             onChange: (text) => BlocProvider.of<BodyFatPageBloc>(context)
                 .add(const BodyFatPageEvent.checkFormStateEvent()),
           );
@@ -336,16 +336,16 @@ class WaistSection extends StatelessWidget {
             SizedBox(
                 width: calculateWidthPercentage(context, 45),
                 child: AppTextField(
-                  fieldName: BaseHealthPagesTextFieldData.waistFeet.name,
-                  fieldText: BaseHealthPagesTextFieldData.waistFeet.name,
+                  fieldName: HealthTextData.waistFeet.name,
+                  fieldText: HealthTextData.waistFeet.name,
                   onChange: (text) => BlocProvider.of<BodyFatPageBloc>(context)
                       .add(const BodyFatPageEvent.checkFormStateEvent()),
                 )),
             SizedBox(
                 width: calculateWidthPercentage(context, 45),
                 child: AppTextField(
-                  fieldName: BaseHealthPagesTextFieldData.waistInches.name,
-                  fieldText: BaseHealthPagesTextFieldData.waistInches.name,
+                  fieldName: HealthTextData.waistInches.name,
+                  fieldText: HealthTextData.waistInches.name,
                   onChange: (text) => BlocProvider.of<BodyFatPageBloc>(context)
                       .add(const BodyFatPageEvent.checkFormStateEvent()),
                 )),
