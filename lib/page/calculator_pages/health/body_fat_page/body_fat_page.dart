@@ -247,6 +247,7 @@ class WeightSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<BodyFatPageBloc, BodyFatPageState>(
       buildWhen: (previous, current) =>
+          previous.unit != current.unit ||
           previous.navyVsBmiMethod != current.navyVsBmiMethod,
       builder: (context, state) {
         if (state.navyVsBmiMethod == NavyVsBmiMethod.bmi) {
@@ -335,38 +336,44 @@ class NeckSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<BodyFatPageBloc, BodyFatPageState>(
-      buildWhen: (previous, current) => previous.unit != current.unit,
+      buildWhen: (previous, current) =>
+          previous.unit != current.unit ||
+          previous.navyVsBmiMethod != current.navyVsBmiMethod,
       builder: (context, state) {
-        if (state.unit == Units.metric) {
-          return AppTextField(
-            fieldName: HealthTextData.neckInCM.name,
-            fieldText: HealthTextData.neckInCM.name,
-            onChange: (text) => BlocProvider.of<BodyFatPageBloc>(context)
-                .add(const BodyFatPageEvent.checkFormStateEvent()),
+        if (state.navyVsBmiMethod == NavyVsBmiMethod.navy) {
+          if (state.unit == Units.metric) {
+            return AppTextField(
+              fieldName: HealthTextData.neckInCM.name,
+              fieldText: HealthTextData.neckInCM.name,
+              onChange: (text) => BlocProvider.of<BodyFatPageBloc>(context)
+                  .add(const BodyFatPageEvent.checkFormStateEvent()),
+            );
+          }
+          return Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              SizedBox(
+                  width: calculateWidthPercentage(context, 45),
+                  child: AppTextField(
+                    fieldName: HealthTextData.neckFeet.name,
+                    fieldText: HealthTextData.neckFeet.name,
+                    onChange: (text) =>
+                        BlocProvider.of<BodyFatPageBloc>(context)
+                            .add(const BodyFatPageEvent.checkFormStateEvent()),
+                  )),
+              SizedBox(
+                  width: calculateWidthPercentage(context, 45),
+                  child: AppTextField(
+                    fieldName: HealthTextData.neckInches.name,
+                    fieldText: HealthTextData.neckInches.name,
+                    onChange: (text) =>
+                        BlocProvider.of<BodyFatPageBloc>(context)
+                            .add(const BodyFatPageEvent.checkFormStateEvent()),
+                  )),
+            ],
           );
         }
-
-        return Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            SizedBox(
-                width: calculateWidthPercentage(context, 45),
-                child: AppTextField(
-                  fieldName: HealthTextData.neckFeet.name,
-                  fieldText: HealthTextData.neckFeet.name,
-                  onChange: (text) => BlocProvider.of<BodyFatPageBloc>(context)
-                      .add(const BodyFatPageEvent.checkFormStateEvent()),
-                )),
-            SizedBox(
-                width: calculateWidthPercentage(context, 45),
-                child: AppTextField(
-                  fieldName: HealthTextData.neckInches.name,
-                  fieldText: HealthTextData.neckInches.name,
-                  onChange: (text) => BlocProvider.of<BodyFatPageBloc>(context)
-                      .add(const BodyFatPageEvent.checkFormStateEvent()),
-                )),
-          ],
-        );
+        return const SizedBox();
       },
     );
   }
@@ -378,38 +385,46 @@ class WaistSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<BodyFatPageBloc, BodyFatPageState>(
-      buildWhen: (previous, current) => previous.unit != current.unit,
+      buildWhen: (previous, current) =>
+          previous.unit != current.unit ||
+          previous.navyVsBmiMethod != current.navyVsBmiMethod,
       builder: (context, state) {
-        if (state.unit == Units.metric) {
-          return AppTextField(
-            fieldName: HealthTextData.waistInCM.name,
-            fieldText: HealthTextData.waistInCM.name,
-            onChange: (text) => BlocProvider.of<BodyFatPageBloc>(context)
-                .add(const BodyFatPageEvent.checkFormStateEvent()),
+        if (state.navyVsBmiMethod == NavyVsBmiMethod.navy) {
+          if (state.unit == Units.metric) {
+            return AppTextField(
+              fieldName: HealthTextData.waistInCM.name,
+              fieldText: HealthTextData.waistInCM.name,
+              onChange: (text) => BlocProvider.of<BodyFatPageBloc>(context)
+                  .add(const BodyFatPageEvent.checkFormStateEvent()),
+            );
+          }
+
+          return Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              SizedBox(
+                  width: calculateWidthPercentage(context, 45),
+                  child: AppTextField(
+                    fieldName: HealthTextData.waistFeet.name,
+                    fieldText: HealthTextData.waistFeet.name,
+                    onChange: (text) =>
+                        BlocProvider.of<BodyFatPageBloc>(context)
+                            .add(const BodyFatPageEvent.checkFormStateEvent()),
+                  )),
+              SizedBox(
+                  width: calculateWidthPercentage(context, 45),
+                  child: AppTextField(
+                    fieldName: HealthTextData.waistInches.name,
+                    fieldText: HealthTextData.waistInches.name,
+                    onChange: (text) =>
+                        BlocProvider.of<BodyFatPageBloc>(context)
+                            .add(const BodyFatPageEvent.checkFormStateEvent()),
+                  )),
+            ],
           );
         }
 
-        return Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            SizedBox(
-                width: calculateWidthPercentage(context, 45),
-                child: AppTextField(
-                  fieldName: HealthTextData.waistFeet.name,
-                  fieldText: HealthTextData.waistFeet.name,
-                  onChange: (text) => BlocProvider.of<BodyFatPageBloc>(context)
-                      .add(const BodyFatPageEvent.checkFormStateEvent()),
-                )),
-            SizedBox(
-                width: calculateWidthPercentage(context, 45),
-                child: AppTextField(
-                  fieldName: HealthTextData.waistInches.name,
-                  fieldText: HealthTextData.waistInches.name,
-                  onChange: (text) => BlocProvider.of<BodyFatPageBloc>(context)
-                      .add(const BodyFatPageEvent.checkFormStateEvent()),
-                )),
-          ],
-        );
+        return const SizedBox();
       },
     );
   }
