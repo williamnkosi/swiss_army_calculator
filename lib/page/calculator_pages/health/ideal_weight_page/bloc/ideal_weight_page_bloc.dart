@@ -47,8 +47,33 @@ class IdealWeightPageBloc
 
   _onCalculateIdealWeightEvent(
       CalculateIdealWeightEvent event, Emitter<IdealWeightPageState> emit) {}
+
   _onToggleUnitEvent(
-      ToggleUnitEvent event, Emitter<IdealWeightPageState> emit) {}
+      ToggleUnitEvent event, Emitter<IdealWeightPageState> emit) {
+    _resetFormState(emit);
+    if (state.unit == Units.imperial) {
+      emit(state.copyWith(unit: Units.metric));
+    } else {
+      emit(state.copyWith(unit: Units.imperial));
+    }
+  }
+
   _onToggleGenderEvent(
-      ToggleGenderEvent event, Emitter<IdealWeightPageState> emit) {}
+      ToggleGenderEvent event, Emitter<IdealWeightPageState> emit) {
+    _resetFormState(emit);
+    if (state.gender == Gender.male) {
+      emit(state.copyWith(gender: Gender.female));
+    } else {
+      emit(state.copyWith(gender: Gender.male));
+    }
+  }
+
+  _resetFormState(Emitter<IdealWeightPageState> emit) {
+    try {
+      state.formKey.currentState!.reset();
+      emit(state.copyWith(result: 0, isDiabled: true, formKey: state.formKey));
+    } catch (e) {
+      throw Exception('Error in resetting form state');
+    }
+  }
 }
