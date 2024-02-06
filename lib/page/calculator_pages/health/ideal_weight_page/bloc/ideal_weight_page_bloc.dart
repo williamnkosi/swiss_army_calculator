@@ -112,7 +112,11 @@ class IdealWeightPageBloc
   _resetFormState(Emitter<IdealWeightPageState> emit) {
     try {
       state.formKey.currentState!.reset();
-      emit(state.copyWith(result: 0, isDiabled: true, formKey: state.formKey));
+      emit(state.copyWith(
+          result: 0,
+          isDiabled: true,
+          formKey: state.formKey,
+          resultRowData: []));
     } catch (e) {
       throw Exception('Error in resetting form state');
     }
@@ -125,7 +129,13 @@ class IdealWeightPageBloc
       List<String> rowTitles = ['Hamwi(1964)', 'Robinson(1983)'];
       List<List<String>> rowData = [];
       for (int i = 0; i < rowTitles.length; i++) {
-        rowData.add([rowTitles[i], results[i]]);
+        String unit = '';
+        if (state.unit == Units.imperial) {
+          unit = 'lbs';
+        } else {
+          unit = 'kg';
+        }
+        rowData.add([rowTitles[i], '${results[i]} $unit']);
       }
       return rowData;
     } catch (e) {
