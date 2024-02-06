@@ -8,6 +8,7 @@ import '../../../../models/types.dart';
 import '../../../../utils/functions.dart';
 import '../../../../widgets/app_expansion_tile.dart';
 import '../../../../widgets/app_material_button.dart';
+import '../../../../widgets/data_table.dart';
 import '../../../../widgets/textFields/app_text_field.dart';
 
 class IdealWeightPage extends StatelessWidget {
@@ -157,6 +158,17 @@ class IdealWeightPage extends StatelessWidget {
                       textAlign: TextAlign.center,
                       style: const TextStyle(
                           fontSize: 18, fontWeight: FontWeight.bold)),
+                );
+              },
+            ),
+            BlocBuilder<IdealWeightPageBloc, IdealWeightPageState>(
+              buildWhen: (previous, current) =>
+                  previous.resultRowData != current.resultRowData,
+              builder: (context, state) {
+                if (state.resultRowData.isEmpty) return const SizedBox();
+                return DataTableExample(
+                  columns: const ['Formula', 'Ideal Weight'],
+                  rows: state.resultRowData,
                 );
               },
             ),

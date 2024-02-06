@@ -779,6 +779,7 @@ abstract class ToggleGenderEvent implements IdealWeightPageEvent {
 mixin _$IdealWeightPageState {
   GlobalKey<FormBuilderState> get formKey => throw _privateConstructorUsedError;
   HealthCalculator get calculatorData => throw _privateConstructorUsedError;
+  List<List<String>> get resultRowData => throw _privateConstructorUsedError;
   Gender get gender => throw _privateConstructorUsedError;
   Units get unit => throw _privateConstructorUsedError;
   double get result => throw _privateConstructorUsedError;
@@ -798,6 +799,7 @@ abstract class $IdealWeightPageStateCopyWith<$Res> {
   $Res call(
       {GlobalKey<FormBuilderState> formKey,
       HealthCalculator calculatorData,
+      List<List<String>> resultRowData,
       Gender gender,
       Units unit,
       double result,
@@ -822,8 +824,9 @@ class _$IdealWeightPageStateCopyWithImpl<$Res,
   $Res call({
     Object? formKey = null,
     Object? calculatorData = null,
-    Object? gender = freezed,
-    Object? unit = freezed,
+    Object? resultRowData = null,
+    Object? gender = null,
+    Object? unit = null,
     Object? result = null,
     Object? isDiabled = null,
   }) {
@@ -836,11 +839,15 @@ class _$IdealWeightPageStateCopyWithImpl<$Res,
           ? _value.calculatorData
           : calculatorData // ignore: cast_nullable_to_non_nullable
               as HealthCalculator,
-      gender: freezed == gender
+      resultRowData: null == resultRowData
+          ? _value.resultRowData
+          : resultRowData // ignore: cast_nullable_to_non_nullable
+              as List<List<String>>,
+      gender: null == gender
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
               as Gender,
-      unit: freezed == unit
+      unit: null == unit
           ? _value.unit
           : unit // ignore: cast_nullable_to_non_nullable
               as Units,
@@ -875,6 +882,7 @@ abstract class _$$IdealWeightPageStateImplCopyWith<$Res>
   $Res call(
       {GlobalKey<FormBuilderState> formKey,
       HealthCalculator calculatorData,
+      List<List<String>> resultRowData,
       Gender gender,
       Units unit,
       double result,
@@ -897,8 +905,9 @@ class __$$IdealWeightPageStateImplCopyWithImpl<$Res>
   $Res call({
     Object? formKey = null,
     Object? calculatorData = null,
-    Object? gender = freezed,
-    Object? unit = freezed,
+    Object? resultRowData = null,
+    Object? gender = null,
+    Object? unit = null,
     Object? result = null,
     Object? isDiabled = null,
   }) {
@@ -911,11 +920,15 @@ class __$$IdealWeightPageStateImplCopyWithImpl<$Res>
           ? _value.calculatorData
           : calculatorData // ignore: cast_nullable_to_non_nullable
               as HealthCalculator,
-      gender: freezed == gender
+      resultRowData: null == resultRowData
+          ? _value._resultRowData
+          : resultRowData // ignore: cast_nullable_to_non_nullable
+              as List<List<String>>,
+      gender: null == gender
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
               as Gender,
-      unit: freezed == unit
+      unit: null == unit
           ? _value.unit
           : unit // ignore: cast_nullable_to_non_nullable
               as Units,
@@ -937,15 +950,26 @@ class _$IdealWeightPageStateImpl implements _IdealWeightPageState {
   const _$IdealWeightPageStateImpl(
       {required this.formKey,
       required this.calculatorData,
+      final List<List<String>> resultRowData = const [],
       this.gender = Gender.male,
       this.unit = Units.imperial,
       this.result = 0,
-      this.isDiabled = true});
+      this.isDiabled = true})
+      : _resultRowData = resultRowData;
 
   @override
   final GlobalKey<FormBuilderState> formKey;
   @override
   final HealthCalculator calculatorData;
+  final List<List<String>> _resultRowData;
+  @override
+  @JsonKey()
+  List<List<String>> get resultRowData {
+    if (_resultRowData is EqualUnmodifiableListView) return _resultRowData;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_resultRowData);
+  }
+
   @override
   @JsonKey()
   final Gender gender;
@@ -961,7 +985,7 @@ class _$IdealWeightPageStateImpl implements _IdealWeightPageState {
 
   @override
   String toString() {
-    return 'IdealWeightPageState(formKey: $formKey, calculatorData: $calculatorData, gender: $gender, unit: $unit, result: $result, isDiabled: $isDiabled)';
+    return 'IdealWeightPageState(formKey: $formKey, calculatorData: $calculatorData, resultRowData: $resultRowData, gender: $gender, unit: $unit, result: $result, isDiabled: $isDiabled)';
   }
 
   @override
@@ -972,8 +996,10 @@ class _$IdealWeightPageStateImpl implements _IdealWeightPageState {
             (identical(other.formKey, formKey) || other.formKey == formKey) &&
             (identical(other.calculatorData, calculatorData) ||
                 other.calculatorData == calculatorData) &&
-            const DeepCollectionEquality().equals(other.gender, gender) &&
-            const DeepCollectionEquality().equals(other.unit, unit) &&
+            const DeepCollectionEquality()
+                .equals(other._resultRowData, _resultRowData) &&
+            (identical(other.gender, gender) || other.gender == gender) &&
+            (identical(other.unit, unit) || other.unit == unit) &&
             (identical(other.result, result) || other.result == result) &&
             (identical(other.isDiabled, isDiabled) ||
                 other.isDiabled == isDiabled));
@@ -984,8 +1010,9 @@ class _$IdealWeightPageStateImpl implements _IdealWeightPageState {
       runtimeType,
       formKey,
       calculatorData,
-      const DeepCollectionEquality().hash(gender),
-      const DeepCollectionEquality().hash(unit),
+      const DeepCollectionEquality().hash(_resultRowData),
+      gender,
+      unit,
       result,
       isDiabled);
 
@@ -1002,6 +1029,7 @@ abstract class _IdealWeightPageState implements IdealWeightPageState {
   const factory _IdealWeightPageState(
       {required final GlobalKey<FormBuilderState> formKey,
       required final HealthCalculator calculatorData,
+      final List<List<String>> resultRowData,
       final Gender gender,
       final Units unit,
       final double result,
@@ -1011,6 +1039,8 @@ abstract class _IdealWeightPageState implements IdealWeightPageState {
   GlobalKey<FormBuilderState> get formKey;
   @override
   HealthCalculator get calculatorData;
+  @override
+  List<List<String>> get resultRowData;
   @override
   Gender get gender;
   @override

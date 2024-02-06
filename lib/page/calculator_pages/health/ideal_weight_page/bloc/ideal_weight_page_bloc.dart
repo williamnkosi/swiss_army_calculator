@@ -64,8 +64,11 @@ class IdealWeightPageBloc
           'feet': heightFeet,
           'inches': heightInches,
         }, gender: state.gender);
-        print(convertKgToLbs(hamwiResult));
-        print(convertKgToLbs(robinsonResult));
+        final rowData = _createTableRowData(results: [
+          hamwiResult.toString(),
+          robinsonResult.toString(),
+        ]);
+        emit(state.copyWith(resultRowData: rowData));
       } else {
         Map<String, dynamic> formData = state.formKey.currentState?.value ?? {};
         final heightInCM = double.parse(formData[HealthTextData.heightCM.name]);
@@ -75,8 +78,11 @@ class IdealWeightPageBloc
             heightInImperial: heightInFeetAndInches, gender: state.gender);
         final robinsonResult = idealWeightRobinsonFormula(
             heightInImperial: heightInFeetAndInches, gender: state.gender);
-        print(hamwiResult);
-        print(robinsonResult);
+        final rowData = _createTableRowData(results: [
+          hamwiResult.toString(),
+          robinsonResult.toString(),
+        ]);
+        emit(state.copyWith(resultRowData: rowData));
       }
     } catch (e) {
       throw Exception('Error in calculating ideal weight');
@@ -109,6 +115,21 @@ class IdealWeightPageBloc
       emit(state.copyWith(result: 0, isDiabled: true, formKey: state.formKey));
     } catch (e) {
       throw Exception('Error in resetting form state');
+    }
+  }
+
+  List<List<String>> _createTableRowData({
+    required List<String> results,
+  }) {
+    try {
+      List<String> rowTitles = ['Hamwi(1964)', 'Robinson(1983)'];
+      List<List<String>> rowData = [];
+      for (int i = 0; i < rowTitles.length; i++) {
+        rowData.add([rowTitles[i], results[i]]);
+      }
+      return rowData;
+    } catch (e) {
+      throw Exception('Error in creating table row data');
     }
   }
 }
