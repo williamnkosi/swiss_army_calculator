@@ -16,10 +16,26 @@ double convertFeetAndInchesToCm(int feet, int inches) {
   return cm;
 }
 
+Map<String, int> convertHeightCMToFeetAndInches(double heightInCentimeters) {
+  // Convert centimeters to inches
+  double heightInInches = heightInCentimeters / 2.54;
+
+  // Calculate feet and remaining inches
+  int feet = (heightInInches / 12).floor();
+  int inches = (heightInInches % 12).round();
+
+  return {'feet': feet, 'inches': inches};
+}
+
 double convertPoundsToKg(double pounds) {
   // 1 pound = 0.453592 kg
   double weightInKg = pounds * 0.453592;
   return weightInKg;
+}
+
+double convertKgToLbs(double kilograms) {
+  const double conversionFactor = 2.20462;
+  return kilograms * conversionFactor;
 }
 
 double cacluateBMR(

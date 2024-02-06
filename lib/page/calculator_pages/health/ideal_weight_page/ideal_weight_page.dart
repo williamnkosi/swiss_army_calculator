@@ -94,28 +94,45 @@ class IdealWeightPage extends StatelessWidget {
             const SizedBox(
               height: 16,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                SizedBox(
-                    width: calculateWidthPercentage(context, 45),
-                    child: AppTextField(
-                      fieldName: HealthTextData.heightFeet.name,
-                      fieldText: HealthTextData.heightFeet.name,
-                      onChange: (text) =>
-                          BlocProvider.of<IdealWeightPageBloc>(context).add(
-                              const IdealWeightPageEvent.checkFormStateEvent()),
-                    )),
-                SizedBox(
-                    width: calculateWidthPercentage(context, 45),
-                    child: AppTextField(
-                      fieldName: HealthTextData.heightInches.name,
-                      fieldText: HealthTextData.heightInches.name,
-                      onChange: (text) =>
-                          BlocProvider.of<IdealWeightPageBloc>(context).add(
-                              const IdealWeightPageEvent.checkFormStateEvent()),
-                    )),
-              ],
+            BlocBuilder<IdealWeightPageBloc, IdealWeightPageState>(
+              buildWhen: (previous, current) => previous.unit != current.unit,
+              builder: (context, state) {
+                if (state.unit == Units.imperial) {
+                  return Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      SizedBox(
+                          width: calculateWidthPercentage(context, 45),
+                          child: AppTextField(
+                            fieldName: HealthTextData.heightFeet.name,
+                            fieldText: HealthTextData.heightFeet.name,
+                            onChange: (text) =>
+                                BlocProvider.of<IdealWeightPageBloc>(context)
+                                    .add(const IdealWeightPageEvent
+                                        .checkFormStateEvent()),
+                          )),
+                      SizedBox(
+                          width: calculateWidthPercentage(context, 45),
+                          child: AppTextField(
+                            fieldName: HealthTextData.heightInches.name,
+                            fieldText: HealthTextData.heightInches.name,
+                            onChange: (text) =>
+                                BlocProvider.of<IdealWeightPageBloc>(context)
+                                    .add(const IdealWeightPageEvent
+                                        .checkFormStateEvent()),
+                          )),
+                    ],
+                  );
+                }
+
+                return AppTextField(
+                  fieldName: HealthTextData.heightCM.name,
+                  fieldText: HealthTextData.heightCM.name,
+                  onChange: (text) =>
+                      BlocProvider.of<IdealWeightPageBloc>(context).add(
+                          const IdealWeightPageEvent.checkFormStateEvent()),
+                );
+              },
             ),
             const SizedBox(
               height: 16,

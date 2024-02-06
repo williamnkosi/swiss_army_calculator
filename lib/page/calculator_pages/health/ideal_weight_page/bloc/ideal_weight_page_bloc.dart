@@ -2,9 +2,12 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:swiss_army_calculator/utils/functions.dart';
 
 import '../../../../../models/calculators.dart';
 import '../../../../../models/types.dart';
+import '../../../../../utils/health_formulas.dart';
+import '../../health_page_text_field_names.dart';
 
 part 'ideal_weight_page_event.dart';
 part 'ideal_weight_page_state.dart';
@@ -46,7 +49,39 @@ class IdealWeightPageBloc
   }
 
   _onCalculateIdealWeightEvent(
-      CalculateIdealWeightEvent event, Emitter<IdealWeightPageState> emit) {}
+      CalculateIdealWeightEvent event, Emitter<IdealWeightPageState> emit) {
+    try {
+      if (state.unit == Units.imperial) {
+        Map<String, dynamic> formData = state.formKey.currentState?.value ?? {};
+        final heightFeet = int.parse(formData[HealthTextData.heightFeet.name]);
+        final heightInches =
+            int.parse(formData[HealthTextData.heightInches.name]);
+        final hamwiResult = idealWeightHamwiFormula(heightInImperial: {
+          'feet': heightFeet,
+          'inches': heightInches,
+        }, gender: state.gender);
+        final robinsonResult = idealWeightRobinsonFormula(heightInImperial: {
+          'feet': heightFeet,
+          'inches': heightInches,
+        }, gender: state.gender);
+        print(convertKgToLbs(hamwiResult));
+        print(convertKgToLbs(robinsonResult));
+      } else {
+        Map<String, dynamic> formData = state.formKey.currentState?.value ?? {};
+        final heightInCM = double.parse(formData[HealthTextData.heightCM.name]);
+        final heightInFeetAndInches =
+            convertHeightCMToFeetAndInches(heightInCM);
+        final hamwiResult = idealWeightHamwiFormula(
+            heightInImperial: heightInFeetAndInches, gender: state.gender);
+        final robinsonResult = idealWeightRobinsonFormula(
+            heightInImperial: heightInFeetAndInches, gender: state.gender);
+        print(hamwiResult);
+        print(robinsonResult);
+      }
+    } catch (e) {
+      throw Exception('Error in calculating ideal weight');
+    }
+  }
 
   _onToggleUnitEvent(
       ToggleUnitEvent event, Emitter<IdealWeightPageState> emit) {
