@@ -7,19 +7,23 @@ import 'package:swiss_army_calculator/page/calculator_pages/health/basal_metabol
 import '../../../../../models/calculators.dart';
 import '../../../../../models/types.dart';
 import '../../../../../utils/functions.dart';
+import '../../../date_time/age/bloc/age_page_bloc.dart';
 import '../../health_page_text_field_names.dart';
 
 part 'calorie_page_event.dart';
 part 'calorie_page_state.dart';
 part 'calorie_page_bloc.freezed.dart';
 
-class CaloriePageBloc extends Bloc<CaloriePageEvent, CaloriePageState> {
+class CaloriePageBloc extends Bloc<CaloriePageEvent, CaloriePageState>
+    with CheckFormStateMixin<CaloriePageEvent, CaloriePageState> {
   CaloriePageBloc(HealthCalculator calculator)
       : super(CaloriePageState(
             formKey: GlobalKey<FormBuilderState>(),
             calculatorData: calculator)) {
     on<CaloriePageBlocStarted>(_onCaloriePageBlocStarted);
-    on<CheckFormStateEvent>(_onCheckFormStateEvent);
+    on<CheckFormStateEvent>(((CheckFormStateEvent event, emit) =>
+        onCheckFormStateEvent(
+            emit: emit, formKey: state.formKey, state: state)));
     on<CalculateCaloriesEvent>(_onCalculateCaloriesEvent);
     on<ToggleGenderEvent>(_onToggleGenderEvent);
     on<ToggleUnitEvent>(_onToggleUnitEvent);

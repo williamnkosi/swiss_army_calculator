@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:swiss_army_calculator/models/calculator_types.dart';
 import 'package:swiss_army_calculator/page/calculator_pages/calculator_wrapper.dart';
+import 'package:swiss_army_calculator/page/calculator_pages/date_time/age/age_page.dart';
+import 'package:swiss_army_calculator/page/calculator_pages/date_time/age/bloc/age_page_bloc.dart';
 import 'package:swiss_army_calculator/page/calculator_pages/finance/compound_interest_page/bloc/compound_interest_page_bloc.dart';
 import 'package:swiss_army_calculator/page/calculator_pages/finance/compound_interest_page/compound_interest_page.dart';
 import 'package:swiss_army_calculator/page/calculator_pages/health/basal_metabolic_rate_page/bloc/basal_metabolic_rate_page_bloc.dart';
@@ -74,7 +76,10 @@ class CalculatorListBuilder extends StatelessWidget {
     } else if (calculator is DateAndTimeCalculator) {
       switch (calculator.type) {
         case CalculatorsDefinedTypes.age:
-          return SimpleInterest();
+          return BlocProvider(
+            create: (context) => AgePageBloc(calculator),
+            child: const AgePage(),
+          );
         case CalculatorsDefinedTypes.date:
           return SimpleInterest();
         case CalculatorsDefinedTypes.time:
