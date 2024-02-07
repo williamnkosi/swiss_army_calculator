@@ -10,6 +10,8 @@ import 'package:swiss_army_calculator/page/favorites.dart';
 import 'package:swiss_army_calculator/page/home.dart';
 import 'package:swiss_army_calculator/widgets/bottom_navigation_bar/cubit/bottom_navigation_bar_cubit.dart';
 
+import 'page/calculator_pages/date_time/date_time_list_page.dart';
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
@@ -62,6 +64,9 @@ class MyApp extends StatelessWidget {
                 case '/health':
                   return MaterialPageRoute(
                       builder: (context) => HealthListPage());
+                case '/datetime':
+                  return MaterialPageRoute(
+                      builder: (context) => DateTimeListPage());
 
                 default:
                   // Handle unknown routes or provide a default page

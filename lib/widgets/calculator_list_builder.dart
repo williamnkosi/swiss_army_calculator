@@ -71,6 +71,17 @@ class CalculatorListBuilder extends StatelessWidget {
         default:
           return const BodyMassIndexPage();
       }
+    } else if (calculator is DateAndTimeCalculator) {
+      switch (calculator.type) {
+        case CalculatorsDefinedTypes.age:
+          return SimpleInterest();
+        case CalculatorsDefinedTypes.date:
+          return SimpleInterest();
+        case CalculatorsDefinedTypes.time:
+          return SimpleInterest();
+        default:
+          return SimpleInterest();
+      }
     }
     return SimpleInterest();
   }

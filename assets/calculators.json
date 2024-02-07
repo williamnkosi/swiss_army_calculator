@@ -61,7 +61,7 @@
         "name": "Unit Conversion",
         "calculators": []
     },
-    "DataAndTime": {
+    "DateTime": {
         "name": "Date and Time",
         "calculators": [
             {

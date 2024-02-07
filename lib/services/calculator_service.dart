@@ -56,6 +56,14 @@ class CalculatorFactoryService {
             shortDescription: cal['shortDesription'],
             fullDescription: cal['fullDescription']));
       }
+
+      for (var cal in jsonData['DateTime']['calculators']) {
+        dateAndTimeCalculators.add(DateAndTimeCalculator(
+            type: _stringToEnum(cal['type']),
+            name: cal['name'],
+            shortDescription: cal['shortDesription'],
+            fullDescription: cal['fullDescription']));
+      }
     } catch (e) {
       throw Exception("Error creating list of calculators: $e");
     }

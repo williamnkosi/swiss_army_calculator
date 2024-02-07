@@ -2,7 +2,7 @@ enum CalculatorTypes {
   finance('Finance'),
   mathematics('Mathematics'),
   unitConversion('Unit Conversion'),
-  dateTime('Date & Time'),
+  dateTime('DateTime'),
   health('Health');
 
   const CalculatorTypes(this.value);
