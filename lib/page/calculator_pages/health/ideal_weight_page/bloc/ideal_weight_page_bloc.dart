@@ -56,6 +56,8 @@ class IdealWeightPageBloc
         final heightFeet = int.parse(formData[HealthTextData.heightFeet.name]);
         final heightInches =
             int.parse(formData[HealthTextData.heightInches.name]);
+        final weight =
+            double.parse(formData[HealthTextData.weightInPounds.name]);
         final hamwiResult = idealWeightHamwiFormula(heightInImperial: {
           'feet': heightFeet,
           'inches': heightInches,
@@ -67,6 +69,9 @@ class IdealWeightPageBloc
         final rowData = _createTableRowData(results: [
           hamwiResult.toString(),
           robinsonResult.toString(),
+          calculateWeightRanges(convertPoundsToKg(weight),
+                  convertFeetAndInchesToCm(heightFeet, heightInches))
+              .toString()
         ]);
         emit(state.copyWith(resultRowData: rowData));
       } else {
@@ -74,13 +79,16 @@ class IdealWeightPageBloc
         final heightInCM = double.parse(formData[HealthTextData.heightCM.name]);
         final heightInFeetAndInches =
             convertHeightCMToFeetAndInches(heightInCM);
+        final weight = double.parse(formData[HealthTextData.weightInKg.name]);
         final hamwiResult = idealWeightHamwiFormula(
             heightInImperial: heightInFeetAndInches, gender: state.gender);
         final robinsonResult = idealWeightRobinsonFormula(
             heightInImperial: heightInFeetAndInches, gender: state.gender);
+
         final rowData = _createTableRowData(results: [
           hamwiResult.toString(),
           robinsonResult.toString(),
+          calculateWeightRanges(heightInCM, weight).toString()
         ]);
         emit(state.copyWith(resultRowData: rowData));
       }
@@ -126,7 +134,7 @@ class IdealWeightPageBloc
     required List<String> results,
   }) {
     try {
-      List<String> rowTitles = ['Hamwi(1964)', 'Robinson(1983)'];
+      List<String> rowTitles = ['Hamwi(1964)', 'Robinson(1983)', 'BMI range'];
       List<List<String>> rowData = [];
       for (int i = 0; i < rowTitles.length; i++) {
         String unit = '';
@@ -141,5 +149,62 @@ class IdealWeightPageBloc
     } catch (e) {
       throw Exception('Error in creating table row data');
     }
+  }
+
+  BmiCategory _getBmiCategory(double bmi) {
+    if (bmi < 18.5) {
+      // Underweight category
+      return BmiCategory.underweight;
+    } else if (bmi >= 18.5 && bmi <= 24.9) {
+      // Normal weight category
+      return BmiCategory.normal;
+    } else if (bmi >= 25 && bmi <= 29.9) {
+      // Overweight category
+      return BmiCategory.overweight;
+    } else {
+      // Obesity category
+      return BmiCategory.obese;
+    }
+  }
+
+  WeightRange calculateWeightRanges(double weight, double heightInMeters) {
+    const double normalBMI = 24.9;
+    const double overweightBMI = 29.9;
+    final bmi = calculateBmiUsingMetric(weight, heightInMeters);
+    print(bmi);
+    BmiCategory bmiCategory = _getBmiCategory(bmi);
+    late WeightRange weightRange;
+    // Calculate weight for the lower bounds of each category
+    switch (bmiCategory) {
+      case (BmiCategory.underweight):
+        double underweightWeight = 18.5 * heightInMeters * heightInMeters;
+        weightRange =
+            WeightRange(BmiCategory.underweight.lowerLimit, underweightWeight);
+      case (BmiCategory.normal):
+        double normalWeight = normalBMI * heightInMeters * heightInMeters;
+        weightRange = WeightRange(BmiCategory.normal.lowerLimit, normalWeight);
+      case (BmiCategory.overweight):
+        double overweightWeight =
+            overweightBMI * heightInMeters * heightInMeters;
+        weightRange =
+            WeightRange(BmiCategory.overweight.lowerLimit, overweightWeight);
+      case (BmiCategory.obese):
+        weightRange = WeightRange(
+            BmiCategory.obese.lowerLimit, BmiCategory.obese.upperLimit);
+    }
+    print(weightRange);
+    return weightRange;
+  }
+}
+
+class WeightRange {
+  double lowerLimit;
+  double upperLimit;
+
+  WeightRange(this.lowerLimit, this.upperLimit);
+
+  @override
+  String toString() {
+    return 'Weight Range: $lowerLimit kg - $upperLimit kg';
   }
 }

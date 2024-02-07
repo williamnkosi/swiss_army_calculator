@@ -96,6 +96,29 @@ class IdealWeightPage extends StatelessWidget {
               height: 16,
             ),
             BlocBuilder<IdealWeightPageBloc, IdealWeightPageState>(
+              builder: (context, state) {
+                if (state.unit == Units.metric) {
+                  return AppTextField(
+                    fieldName: HealthTextData.weightInKg.name,
+                    fieldText: HealthTextData.weightInKg.name,
+                    onChange: (text) =>
+                        BlocProvider.of<IdealWeightPageBloc>(context).add(
+                            const IdealWeightPageEvent.checkFormStateEvent()),
+                  );
+                }
+                return AppTextField(
+                  fieldName: HealthTextData.weightInPounds.name,
+                  fieldText: HealthTextData.weightInPounds.name,
+                  onChange: (text) =>
+                      BlocProvider.of<IdealWeightPageBloc>(context).add(
+                          const IdealWeightPageEvent.checkFormStateEvent()),
+                );
+              },
+            ),
+            const SizedBox(
+              height: 16,
+            ),
+            BlocBuilder<IdealWeightPageBloc, IdealWeightPageState>(
               buildWhen: (previous, current) => previous.unit != current.unit,
               builder: (context, state) {
                 if (state.unit == Units.imperial) {

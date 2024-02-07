@@ -6,6 +6,10 @@ double calculateBmiUsingMetric(double weightInKg, double heightInCM) {
   return weightInKg / ((heightInCM / 100) * (heightInCM / 100));
 }
 
+double calculateWeightFromBmi(double bmi, double heightInCM) {
+  return bmi * ((heightInCM / 100) * (heightInCM / 100));
+}
+
 double calculateBMIinPounds(
     double weightInPounds, double heightFeet, double heightInches) {
   // Convert height to inches
